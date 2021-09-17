@@ -1,0 +1,55 @@
+ul {
+    list-style: none;
+}
+
+h3 {
+    margin: 0;
+}
+
+/* Nav Bar */
+nav {
+    padding: 20px;
+    border-bottom: solid black 2px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    font-size: 25px;
+}
+
+/* Main CONTAINER */
+.mainContainer {
+    margin-top: 20px;
+    display: flex;
+}
+
+.myMap {
+    margin-right: 0;
+    width: 70vw;
+    height: 100vh;
+}
+
+/* ITEM LIST */
+.listContainer {
+    width: 30vw;
+    width: 100vh;
+    border: 3px solid black;
+}
+
+.listContainer ul li {
+    display: flex;
+}
+
+
+/* ITEM */
+.roomImg {
+    width: 35px;
+    height: 35px;
+}
+
+
+

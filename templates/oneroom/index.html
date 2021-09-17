@@ -1,49 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'oneroom/oneroom_index.css' %}">
+    <title>Kakao 지도 시작하기</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li class="logo">LOGO</li>
+            <li>원룸</li>
+            <li>중고래</li>
+            <li>커뮤니티</li>
+        </ul>
+    </nav>
 
-<table>
-    <thead>
-    <tr>
-        <th>
-            원룸 이름
-        </th>
-        <th>
-            가스종류
-        </th>
-        <th>
-            작성자
-        </th>
-        <th>
-            작성일자
-        </th>
-    </tr>
-    </thead>
-    {% if data_list %}
-        {% for data in data_list %}
-            <tbody>
-            <tr>
-                <td>
-                    {{ data.title }}
-                </td>
-                <td>
-                    {{ data.gas_type }}
-                </td>
-                <td>
-                    {{ data.author }}
-                </td>
-                <td>
-                    {{ data.create_date }}
-                </td>
-            </tr>
-            </tbody>
-        {% endfor %}
-    {% endif %}
-</table>
+    <div class="mainContainer">
+        <section>
+            <div class="myMap"></div>
+        </section>
 
+        <section>
+            <div class="listContainer">
+                <ul class="itemList">
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98a0001a3486109fd99e7a58b946cfbe&libraries=clusterer,services"></script>
+    <script src="{% static 'oneroom/oneroom_index.js' %}"></script>
 </body>
 </html>
