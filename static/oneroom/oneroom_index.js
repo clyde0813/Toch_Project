@@ -113,7 +113,7 @@ function setListItem(info) {
         `
         <a href="#">
             <li>
-                <div style="margin-right:30px"><img width="80px" height="80ox" src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markers_sprites2.png" alt="This is a preview image of the room."></div>
+                <div style="margin-right:30px"><img width="80px" height="80ox" src=${SPRITE_MARKER_URL} alt="This is a preview image of the room."></div>
                 <div>
                     <p>
                         <h3>${info.price}</h3>
@@ -152,7 +152,7 @@ function showAllItems(info) {
         `
         <a href="#">
             <li>
-                <div style="margin-right:30px"><img width="80px" height="80ox" src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markers_sprites2.png" alt="This is a preview image of the room."></div>
+                <div style="margin-right:30px"><img width="80px" height="80ox" src=${SPRITE_MARKER_URL} alt="This is a preview image of the room."></div>
                 <div>
                     <p>
                         <h3>${info.price}</h3>
