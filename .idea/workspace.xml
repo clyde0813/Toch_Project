@@ -4,6 +4,7 @@
     <list default="true" id="3c42837d-750c-488b-bd2b-daa5b04c9453" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/oneroom/oneroom_index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/oneroom/oneroom_index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/oneroom/oneroom_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/oneroom/oneroom_index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1632374756267</updated>
       <workItem from="1632374758362" duration="214000" />
-      <workItem from="1632374999654" duration="4731000" />
+      <workItem from="1632374999654" duration="5412000" />
     </task>
     <servers />
   </component>

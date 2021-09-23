@@ -3,6 +3,7 @@ body {
 }
 
 ul {
+    margin: 0;
     list-style: none;
 }
 
@@ -16,15 +17,17 @@ a {
 }
 /* Nav Bar */
 nav {
-    padding: 20px;
+    padding: 20px 0;
     border-bottom: solid black 2px;
     background-color: darkorange;
 }
 
 nav ul li {
     display: inline-block;
-    font-size: 25px;
+    font-weight: bold;
+    font-size: 20px;
     opacity: 0.8;
+    padding-right: 20px;
 }
 
 nav ul li:hover {
@@ -50,16 +53,18 @@ nav ul li:hover {
     max-height: 969px;
 }
 
-.listContainer ul li {
-    display: flex;
-    border-bottom: 1px solid black;
-}
-
 
 /* ITEM */
 .roomImg {
     width: 35px;
     height: 35px;
+}
+
+
+.listContainer ul li {
+    display: flex;
+    border-bottom: 1px solid black;
+    margin-top: 10px;
 }
 
 
