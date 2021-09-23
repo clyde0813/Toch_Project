@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="257bb364-a65d-4843-b10b-a07a31f39754" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Toch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Toch.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/oneroom/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/oneroom/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632370804424</updated>
-      <workItem from="1632370805743" duration="358000" />
+      <workItem from="1632370805743" duration="987000" />
     </task>
     <servers />
   </component>
