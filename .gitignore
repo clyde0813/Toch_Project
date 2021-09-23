@@ -1,0 +1,6 @@
+*.xml
+__pycahce__
+*.pyc
+*.iml
+.idea
+.DS_Store
