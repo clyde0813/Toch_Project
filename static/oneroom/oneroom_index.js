@@ -44,6 +44,46 @@ let positions = [
     {
         title: '근린공원',
         latlng: new kakao.maps.LatLng(34.91075974331043, 126.43343800100875)
+    },
+    {
+        title: '근린공원',
+        latlng: new kakao.maps.LatLng(34.91075974331043, 126.43343800100875)
+    },
+    {
+        title: '근린공원',
+        latlng: new kakao.maps.LatLng(34.91075974331043, 126.43343800100875)
+    },
+    {
+        title: '근린공원',
+        latlng: new kakao.maps.LatLng(34.91075974331043, 126.43343800100875)
+    },
+    {
+        title: '근린공원',
+        latlng: new kakao.maps.LatLng(34.91075974331043, 126.43343800100875)
+    },
+    {
+        title: '근린공원',
+        latlng: new kakao.maps.LatLng(34.91075974331043, 126.43343800100875)
+    },
+    {
+        title: '근린공원',
+        latlng: new kakao.maps.LatLng(34.91075974331043, 126.43343800100875)
+    },
+    {
+        title: '근린공원',
+        latlng: new kakao.maps.LatLng(34.91075974331043, 126.43343800100875)
+    },
+    {
+        title: '근린공원',
+        latlng: new kakao.maps.LatLng(34.91075974331043, 126.43343800100875)
+    },
+    {
+        title: '근린공원',
+        latlng: new kakao.maps.LatLng(34.91075974331043, 126.43343800100875)
+    },
+    {
+        title: '근린공원',
+        latlng: new kakao.maps.LatLng(34.91075974331043, 126.43343800100875)
     }
 ];
 
@@ -73,6 +113,7 @@ for (let i = 0, len = positions.length; i < len; i++) {
     addMarker(positions[i].latlng, normalOrigin, overOrigin, clickOrigin, info);
 
     // 아이템 모두 표시
+    showAllItems(info);
 }
 
 // 마커를 생성하고 지도 위에 표시하고, 마커에 mouseover, mouseout, click 이벤트를 등록하는 함수입니다
@@ -145,5 +186,28 @@ function createMarkerImage(markerSize, offset, spriteOrigin) {
     return markerImage;
 }
 
-
 // 아이템 전부 표시
+function showAllItems(info) {
+     // 기존 item 들을 삭제합니다.
+    const item = document.createElement('li');
+    itemList.appendChild(item);
+
+    const roomInfo =
+    `
+        <a href="#">
+            <li>
+                <div style="margin-right:30px"><img width="80px" height="80ox" src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markers_sprites2.png" alt="This is a preview image of the room."></div>
+                <div>
+                    <p>
+                        <h3>${info.price}</h3>
+                        <span>${info.type}</span>
+                        <span>${info.space}</span>
+                    </p>
+                </div>
+            </li>
+        </a>
+    `
+    item.innerHTML = roomInfo;
+}
+
+
