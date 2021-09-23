@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c42837d-750c-488b-bd2b-daa5b04c9453" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/oneroom/oneroom_index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/oneroom/oneroom_index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/oneroom/oneroom_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/oneroom/oneroom_index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/oneroom/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/oneroom/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1632374756267</updated>
       <workItem from="1632374758362" duration="214000" />
-      <workItem from="1632374999654" duration="3804000" />
+      <workItem from="1632374999654" duration="4731000" />
     </task>
     <servers />
   </component>
