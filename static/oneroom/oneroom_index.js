@@ -25,26 +25,23 @@ let selectedMarker = null;
 
 // 마커를 표시할 위치와 해당 정보를 담은 객체 배열
 let positions = [
-    { %
-if data_list %}
-{%
-    for data in data_list %}
-{
-    title: '{{ data.title }}',
-        // price: '월세 200/35',
-        // type: '원룸',
-        // space: '7평',
-        latlng
-:
-    new kakao.maps.LatLng(34.91124654247272, 126.43614580709644), // 원룸 좌표
+    {% if data_list %}
+        {% for data in data_list %}
+    {
+        title: '{{ data.title }}',
+        price: '월세 200/35',
+        type: '원룸',
+        space: '7평',
+        latlng: new kakao.maps.LatLng(34.91124654247272, 126.43614580709644), // 원룸 좌표
 
-}
-,
-]
-;
+    },
+        {% endfor %}
+    {% endif %}
+
+];
 
 const options = {
-    center: new kakao.maps.LatLng(34.91124654247272, 126.43614580709644), // 지도의 중심 좌표
+    center : new kakao.maps.LatLng(34.91124654247272, 126.43614580709644), // 지도의 중심 좌표
     level: 3 // 지도의 레벨(확대, 축소 정도)
 };
 
@@ -59,10 +56,10 @@ for (let i = 0, len = positions.length; i < len; i++) {
         overOrigin = new kakao.maps.Point(gapX * 2, overOriginY); // 스프라이트 이미지에서 클릭 마커로 사용할 영역의 좌상단 좌표
 
     let info = {
-        title: positions[i].title,
-        price: positions[i].price,
-        type: positions[i].type,
-        space: positions[i].space
+        title : positions[i].title,
+        price : positions[i].price,
+        type : positions[i].type,
+        space : positions[i].space
     }
 
     // 마커를 생성하고 지도위에 표시합니다
@@ -91,7 +88,7 @@ function addMarker(position, normalOrigin, overOrigin, clickOrigin, info) {
     marker.normalImage = normalImage;
 
     // 마커에 click 이벤트를 등록합니다
-    kakao.maps.event.addListener(marker, 'click', function () {
+    kakao.maps.event.addListener(marker, 'click', function() {
         // 클릭된 마커가 없고, click 마커가 클릭된 마커가 아니면
         // 마커의 이미지를 클릭 이미지로 변경합니다
         if (!selectedMarker || selectedMarker !== marker) {
@@ -105,15 +102,15 @@ function addMarker(position, normalOrigin, overOrigin, clickOrigin, info) {
 
 function setListItem(info) {
     // 기존 item 들을 삭제합니다.
-    while (itemList.firstChild) {
+    while(itemList.firstChild) {
         itemList.removeChild(itemList.firstChild);
     }
 
     const roomInfo =
-        `
+    `
         <a href="#">
             <li>
-                <div style="margin-right:30px"><img width="80px" height="80ox" src=${SPRITE_MARKER_URL} alt="This is a preview image of the room."></div>
+                <div style="margin-right:30px"><img width="80px" height="80ox" src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markers_sprites2.png" alt="This is a preview image of the room."></div>
                 <div>
                     <p>
                         <h3>${info.price}</h3>
@@ -144,15 +141,15 @@ function createMarkerImage(markerSize, offset, spriteOrigin) {
 
 // 아이템 전부 표시
 function showAllItems(info) {
-    // 기존 item 들을 삭제합니다.
+     // 기존 item 들을 삭제합니다.
     const item = document.createElement('li');
     itemList.appendChild(item);
 
     const roomInfo =
-        `
+    `
         <a href="#">
             <li>
-                <div style="margin-right:30px"><img width="80px" height="80ox" src=${SPRITE_MARKER_URL} alt="This is a preview image of the room."></div>
+                <div style="margin-right:30px"><img width="80px" height="80ox" src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markers_sprites2.png" alt="This is a preview image of the room."></div>
                 <div>
                     <p>
                         <h3>${info.price}</h3>
