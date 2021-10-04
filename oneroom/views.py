@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from .models import *
 
 
@@ -8,3 +9,7 @@ def index(request):
     data = oneroom_post.objects.order_by('create_date')
     context = {'data_list': data}
     return render(request, 'oneroom/index.html', context)
+
+
+def detail(request):
+    return render(request, 'oneroom/detail.html')

@@ -1,7 +1,10 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+
 from . import views
 
+app_name = 'oneroom'
+
 urlpatterns = [
-    path('', views.index, name='oneroom_index')
+    path('', views.index, name='index'),
+    path('detail', views.detail, name='detail')
 ]
