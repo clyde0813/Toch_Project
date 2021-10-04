@@ -11,5 +11,7 @@ def index(request):
     return render(request, 'oneroom/index.html', context)
 
 
-def detail(request):
-    return render(request, 'oneroom/detail.html')
+def detail(request, num):
+    data = oneroom_post.objects.filter(id=num)
+    context = {'data': data}
+    return render(request, 'oneroom/detail.html', context)

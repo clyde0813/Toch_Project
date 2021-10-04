@@ -1,47 +1,59 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <style>
+        td {
+            width: 12.5%;
+        }
+    </style>
     <table class="table table-bordered">
         <tbody>
         <tr>
-            <td width="12.5%">해당층/건물층</td>
-            <td width="12.5%">1층/5층</td>
-            <td width="12.5%">전용/공급면적</td>
-            <td width="12.5%">???/???</td>
-            <td width="12.5%">방/욕실수</td>
-            <td width="12.5%">1개/1개</td>
-            <td width="12.5%"></td>
-            <td width="12.5%"></td>
+            <td colspan="2">월세 200 / {{ data.first.rent_amount }}원</td>
+            <td colspan="2">면적 10평</td>
+            <td colspan="6">40만원
+                <button type="button" class="btn btn-outline-secondary" style="float:right">연락처보기</button>
+            </td>
         </tr>
         <tr>
-            <td width="12.5%">난방종류</td>
-            <td width="12.5%">LPG</td>
-            <td width="12.5%">옵션수</td>
-            <td width="12.5%">5개</td>
-            <td width="12.5%">건물 주차수</td>
-            <td width="12.5%">총 4대</td>
-            <td width="12.5%"></td>
-            <td width="12.5%"></td>
+            <td>해당층/건물층</td>
+            <td>{{ data.first.floor_num }}층/ {{ data.first.floor_total }}층</td>
+            <td>전용/공급면적</td>
+            <td>???/???</td>
+            <td>방/욕실수</td>
+            <td>{{ data.first.room_num }}개/{{ data.first.toilet_num }}개</td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
-            <td width="12.5%">난방종류</td>
-            <td width="12.5%">LPG</td>
-            <td width="12.5%">옵션수</td>
-            <td width="12.5%">5개</td>
-            <td width="12.5%">건물 주차수</td>
-            <td width="12.5%">총 4대</td>
-            <td width="12.5%"></td>
-            <td width="12.5%"></td>
+            <td>난방종류</td>
+            <td>{{ data.first.gas_type }}</td>
+            <td>옵션수</td>
+            <td>5개</td>
+            <td>건물 주차수</td>
+            <td>총 4대</td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
-            <td width="12.5%">난방종류</td>
-            <td width="12.5%">LPG</td>
-            <td width="12.5%">옵션수</td>
-            <td width="12.5%">5개</td>
-            <td width="12.5%">건물 주차수</td>
-            <td width="12.5%">총 4대</td>
-            <td width="12.5%"></td>
-            <td width="12.5%"></td>
+            <td>난방종류</td>
+            <td>LPG</td>
+            <td>옵션수</td>
+            <td>5개</td>
+            <td>건물 주차수</td>
+            <td>총 4대</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>난방종류</td>
+            <td>LPG</td>
+            <td>옵션수</td>
+            <td>5개</td>
+            <td>건물 주차수</td>
+            <td>총 4대</td>
+            <td></td>
+            <td></td>
         </tr>
         </tbody>
     </table>
