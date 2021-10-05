@@ -7,5 +7,6 @@ app_name = "usedtrade"
 urlpatterns = [
     path('', views.index, name="index"),
     path('<int:num>', views.detail, name="detail"),
+    path('create', views.create_post, name="create_post")
 
 ]
