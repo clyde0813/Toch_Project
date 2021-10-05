@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'channels',
     'chat',
     'oneroom.apps.OneroomConfig',
+    'usedtrade.apps.UsedtradeConfig',
     'main.apps.MainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
