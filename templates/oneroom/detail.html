@@ -20,6 +20,99 @@
             text-align: center;
             line-height: 200px;
         }
+
+        .option, .facility {
+            margin-top: 80px;
+        }
+
+        .option_title {
+            text-align: center;
+        }
+
+        .option_list {
+            margin: 0 auto;
+            height: 300px;
+            width: 80%;
+            border: 1px solid black;
+        }
+
+        .facility_title {
+            text-align: center;
+        }
+
+        .facility_list {
+            margin: 0 auto;
+            width: 80%;
+            height: 300px;
+            border: 1px solid black;
+        }
+
+        /* REVIEW */
+        .review {
+            margin: 80px auto 0;
+            border: 1px solid black;
+            width: 80%;
+            height: 300px;
+        }
+
+        .review_header {
+            height: 80px;
+            border-bottom: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .review_title {
+            display: inline-block;
+            width: 150px;
+
+        }
+
+        .review_write {
+            display: inline-block;
+            border: 1px solid black;
+            width: 150px;
+            text-align: center;
+        }
+
+        .review_li {
+            border-bottom: 1px solid black;
+        }
+
+        /* PAGINATION */
+        .pagination {
+            margin: 0 auto;
+            text-align: center;
+            width: 80%;
+            height: 50px;
+        }
+
+        /* 다른방 둘러보기 */
+        .another_rooms {
+            margin: 0 auto 50px;
+            width: 80%;
+        }
+
+        .title {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .another_rooms_ul {
+            display: flex;
+        }
+
+        .another_rooms_li {
+            border: 1px solid black;
+            margin: 0 10px;
+
+        }
+
+        .another_rooms_img {
+            width: 80px;
+            height: 80px;
+        }
     </style>
 
     <table class="table table-bordered">
@@ -80,4 +173,67 @@
         <div class="roomImage">사진</div>
         <div class="roomImage">더보기</div>
     </div>
+
+    <div class="option">
+        <div class="option_title">옵션</div>
+        <div class="option_list"></div>
+    </div>
+
+    <div class="facility">
+        <div class="facility_title">시설</div>
+        <div class="facility_list"></div>
+    </div>
+
+    <div class="review">
+        <div class="review_header">
+            <div class="review_title">실거주자 리뷰</div>
+            <div class="review_write">리뷰작성</div>
+        </div>
+
+        <ul class="review_ul">
+            <li class="review_li">
+                <div class="review_content">
+                    <img alt="프로필" class="review_profile">
+                </div>
+                <div class="review_image"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="pagination">
+        < 1 2 3 4 5 >
+    </div>
+
+    <div class="another_rooms">
+        <div class="title">다른 방 둘러보기</div>
+        <ul class="another_rooms_ul">
+            <li class="another_rooms_li">
+                <img src="" alt="다른방" class="another_rooms_img">
+                <div class="another_rooms_content">월세 30</div>
+            </li>
+            <li class="another_rooms_li">
+                <img src="" alt="다른방" class="another_rooms_img">
+                <div class="another_rooms_content">월세 30</div>
+            </li>
+            <li class="another_rooms_li">
+                <img src="" alt="다른방" class="another_rooms_img">
+                <div class="another_rooms_content">월세 30</div>
+            </li><li class="another_rooms_li">
+                <img src="" alt="다른방" class="another_rooms_img">
+                <div class="another_rooms_content">월세 30</div>
+            </li><li class="another_rooms_li">
+                <img src="" alt="다른방" class="another_rooms_img">
+                <div class="another_rooms_content">월세 30</div>
+            </li><li class="another_rooms_li">
+                <img src="" alt="다른방" class="another_rooms_img">
+                <div class="another_rooms_content">월세 30</div>
+            </li>
+
+
+
+
+        </ul>
+
+    </div>
+
 {% endblock %}
