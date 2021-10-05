@@ -19,7 +19,7 @@ from django.urls import include
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url(r'^oneroom', include('oneroom.urls')),
+    url(r'^oneroom/', include('oneroom.urls')),
     url(r'^chat/', include('chat.urls')),
     url(r'^usedtrade/', include('usedtrade.urls')),
 ]

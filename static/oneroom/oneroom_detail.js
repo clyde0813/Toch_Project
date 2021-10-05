@@ -1,0 +1,1 @@
+const contact_btn = document.querySelector('.show_contact');
