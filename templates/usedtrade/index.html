@@ -41,7 +41,7 @@
             {% for data in data %}
                 <li class="trade_li" onclick="location.href='{% url 'usedtrade:detail' data.id %}'">
                     <div class="trade_image">
-                        <img src="https://dnvefa72aowie.cloudfront.net/origin/article/202110/2A7C46274741BA8BCA35BAFDCA408013B5D32A6EA01BE303BA00EBE86E18E151.jpg?q=95&amp;s=1440x1440&amp;t=inside"
+                        <img src="{{ data.file_set.first.file.url }}"
                              style="width: 200px; height: 120px;">
                     </div>
                     <div class="trade_content">{{ data.title }}</div>
@@ -50,5 +50,8 @@
             {% endfor %}
         </ul>
     </div>
-    <button onclick="location.href='{% url 'usedtrade:create_post' %}'" class="btn btn-outline-secondary">글쓰기</button>
+    <div class="container">
+        <button onclick="location.href='{% url 'usedtrade:create_post' %}'" class="btn btn-outline-secondary">글쓰기
+        </button>
+    </div>
 {% endblock %}

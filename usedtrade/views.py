@@ -6,14 +6,14 @@ from .forms import *
 
 # Create your views here.
 def index(request):
-    data = usedtrade_post.objects.order_by('created_date')
+    data = Post.objects.order_by('create_date')
     context = {"data": data}
     return render(request, 'usedtrade/index.html', context)
 
 
 def detail(request, num):
-    if usedtrade_post.objects.filter(id=num):
-        data = usedtrade_post.objects.filter(id=num)
+    if Post.objects.filter(id=num):
+        data = Post.objects.filter(id=num).first()
         context = {'data': data}
         return render(request, 'usedtrade/detail.html', context)
     else:
@@ -23,12 +23,27 @@ def detail(request, num):
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
+        form_file = FileForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
-            post.created_date = timezone.now()
+            post.create_date = timezone.now()
             post.save()
+            if form_file.is_valid() and request.FILES.get("file") is not None:
+                for i in request.FILES.getlist("file"):
+                    form_file = FileForm(request, request.FILES)
+                    file = form_file.save(commit=False)
+                    file.create_date = post.create_date
+                    file.post = post
+                    file.file = i
+                    file.save()
             return redirect('usedtrade:detail', post.id)
     else:
         form = PostForm(request.POST)
     context = {'form': form}
     return render(request, 'usedtrade/create_post.html', context)
+
+
+def delete_post(request, num):
+    post = Post.objects.filter(id=num).first()
+    post.delete()
+    return redirect('usedtrade:index')

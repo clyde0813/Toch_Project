@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class oneroom_post(models.Model):
+class Post(models.Model):
     # 작성자
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     # 작성자 IP
