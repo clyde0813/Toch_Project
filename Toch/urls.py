@@ -14,14 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include
+from django.urls import include, path
+
+from common.views import mypage, signup
 
 urlpatterns = [
-                  url('admin/', admin.site.urls),
-                  url(r'^oneroom/', include('oneroom.urls')),
-                  url(r'^chat/', include('chat.urls')),
-                  url(r'^usedtrade/', include('usedtrade.urls')),
+                  path('admin/', admin.site.urls),
+                  path('oneroom/', include('oneroom.urls')),
+                  path('chat/', include('chat.urls')),
+                  path('usedtrade/', include('usedtrade.urls')),
+                  path('mypage/', mypage, name='mypage'),
+                  path('signup/', signup, name='signup')
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
