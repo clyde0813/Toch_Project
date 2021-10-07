@@ -115,7 +115,7 @@
         }
 
         /* MODAL */
-        .modal_background {
+        .modal_window {
             position: fixed;
             top: 0;
             width: 100vw;
@@ -137,15 +137,23 @@
             border-radius: 5px;
         }
 
-        .x_btn {
+        .btn {
             background-color: white;
             border: none;
         }
 
-        .none {
+        .contact_section {
+            width: 100%;
+            height: 80%;
+        }
+
+        .hidden {
             display: none;
         }
     </style>
+    <div class="modal_container">
+        <div class="modal_window"></div>
+    </div>
 
     <table class="table table-bordered">
         <tbody>
@@ -263,29 +271,6 @@
         </ul>
     </div>
     <script>
-        const body = document.querySelector('body');
-        const contact_btn = document.querySelector('.show_contact');
 
-        contact_btn.addEventListener('click', showContact);
-
-        function showContact() {
-            const modal_background = document.createElement('div');
-            modal_background.classList.add('modal_background');
-
-            const contact_window = document.createElement('div');
-            contact_window.classList.add('contact_window');
-
-            const x_btn = document.createElement('button');
-            x_btn.textContent = 'X';
-            x_btn.classList.add('x_btn');
-            x_btn.addEventListener('click', () => {
-                contact_window.classList.add('none');
-                modal_background.classList.add('none');
-            });
-
-            contact_window.appendChild(x_btn);
-            body.appendChild(contact_window);
-            body.appendChild(modal_background);
-        }
     </script>
 {% endblock %}
