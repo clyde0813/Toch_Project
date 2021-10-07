@@ -86,4 +86,32 @@
         <button onclick="location.href='{% url 'usedtrade:delete_post' data.id %}'" class="btn btn-outline-danger">삭제
         </button>
     </div>
+    <form action="{% url 'usedtrade:create_comment' data.id %}" method="post">
+        {% csrf_token %}
+        <div class="form-floating">
+            <textarea class="form-control" name="content" style="height: 100px"></textarea>
+            <label for="floatingTextarea2">댓글</label>
+            <button type="submit" class="btn btn-outline-secondary">댓글작성</button>
+        </div>
+    </form>
+    <div class="comment_box">
+        <ul class="comment_list">
+            {% for comment in data.comment_set.all %}
+                <li>{{ comment.content }}</li>
+                {% for nested in comment.nested_set.all %}
+                    <li>{{ nested.content }}</li>
+                {% endfor %}
+                <li>
+                    <form action="{% url 'usedtrade:create_nested' data.id comment.id %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-floating">
+                            <textarea class="form-control" name="content" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">댓글</label>
+                            <button type="submit" class="btn btn-outline-secondary">댓글작성</button>
+                        </div>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

@@ -21,3 +21,21 @@ class FileForm(forms.ModelForm):
         labels = {
             'file': '파일'
         }
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['content']
+        labels = {
+            'content': '댓글'
+        }
+
+
+class NestedForm(forms.ModelForm):
+    class Meta:
+        model = Nested
+        fields = ['content']
+        labels = {
+            'content': '대댓글'
+        }

@@ -47,3 +47,25 @@ def delete_post(request, num):
     post = Post.objects.filter(id=num).first()
     post.delete()
     return redirect('usedtrade:index')
+
+
+def create_comment(request, num):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post_id = num
+            comment.create_date = timezone.now()
+            comment.save()
+    return redirect('usedtrade:detail', num)
+
+
+def create_nested(request, num, num2):
+    if request.method == 'POST':
+        form = NestedForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.comment_id = num2
+            comment.create_date = timezone.now()
+            comment.save()
+    return redirect('usedtrade:detail', num)
