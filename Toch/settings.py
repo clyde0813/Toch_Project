@@ -30,7 +30,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
     'chat',
     'oneroom.apps.OneroomConfig',
     'usedtrade.apps.UsedtradeConfig',
@@ -106,16 +105,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-ASGI_APPLICATION = 'Toch.routing.application'
-
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
-    },
-}
+# ASGI_APPLICATION = 'Toch.routing.application'
+#
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [('127.0.0.1', 6379)],
+#         },
+#     },
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 # Create your models here.
@@ -17,8 +17,6 @@ class Post(models.Model):
     title = models.TextField(blank=True, null=True)
     # LNG/LPG
     gas_type = models.TextField(blank=True, null=True)
-    # 옵션 리스트
-    # option_list = models.TextField(blank=True, null=True)
     # 건물주 연락처
     owner_contact = models.TextField(blank=True, null=True)
     # 관리비
@@ -33,10 +31,6 @@ class Post(models.Model):
     dedicated_area = models.FloatField(blank=True, null=True)
     # 공용 면적
     common_area = models.FloatField(blank=True, null=True)
-    # 방 개수
-    room_num = models.IntegerField(blank=True, null=True)
-    # 화장실 개수
-    toilet_num = models.IntegerField(blank=True, null=True)
     # 주차가능여부
     parking = models.BooleanField(blank=True, null=True)
     # 엘레베이터 여부
@@ -45,9 +39,9 @@ class Post(models.Model):
     moving_date = models.DateTimeField(blank=True, null=True)
     # 잔여 방개수
     room_remain = models.IntegerField(blank=True, null=True)
-    # 완공날짜
+    # 공날짜
     construction_date = models.DateTimeField(blank=True, null=True)
-    # 전체 층
+    # 전체 층준
     floor_total = models.IntegerField(blank=True, null=True)
     # 매물 층
     floor_num = models.IntegerField(blank=True, null=True)
@@ -55,9 +49,18 @@ class Post(models.Model):
     latitude = models.FloatField(blank=True, null=True)
     # 경도
     longitude = models.FloatField(blank=True, null=True)
+    # 주소
+    address = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.title
 
     class Meta:
         verbose_name_plural = "매물 이름"
+
+
+class File(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    file = models.FileField()
+    create_date = models.DateField()
+    modify_date = models.DateField()
