@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <form action="{% url 'usedtrade:create_post' %}" method="post">
+    <form action="{% url 'usedtrade:create_post' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <br>
         <div class="form-floating">
@@ -15,8 +15,8 @@
         </div>
         <br>
         <div class="input-group">
-            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
-                   aria-label="Upload">
+            <input class="form-control form-control-sm" name="file" id="file" type="file" multiple="multiple"
+                   style="width: 60%">
         </div>
         <br>
         <div class="form-floating">

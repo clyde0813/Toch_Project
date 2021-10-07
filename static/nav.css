@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+/* Nav Bar */
+nav {
+    padding: 20px 0;
+    border-bottom: solid black 2px;
+    background-color: darkorange;
+}
+
+.nav_list{
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 0.8;
+    padding-right: 20px;
+
+}
+
+.message {
+    float: right;
+    margin-right: 30px;
+}
+
+.mypage {
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li:hover {
+    opacity: 1.0;
+    cursor: pointer;
+}

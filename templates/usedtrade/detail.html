@@ -29,9 +29,9 @@
                                     <div>
                                         <div>
                                             <div class="image-wrap" data-image-id="1189881617" data-image-index="1">
-                                                <img class="landscape" alt="스캇 MTB 산악자전거의 사진 1"
-                                                     src="https://dnvefa72aowie.cloudfront.net/origin/article/202110/2A7C46274741BA8BCA35BAFDCA408013B5D32A6EA01BE303BA00EBE86E18E151.jpg?q=95&amp;s=1440x1440&amp;t=inside"
-                                                     style="opacity: 1;">
+                                                <img class="landscape"
+                                                     src="{{ data.file_set.first.file.url }}"
+                                                     style="opacity: 1;" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -65,21 +65,53 @@
             </a></section>
 
         <section id="article-description">
-            <h1 property="schema:name" id="article-title" style="margin-top:0px;">{{ data.first.title }}</h1>
+            <h1 property="schema:name" id="article-title" style="margin-top:0px;">{{ data.title }}</h1>
             <p id="article-category">
                 <time>
-                    {{ data.first.created_date }}
+                    {{ data.created_date }}
                 </time>
             </p>
             <p property="schema:priceValidUntil" datatype="xsd:date" content="2023-10-05"></p>
             <p rel="schema:url" resource="https://www.daangn.com/295261694"></p>
             <p property="schema:priceCurrency" content="KRW"></p>
             <p id="article-price" property="schema:price" content="150000.0" style="font-size:18px; font-weight:bold;">
-                {{ data.first.price }}원
+                {{ data.price }}원
             </p>
             <div property="schema:description" id="article-detail">
-                {{ data.first.content }}
+                {{ data.content }}
             </div>
         </section>
     </article>
+    <div class="container">
+        <button onclick="location.href='{% url 'usedtrade:delete_post' data.id %}'" class="btn btn-outline-danger">삭제
+        </button>
+    </div>
+    <form action="{% url 'usedtrade:create_comment' data.id %}" method="post">
+        {% csrf_token %}
+        <div class="form-floating">
+            <textarea class="form-control" name="content" style="height: 100px"></textarea>
+            <label for="floatingTextarea2">댓글</label>
+            <button type="submit" class="btn btn-outline-secondary">댓글작성</button>
+        </div>
+    </form>
+    <div class="comment_box">
+        <ul class="comment_list">
+            {% for comment in data.comment_set.all %}
+                <li>{{ comment.content }}</li>
+                {% for nested in comment.nested_set.all %}
+                    <li>{{ nested.content }}</li>
+                {% endfor %}
+                <li>
+                    <form action="{% url 'usedtrade:create_nested' data.id comment.id %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-floating">
+                            <textarea class="form-control" name="content" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">댓글</label>
+                            <button type="submit" class="btn btn-outline-secondary">댓글작성</button>
+                        </div>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
