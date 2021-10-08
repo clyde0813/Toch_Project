@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-
+from ip_gather import get_client_ip
 from .forms import *
 
 
@@ -55,6 +55,7 @@ def create_comment(request, num):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post_id = num
+            comment.author_ip = get_client_ip(request)
             comment.create_date = timezone.now()
             comment.save()
     return redirect('usedtrade:detail', num)

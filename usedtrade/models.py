@@ -19,6 +19,7 @@ class File(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment_set')
+    author_ip = models.GenericIPAddressField(null=True, blank=True)
     create_date = models.DateField()
     modify_date = models.DateField(null=True, blank=True)
     content = models.TextField()
