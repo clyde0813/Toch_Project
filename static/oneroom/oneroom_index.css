@@ -7,6 +7,10 @@ ul {
     list-style: none;
 }
 
+li:hover {
+    cursor: pointer;
+}
+
 h3 {
     margin: 0;
 }

@@ -11,9 +11,10 @@ a {
     text-decoration: none;
     color: black;
 }
+
 /* Nav Bar */
 nav {
-    padding: 20px 0;
+    padding: 15px 0;
     border-bottom: solid black 2px;
     background-color: darkorange;
 }
@@ -24,20 +25,28 @@ nav {
     font-size: 20px;
     opacity: 0.8;
     padding-right: 20px;
-
 }
 
-.message {
-    float: right;
-    margin-right: 30px;
+.logo {
+    color: white;
 }
 
 .mypage {
+    line-height: 32px;
+    display: inline-block;
     float: right;
     margin-right: 20px;
 }
 
-nav ul li:hover {
+.signup {
+    line-height: 32px;
+    display: inline-block;
+    float: right;
+    margin-right: 30px;
+}
+
+nav ul li a:hover {
     opacity: 1.0;
+    color: black;
     cursor: pointer;
 }
