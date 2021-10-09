@@ -3,15 +3,18 @@
 
 {% block content %}
     <style>
-        .title, .container, aside, main{
+        .title, .common_container, aside, main{
             border: 1px solid black;
         }
         .title{
             height: 6vh;
         }
-        .container{
+        .common_container{
+            width: 100%;
+            padding: 0;
             display: flex;
             height: 88vh;
+            margin: 0;
         }
         aside{
             flex:1;
@@ -19,12 +22,12 @@
         main{
             flex:3;
         }
-
     </style>
+
     <div class="title">
         <h3>마이페이지</h3>
     </div>
-    <div class="container">
+    <div class="common_container">
         <aside>
             <div>마이페이지</div>
             <div>중고거래</div>
