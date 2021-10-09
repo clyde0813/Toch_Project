@@ -3,25 +3,36 @@
 
 {% block content %}
     <style>
-        h3{
-            border-bottom: 1px solid black;
+        .title, .container, aside, main{
+            border: 1px solid black;
         }
+        .title{
+            height: 6vh;
+        }
+        .container{
+            display: flex;
+            height: 88vh;
+        }
+        aside{
+            flex:1;
+        }
+        main{
+            flex:3;
+        }
+
     </style>
-    <div>
+    <div class="title">
         <h3>마이페이지</h3>
     </div>
     <div class="container">
-        <div>
-
-        </div>
-        <div class="sidebar">
-            마이페이지
-            중고거래
-            커뮤니티
-            ···
-        </div>
-        <div class="main">
+        <aside>
+            <div>마이페이지</div>
+            <div>중고거래</div>
+            <div>커뮤니티</div>
+            <div> ··· </div>
+        </aside>
+        <main>
             내용
-        </div>
+        </main>
     </div>
 {% endblock %}
