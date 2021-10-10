@@ -120,6 +120,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
+# mokpo.ac.kr SMTP
+
+EMAIL_HOST = 'smtp.mokpo.ac.kr' 		 # 메일 호스트 서버
+EMAIL_PORT = '25' 			 # 서버 포트
+EMAIL_HOST_USER = 'kakao@mokpo.ac.kr' 	 # 우리가 사용할 Gmail
+EMAIL_HOST_PASSWORD = 'Eric3371!'		 # 우리가 사용할 Gmail p
+EMAIL_USE_TLS = False			 # TLS 보안 설정
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER	 # 응답 메일 관련 설정
+
 LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'Asia/Seoul'

@@ -32,11 +32,11 @@ class Post(models.Model):
     # 공용 면적
     common_area = models.FloatField(blank=True, null=True)
     # 주차가능여부
-    parking = models.BooleanField(blank=True, null=True)
+    parking = models.TextField(blank=True, null=True)
     # 엘레베이터 여부
-    elevator = models.BooleanField(blank=True, null=True)
+    elevator = models.TextField(blank=True, null=True)
     # 입주가능일
-    moving_date = models.DateTimeField(blank=True, null=True)
+    moving_date = models.TextField(blank=True, null=True)
     # 잔여 방개수
     room_remain = models.IntegerField(blank=True, null=True)
     # 공날짜
