@@ -1,6 +1,6 @@
 from .base import *
 
-ALLOWED_HOSTS = ['192.168.0.106']
+ALLOWED_HOSTS = ['114.70.93.100', '130mood.shop']
 DEBUG = False
 
 DATABASES = {
