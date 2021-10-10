@@ -6,6 +6,7 @@ body {
 ul {
     margin: 0;
     list-style: none;
+    padding: 0;
 }
 
 a {
@@ -15,11 +16,15 @@ a {
 
 /* Nav Bar */
 nav {
+
     height: 6vh;
     border-bottom: solid black 2px;
-    background-color: darkorange;
+    background-color: white;
 }
 
+nav ul {
+    margin: 0 25vw;
+}
 .nav_list{
     line-height: 6vh;
     display: inline-block;
@@ -30,7 +35,9 @@ nav {
 }
 
 .logo {
-    color: white;
+    color: #ff9900;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .mypage {
