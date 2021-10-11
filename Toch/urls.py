@@ -28,3 +28,5 @@ urlpatterns = [
                   path('mypage/', mypage, name='mypage'),
                   path('signup/', signup, name='signup')
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'common.views.page_not_found'

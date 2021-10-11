@@ -10,3 +10,6 @@ def mypage(request):
 def signup(request):
     return render(request, 'common/signup.html')
 
+
+def page_not_found(request):
+    return render(request, '404.html')

@@ -122,12 +122,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # mokpo.ac.kr SMTP
 
-EMAIL_HOST = 'smtp.mokpo.ac.kr' 		 # 메일 호스트 서버
-EMAIL_PORT = '25' 			 # 서버 포트
-EMAIL_HOST_USER = 'kakao@mokpo.ac.kr' 	 # 우리가 사용할 Gmail
-EMAIL_HOST_PASSWORD = 'Eric3371!'		 # 우리가 사용할 Gmail p
-EMAIL_USE_TLS = False			 # TLS 보안 설정
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER	 # 응답 메일 관련 설정
+EMAIL_HOST = 'smtp.mokpo.ac.kr'  # 메일 호스트 서버
+EMAIL_PORT = '25'  # 서버 포트
+EMAIL_HOST_USER = 'kakao@mokpo.ac.kr'  # 우리가 사용할 Gmail
+EMAIL_HOST_PASSWORD = 'Eric3371!'  # 우리가 사용할 Gmail p
+EMAIL_USE_TLS = False  # TLS 보안 설정
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # 응답 메일 관련 설정
 
 LANGUAGE_CODE = 'ko-kr'
 
@@ -154,3 +154,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
