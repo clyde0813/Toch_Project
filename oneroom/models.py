@@ -20,28 +20,32 @@ class Post(models.Model):
     # 건물주 연락처
     owner_contact = models.TextField(blank=True, null=True)
     # 관리비
-    manage_amount = models.FloatField(blank=True, null=True)
+    manage_amount = models.IntegerField(blank=True, null=True)
     # 보증금
-    deposit = models.FloatField(blank=True, null=True)
+    deposit = models.IntegerField(blank=True, null=True)
     # 전월세 여부
     rent_type = models.TextField(blank=True, null=True)
     # 전월세 가격
-    rent_amount = models.FloatField(blank=True, null=True)
+    rent_amount = models.IntegerField(blank=True, null=True)
     # 전용 면적
     dedicated_area = models.FloatField(blank=True, null=True)
     # 공용 면적
     common_area = models.FloatField(blank=True, null=True)
     # 주차가능여부
-    parking = models.TextField(blank=True, null=True)
+    parking = models.IntegerField(blank=True, null=True)
     # 엘레베이터 여부
-    elevator = models.TextField(blank=True, null=True)
+    elevator = models.IntegerField(blank=True, null=True)
     # 입주가능일
-    moving_date = models.TextField(blank=True, null=True)
-    # 잔여 방개수
-    room_remain = models.IntegerField(blank=True, null=True)
-    # 공날짜
+    moving_date = models.DateField(blank=True, null=True)
+    # 방개수
+    room_num = models.IntegerField(blank=True, null=True)
+    # 방향
+    direction = models.TextField(blank=True, null=True)
+    # 화장실 개수
+    toilet_num = models.IntegerField(blank=True, null=True)
+    # 준공날짜
     construction_date = models.DateTimeField(blank=True, null=True)
-    # 전체 층준
+    # 전체 층
     floor_total = models.IntegerField(blank=True, null=True)
     # 매물 층
     floor_num = models.IntegerField(blank=True, null=True)
@@ -60,7 +64,7 @@ class Post(models.Model):
 
 
 class File(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    file = models.FileField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="file_set")
+    file = models.FileField(upload_to='oneroom/post')
     create_date = models.DateField()
-    modify_date = models.DateField()
+    modify_date = models.DateField(blank=True, null=True)

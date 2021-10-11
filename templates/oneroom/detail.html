@@ -12,14 +12,14 @@
 
         <!-- 연락처 창 -->
         <div class="contact_window hidden">
-          <div class="contact_header">
-            <button class="x_btn btn">x</button>
-          </div>
-          <div class="contact_body"></div>
-          <div class="contact_footer">
-            <button class="message_btn btn">메세지</button>
-            <button class="call_btn btn">전화</button>
-          </div>
+            <div class="contact_header">
+                <button class="x_btn btn">x</button>
+            </div>
+            <div class="contact_body"></div>
+            <div class="contact_footer">
+                <button class="message_btn btn">메세지</button>
+                <button class="call_btn btn">전화</button>
+            </div>
         </div>
 
         <!-- 리뷰 쓰기 창 -->
@@ -47,49 +47,51 @@
     <table class="table table-bordered">
         <tbody>
         <tr>
-            <td colspan="2">월세 200 / {{ data.firt.rent_amount }}원</td>
-            <td colspan="2">면적 10평</td>
-            <td colspan="6">40만원
-                <button type="button" class="btn btn-outline-secondary contact_btn"  style="float:right">연락처보기</button>
+            {% if data.first.rent_amount %}
+                <td colspan="2">{{ data.first.rent_type }} {{ data.first.deposit }}/{{ data.first.rent_amount }}만원</td>
+            {% else %}
+                <td colspan="2">{{ data.first.rent_type }} 비공개</td>
+            {% endif %}
+            <td colspan="2">면적 {{ data.first.dedicated_area }}m^2</td>
+            <td colspan="6">{{ data.first.rent_amount }}만원
+                <button type="button" class="btn btn-outline-secondary contact_btn" style="float:right">연락처보기</button>
             </td>
         </tr>
         <tr>
             <td>해당층/건물층</td>
             <td>{{ data.first.floor_num }}층/ {{ data.first.floor_total }}층</td>
             <td>전용/공급면적</td>
-            <td>???/???</td>
-            <td>방/욕실수</td>
+            <td>{{ data.first.dedicated_area }}/{{ data.first.common_area }}</td>
+            <td>난방종류</td>
+            <td>{{ data.first.gas_type }}</td>
+            <td>방 수/욕실 수</td>
             <td>{{ data.first.room_num }}개/{{ data.first.toilet_num }}개</td>
-            <td></td>
-            <td></td>
         </tr>
         <tr>
             <td>난방종류</td>
             <td>{{ data.first.gas_type }}</td>
-            <td>옵션수</td>
-            <td>5개</td>
+            <td>방향</td>
+            <td>{{ data.first.direction }}</td>
+            <td>엘레베이터</td>
+            <td>{{ data.first.elevator }}개</td>
             <td>건물 주차수</td>
-            <td>총 4대</td>
-            <td></td>
-            <td></td>
+            <td>총 {{ data.first.parking }}대</td>
         </tr>
         <tr>
-            <td>난방종류</td>
-            <td>LPG</td>
-            <td>옵션수</td>
-            <td>5개</td>
-            <td>건물 주차수</td>
-            <td>총 4대</td>
-            <td></td>
-            <td></td>
+            <td>준공날짜</td>
+            <td>{{ data.first.construction_date }}</td>
+            <td>전체층/해당층</td>
+            <td>{{ data.first.floor_total }}층/{{ data.first.floor_num }}층</td>
+            <td>입주가능일</td>
+            <td>{{ data.first.moving_date }}</td>
+            <td>주소</td>
+            <td>{{ data.first.address }}</td>
         </tr>
         <tr>
-            <td>난방종류</td>
-            <td>LPG</td>
-            <td>옵션수</td>
-            <td>5개</td>
-            <td>건물 주차수</td>
-            <td>총 4대</td>
+            <td>등록일</td>
+            <td colspan="3">{{ data.first.create_date }}</td>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
         </tr>
@@ -98,7 +100,9 @@
 
     <!-- 방 사진 -->
     <div class="roomImageContainer">
-        <div class="roomImage">사진</div>
+        <div class="roomImage">
+            <img src="{{ data.first.file_set.first.file.url }}">
+        </div>
         <div class="roomImage">사진</div>
         <div class="roomImage">사진</div>
         <div class="roomImage">더보기</div>
@@ -127,7 +131,8 @@
                 <!-- 리뷰 작성자 정보띄우는 창 -->
                 <div class="review_info">
 
-                    <img src="" alt="Profile" class="review_profile_img" style="width: 50px; height: 50px; border-radius: 50%">
+                    <img src="" alt="Profile" class="review_profile_img"
+                         style="width: 50px; height: 50px; border-radius: 50%">
                     <div class="info_container">
                         <div class="review_writer">
                             <span class="writer_name">홍길동</span>
@@ -190,12 +195,12 @@
         const review_write_window = document.querySelector('.review_write_window');
 
         // 연락처 Text
-        let contact = '010 - 1111- 2222';
+        let contact = '{{ data.first.owner_contact }}';
         contact_body.textContent = contact;
 
         // Modal 배경 보이기/가리기
         function toggleModal() {
-          modal_container.classList.toggle('hidden');
+            modal_container.classList.toggle('hidden');
         }
 
         // 연락처 창 보이기/가리기
@@ -205,8 +210,8 @@
 
         // 연락처버튼 Event 등록
         contact_btn.addEventListener('click', () => {
-          toggleModal();
-          toggleContact();
+            toggleModal();
+            toggleContact();
         })
 
         // 리뷰 작성
@@ -224,7 +229,7 @@
 
         // x 버튼 Event 등록
         modal_container.addEventListener('click', (e) => {
-            if(e.target.className.includes('x_btn')) {
+            if (e.target.className.includes('x_btn')) {
                 e.target.parentNode.parentNode.classList.toggle('hidden');
                 toggleModal();
             }
