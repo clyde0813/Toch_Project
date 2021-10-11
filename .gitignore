@@ -23,6 +23,7 @@ db.sqlite3-journal
 *.so
 # Distribution / packaging
 .Python
+logs/
 build/
 develop-eggs/
 dist/
