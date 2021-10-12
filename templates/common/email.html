@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <script>
+        function getVal() {
+            const val = document.querySelector('input').value;
+            if (val == {{ otp }}) {
+                console.log("True")
+            } else {
+                console.log("False")
+            }
+        }
+    </script>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" onblur="getVal()">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+    </div>
+{% endblock %}

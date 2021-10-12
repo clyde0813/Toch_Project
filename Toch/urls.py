@@ -18,7 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from common.views import mypage, signup
+from common.views import mypage, signup, email
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
@@ -26,7 +26,8 @@ urlpatterns = [
                   path('chat/', include('chat.urls')),
                   path('usedtrade/', include('usedtrade.urls')),
                   path('mypage/', mypage, name='mypage'),
-                  path('signup/', signup, name='signup')
+                  path('signup/', signup, name='signup'),
+                  path('email/', email, name='email')
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-handler404 = 'common.views.page_not_found'
+# handler404 = 'common.views.page_not_found'

@@ -106,6 +106,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = 'toch.text.email@gmail.com'
+EMAIL_HOST_PASSWORD = 'Toch1234!'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 # ASGI_APPLICATION = 'Toch.routing.application'
 #
 # CHANNEL_LAYERS = {
