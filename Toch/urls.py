@@ -25,6 +25,7 @@ urlpatterns = [
                   path('oneroom/', include('oneroom.urls')),
                   path('chat/', include('chat.urls')),
                   path('usedtrade/', include('usedtrade.urls')),
+                  path('community/', include('community.urls')),
                   path('mypage/', mypage, name='mypage'),
                   path('signup/', signup, name='signup'),
                   path('email/', email, name='email')
