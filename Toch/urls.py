@@ -21,6 +21,7 @@ from django.urls import include, path
 from common.views import mypage, signup, email
 
 urlpatterns = [
+                  path('', include('main.urls')),
                   path('admin/', admin.site.urls),
                   path('oneroom/', include('oneroom.urls')),
                   path('chat/', include('chat.urls')),
