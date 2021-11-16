@@ -1,3 +1,7 @@
+.width1200{width: 1200px; margin: 0 auto;}
+
+.mainPage{padding-top: 130px;}
+
 .borderBox{ border: 1px solid #cccccc;}
 .paddingBox{padding: 30px 20px; box-sizing: border-box;}
 
