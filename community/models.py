@@ -10,7 +10,7 @@ class BoardName(models.Model):
 
 
 class Post(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_author')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='community_post_author')
     board = models.ForeignKey(BoardName, on_delete=models.CASCADE, related_name='post_set')
     author_ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=False)
     create_date = models.DateTimeField()
@@ -21,7 +21,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='community_comment_author')
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment_set')
     author_ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=False)
     create_date = models.DateTimeField()
@@ -31,7 +31,7 @@ class Comment(models.Model):
 
 
 class Nested(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='community_nested_author')
     author_ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=False)
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='nested_set')
     create_date = models.DateField()
@@ -41,7 +41,7 @@ class Nested(models.Model):
 
 
 class Status(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='community_status_author')
     author_ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=False)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, blank=True)
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True, blank=True)
