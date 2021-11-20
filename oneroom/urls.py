@@ -6,5 +6,7 @@ app_name = 'oneroom'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<int:num>', views.detail, name='detail')
+    path('<int:num>', views.detail, name='detail'),
+
+    path('json/',views.json, name='json'),
 ]
