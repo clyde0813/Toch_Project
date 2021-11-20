@@ -10,26 +10,18 @@
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     <!-- CSS import -->
-    <link rel="stylesheet" href="{% static 'main_tmp/css/import.css' %}">
+    <link rel="stylesheet" href="{% static 'css/import.css' %}">   <!-- main_tmp/css/import.css -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Toch</title>
 </head>
 <body>
 {% include "navbar.html" %}
-<!-- 기본 템플릿 안에 삽입될 내용 Start -->
+
 {% block content %}
 {% endblock %}
 
 {% include "footer.html" %}
-<!-- 기본 템플릿 안에 삽입될 내용 End -->
-<!-- jQuery JS -->
-<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
-<!-- 자바스크립트 Start -->
+
 <!-- 커뮤니티 목록 스르륵 jQuery-->
 <script>
     $(document).ready(function(){
@@ -44,9 +36,5 @@
         })
     })
 </script>
-{% block script %}
-{% endblock %}
-<!-- 자바스크립트 End -->
-
 </body>
 </html>
