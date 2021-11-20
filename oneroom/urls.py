@@ -8,5 +8,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('<int:num>', views.detail, name='detail'),
 
-    path('json/',views.json, name='json'),
+    path('json/',views.oneroom_json, name='json'),
 ]
