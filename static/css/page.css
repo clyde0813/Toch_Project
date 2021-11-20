@@ -218,10 +218,10 @@
 .myPage .quesArea ul li{float: left; width: 150px; text-align: center;}
 .myPage .quesArea ul li:not(:last-child){margin-right: 20px;}
 .myPage .quesArea ul li a{display: block; width: 100%; padding: 105px 0 30px; font-weight: bold; background-color: white; background-repeat: no-repeat; background-position: center top 45px;}
-.myPage .quesArea ul li:nth-child(1) a{background-image: url('../../templates/로그인 마이페이지/images/mypage_question01.png');}
-.myPage .quesArea ul li:nth-child(2) a{background-image: url('../../templates/로그인 마이페이지/images/mypage_question02.png');}
-.myPage .quesArea ul li:nth-child(3) a{background-image: url('../../templates/로그인 마이페이지/images/mypage_question03.png');}
-.myPage .quesArea ul li:nth-child(4) a{background-image: url('../../templates/로그인 마이페이지/images/mypage_question04.png');}
+.myPage .quesArea ul li:nth-child(1) a{background-image: url('../images/mypage_question01.png');}
+.myPage .quesArea ul li:nth-child(2) a{background-image: url('../images/mypage_question02.png');}
+.myPage .quesArea ul li:nth-child(3) a{background-image: url('../images/mypage_question03.png');}
+.myPage .quesArea ul li:nth-child(4) a{background-image: url('../images/mypage_question04.png');}
 
 
 /* 마이페이지 - 대화상자 */
@@ -267,9 +267,9 @@
 .tolkBox .tolkDetail .tolkArea > span time{font-size: 14px; color: #bbbbbb; position: relative; z-index: 1; display: inline-block; padding: 0 20px; background-color: white;}
 
 .tolkBox .tolkDetail .inputArea{margin-top: auto; padding: 20px; display: flex; min-height: 40px;}
-.tolkBox .tolkDetail .inputArea input{height: 100%; border: 1px solid #cacaca; padding: 0 15px; box-sizing: border-box; flex: 1; width: 0;}
+.tolkBox .tolkDetail .inputArea input{height: 100%; border: 1px solid #cacaca; padding: 20px 15px; box-sizing: border-box; flex: 1; width: 0;}
 .tolkBox .tolkDetail .inputArea button{height: 100%; width: 115px; display: flex; justify-content: center; align-items: center;  font-weight: 700; color: #ff9900; border: 1px solid #ff9900;}
-.tolkBox .tolkDetail .inputArea button::before{content: ''; width: 22px; height: 22px; background: url('../../templates/로그인 마이페이지/images/inputIcon.png') no-repeat center / cover; margin-right: 25px;}
+.tolkBox .tolkDetail .inputArea button::before{content: ''; width: 22px; height: 22px; background: url('../images/inputIcon.png') no-repeat center / cover; margin-right: 25px;}
 
 
 
