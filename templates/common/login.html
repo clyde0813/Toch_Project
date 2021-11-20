@@ -15,8 +15,8 @@
                 </ul>
                 <p>ID에 학교 이메일 또는 Toch ID를 입력하세요.</p>
                 <input type="submit" value="로그인">
-                <p><mark><a href="login_Find.html">Toch ID 또는 암호를 잊으셨나요?</a></mark></p>
-                <p><mark>Toch ID가 없으신가요?<a href="#">지금 생성.</a></mark></p>
+                <p><mark><a href="{% url 'common:login_find' %}">Toch ID 또는 암호를 잊으셨나요?</a></mark></p>
+                <p><mark>Toch ID가 없으신가요?<a href="{% url 'common:signup' %}">지금 생성.</a></mark></p>
             </fieldset>
         </form>
     </div>
