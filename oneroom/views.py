@@ -25,8 +25,8 @@ def json(request):
 
     queryset_json = serializers.serialize('json',Attribution_dataset)
 
-    context = {"Attribution_dataset":Attribution_dataset, 'queryset_json':queryset_json}
+    context = {'queryset_json':queryset_json}
 
-    return JsonResponse({'queryset_json':queryset_json})
+    return JsonResponse(context)
     # return render(request, 'oneroom/json.html',context)
 
