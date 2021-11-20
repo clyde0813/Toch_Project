@@ -32,10 +32,8 @@ SECRET_KEY = 'django-insecure-=@mny3bnasw-35c6%0_zrh0y-h7ok^^*@tikp1g&wa!$o!(#4u
 INSTALLED_APPS = [
     'community.apps.CommunityConfig',
     'common.apps.CommonConfig',
-    'chat',
     'oneroom.apps.OneroomConfig',
     'usedtrade.apps.UsedtradeConfig',
-    'main.apps.MainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

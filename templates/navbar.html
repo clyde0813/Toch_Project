@@ -1,7 +1,7 @@
 {% load static %}
 <header>
     <div class="width1200">
-        <h1><a href="{% url 'main:index' %}"><img src="{% static 'main_tmp/images/logo.png' %}"
+        <h1><a href="{% url 'common:index' %}"><img src="{% static 'images/logo.png' %}"
                                                   alt="logo"><small>목포대</small></a></h1>
         <nav>
             <ul>
@@ -58,8 +58,8 @@
             </ul>
         </nav>
         <ul>
-            <li><a href="{% url 'signup' %}" class="login_icon">로그인</a></li>
-            <li><a href="{% url 'mypage' %}" class="mail_icon" data-count="7">메일</a></li>
+            <li><a href="{% url 'common:mypage' %}" class="login_icon">로그인</a></li>
+            <li><a href="{% url 'common:community_chat' %}" class="mail_icon" data-count="7">메일</a></li>
         </ul>
     </div>
 </header>
