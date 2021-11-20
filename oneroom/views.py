@@ -1,8 +1,8 @@
-from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
-from django.core import serializers
-import json
+from django.shortcuts import render
+
 from .models import *
+from .serializer import AttributionSerializer
 
 
 # Create your views here.
@@ -20,12 +20,6 @@ def detail(request, num):
 
 
 def oneroom_json(request):
-    Attribution_dataset = Attribution.objects.all().only('id', 'post', 'A', 'B', 'C', 'D', 'E')
-    json_posts = json.dumps(Attribution_dataset)
-    print(json_posts)
-    # queryset_json = serializers.serialize('json', Attribution_dataset)
-
-    context = {'queryset_json': queryset_json}
-
-    return JsonResponse(context)
-    # return render(request, 'oneroom/json.html',context)
+    queryset = Attribution.objects.all()
+    serializer = AttributionSerializer(queryset, many=True)
+    return JsonResponse(serializer.data, safe=False)

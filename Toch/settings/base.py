@@ -30,6 +30,7 @@ SECRET_KEY = 'django-insecure-=@mny3bnasw-35c6%0_zrh0y-h7ok^^*@tikp1g&wa!$o!(#4u
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'community.apps.CommunityConfig',
     'common.apps.CommonConfig',
     'oneroom.apps.OneroomConfig',
