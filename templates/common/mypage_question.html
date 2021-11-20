@@ -1,47 +1,47 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="subPage myPage">
-    <section class="width1200 myArea">
-        <h2>메인페이지</h2>
-        <ul class="menuBox">
-            <li>
-                <a href="mypage_member.html">회원정보</a>
-            </li>
-            <li>
-                <a href="mypage_used.html" data-count="3">중고거래</a>
-            </li>
-            <li>
-                <a href="mypage_community.html" data-count="3">커뮤니티</a>
-            </li>
-            <li class="active">
-                <a href="mypage_question.html">문의</a>
-            </li>
-        </ul>
-
-        <div class="paddingBox quesArea">
-            <ul>
+    <div class="subPage myPage">
+        <section class="width1200 myArea">
+            <h2>메인페이지</h2>
+            <ul class="menuBox">
                 <li>
-                    <a href="#">
-                        공지사항
-                    </a>
+                    <a href="{% url 'common:mypage' %}">회원정보</a>
                 </li>
                 <li>
-                    <a href="#">
-                        도움말
-                    </a>
+                    <a href="{% url 'common:usedtrade_chat' %}" data-count="3">중고거래</a>
                 </li>
                 <li>
-                    <a href="#">
-                        문의하기
-                    </a>
+                    <a href="{% url 'common:community_chat' %}" data-count="3">커뮤니티</a>
                 </li>
-                <li>
-                    <a href="#">
-                        회원탈퇴
-                    </a>
+                <li class="active">
+                    <a href="{% url 'common:service' %}">문의</a>
                 </li>
             </ul>
-        </div>
-    </section>
-</div>
+
+            <div class="paddingBox quesArea">
+                <ul>
+                    <li>
+                        <a href="#">
+                            공지사항
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            도움말
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            문의하기
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            회원탈퇴
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
 {% endblock %}

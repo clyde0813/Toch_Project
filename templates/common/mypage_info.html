@@ -1,20 +1,21 @@
-{% extends 'base.html %}
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div class="subPage myPage">
     <section class="width1200 myArea">
         <h2>메인페이지</h2>
         <ul class="menuBox">
             <li class="active">
-                <a href="mypage_member.html">회원정보</a>
+                <a href="{% url 'common:mypage' %}">회원정보</a>
             </li>
             <li>
-                <a href="mypage_used.html" data-count="3">중고거래</a>
+                <a href="{% url 'common:usedtrade_chat' %}" data-count="3">중고거래</a>
             </li>
             <li>
-                <a href="mypage_community.html" data-count="3">커뮤니티</a>
+                <a href="{% url 'common:community_chat' %}" data-count="3">커뮤니티</a>
             </li>
             <li>
-                <a href="mypage_question.html">문의</a>
+                <a href="{% url 'common:service' %}">문의</a>
             </li>
         </ul>
         <div class="paddingBox memberArea">
@@ -22,7 +23,7 @@
                 <strong>프로필</strong>
                 <div>
                     <div>
-                        <div class="imgBox" style="background-image: url(images/mypage_member_user.png);">
+                        <div class="imgBox" style="background-image: url({% static 'images/mypage_member_user.png' %});">
                             유저 이미지
                         </div>
                         <button>업로드</button>
