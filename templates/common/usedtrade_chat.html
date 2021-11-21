@@ -1,84 +1,87 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="subPage myPage">
+    <div class="subPage myPage">
 
 
-    <section class="width1200 myArea">
-        <h2>메인페이지</h2>
-        <ul class="menuBox">
-            <li>
-                <a href="{% url 'common:mypage' %}">회원정보</a>
-            </li>
-            <li class="active">
-                <a href="{% url 'common:usedtrade_chat' 0 %}" data-count="3">중고거래</a>
-            </li>
-            <li>
-                <a href="{% url 'common:community_chat' %}" data-count="3">커뮤니티</a>
-            </li>
-            <li>
-                <a href="{% url 'common:service' %}">문의</a>
-            </li>
-        </ul>
+        <section class="width1200 myArea">
+            <h2>메인페이지</h2>
+            <ul class="menuBox">
+                <li>
+                    <a href="{% url 'common:mypage' %}">회원정보</a>
+                </li>
+                <li class="active">
+                    <a href="{% url 'common:usedtrade_chat' 0 %}" data-count="3">중고거래</a>
+                </li>
+                <li>
+                    <a href="{% url 'common:community_chat' %}" data-count="3">커뮤니티</a>
+                </li>
+                <li>
+                    <a href="{% url 'common:service' %}">문의</a>
+                </li>
+            </ul>
 
-        <div class="tolkBox usedArea">
-            <div class="tolkList">
-                <ul>
-                    {% for chatroom in chatroom %}
-                        <li class="active" onclick="location.href='{% url 'common:usedtrade_chat' chatroom.id %}'">
-                            <b>{{ chatroom.chat_list.last.author }}</b>
-                            <time>{{ chatroom.chat_list.last.create_date }}</time>
-                            <p>{{ chatroom.chat_list.last.content }}</p>
-                            <span>3</span>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="tolkDetail">
-                <div class="tolkSubject">
-                    <div class="imgBox" style="background-image: url({% static 'images/mypage_used_goods.png' %});">
-                        상품이미지
+            <div class="tolkBox usedArea">
+                <div class="tolkList">
+                    <ul>
+                        {% for chatroom in chatroom %}
+                            <li class="active" onclick="location.href='{% url 'common:usedtrade_chat' chatroom.id %}'">
+                                <b>{{ chatroom.chat_list.last.author }}</b>
+                                <time>{{ chatroom.chat_list.last.create_date }}</time>
+                                <p>{{ chatroom.chat_list.last.content }}</p>
+                                <span>3</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {#                {% if info %}#}
+                <div class="tolkDetail">
+                    <div class="tolkSubject">
+                        <div class="imgBox"
+                             style="background-image: url('{{ info.0.file_set.last.file }}');">
+                            상품이미지
+                        </div>
+                        <p>
+                            {{ info.0.title }}
+                            <strong>{{ info.0.price }}원</strong>
+                        </p>
+                        <button>차단</button>
                     </div>
-                    <p>
-                        아이패드 프로 11인치
-                        <strong>605,000원</strong>
-                    </p>
-                    <button>차단</button>
-                </div>
-                <div class="tolkArea">
-                    {% for data in data %}
-                        {% if data.author == user %}
-                            <div class="opponentTolk">
-                                <div class="imgBox"
-                                     style="background-image: url({% static  'images/mypage_used_user.png' %});">
-                                    김개똥 이미지
+                    {#                {% endif %}#}
+                    <div class="tolkArea">
+                        {% for data in data %}
+                            {% if data.author == user %}
+                                <div class="opponentTolk">
+                                    <div class="imgBox"
+                                         style="background-image: url({% static  'images/mypage_used_user.png' %});">
+                                        김개똥 이미지
+                                    </div>
+                                    <blockquote>
+                                        <cite>{{ data.author }}</cite>
+                                        <q>{{ data.content }}</q>
+                                        <time>{{ data.create_date }}</time>
+                                    </blockquote>
                                 </div>
-                                <blockquote>
-                                    <cite>{{ data.author }}</cite>
-                                    <q>{{ data.content }}</q>
-                                    <time>{{ data.create_date }}</time>
-                                </blockquote>
-                            </div>
-                        {% else %}
-                            <div class="meTolk">
-                                <blockquote>
-                                    <time>{{ data.create_date }}</time>
-                                    <q>{{ data.content }}</q>
-                                </blockquote>
-                            </div>
-                            {#                                <span><time>2021년 11월 10일</time></span>#}
-                        {% endif %}
-                    {% endfor %}
-                </div>
+                            {% else %}
+                                <div class="meTolk">
+                                    <blockquote>
+                                        <time>{{ data.create_date }}</time>
+                                        <q>{{ data.content }}</q>
+                                    </blockquote>
+                                </div>
+                                {#                                <span><time>2021년 11월 10일</time></span>#}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
 
-                <div class="inputArea">
-                    <input type="text">
-                    <button>입력</button>
+                    <div class="inputArea">
+                        <input type="text">
+                        <button>입력</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
-</div>
+    </div>
 {% endblock %}

@@ -16,7 +16,7 @@ class Chat(models.Model):
     receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='chat_receiver')
     create_date = models.DateTimeField()
     content = models.TextField()
-    used_post = models.ForeignKey(UsedTradePost, on_delete=models.CASCADE, related_name='chat_post', blank=True,
+    used_post = models.ForeignKey(UsedTradePost, on_delete=models.CASCADE, related_name='usedtrade_post', blank=True,
                                   null=True)
     community_post = models.ForeignKey(CommunityPost, on_delete=models.CASCADE, related_name='community_post',
                                        blank=True, null=True)

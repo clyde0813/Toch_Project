@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render
 
+from usedtrade.models import Post as usedtradePost
 from .models import Chat, ChatRoom
 
 
@@ -35,14 +36,14 @@ def page_not_found(request):
 def usedtrade_chat(request, num):
     if num is 0:
         chat_room_set = ChatRoom.objects.filter(Q(author=request.user) | Q(receiver=request.user))
-        query_set = Chat.objects.filter(Q(author=request.user) | Q(receiver=request.user))
-        context = {'data': query_set, 'chatroom': chat_room_set}
+        context = {'chatroom': chat_room_set}
         return render(request, 'common/usedtrade_chat.html', context)
     else:
         chat_room_set = ChatRoom.objects.filter(Q(author=request.user) | Q(receiver=request.user))
         query_set = Chat.objects.filter(Q(author=request.user) | Q(receiver=request.user))
         query_set = query_set.filter(chatroom=num)
-        context = {'data': query_set, 'chatroom': chat_room_set}
+        usedtrade_info = usedtradePost.objects.filter(id=query_set.first().used_post_id)
+        context = {'data': query_set, 'chatroom': chat_room_set, 'info': usedtrade_info}
         return render(request, 'common/usedtrade_chat.html', context)
 
 
