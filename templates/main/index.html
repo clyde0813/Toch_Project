@@ -481,12 +481,12 @@
                         <form action="{% url 'common:login' %}" method="post">
                             {% csrf_token %}
                             <fieldset>
-                                <div class="mainLonginArea">
+                                <div class="mainLonginArea" style="font-weight: bold; font-size: 1.2rem">
                                  <p>{{ request.user.last_name }} 님 환영해요!</p>
 
                                 </div>
-                                <div style="margin-top: 1rem">
-                                    <input style="background-color: orange" onclick="location.href='{% url 'common:logout' %}'" type="button" value="로그아웃">
+                                <div style="margin-top: 1rem;">
+                                    <input style="background-color: orange; color: white; font-size: 1.1rem" onclick="location.href='{% url 'common:logout' %}'" type="button" value="로그아웃">
                                 </div>
                             </fieldset>
                         </form>
