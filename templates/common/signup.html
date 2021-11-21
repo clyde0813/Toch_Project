@@ -19,13 +19,13 @@
                             <input type="password" placeholder="비밀번호 확인" id="pass_check_input" required>
                         </li>
                         <li>
-                            <label for="">이름</label>
-                            <input type="text" placeholder="이름을 입력해 주세요" required>
+                            <label for="name_input">이름</label>
+                            <input type="text" id="name_input" placeholder="이름을 입력해 주세요" required>
                         </li>
                         <li>
-                            <label for="">생년월일</label>
+                            <label for="birthday_input">생년월일</label>
                             <div>
-                                <input type="text" placeholder="년(4자)" required>
+                                <input type="text" placeholder="년(4자)" id="birthday_input" required>
                                 <select name="month">
                                     <option value="" disabled selected>월</option>
                                     <option value="01">1</option>
@@ -42,27 +42,23 @@
                                     <option value="12">12</option>
                                 </select>
                                 <input type="number" id="dd" placeholder="일">
-<!--                                <select name="day">-->
-<!--                                    <option value="1">1일</option>-->
-<!--                                    -->
-<!--                                </select>-->
                             </div>
                         </li>
                         <li>
-                            <label for="">성별</label>
-                            <select>
+                            <label for="gender">성별</label>
+                            <select id="gender">
                                 <option value="male">남</option>
                                 <option value="female">여</option>
                             </select>
                         </li>
                         <li>
-                            <label for="">전화 번호 (선택)</label>
-                            <input type="tel" placeholder="전화 번호를 입력해주세요." required>
+                            <label for="phone">전화 번호 (선택)</label>
+                            <input type="tel" id="phone" placeholder="전화 번호를 입력해주세요." required>
                         </li>
                         <li>
-                            <label for="">이메일 주소</label>
+                            <label for="email">이메일 주소</label>
                             <div>
-                                <input type="email" placeholder="이메일 주소를 입력해주세요" required>
+                                <input type="email" id="email" placeholder="이메일 주소를 입력해주세요" required>
                                 <button>인증번호 받기</button>
                             </div>
                             <input type="text" placeholder="인증번호를 입력해주세요" required>

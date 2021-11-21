@@ -67,3 +67,6 @@ button{background-color: transparent; border: none; cursor: pointer;}
 input[type="submit"]{cursor: pointer;}
 
 input[type="password"]{font-family: Serif}
+
+input:focus, select:focus { outline-color: #ff9900; }
+
