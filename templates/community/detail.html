@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="mainPage">
+    <div>글 제목</div>
+    <span>작성자 |</span>
+    <span>작성일 |</span>
+    <span>조회 |</span>
+    <span>좋아요 |</span>
+    <span>싫어요 |</span>
+    <span>댓글 개수 |</span>
+
+    <button>수정</button>
+
+    <p>
+        글 내용 들어갈 자리
+        <img src="" alt="내용 사진들">
+        <img src="" alt="내용 사진들">
+    </p>
+
+    <div class="comments">
+        <ul>
+            <li>
+                <img src="" alt="프로필 사진 들어갈 자리">
+                <span>작성자 ID</span>
+                <p>댓글 내용</p>
+                <time>작성일</time>
+                <button>대댓글</button>
+                <button>좋아요</button>
+                <button>쪽지</button>
+                <button>신고</button>
+            </li>
+        </ul>
+
+        <textarea name="댓글 작성" id="" cols="30" rows="10" placeholder="댓글을 남겨보세요."></textarea>
+        <button type="submit">작성</button>
+    </div>
+
+
+    <button>글 목록</button>
+</div>
+{% endblock %}
