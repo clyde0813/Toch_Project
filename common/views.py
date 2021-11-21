@@ -4,10 +4,16 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, redirect
+<<<<<<< HEAD
 
 from .forms import UserForm
+=======
+from django.utils import timezone
+
+from ip_gather import get_client_ip
+>>>>>>> c2b354dbdd0a2d7906aad53471b8f073f21048a3
 from usedtrade.models import Post as usedtradePost
-from .models import Chat, ChatRoom
+from .forms import *
 
 
 # Create your views here.
@@ -60,6 +66,28 @@ def usedtrade_chat(request, num):
         usedtrade_info = usedtradePost.objects.filter(id=query_set.first().used_post_id)
         context = {'data': query_set, 'chatroom': chat_room_set, 'info': usedtrade_info}
         return render(request, 'common/usedtrade_chat.html', context)
+
+
+def usedtrade_chat_send(request, chatroom_id):
+    if request.method == 'POST':
+        form = ChatForm(request.POST)
+        chat_room_set = ChatRoom.objects.filter(Q(author=request.user) | Q(receiver=request.user))
+        chat_room_set = chat_room_set.filter(id=chatroom_id)
+
+        if form.is_valid():
+            chat = form.save(commit=False)
+            chat.author = request.user
+            chat.author_ip = get_client_ip(request)
+            chat.create_date = timezone.now()
+            author = chat_room_set.last().author
+            if author == request.user:
+                chat.receiver = chat_room_set.last().receiver
+            else:
+                chat.receiver = author
+            chat.used_post_id = chat_room_set.last().chat_list.last().used_post_id
+            chat.chatroom_id = chatroom_id
+            chat.save()
+            return redirect('common:usedtrade_chat', chatroom_id)
 
 
 def community_chat(request):
