@@ -1,22 +1,15 @@
-from importlib.resources import _
-
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, redirect
-<<<<<<< HEAD
 
-from .forms import UserForm
-=======
 from django.utils import timezone
 
 from ip_gather import get_client_ip
->>>>>>> c2b354dbdd0a2d7906aad53471b8f073f21048a3
 from usedtrade.models import Post as usedtradePost
 from .forms import *
 
 
-# Create your views here.
 # Create your views here.
 def index(request):
     return render(request, 'main/index.html')
@@ -37,7 +30,6 @@ def signup(request):
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, _('Your profile was successfully updated!'))
             return redirect('common:index')
     else:
         user_form = UserForm(instance=request.user)

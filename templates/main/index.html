@@ -477,9 +477,21 @@
                         </form>
                     </div>
                 {% else %}
+                    <div class="mainLonginArea">
+                        <form action="{% url 'common:login' %}" method="post">
+                            {% csrf_token %}
+                            <fieldset>
+                                <div class="mainLonginArea">
+                                 <p>{{ request.user.last_name }} 님 환영해요!</p>
 
-                    <p>{{ user }}</p>
-                    <button onclick="location.href='{% url 'common:logout' %}'">로그아웃</button>
+                                </div>
+                                <div style="margin-top: 1rem">
+                                    <input style="background-color: orange" onclick="location.href='{% url 'common:logout' %}'" type="button" value="로그아웃">
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
 
                 {% endif %}
 
