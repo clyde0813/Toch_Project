@@ -1,11 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
     <link rel="stylesheet" href="{% static 'oneroom/oneroom_index.css' %}">
+    <style>
+        .search_bar {
+            position: absolute;
+
+            float: left;
+            z-index: 2;
+            width: 500px;
+            height: 25px;
+        }
+
+        .filter_btn, .recommend_btn {
+            width: 70px;
+            height: 25px;
+            background-color: white;
+            border: 1px solid grey;
+        }
+
+    </style>
+
     <div class="mainContainer">
         <section>
-            <div class="myMap"></div>
+            <div class="myMap">
+                <div class="search_bar">
+                    <input type="text">
+                    <button class="filter_btn">필터</button>
+                    <button class="recommend_btn" onclick="fetchData()">ai추천</button>
+                </div>
+            </div>
         </section>
 
         <section>
@@ -20,6 +44,7 @@
     <script type="text/javascript">
         const container = document.querySelector('.myMap');
         const itemList = document.querySelector('.itemList');
+        //const recommend_btn = document.querySelector('.recommend_btn')
 
         let MARKER_WIDTH = 33, // 기본, 클릭 마커의 너비
             MARKER_HEIGHT = 36, // 기본, 클릭 마커의 높이
@@ -133,8 +158,8 @@
                 SPRITE_MARKER_URL, // 스프라이트 마커 이미지 URL
                 markerSize, // 마커의 크기
                 {
-                    {#offset: offset, // 마커 이미지에서의 기준 좌표#}
-                    {#spriteOrigin: spriteOrigin, // 스트라이프 이미지 중 사용할 영역의 좌상단 좌표#}
+                    offset, // 마커 이미지에서의 기준 좌표#
+                    spriteOrigin, // 스트라이프 이미지 중 사용할 영역의 좌상단 좌표#
                     spriteSize: spriteImageSize // 스프라이트 이미지의 크기
                 }
             );
@@ -176,6 +201,35 @@
                 `
         }
 
+        let ai = {
+            "A" : "0",
+            "B" : "1",
+            "C" : "0",
+            "D" : "1",
+            "E" : "0",
+        }
+        // 산술평균 값 key로 정렬
+        function arithmeticMean(json, ai) {
+            let keys = Object.keys(json[0]);
+            let arithmeticMean = {}
 
+            for(let i=0; i<json.length; i++) {
+                let sum = 0
+                let post = json[i][keys[0]];
+                for(let k=1; k<keys.length; k++) {
+                    let post_score = json[i][keys[k]];
+                    sum += post_score * ai[keys[k]]
+                }
+                arithmeticMean[post] = sum
+            }
+            alert(Object.keys(arithmeticMean).sort( function(a,b){ return arithmeticMean[b]-arithmeticMean[a] }));
+        }
+
+        // JSON 데이터 받아오는 함수
+        function fetchData() {
+            fetch('http://127.0.0.1:8000/api/oneroom/')
+            .then(response => response.json())
+            .then(data => arithmeticMean(data, ai))
+        }
     </script>
 {% endblock %}

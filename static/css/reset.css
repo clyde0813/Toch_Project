@@ -69,3 +69,5 @@ input[type="password"]{font-family: Serif}
 
 input:focus, select:focus { outline-color: #ff9900; }
 
+a:hover { color: #ff9900 }
+
