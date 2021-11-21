@@ -33,6 +33,7 @@ def page_not_found(request):
     return render(request, '404.html')
 
 
+@login_required(login_url='common:login')
 def usedtrade_chat(request, num):
     if num is 0:
         chat_room_set = ChatRoom.objects.filter(Q(author=request.user) | Q(receiver=request.user))
