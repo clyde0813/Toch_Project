@@ -1,9 +1,8 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.db.models import Q
 from django.shortcuts import render
 
-from .models import Chat
+from .models import Chat, ChatRoom
 
 
 # Create your views here.
@@ -35,13 +34,15 @@ def page_not_found(request):
 
 def usedtrade_chat(request, num):
     if num is 0:
+        chat_room_set = ChatRoom.objects.filter(Q(author=request.user) | Q(receiver=request.user))
         query_set = Chat.objects.filter(Q(author=request.user) | Q(receiver=request.user))
-        context = {'data': query_set}
+        context = {'data': query_set, 'chatroom': chat_room_set}
         return render(request, 'common/usedtrade_chat.html', context)
     else:
-        query_set = Chat.objects.filter(used_post=num)
-
-        context = {'data': query_set}
+        chat_room_set = ChatRoom.objects.filter(Q(author=request.user) | Q(receiver=request.user))
+        query_set = Chat.objects.filter(Q(author=request.user) | Q(receiver=request.user))
+        query_set = query_set.filter(chatroom=num)
+        context = {'data': query_set, 'chatroom': chat_room_set}
         return render(request, 'common/usedtrade_chat.html', context)
 
 
