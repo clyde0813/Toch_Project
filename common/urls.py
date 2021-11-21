@@ -13,7 +13,7 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('chat/community/', views.community_chat, name='community_chat'),
     path('chat/usedtrade/<int:num>', views.usedtrade_chat, name='usedtrade_chat'),
-    path('chat/usedtrade/create/<int:receiver_id><int:post_id><int:chatroom_id>/', views.usedtrade_chat_send, name='usedtrade_chat_send'),
+    path('chat/usedtrade/create/<int:chatroom_id>/', views.usedtrade_chat_send, name='usedtrade_chat_send'),
     path('service/', views.service, name='service'),
 
 ]
