@@ -2,593 +2,601 @@
 {% load static %}
 
 {% block content %}
-<div class="mainPage">
-    <!-- contents -->
-    <div class="contArea width1200">
-        <!-- left contents -->
-        <div class="leftContArea">
-            <div>
-                <!-- main banner -->
-                <div class="mainBanner">
-                    <img src="{% static 'images/main_banner.png' %}" alt="무한한 가능성을 가진 공간 toch">
-                    <a href="#">자세히 보기
-                        <span class="material-icons-outlined">
+    <div class="mainPage">
+        <!-- contents -->
+        <div class="contArea width1200">
+            <!-- left contents -->
+            <div class="leftContArea">
+                <div>
+                    <!-- main banner -->
+                    <div class="mainBanner">
+                        <img src="{% static 'images/main_banner.png' %}" alt="무한한 가능성을 가진 공간 toch">
+                        <a href="#">자세히 보기
+                            <span class="material-icons-outlined">
                                 east
                             </span>
-                    </a>
+                        </a>
+                    </div>
+
+                    <!-- main board -->
+                    <div class="boardArea">
+                        <div class="width100 borderBox paddingBox">
+                            <!-- 실시간 인기 게시물 -->
+                            <strong>실시간 인기 게시물 <a href="#">+</a></strong>
+                            <ul class="hoverEvent">
+                                <li>
+                                    <a href="#">
+                                        <p>냥이 가족이 되었다</p>
+                                        <time>10.20 15:20</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>담보대출 서비스 재개 안내 </p>
+                                        <time>10.20 15:20</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>총학이란 무엇인가?</p>
+                                        <time>10.20 15:20</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>퍼스트 원화 발행어음 수익률...</p>
+                                        <time>10.20 15:20</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>복학후 달라진 점</p>
+                                        <time>10.20 15:20</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>슬기로운 대학생활 안내</p>
+                                        <time>10.20 15:20</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>맛집 분석 best 10</p>
+                                        <time>10.20 15:20</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>찾아가는 입시설명회</p>
+                                        <time>10.20 15:20</time>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 자유게시판 -->
+                        <div class="borderBox paddingBox">
+                            <strong>자유게시판<a href="#">+</a></strong>
+                            <ul class="hoverEvent">
+                                <li>
+                                    <a href="#">
+                                        <p>디자인과 라이프스타일을 큐레이션 하다</p>
+                                        <time>방금</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>돈으로 시간을 사는 방법</p>
+                                        <time>2분전</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>혹시 화이자 2차 맞고 부정출혈 오신분 있나...</p>
+                                        <time>2분전</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>내일 독서실 갈까 말까?</p>
+                                        <time>8분전</time>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 비밀게시판 -->
+                        <div class="borderBox paddingBox">
+                            <strong>비밀게시판<a href="#">+</a></strong>
+                            <ul class="hoverEvent">
+                                <li>
+                                    <a href="#">
+                                        <p>오일세안 후 나타나는 피부 변화</p>
+                                        <time>방금</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>우리가 자주 먹는 과자 속 비하인드 스토리</p>
+                                        <time>2분전</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>맛있는 밀크티 만드는 비법 전수</p>
+                                        <time>2분전</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>학교 책상 내맘대로 리폼하기 </p>
+                                        <time>8분전</time>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 정보게시판 -->
+                        <div class="borderBox paddingBox">
+                            <strong>정보게시판<a href="#">+</a></strong>
+                            <ul class="hoverEvent">
+                                <li>
+                                    <a href="#">
+                                        <p>디자인과 라이프스타일을 큐레이션 하다</p>
+                                        <time>방금</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>돈으로 시간을 사는 방법</p>
+                                        <time>2분전</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>혹시 화이자 2차 맞고 부정출혈 오신혹시 화이자 2차 맞고 부정출혈 오신</p>
+                                        <time>2분전</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>내일 독서실 갈까 말까?</p>
+                                        <time>8분전</time>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 홍보 게시판 -->
+                        <div class="borderBox paddingBox">
+                            <strong>홍보게시판<a href="#">+</a></strong>
+                            <ul class="hoverEvent">
+                                <li>
+                                    <a href="#">
+                                        <p>오일세안 후 나타나는 피부 변화</p>
+                                        <time>방금</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>우리가 자주 먹는 과자 속 비하인드 스토리</p>
+                                        <time>2분전</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>맛있는 밀크티 만드는 비법 전수</p>
+                                        <time>2분전</time>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p>학교 책상 내맘대로 리폼하기 </p>
+                                        <time>8분전</time>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- main tab -->
+                    <div class="tabArea">
+                        <!-- main tab 원룸 거래 -->
+                        <ul class="tabBtn">
+                            <li>
+                                <button class="active">원룸</button>
+                            </li>
+                            <li>
+                                <button>거래</button>
+                            </li>
+                        </ul>
+
+                        <div class="tabContents fontCase01 paddingBox">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <div class="imgBox"
+                                             style="background-image: url({% static 'images/villa01.png' %});">
+                                            행복빌라 A동
+                                        </div>
+                                        <div>
+                                            <strong>행복빌라 A동<small>월세</small></strong>
+                                            <p>
+                                                학교앞 100m거리 편의점에 위치한 원룸입니다.<br/>
+                                                좋은 입지조건과 깨끗한 관리로 신식 건물 못지않게 좋습니다.<br/>
+                                                도보 15분 거리에 동대문역이 있어 대중교통 또한 편리합니다.
+                                            </p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="imgBox"
+                                             style="background-image: url({% static 'images/villa02.png' %});">
+                                            행복빌라 A동
+                                        </div>
+                                        <div>
+                                            <strong>행복빌라 A동<small>월세</small></strong>
+                                            <p>
+                                                학교앞 100m거리 편의점에 위치한 원룸입니다.<br/>
+                                                좋은 입지조건과 깨끗한 관리로 신식 건물 못지않게 좋습니다.<br/>
+                                                도보 15분 거리에 동대문역이 있어 대중교통 또한 편리합니다.
+                                            </p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="imgBox"
+                                             style="background-image: url({% static 'images/villa03.png' %});">
+                                            행복빌라 A동
+                                        </div>
+                                        <div>
+                                            <strong>행복빌라 A동<small>월세</small></strong>
+                                            <p>
+                                                학교앞 100m거리 편의점에 위치한 원룸입니다.<br/>
+                                                좋은 입지조건과 깨끗한 관리로 신식 건물 못지않게 좋습니다.<br/>
+                                                도보 15분 거리에 동대문역이 있어 대중교통 또한 편리합니다.
+                                            </p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="imgBox"
+                                             style="background-image: url({% static 'images/villa04.png' %});">
+                                            행복빌라 A동
+                                        </div>
+                                        <div>
+                                            <strong>행복빌라 A동<small>월세</small></strong>
+                                            <p>
+                                                학교앞 100m거리 편의점에 위치한 원룸입니다.<br/>
+                                                좋은 입지조건과 깨끗한 관리로 신식 건물 못지않게 좋습니다.<br/>
+                                                도보 15분 거리에 동대문역이 있어 대중교통 또한 편리합니다.
+                                            </p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- main board -->
+                <section class="popularArea">
+                    <h2>인기원룸</h2>
+                    <ul class="fontCase01">
+                        <li class="borderBox">
+                            <a href="#">
+                                <div class="imgBox"
+                                     style="background-image: url({% static 'images/oneRoom01.png' %});">원룸 이미지
+                                </div>
+                                <div>
+                                    <strong>월세 60만원<small>원룸</small></strong>
+                                    <p>3층 15평 관리비 5만원</p>
+                                    <p>목포대 다이소 근처</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="borderBox">
+                            <a href="#">
+                                <div class="imgBox"
+                                     style="background-image: url({% static 'images/oneRoom01.png' %});">원룸 이미지
+                                </div>
+                                <div>
+                                    <strong>월세 60만원<small>원룸</small></strong>
+                                    <p>3층 15평 관리비 5만원</p>
+                                    <p>목포대 다이소 근처</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="borderBox">
+                            <a href="#">
+                                <div class="imgBox"
+                                     style="background-image: url({% static 'images/oneRoom01.png' %});">원룸 이미지
+                                </div>
+                                <div>
+                                    <strong>월세 60만원<small>원룸</small></strong>
+                                    <p>3층 15평 관리비 5만원</p>
+                                    <p>목포대 다이소 근처</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="borderBox">
+                            <a href="#">
+                                <div class="imgBox"
+                                     style="background-image: url({% static 'images/oneRoom01.png' %});">원룸 이미지
+                                </div>
+                                <div>
+                                    <strong>월세 60만원<small>원룸</small></strong>
+                                    <p>3층 15평 관리비 5만원</p>
+                                    <p>목포대 다이소 근처</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="realTimeArea">
+                    <h2>실시간 인기 중고</h2>
+                    <ul class="fontCase01">
+                        <li class="">
+                            <a href="">
+                                <div class="imgBox borderBox"
+                                     style="background-image: url({% static 'images/realTime01.png' %});">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div>
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li class="">
+                            <a href="">
+                                <div class="imgBox borderBox"
+                                     style="background-image: url({% static 'images/realTime02.png' %});">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div>
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li class="">
+                            <a href="">
+                                <div class="imgBox borderBox"
+                                     style="background-image: url({% static 'images/realTime03.png' %});">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div>
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li class="">
+                            <a href="">
+                                <div class="imgBox borderBox"
+                                     style="background-image: url({% static 'images/realTime04.png' %});">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div>
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- right contents -->
+            <aside>
+                <!-- login -->
+                {% if not user.is_authenticated %}
+                    <div class="mainLonginArea">
+                        <form action="{% url 'common:login' %}" method="post">
+                            {% csrf_token %}
+                            <fieldset>
+                                <input type="text" placeholder="아이디" class="form-control" name="username" id="username">
+                                <input type="password" placeholder="비밀번호" class="form-control" name="password">
+                                <input type="checkbox" id="idSave">
+                                <label for="idSave">아이디 저장</label>
+                                <input type="submit" value="로그인">
+                                <div>
+                                    <a href="{% url "common:login_find" %}">아이디/비밀번호 찾기</a>
+                                    <a href="{% url "common:signup" %}">회원가입</a>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                {% else %}
+
+                    <p>{{ user }}</p>
+                    <button onclick="location.href='{% url 'common:logout' %}'">로그아웃</button>
+
+                {% endif %}
+
+                <!-- side banner -->
+                <div class="mainSideBanner">
+                    <img src="{% static 'images/main_sideBanner.png' %}" alt="라포르테블랑 서현">
+                </div>
+
+                <!-- side board -->
                 <div class="boardArea">
-                    <div class="width100 borderBox paddingBox">
-                        <!-- 실시간 인기 게시물 -->
-                        <strong>실시간 인기 게시물 <a href="#">+</a></strong>
-                        <ul class="hoverEvent">
+
+                    <!-- side 최신글 borad -->
+                    <div class="borderBox">
+                        <strong>최신글</strong>
+                        <ul class="hoverEvent latestPosts">
                             <li>
                                 <a href="#">
-                                    <p>냥이 가족이 되었다</p>
-                                    <time>10.20 15:20</time>
+                                    <p>
+                                        <time>21.10.20 15:20</time>
+                                        시험기간이네
+                                    </p>
+                                    <mark>자유</mark>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>담보대출 서비스 재개 안내 </p>
-                                    <time>10.20 15:20</time>
+                                    <p>
+                                        <time>21.10.20 15:20</time>
+                                        정치이야기는 하지말자
+                                    </p>
+                                    <mark>시사</mark>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>총학이란 무엇인가?</p>
-                                    <time>10.20 15:20</time>
+                                    <p>
+                                        <time>21.10.20 15:20</time>
+                                        족보 많은 곳
+                                    </p>
+                                    <mark>정보</mark>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>퍼스트 원화 발행어음 수익률...</p>
-                                    <time>10.20 15:20</time>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>복학후 달라진 점</p>
-                                    <time>10.20 15:20</time>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>슬기로운 대학생활 안내</p>
-                                    <time>10.20 15:20</time>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>맛집 분석 best 10</p>
-                                    <time>10.20 15:20</time>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>찾아가는 입시설명회</p>
-                                    <time>10.20 15:20</time>
+                                    <p>
+                                        <time>21.10.20 15:20</time>
+                                        안정적인 직장정보
+                                    </p>
+                                    <mark>취업</mark>
                                 </a>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- 자유게시판 -->
-                    <div class="borderBox paddingBox">
-                        <strong>자유게시판<a href="#">+</a></strong>
+                    <!-- side 알바정보 borad -->
+                    <div class="borderBox">
+                        <strong>알바정보<a href="#">+</a></strong>
                         <ul class="hoverEvent">
                             <li>
                                 <a href="#">
-                                    <p>디자인과 라이프스타일을 큐레이션 하다</p>
-                                    <time>방금</time>
+                                    <p>도쿄라멘 알바 구해요</p>
+                                    <time>21.10.20</time>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>돈으로 시간을 사는 방법</p>
-                                    <time>2분전</time>
+                                    <p>쿠팡친구 채용(월400...</p>
+                                    <time>21.10.20</time>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>혹시 화이자 2차 맞고 부정출혈 오신분 있나...</p>
-                                    <time>2분전</time>
+                                    <p>시크릿 강남 초보스웨...</p>
+                                    <time>21.10.20</time>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>내일 독서실 갈까 말까?</p>
-                                    <time>8분전</time>
+                                    <p>마왕족발 홀서빙 or 주... </p>
+                                    <time>21.10.20</time>
                                 </a>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- 비밀게시판 -->
-                    <div class="borderBox paddingBox">
-                        <strong>비밀게시판<a href="#">+</a></strong>
+                    <!-- side 공지사항 borad -->
+                    <div class="borderBox">
+                        <strong>공지사항<a href="#">+</a></strong>
                         <ul class="hoverEvent">
                             <li>
                                 <a href="#">
-                                    <p>오일세안 후 나타나는 피부 변화</p>
-                                    <time>방금</time>
+                                    <p>서버 점검합니다.</p>
+                                    <time>21.10.20</time>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>우리가 자주 먹는 과자 속 비하인드 스토리</p>
-                                    <time>2분전</time>
+                                    <p>서버 점검합니다.</p>
+                                    <time>21.10.20</time>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>맛있는 밀크티 만드는 비법 전수</p>
-                                    <time>2분전</time>
+                                    <p>서버 점검합니다.</p>
+                                    <time>21.10.20</time>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>학교 책상 내맘대로 리폼하기 </p>
-                                    <time>8분전</time>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- 정보게시판 -->
-                    <div class="borderBox paddingBox">
-                        <strong>정보게시판<a href="#">+</a></strong>
-                        <ul class="hoverEvent">
-                            <li>
-                                <a href="#">
-                                    <p>디자인과 라이프스타일을 큐레이션 하다</p>
-                                    <time>방금</time>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>돈으로 시간을 사는 방법</p>
-                                    <time>2분전</time>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>혹시 화이자 2차 맞고 부정출혈 오신혹시 화이자 2차 맞고 부정출혈 오신</p>
-                                    <time>2분전</time>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>내일 독서실 갈까 말까?</p>
-                                    <time>8분전</time>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- 홍보 게시판 -->
-                    <div class="borderBox paddingBox">
-                        <strong>홍보게시판<a href="#">+</a></strong>
-                        <ul class="hoverEvent">
-                            <li>
-                                <a href="#">
-                                    <p>오일세안 후 나타나는 피부 변화</p>
-                                    <time>방금</time>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>우리가 자주 먹는 과자 속 비하인드 스토리</p>
-                                    <time>2분전</time>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>맛있는 밀크티 만드는 비법 전수</p>
-                                    <time>2분전</time>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>학교 책상 내맘대로 리폼하기 </p>
-                                    <time>8분전</time>
+                                    <p>서버 점검합니다.</p>
+                                    <time>21.10.20</time>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-
-                <!-- main tab -->
-                <div class="tabArea">
-                    <!-- main tab 원룸 거래 -->
-                    <ul class="tabBtn">
-                        <li>
-                            <button class="active">원룸</button>
-                        </li>
-                        <li>
-                            <button>거래</button>
-                        </li>
-                    </ul>
-
-                    <div class="tabContents fontCase01 paddingBox">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <div class="imgBox"
-                                         style="background-image: url({% static 'images/villa01.png' %});">
-                                        행복빌라 A동
-                                    </div>
-                                    <div>
-                                        <strong>행복빌라 A동<small>월세</small></strong>
-                                        <p>
-                                            학교앞 100m거리 편의점에 위치한 원룸입니다.<br/>
-                                            좋은 입지조건과 깨끗한 관리로 신식 건물 못지않게 좋습니다.<br/>
-                                            도보 15분 거리에 동대문역이 있어 대중교통 또한 편리합니다.
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="imgBox"
-                                         style="background-image: url({% static 'images/villa02.png' %});">
-                                        행복빌라 A동
-                                    </div>
-                                    <div>
-                                        <strong>행복빌라 A동<small>월세</small></strong>
-                                        <p>
-                                            학교앞 100m거리 편의점에 위치한 원룸입니다.<br/>
-                                            좋은 입지조건과 깨끗한 관리로 신식 건물 못지않게 좋습니다.<br/>
-                                            도보 15분 거리에 동대문역이 있어 대중교통 또한 편리합니다.
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="imgBox"
-                                         style="background-image: url({% static 'images/villa03.png' %});">
-                                        행복빌라 A동
-                                    </div>
-                                    <div>
-                                        <strong>행복빌라 A동<small>월세</small></strong>
-                                        <p>
-                                            학교앞 100m거리 편의점에 위치한 원룸입니다.<br/>
-                                            좋은 입지조건과 깨끗한 관리로 신식 건물 못지않게 좋습니다.<br/>
-                                            도보 15분 거리에 동대문역이 있어 대중교통 또한 편리합니다.
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="imgBox"
-                                         style="background-image: url({% static 'images/villa04.png' %});">
-                                        행복빌라 A동
-                                    </div>
-                                    <div>
-                                        <strong>행복빌라 A동<small>월세</small></strong>
-                                        <p>
-                                            학교앞 100m거리 편의점에 위치한 원룸입니다.<br/>
-                                            좋은 입지조건과 깨끗한 관리로 신식 건물 못지않게 좋습니다.<br/>
-                                            도보 15분 거리에 동대문역이 있어 대중교통 또한 편리합니다.
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <section class="popularArea">
-                <h2>인기원룸</h2>
-                <ul class="fontCase01">
-                    <li class="borderBox">
-                        <a href="#">
-                            <div class="imgBox"
-                                 style="background-image: url({% static 'images/oneRoom01.png' %});">원룸 이미지
-                            </div>
-                            <div>
-                                <strong>월세 60만원<small>원룸</small></strong>
-                                <p>3층 15평 관리비 5만원</p>
-                                <p>목포대 다이소 근처</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="borderBox">
-                        <a href="#">
-                            <div class="imgBox"
-                                 style="background-image: url({% static 'images/oneRoom01.png' %});">원룸 이미지
-                            </div>
-                            <div>
-                                <strong>월세 60만원<small>원룸</small></strong>
-                                <p>3층 15평 관리비 5만원</p>
-                                <p>목포대 다이소 근처</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="borderBox">
-                        <a href="#">
-                            <div class="imgBox"
-                                 style="background-image: url({% static 'images/oneRoom01.png' %});">원룸 이미지
-                            </div>
-                            <div>
-                                <strong>월세 60만원<small>원룸</small></strong>
-                                <p>3층 15평 관리비 5만원</p>
-                                <p>목포대 다이소 근처</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="borderBox">
-                        <a href="#">
-                            <div class="imgBox"
-                                 style="background-image: url({% static 'images/oneRoom01.png' %});">원룸 이미지
-                            </div>
-                            <div>
-                                <strong>월세 60만원<small>원룸</small></strong>
-                                <p>3층 15평 관리비 5만원</p>
-                                <p>목포대 다이소 근처</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="realTimeArea">
-                <h2>실시간 인기 중고</h2>
-                <ul class="fontCase01">
-                    <li class="">
-                        <a href="">
-                            <div class="imgBox borderBox"
-                                 style="background-image: url({% static 'images/realTime01.png' %});">
-                                실시간 인기 중고 이미지
-                            </div>
-                            <p>
-                                <time>2시간전</time>
-                                아이패드 프로 11인치
-                                <strong>605,000원</strong>
-                            </p>
-                            <small>대구 중구 달서동</small>
-                        </a>
-                        <div>
-                            <div class="imgBox heartIcon">
-                                하트 아이콘
-                            </div>
-                            <span>
-                                    10
-                                </span>
-                            <div class="imgBox mailIcon">
-                                메일 아이콘
-                            </div>
-                            <span>
-                                    5
-                                </span>
-                        </div>
-                    </li>
-                    <li class="">
-                        <a href="">
-                            <div class="imgBox borderBox"
-                                 style="background-image: url({% static 'images/realTime02.png' %});">
-                                실시간 인기 중고 이미지
-                            </div>
-                            <p>
-                                <time>2시간전</time>
-                                아이패드 프로 11인치
-                                <strong>605,000원</strong>
-                            </p>
-                            <small>대구 중구 달서동</small>
-                        </a>
-                        <div>
-                            <div class="imgBox heartIcon">
-                                하트 아이콘
-                            </div>
-                            <span>
-                                    10
-                                </span>
-                            <div class="imgBox mailIcon">
-                                메일 아이콘
-                            </div>
-                            <span>
-                                    5
-                                </span>
-                        </div>
-                    </li>
-                    <li class="">
-                        <a href="">
-                            <div class="imgBox borderBox"
-                                 style="background-image: url({% static 'images/realTime03.png' %});">
-                                실시간 인기 중고 이미지
-                            </div>
-                            <p>
-                                <time>2시간전</time>
-                                아이패드 프로 11인치
-                                <strong>605,000원</strong>
-                            </p>
-                            <small>대구 중구 달서동</small>
-                        </a>
-                        <div>
-                            <div class="imgBox heartIcon">
-                                하트 아이콘
-                            </div>
-                            <span>
-                                    10
-                                </span>
-                            <div class="imgBox mailIcon">
-                                메일 아이콘
-                            </div>
-                            <span>
-                                    5
-                                </span>
-                        </div>
-                    </li>
-                    <li class="">
-                        <a href="">
-                            <div class="imgBox borderBox"
-                                style="background-image: url({% static 'images/realTime04.png' %});">
-                                실시간 인기 중고 이미지
-                            </div>
-                            <p>
-                                <time>2시간전</time>
-                                아이패드 프로 11인치
-                                <strong>605,000원</strong>
-                            </p>
-                            <small>대구 중구 달서동</small>
-                        </a>
-                        <div>
-                            <div class="imgBox heartIcon">
-                                하트 아이콘
-                            </div>
-                            <span>
-                                    10
-                                </span>
-                            <div class="imgBox mailIcon">
-                                메일 아이콘
-                            </div>
-                            <span>
-                                    5
-                                </span>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+            </aside>
         </div>
-
-        <!-- right contents -->
-        <aside>
-            <!-- login -->
-            <div class="mainLonginArea">
-                <form>
-                    <fieldset>
-                        <input type="text" placeholder="아이디">
-                        <input type="password" placeholder="비밀번호">
-                        <input type="checkbox" id="idSave">
-                        <label for="idSave">아이디 저장</label>
-                        <input type="submit" value="로그인">
-                        <div>
-                            <a href="{% url "common:login_find" %}">아이디/비밀번호 찾기</a>
-                            <a href="{% url "common:signup" %}">회원가입</a>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-
-            <!-- side banner -->
-            <div class="mainSideBanner">
-                <img src="{% static 'images/main_sideBanner.png' %}" alt="라포르테블랑 서현">
-            </div>
-
-            <!-- side board -->
-            <div class="boardArea">
-
-                <!-- side 최신글 borad -->
-                <div class="borderBox">
-                    <strong>최신글</strong>
-                    <ul class="hoverEvent latestPosts">
-                        <li>
-                            <a href="#">
-                                <p>
-                                    <time>21.10.20 15:20</time>
-                                    시험기간이네
-                                </p>
-                                <mark>자유</mark>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>
-                                    <time>21.10.20 15:20</time>
-                                    정치이야기는 하지말자
-                                </p>
-                                <mark>시사</mark>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>
-                                    <time>21.10.20 15:20</time>
-                                    족보 많은 곳
-                                </p>
-                                <mark>정보</mark>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>
-                                    <time>21.10.20 15:20</time>
-                                    안정적인 직장정보
-                                </p>
-                                <mark>취업</mark>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- side 알바정보 borad -->
-                <div class="borderBox">
-                    <strong>알바정보<a href="#">+</a></strong>
-                    <ul class="hoverEvent">
-                        <li>
-                            <a href="#">
-                                <p>도쿄라멘 알바 구해요</p>
-                                <time>21.10.20</time>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>쿠팡친구 채용(월400...</p>
-                                <time>21.10.20</time>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>시크릿 강남 초보스웨...</p>
-                                <time>21.10.20</time>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>마왕족발 홀서빙 or 주... </p>
-                                <time>21.10.20</time>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- side 공지사항 borad -->
-                <div class="borderBox">
-                    <strong>공지사항<a href="#">+</a></strong>
-                    <ul class="hoverEvent">
-                        <li>
-                            <a href="#">
-                                <p>서버 점검합니다.</p>
-                                <time>21.10.20</time>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>서버 점검합니다.</p>
-                                <time>21.10.20</time>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>서버 점검합니다.</p>
-                                <time>21.10.20</time>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>서버 점검합니다.</p>
-                                <time>21.10.20</time>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </aside>
     </div>
-</div>
 {% endblock %}
