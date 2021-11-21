@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-<<<<<<< HEAD
     <div class="subPage loginPage">
         <div class="loginArea">
             <form action="{% url 'common:login' %}" method="post">
@@ -28,26 +27,30 @@
                 </fieldset>
             </form>
         </div>
-=======
-<div class="subPage loginPage">
-    <div class="loginArea">
-        <form>
-            <fieldset>
-                <legend>로그인</legend>
-                <ul>
-                    <li>
-                        <input type="text" placeholder="아이디" title="userID">
-                    </li>
-                    <li>
-                        <input type="password" placeholder="비밀번호" title="userPW">
-                    </li>
-                </ul>
-                <p>ID에 학교 이메일 또는 Toch ID를 입력하세요.</p>
-                <input type="submit" value="로그인">
-                <p><mark><a href="{% url 'common:login_find' %}">Toch ID 또는 암호를 잊으셨나요?</a></mark></p>
-                <p><mark>Toch ID가 없으신가요?<a href="{% url 'common:signup' %}">지금 생성.</a></mark></p>
-            </fieldset>
-        </form>
->>>>>>> 13eb27773657cec68caef0d3a4b92137b158c469
+        <div class="subPage loginPage">
+            <div class="loginArea">
+                <form>
+                    <fieldset>
+                        <legend>로그인</legend>
+                        <ul>
+                            <li>
+                                <input type="text" placeholder="아이디" title="userID">
+                            </li>
+                            <li>
+                                <input type="password" placeholder="비밀번호" title="userPW">
+                            </li>
+                        </ul>
+                        <p>ID에 학교 이메일 또는 Toch ID를 입력하세요.</p>
+                        <input type="submit" value="로그인">
+                        <p>
+                            <mark><a href="{% url 'common:login_find' %}">Toch ID 또는 암호를 잊으셨나요?</a></mark>
+                        </p>
+                        <p>
+                            <mark>Toch ID가 없으신가요?<a href="{% url 'common:signup' %}">지금 생성.</a></mark>
+                        </p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}
