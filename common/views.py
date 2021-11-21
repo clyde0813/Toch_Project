@@ -19,10 +19,6 @@ def mypage(request):
     return render(request, 'common/mypage_info.html')
 
 
-def login(request):
-    return render(request, 'common/login.html')
-
-
 def login_find(request):
     return render(request, 'common/login_Find.html')
 
