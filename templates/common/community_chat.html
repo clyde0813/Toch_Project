@@ -1,70 +1,88 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="subPage myPage">
-    <section class="width1200 myArea">
-        <h2>메인페이지</h2>
-        <ul class="menuBox">
-            <li>
-                <a href="{% url 'common:mypage' %}">회원정보</a>
-            </li>
-            <li>
-                <a href="{% url 'common:usedtrade_chat' %}" data-count="3">중고거래</a>
-            </li>
-            <li class="active">
-                <a href="{% url 'common:community_chat' %}" data-count="3">커뮤니티</a>
-            </li>
-            <li>
-                <a href="{% url 'common:service' %}">문의</a>
-            </li>
-        </ul>
+    <div class="subPage myPage">
+        <section class="width1200 myArea">
+            <h2>메인페이지</h2>
+            <ul class="menuBox">
+                <li>
+                    <a href="{% url 'common:mypage' %}">회원정보</a>
+                </li>
+                <li>
+                    <a href="{% url 'common:usedtrade_chat' 0 %}" data-count="3">중고거래</a>
+                </li>
+                <li class="active">
+                    <a href="{% url 'common:community_chat' 0 %}" data-count="3">커뮤니티</a>
+                </li>
+                <li>
+                    <a href="{% url 'common:service' %}">문의</a>
+                </li>
+            </ul>
 
-        <div class="tolkBox commuArea">
-            <div class="tolkList">
-                <ul>
-                    <li class="active">
-                        <b>김개똥</b>
-                        <time>오후 9:01</time>
-                        <p>거래 보고 연락 거래 보고 연락..</p>
-                        <span>3</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="tolkDetail">
-                <div class="tolkSubject">
-                    <p>
-                        자유게시판
-                        <strong>교수님 과제 좀 그만 내주세요!</strong>
-                    </p>
-                    <button>차단</button>
+            <div class="tolkBox commuArea">
+                <div class="tolkList">
+                    <ul>
+                        {% for chatroom in chatroom %}
+                            <li class="active" onclick="location.href='{% url 'common:community_chat' chatroom.id %}'">
+                                <b>{{ chatroom.chat_list.last.author }}</b>
+                                <time>{{ chatroom.chat_list.last.create_date }}</time>
+                                <p>{{ chatroom.chat_list.last.content }}</p>
+                                <span>3</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-                <div class="tolkArea">
-                    <div class="opponentTolk">
-                        <div class="imgBox" style="background-image: url({% static 'images/mypage_used_user.png' %});">
-                            김개똥 이미지
+                {% if info %}
+                    <div class="tolkDetail">
+                        <div class="tolkSubject">
+                            <div class="imgBox"
+                                 style="background-image: url('{{ info.0.file_set.last.file }}');">
+                                상품이미지
+                            </div>
+                            <p>
+                                {{ info.0.title }}
+                                <strong>{{ info.0.price }}원</strong>
+                            </p>
+                            <button>차단</button>
                         </div>
-                        <blockquote>
-                            <cite>김개똥</cite>
-                            <q data-unread="1">거래 요청 드려요~</q>
-                            <time>오후 9:00</time>
-                        </blockquote>
+                        <div class="tolkArea">
+                            {% for data in data %}
+                                {% if data.author != user %}
+                                    <div class="opponentTolk">
+                                        <div class="imgBox"
+                                             style="background-image: url({% static  'images/mypage_used_user.png' %});">
+                                            김개똥 이미지
+                                        </div>
+                                        <blockquote>
+                                            <cite>{{ data.author }}</cite>
+                                            <q>{{ data.content }}</q>
+                                            <time>{{ data.create_date }}</time>
+                                        </blockquote>
+                                    </div>
+                                {% else %}
+                                    <div class="meTolk">
+                                        <blockquote>
+                                            <time>{{ data.create_date }}</time>
+                                            <q>{{ data.content }}</q>
+                                        </blockquote>
+                                    </div>
+                                    {#                                <span><time>2021년 11월 10일</time></span>#}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <form action="{% url 'common:community_chat_send' chatroom_id=data.0.chatroom.id %}"
+                              method="post">
+                            {% csrf_token %}
+                            <div class="inputArea">
+                                <input type="text" name="content">
+                                <button type="submit">입력</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="meTolk">
-                        <blockquote>
-                            <time>오후 9:01</time>
-                            <q>잠시만요</q>
-                        </blockquote>
-                    </div>
-
-                </div>
-
-                <div class="inputArea">
-                    <input type="text">
-                    <button>입력</button>
-                </div>
+                {% else %}
+                    <p>채팅방이 없습니다.</p>
+                {% endif %}
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
 {% endblock %}

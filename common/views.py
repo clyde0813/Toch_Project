@@ -57,10 +57,12 @@ def page_not_found(request):
 def usedtrade_chat(request, num):
     if num is 0:
         chat_room_set = ChatRoom.objects.filter(Q(author=request.user) | Q(receiver=request.user))
+        chat_room_set = chat_room_set.exclude(chat_list__used_post__isnull=True)
         context = {'chatroom': chat_room_set}
         return render(request, 'common/usedtrade_chat.html', context)
     else:
         chat_room_set = ChatRoom.objects.filter(Q(author=request.user) | Q(receiver=request.user))
+        chat_room_set = chat_room_set.exclude(chat_list__used_post__isnull=True)
         query_set = Chat.objects.filter(Q(author=request.user) | Q(receiver=request.user))
         query_set = query_set.filter(chatroom=num)
         usedtrade_info = usedtradePost.objects.filter(id=query_set.first().used_post_id)
@@ -92,6 +94,44 @@ def usedtrade_chat_send(request, chatroom_id):
 
 def community_chat(request):
     return render(request, 'common/community_chat.html')
+
+
+@login_required(login_url='common:login')
+def community_chat(request, num):
+    if num is 0:
+        chat_room_set = ChatRoom.objects.filter(Q(author=request.user) | Q(receiver=request.user))
+        chat_room_set = chat_room_set.exclude(chat_list__community_post__isnull=True)
+        context = {'chatroom': chat_room_set}
+        return render(request, 'common/community_chat.html', context)
+    else:
+        chat_room_set = ChatRoom.objects.filter(Q(author=request.user) | Q(receiver=request.user))
+        chat_room_set = chat_room_set.exclude(chat_list__community_post__isnull=True)
+        query_set = Chat.objects.filter(Q(author=request.user) | Q(receiver=request.user))
+        query_set = query_set.filter(chatroom=num)
+        usedtrade_info = usedtradePost.objects.filter(id=query_set.first().community_post_id)
+        context = {'data': query_set, 'chatroom': chat_room_set, 'info': usedtrade_info}
+        return render(request, 'common/community_chat.html', context)
+
+
+def community_chat_send(request, chatroom_id):
+    if request.method == 'POST':
+        form = ChatForm(request.POST)
+        chat_room_set = ChatRoom.objects.filter(Q(author=request.user) | Q(receiver=request.user))
+        chat_room_set = chat_room_set.filter(id=chatroom_id)
+        if form.is_valid():
+            chat = form.save(commit=False)
+            chat.author = request.user
+            chat.author_ip = get_client_ip(request)
+            chat.create_date = timezone.now()
+            author = chat_room_set.last().author
+            if author == request.user:
+                chat.receiver = chat_room_set.last().receiver
+            else:
+                chat.receiver = author
+            chat.community_post_id = chat_room_set.last().chat_list.last().community_post_id
+            chat.chatroom_id = chatroom_id
+            chat.save()
+            return redirect('common:community_chat', chatroom_id)
 
 
 def service(request):
