@@ -10,6 +10,7 @@ urlpatterns = [
     path('mypage/', views.mypage, name='mypage'),
     path('login/', auth_views.LoginView.as_view(template_name='common/login.html'), name='login'),
     path('login_Find', views.login_find, name='login_find'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('signup/', views.signup, name='signup'),
     path('chat/community/<int:num>', views.community_chat, name='community_chat'),
     path('chat/community/create/<int:chatroom_id>/', views.community_chat_send, name='community_chat_send'),

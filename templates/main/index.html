@@ -477,7 +477,10 @@
                         </form>
                     </div>
                 {% else %}
+
                     <p>{{ user }}</p>
+                    <button onclick="location.href='{% url 'common:logout' %}'">로그아웃</button>
+
                 {% endif %}
 
                 <!-- side banner -->
