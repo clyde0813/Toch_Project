@@ -1,38 +1,59 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
-    <style>
+<div class="mainPage">
+    <form action="">
+        <div>
+            <span>제목</span><input type="text" name="title"><br>
+        </div>
 
-    </style>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <div>
+            사진추가<input type="file">
+        </div>
+        <div>
+            <button>취소</button>
+            <button type="submit">작성</button>
+        </div>
+    </form>
+
     <article style="margin-bottom: -1px;
-    box-sizing: border-box;
-    border: 1px solid #e3e3e3;
-    background-color: #fff;"><a class="article" href="/389137/v/213864573" style="    display: block;
-    padding: 15px;"><h2 class="medium" style="margin-bottom: 5px;
-    line-height: 18px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 14px;
-    font-weight: normal;">아가들 청계의 바람은 존나추워요</h2>
-        <p class="small">패딩준비하세요</p>
-        <time class="small">14분 전</time>
-        <h3 class="small" style="float: left;
-    max-width: 90px;
-    height: 15px;
-    line-height: 15px;
-    font-size: 11px;
-    font-weight: normal;
-    letter-spacing: 0;">익명</h3>
-        <ul class="status">
-            <li title="공감" class="vote" style="padding-left: 15px;
-    color: #c62917;
-    background-image: url(/images/new/container.articles.vote.png);">1
-            </li>
-            <li title="댓글" class="comment">1</li>
-        </ul>
-        <hr>
-        <input type="hidden" name="213864573_comment_anonym" value="0"></a>
+        box-sizing: border-box;
+        border: 1px solid #e3e3e3;
+        background-color: #fff;">
+        <a class="article" href="/389137/v/213864573" style="display: block;
+            padding: 15px;">
+            <img src="" alt="글 사진">
+            <h2 class="medium" style="margin-bottom: 5px;
+                line-height: 18px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 14px;
+                font-weight: normal;">아가들 청계의 바람은 존나추워요
+            </h2>
+            <p class="small">패딩준비하세요</p>
+            <time class="small">14분 전</time>
+            <h3 class="small" style="float: left;
+                max-width: 90px;
+                height: 15px;
+                line-height: 15px;
+                font-size: 11px;
+                font-weight: normal;
+                letter-spacing: 0;">익명
+            </h3>
+            <ul class="status">
+                <li title="공감" class="vote" style="padding-left: 15px;
+                    color: #c62917;
+                    background-image: url(../../images/container.articles.vote.png);">1
+                </li>
+                <li title="댓글" class="comment">1</li>
+            </ul>
+            <hr>
+            <input type="hidden" name="213864573_comment_anonym" value="0">
+        </a>
         <div class="comments"></div>
     </article>
+</div>
+
+
 {% endblock %}
