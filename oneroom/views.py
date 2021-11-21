@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.contrib import auth
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 
 from .models import *
 
@@ -15,3 +17,5 @@ def detail(request, num):
     data = Post.objects.filter(id=num)
     context = {'data': data}
     return render(request, 'oneroom/detail.html', context)
+
+

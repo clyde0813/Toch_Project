@@ -1,7 +1,11 @@
+from importlib.resources import _
+
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
+from .forms import UserForm
 from usedtrade.models import Post as usedtradePost
 from .models import Chat, ChatRoom
 
@@ -26,7 +30,17 @@ def login_find(request):
 
 
 def signup(request):
-    return render(request, 'common/signup.html')
+    form = UserForm()
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, _('Your profile was successfully updated!'))
+            return redirect('common:index')
+    else:
+        user_form = UserForm(instance=request.user)
+
+    return render(request, 'common/signup.html', {'form': form})
 
 
 def page_not_found(request):
