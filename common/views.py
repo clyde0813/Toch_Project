@@ -1,4 +1,9 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.db.models import Q
 from django.shortcuts import render
+
+from .models import Chat
 
 
 # Create your views here.
@@ -7,6 +12,7 @@ def index(request):
     return render(request, 'main/index.html')
 
 
+@login_required(login_url='common:login')
 def mypage(request):
     return render(request, 'common/mypage_info.html')
 
@@ -27,8 +33,16 @@ def page_not_found(request):
     return render(request, '404.html')
 
 
-def usedtrade_chat(request):
-    return render(request, 'common/usedtrade_chat.html')
+def usedtrade_chat(request, num):
+    if num is 0:
+        query_set = Chat.objects.filter(Q(author=request.user) | Q(receiver=request.user))
+        context = {'data': query_set}
+        return render(request, 'common/usedtrade_chat.html', context)
+    else:
+        query_set = Chat.objects.filter(used_post=num)
+
+        context = {'data': query_set}
+        return render(request, 'common/usedtrade_chat.html', context)
 
 
 def community_chat(request):
