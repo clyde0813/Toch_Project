@@ -1,0 +1,16 @@
+
+/* 마이페이지 - 회원정보 */
+.myPage .memberArea > div{width: 765px; margin: 0 auto; background-color: white; padding: 50px; box-sizing: border-box;}
+.myPage .memberArea > div strong{display: block; font-size: 20px; font-weight: 800; margin-bottom: 20px;}
+.myPage .memberArea > div > div{padding: 40px 0 50px; border-width: 1px 0; border-style: solid; border-color: #ebebeb; margin-bottom: 30px;}
+.myPage .memberArea > div > div::after{content: ''; display: block; clear: both;}
+.myPage .memberArea > div > div > *{float: left;}
+.myPage .memberArea > div > div > div{width: 100px; margin-right: 85px; text-align: center}
+.myPage .memberArea > div > div > div .imgBox{width: 100px; height: 100px; border: 1px solid #bbbbbb; border-radius: 100%; box-sizing: border-box; margin-bottom: 10px;}
+.myPage .memberArea > div > div > div button{width: 55px; line-height: 30px; font-size: 12px; font-weight: 800; color: #888888; border: 1px solid #d2d2d2;}
+.myPage .memberArea > div > div > ul{width: 480px;}
+.myPage .memberArea > div > div > ul li::after{content: ''; display: block; clear: both;}
+.myPage .memberArea > div > div > ul li:not(:last-child){margin-bottom: 20px;}
+.myPage .memberArea > div > div > ul li > *{float: left;}
+.myPage .memberArea > div > div > ul li b{width: 130px; font-weight: 800; }
+.myPage .memberArea > div > div > ul li p{width: 350px; }
