@@ -130,9 +130,11 @@
 .loginPage fieldset ul li input:not([type="submit"]),
 .loginPage fieldset ul li select{height: 40px; border: 1px solid #cacaca; padding: 0 15px; box-sizing: border-box;}
 .loginPage fieldset ul li select{background: url('../images/selectIcon.png') no-repeat right 10px center;}
+/*.loginPage fieldset ul li > input[type="password"] { font-family: Serif; }*/
 .loginPage fieldset ul li > input:not([type="submit"]),
-.loginPage fieldset ul li > select{width: 100%;}
+.loginPage fieldset ul li > select{width: 100%; }
 .loginPage fieldset ul li input:not([type="submit"])::placeholder{font-size: 16px; color: #888888;}
+
 
 /* 로그인 페이지 */
 .loginArea{width: 400px;}
@@ -169,15 +171,6 @@
 .joinArea fieldset ul li > div button{width: 110px;}
 .joinArea fieldset ul li > div input{flex: 1; width: 0px;}
 .joinArea fieldset ul li > div button{color: white; font-weight: 800; background-color: #888888;}
-input[type=password] {
-    font-family: "나눔스퀘어 아닐때 쓸 글꼴";
-
-    &::placeholder {
-        font-family: "NanumSquare";
-    }
-}
-.joinArea fieldset input[type="password"]{ font-family: Serif;  &::placeholder {
-        font-family: "NanumSquare";}}
 .joinArea fieldset input[type="submit"]{width: 100%; height: 45px; font-size: 18px; font-weight: 800; color: white; background-color: black;}
 
 
@@ -278,7 +271,6 @@ input[type=password] {
 .tolkBox .tolkDetail .inputArea input{height: 100%; border: 1px solid #cacaca; border-radius: 11px; margin-right: 15px; padding: 14px 15px; box-sizing: border-box; flex: 1; width: 0;}
 .tolkBox .tolkDetail .inputArea button{height: 100%; width: 115px; display: flex; justify-content: center; align-items: center;  font-weight: 700; color: #ff9900; border: 1px solid #ff9900;  }
 .tolkBox .tolkDetail .inputArea button::before{content: ''; width: 22px; height: 22px; background: url('../images/inputIcon.png') no-repeat center / cover; margin-right: 25px;}
-
 
 
 
