@@ -77,9 +77,9 @@
 .realTimeArea ul li > div{display: flex; align-items: center;}
 .realTimeArea ul li > div span.material-icons-outlined{font-size: 22px;}
 .realTimeArea ul li > div .imgBox{cursor: pointer;}
-.realTimeArea ul li > div .imgBox.heartIcon{width: 22px; height: 19px; background-image: url('../../templates/로그인 마이페이지/images/heartIcon.png');}
-.realTimeArea ul li > div .imgBox.heartIcon.active{background-image: url('../../templates/로그인 마이페이지/images/heartIcon_active.png');}
-.realTimeArea ul li > div .imgBox.mailIcon{width: 18px; height: 18px; background-image: url('../../templates/로그인 마이페이지/images/mailIcon02.png');}
+.realTimeArea ul li > div .imgBox.heartIcon{width: 22px; height: 19px; background-image: url('../images/heartIcon.png');}
+.realTimeArea ul li > div .imgBox.heartIcon.active{background-image: url('../images/heartIcon_active.png');}
+.realTimeArea ul li > div .imgBox.mailIcon{width: 18px; height: 18px; background-image: url('../images/mailIcon02.png');}
 .realTimeArea ul li > div span:not(.material-icons-outlined){font-size: 14px; margin-left: 5px;}
 .realTimeArea ul li > div span:not(.material-icons-outlined):not(:last-child){margin-right: 15px;}
 
@@ -95,8 +95,8 @@
 .mainPage aside .mainLonginArea fieldset input[type="password"]{margin-bottom: 10px;}
 .mainPage aside .mainLonginArea fieldset input[type="checkbox"]{display: none;}
 .mainPage aside .mainLonginArea fieldset label{display: flex; align-items: center; justify-content: flex-end; margin-bottom: 20px; cursor: pointer; }
-.mainPage aside .mainLonginArea fieldset label::before{content: ''; width: 22px; height: 22px; margin-right: 5px; background-image: url('../../templates/로그인 마이페이지/images/chk.png'); background-repeat: no-repeat; background-position: center;}
-.mainPage aside .mainLonginArea fieldset input[type="checkbox"]:checked + label::before{background-image: url('../../templates/로그인 마이페이지/images/chk_active.png');}
+.mainPage aside .mainLonginArea fieldset label::before{content: ''; width: 22px; height: 22px; margin-right: 5px; background-image: url('../images/chk.png'); background-repeat: no-repeat; background-position: center;}
+.mainPage aside .mainLonginArea fieldset input[type="checkbox"]:checked + label::before{background-image: url('../images/chk_active.png');}
 .mainPage aside .mainLonginArea fieldset input[type="submit"]{font-size: 18px; font-weight: 800; color: white; background-color: black; margin-bottom: 20px; cursor: pointer;}
 .mainPage aside .mainLonginArea fieldset div{display: flex; justify-content: space-between;}
 .mainPage aside .mainLonginArea fieldset div a{color: #333333; position: relative;}
@@ -181,16 +181,16 @@
 .myPage .menuBox li{flex: 1;}
 .myPage .menuBox li a{ height: 60px; display: flex; justify-content: center; align-items: center; font-size: 16px; font-weight: 800; color: rgba(1, 1, 1, 0.4); border: 1px solid #eeeeee;}
 .myPage .menuBox li a::before{content: ''; width: 22px; height: 22px; background-repeat: no-repeat; background-position: center;  background-size: cover; margin-right: 15px;}
-.myPage .menuBox li:nth-child(1) a::before{background-image: url('../../templates/로그인 마이페이지/images/mypage_menu01.png');}
-.myPage .menuBox li:nth-child(2) a::before{background-image: url('../../templates/로그인 마이페이지/images/mypage_menu02.png');}
-.myPage .menuBox li:nth-child(3) a::before{background-image: url('../../templates/로그인 마이페이지/images/mypage_menu03.png');}
-.myPage .menuBox li:nth-child(4) a::before{background-image: url('../../templates/로그인 마이페이지/images/mypage_menu04.png');}
+.myPage .menuBox li:nth-child(1) a::before{background-image: url('../images/mypage_menu01.png');}
+.myPage .menuBox li:nth-child(2) a::before{background-image: url('../images/mypage_menu02.png');}
+.myPage .menuBox li:nth-child(3) a::before{background-image: url('../images/mypage_menu03.png');}
+.myPage .menuBox li:nth-child(4) a::before{background-image: url('../images/mypage_menu04.png');}
 .myPage .menuBox li a[data-count]:not([data-count='0']):after{content: attr(data-count); width: 22px; line-height: 22px; background-color: #e9e9e9; font-size: 16px; font-weight: 800; color: rgba(1, 1, 1, 0.4); text-align: center; border-radius: 100%; margin-left: 10px;}
 .myPage .menuBox li.active a{color: black; background-color: #ffa92b;}
-.myPage .menuBox li:nth-child(1).active a::before{background-image: url('../../templates/로그인 마이페이지/images/mypage_menu01_active.png');}
-.myPage .menuBox li:nth-child(2).active a::before{background-image: url('../../templates/로그인 마이페이지/images/mypage_menu02_active.png');}
-.myPage .menuBox li:nth-child(3).active a::before{background-image: url('../../templates/로그인 마이페이지/images/mypage_menu03_active.png');}
-.myPage .menuBox li:nth-child(4).active a::before{background-image: url('../../templates/로그인 마이페이지/images/mypage_menu04_active.png');}
+.myPage .menuBox li:nth-child(1).active a::before{background-image: url('../images/mypage_menu01_active.png');}
+.myPage .menuBox li:nth-child(2).active a::before{background-image: url('../images/mypage_menu02_active.png');}
+.myPage .menuBox li:nth-child(3).active a::before{background-image: url('../images/mypage_menu03_active.png');}
+.myPage .menuBox li:nth-child(4).active a::before{background-image: url('../images/mypage_menu04_active.png');}
 .myPage .menuBox li.active a[data-count]:not([data-count='0']):after{color: white; background-color: black;}
 
 .myPage section > [class$="Area"]{background-color: #f5f5f5; height: 705px; border: 1px solid #e0e0e0;}

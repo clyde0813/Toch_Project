@@ -427,7 +427,7 @@
                     <li class="">
                         <a href="">
                             <div class="imgBox borderBox"
-                                 style="background-image: url({% static 'images/realTime04.png' %});">
+                                style="background-image: url({% static 'images/realTime04.png' %});">
                                 실시간 인기 중고 이미지
                             </div>
                             <p>
@@ -468,7 +468,7 @@
                         <label for="idSave">아이디 저장</label>
                         <input type="submit" value="로그인">
                         <div>
-                            <a href="#">아이디/비밀번호 찾기</a>
+                            <a href="{% url "common:login_find" %}">아이디/비밀번호 찾기</a>
                             <a href="{% url "common:signup" %}">회원가입</a>
                         </div>
                     </fieldset>
@@ -587,7 +587,6 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
         </aside>
     </div>
