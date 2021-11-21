@@ -31,32 +31,38 @@
                     <ul>
                         <li>
                             <b>이름</b>
-                            <p>홍길동</p>
+                            <p>{{ request.user.last_name }}</p>
                         </li>
+                        <br>
                         <li>
                             <b>아이디</b>
-                            <p>hong1234</p>
+                            <p>{{ request.user.username }}</p>
                         </li>
+                        <br>
                         <li>
                             <b>비밀번호</b>
                             <p>********</p>
                         </li>
-                        <li>
-                            <b>비밀번호 확인 </b>
-                            <p>********</p>
-                        </li>
-                        <li>
-                            <b>휴대전화</b>
-                            <p>010 - 1234 - 1234</p>
-                        </li>
+                        <br>
+{#                        <li>#}
+{#                            <b>비밀번호 확인 </b>#}
+{#                            <p>********</p>#}
+{#                        </li>#}
                         <li>
                             <b>이메일</b>
-                            <p>hong1234@gmail.com</p>
+                            <p>{{ request.user.email }}</p>
                         </li>
+                        <br>
+                        <li>
+                            <b>휴대전화</b>
+                            <p>010 - 0000 - 0000</p>
+                        </li>
+                        <br>
                         <li>
                             <b>주소</b>
                             <p>전남 무안군 청계면 영산로 1666</p>
                         </li>
+                        <br>
                         <li>
                             <b>배송주소</b>
                             <p>전남 무안군 청계면 영산로 1666</p>
