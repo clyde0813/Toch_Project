@@ -50,7 +50,7 @@
                     {#                {% endif %}#}
                     <div class="tolkArea">
                         {% for data in data %}
-                            {% if data.author == user %}
+                            {% if data.author != user %}
                                 <div class="opponentTolk">
                                     <div class="imgBox"
                                          style="background-image: url({% static  'images/mypage_used_user.png' %});">
