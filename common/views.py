@@ -1,9 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.utils import timezone
 
+from ip_gather import get_client_ip
 from usedtrade.models import Post as usedtradePost
-from .models import Chat, ChatRoom
+from .forms import *
 
 
 # Create your views here.
@@ -46,6 +48,21 @@ def usedtrade_chat(request, num):
         usedtrade_info = usedtradePost.objects.filter(id=query_set.first().used_post_id)
         context = {'data': query_set, 'chatroom': chat_room_set, 'info': usedtrade_info}
         return render(request, 'common/usedtrade_chat.html', context)
+
+
+def usedtrade_chat_send(request, receiver_id, post_id, chatroom_id):
+    if request.method == 'POST':
+        form = ChatForm(request.POST)
+        if form.is_valid():
+            chat = form.save(commit=False)
+            chat.author = request.user
+            chat.author_ip = get_client_ip(request)
+            chat.create_date = timezone.now()
+            chat.receiver_id = receiver_id
+            chat.used_post_id = post_id
+            chat.chatroom_id = chatroom_id
+            chat.save()
+            return redirect('common:usedtrade_chat', chatroom_id)
 
 
 def community_chat(request):

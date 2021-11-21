@@ -72,13 +72,21 @@
                                 {% endif %}
                             {% endfor %}
                         </div>
-
+                        {% if chatroom.0.author == user %}
+                            <form action="{% url 'common:usedtrade_chat_send' receiver_id=chatroom.0.receiver.id post_id=data.0.used_post.id chatroom_id=data.0.chatroom.id %}"
+                                  method="post">
+                        {% else %}
+                            <form action="{% url 'common:usedtrade_chat_send' receiver_id=chatroom.0.author.id  post_id=data.0.used_post.id chatroom_id=data.0.chatroom.id %}"
+                                  method="post">
+                        {% endif %}
+                        {% csrf_token %}
                         <div class="inputArea">
-                            <input type="text">
-                            <button>입력</button>
+                            <input type="text" name="content">
+                            <button type="submit">입력</button>
                         </div>
+                        </form>
                     </div>
-                    {% else %}
+                {% else %}
                     <p>채팅방이 없습니다.</p>
                 {% endif %}
 
