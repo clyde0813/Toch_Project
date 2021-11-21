@@ -32,7 +32,8 @@ def signup(request):
             form.save()
             return redirect('common:index')
     else:
-        user_form = UserForm(instance=request.user)
+        pass
+        # user_form = UserForm(instance=request.user)
 
     return render(request, 'common/signup.html', {'form': form})
 
