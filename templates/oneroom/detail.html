@@ -1,238 +1,356 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
-    <link rel="stylesheet" href="{% static 'oneroom/oneroom_detail.css' %}">
-    <style>
+    <div class="subPage oneRoomPage">
+        <section class="detailArea width1200">
+            <h2 class="hidden">원룸</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <div>
+                                <strong>
+                                    월세 <b>200 / 40만원</b>
+                                </strong>
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div>
+                                <p>
+                                    <small>전용면적</small>
+                                    76.03m2 (N평)
+                                </p>
+                            </div>
+                        </td>
+                        <td colspan="4">
+                            <div>
+                                <p>
+                                    <small>한달 예상 주거비</small>
+                                    <mark>40만원 + a</mark>
+                                </p>
+                                <button data-popup="contact_popup">연락처 보기</button>
+                                <div class="contact_popup">
+                                    <div>
+                                        <p><span>010-1234-5678</span></p>
+                                        <div>
+                                            <button>전화</button>
+                                            <button>문자</button>
+                                        </div>
+                                        <span class="material-icons-outlined closeBtn">
+                                            close
+                                        </span>
+                                    </div>
+                                </div>
+                                <button data-popup="loginRequired_popup">공유하기</button>
+                                <div class="loginRequired_popup">
+                                    <div>
+                                        <p>
+                                            로그인이 필요한 서비스 입니다.
+                                        </p>
+                                        <span class="material-icons-outlined closeBtn">
+                                            close
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>해당층/건물층</th>
+                        <td>1층 / 4층</td>
+                        <th>전용/공급면적</th>
+                        <td>120 / 30</td>
+                        <th>방 / 욕실 수</th>
+                        <td>1개 / 1개</td>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>난방종류</th>
+                        <td>도시가스</td>
+                        <th>옵션 수</th>
+                        <td>5개</td>
+                        <th>건물 주차수</th>
+                        <td>총 4대</td>
+                        <th>세대당 주차수</th>
+                        <td>0.4대</td>
+                    </tr>
+                    <tr>
+                        <th>엘리베이터</th>
+                        <td>없음</td>
+                        <th></th>
+                        <td></td>
+                        <th>주용도</th>
+                        <td>오피스텔</td>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>완공일</th>
+                        <td>2019.08.11</td>
+                        <th></th>
+                        <td></td>
+                        <th></th>
+                        <td></td>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
 
-    </style>
-    <!-- 모달창 전체 컨테이너 -->
-    <div class="modal_container hidden">
-        <!-- 배경 블러처리 -->
-        <div class="modal_window"></div>
-
-        <!-- 연락처 창 -->
-        <div class="contact_window hidden">
-            <div class="contact_header">
-                <button class="x_btn btn">x</button>
-            </div>
-            <div class="contact_body"></div>
-            <div class="contact_footer">
-                <button class="message_btn btn">메세지</button>
-                <button class="call_btn btn">전화</button>
-            </div>
-        </div>
-
-        <!-- 리뷰 쓰기 창 -->
-        <form id="review_form" action="">
-            <div class="review_write_window hidden">
-                <div class="review_write_header">
-                    <div class="x_btn btn " style="background-color: whitesmoke">x</div>
-                    <div class="header">
-                        <div class="review_write_title">Title</div>
-                        <div class="review_write_star_rating">* * * * *</div>
+            <ul>
+                <li>
+                    <div class="imgBox" style="background-image: url('../../static/images/oneroom_detailImg01.png');"></div>
+                    <button data-popup="moreImg_popup">더보기</button>
+                </li>
+                <li>
+                    <div class="imgBox" style="background-image: url('images/oneroom_detailImg02.png');"></div>
+                    <button data-popup="moreImg_popup">더보기</button>
+                </li>
+                <li>
+                    <div class="imgBox" style="background-image: url('../../static/images/oneroom_detailImg03.png');"></div>
+                    <button data-popup="moreImg_popup">더보기</button>
+                </li>
+                <li>
+                    <div class="imgBox" style="background-image: url('../../static/images/oneroom_detailImg01.png');"></div>
+                    <button data-popup="moreImg_popup">더보기</button>
+                </li>
+            </ul>
+            <div class="moreImg_popup">
+                <div class="slider">
+                    <div>
+                        <img src="../../static/images/oneroom_detailImg01.png" alt="">
+                    </div>
+                    <div>
+                        <img src="../../static/images/oneroom_detailImg02.png" alt="">
+                    </div>
+                    <div>
+                        <img src="../../static/images/oneroom_detailImg03.png" alt="">
+                    </div>
+                    <div>
+                        <img src="../../static/images/oneroom_detailImg01.png" alt="">
                     </div>
                 </div>
-                <div class="review_write_body">
-                    <textarea placeholder="리뷰를 작성해 주세요."></textarea>
-                    <input type="file" value="+">
-                </div>
-                <div class="review_write_footer">
-                    <button class="review_write_btn">리뷰 등록</button>
-                </div>
             </div>
-        </form>
-    </div>
 
-    <!-- 집 정보 테이블 시작 -->
-    <table class="table table-bordered">
-        <tbody>
-        <tr>
-            {% if data.first.rent_amount %}
-                <td colspan="2">{{ data.first.rent_type }} {{ data.first.deposit }}/{{ data.first.rent_amount }}만원</td>
-            {% else %}
-                <td colspan="2">{{ data.first.rent_type }} 비공개</td>
-            {% endif %}
-            <td colspan="2">면적 {{ data.first.dedicated_area }}m^2</td>
-            <td colspan="6">{{ data.first.rent_amount }}만원
-                <button type="button" class="btn btn-outline-secondary contact_btn" style="float:right">연락처보기</button>
-            </td>
-        </tr>
-        <tr>
-            <td>해당층/건물층</td>
-            <td>{{ data.first.floor_num }}층/ {{ data.first.floor_total }}층</td>
-            <td>전용/공급면적</td>
-            <td>{{ data.first.dedicated_area }}/{{ data.first.common_area }}</td>
-            <td>난방종류</td>
-            <td>{{ data.first.gas_type }}</td>
-            <td>방 수/욕실 수</td>
-            <td>{{ data.first.room_num }}개/{{ data.first.toilet_num }}개</td>
-        </tr>
-        <tr>
-            <td>난방종류</td>
-            <td>{{ data.first.gas_type }}</td>
-            <td>방향</td>
-            <td>{{ data.first.direction }}</td>
-            <td>엘레베이터</td>
-            <td>{{ data.first.elevator }}개</td>
-            <td>건물 주차수</td>
-            <td>총 {{ data.first.parking }}대</td>
-        </tr>
-        <tr>
-            <td>준공날짜</td>
-            <td>{{ data.first.construction_date }}</td>
-            <td>전체층/해당층</td>
-            <td>{{ data.first.floor_total }}층/{{ data.first.floor_num }}층</td>
-            <td>입주가능일</td>
-            <td>{{ data.first.moving_date }}</td>
-            <td>주소</td>
-            <td>{{ data.first.address }}</td>
-        </tr>
-        <tr>
-            <td>등록일</td>
-            <td colspan="3">{{ data.first.create_date }}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
+            <div>
+                <h3>옵션</h3>
+                <ul class="optionBox">
+                    <li><img src="../../static/images/oneroom_option01.png" alt="에어컨">에어컨</li>
+                    <li><img src="../../static/images/oneroom_option02.png" alt="세탁기">세탁기</li>
+                    <li><img src="../../static/images/oneroom_option03.png" alt="냉장고">냉장고</li>
+                    <li><img src="../../static/images/oneroom_option04.png" alt="책상">책상</li>
+                    <li><img src="../../static/images/oneroom_option05.png" alt="옷장">옷장</li>
+                    <li><img src="../../static/images/oneroom_option06.png" alt="신발장">신발장</li>
+                    <li><img src="../../static/images/oneroom_option07.png" alt="인덕션">인덕션</li>
+                    <li><img src="../../static/images/oneroom_option08.png" alt="전자도어락">전자도어락</li>
+                </ul>
+            </div>
 
-    <!-- 방 사진 -->
-    <div class="roomImageContainer">
-        <div class="roomImage">
-            <img src="{{ data.first.file_set.first.file.url }}">
-        </div>
-        <div class="roomImage">사진</div>
-        <div class="roomImage">사진</div>
-        <div class="roomImage">더보기</div>
-    </div>
+            <div>
+                <h3>보안/안전 시설</h3>
+                <ul class="optionBox">
+                    <li><img src="../../static/images/oneroom_option09.png" alt="비디오폰">비디오폰</li>
+                    <li><img src="../../static/images/oneroom_option10.png" alt="공동현관">공동현관</li>
+                    <li><img src="../../static/images/oneroom_option11.png" alt="CCTV">CCTV</li>
+                    <li><img src="../../static/images/oneroom_option12.png" alt="화재경보기">화재경보기</li>
+                    <li><img src="../../static/images/oneroom_option13.png" alt="가스누출경보기">가스누출경보기</li>
+                </ul>
+            </div>
 
-    <!-- 옵션 -->
-    <div class="option">
-        <div class="option_title">옵션</div>
-        <div class="option_list"></div>
-    </div>
-
-    <!-- 시설 -->
-    <div class="facility">
-        <div class="facility_title">시설</div>
-        <div class="facility_list"></div>
-    </div>
-
-    <!-- 리뷰창 -->
-    <div class="review">
-        <div class="review_header">
-            <div class="review_title">실거주자 리뷰</div>
-            <div class="review_write">리뷰작성</div>
-        </div>
-        <ul class="review_ul">
-            <li class="review_li">
-                <!-- 리뷰 작성자 정보띄우는 창 -->
-                <div class="review_info">
-
-                    <img src="" alt="Profile" class="review_profile_img"
-                         style="width: 50px; height: 50px; border-radius: 50%">
-                    <div class="info_container">
-                        <div class="review_writer">
-                            <span class="writer_name">홍길동</span>
-                            <span class="write_date">1월 1일</span>
+            <div class="reviewArea">
+                <h3>실거주자 리뷰</h3>
+                <button data-popup="review_popup">리뷰작성</button>
+                <div class="review_popup">
+                    <div>
+                        <div class="titleArea">
+                            <p>상품 이름</p>
+                            <div class="scopeArea">
+                                <img src="../../static/images/filledStar.png" alt="">
+                                <img src="../../static/images/filledStar.png" alt="">
+                                <img src="../../static/images/filledStar.png" alt="">
+                                <img src="../../static/images/filledStar.png" alt="">
+                                <img src="../../static/images/emptyStar.png" alt="">
+                            </div>
                         </div>
-                        <div class="star_rating">*****</div>
+                        <textarea>리뷰를 작성해주세요.</textarea>
+                        <div class="imgRegiBox">
+                            <div class="fileArea">
+                                <input type="file">
+                                <label for="">+</label>
+                                <div class="imgBox" style="background-image: url(../../static/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(../../static/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(../../static/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(../../static/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                            </div>
+                            <p>
+                                허위 리뷰나 명예훼손, 욕설, 타인비방글 등 제3자의 권리를
+                                침해하는 게시물은 관련 법률에 따라 제제를 받을 수 있습니다.
+                            </p>
+                            <button>리뷰 작성</button>
+                            <span class="material-icons-outlined closeBtn">
+                                close
+                            </span>
+                        </div>
                     </div>
                 </div>
-                <!-- 리뷰 사진 -->
-                <div class="review_img_container">
-                    <img src="" alt="리뷰 사진." class="review_img">
+                <ul>
+                    <li>
+                        <div class="imgBox" style="background-image: url(../../static/images/oneroom_user01.png);">
+                            사용자 이미지
+                        </div>
+                        <div class="textArea">
+                            <b>홍길동</b>
+                            <time>1월 1일</time>
+                            <div class="scopeArea">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/emptyStar.png" alt="">
+                            </div>
+                            <p>잘 살다 갑니다.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="imgBox" style="background-image: url(../../static/images/oneroom_user02.png);">
+                            사용자 이미지
+                        </div>
+                        <div class="textArea">
+                            <b>홍길동</b>
+                            <time>1월 1일</time>
+                            <div class="scopeArea">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/emptyStar.png" alt="">
+                                <img src="images/emptyStar.png" alt="">
+                                <img src="images/emptyStar.png" alt="">
+                                <img src="images/emptyStar.png" alt="">
+                            </div>
+                            <p>잘 살다 갑니다.</p>
+                        </div>
+                        <div class="imgArea">
+                            <div class="imgBox" style="background-image: url(../../static/images/oneroom_userImg.png);">
+                                사용자가 올린 사진
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="pageBox">
+                    <a href="#"><mark>&lt;</mark>이전</a>
+                    <ol>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                    </ol>
+                    <a href="#">다음<mark>&gt;</mark></a>
                 </div>
+            </div>
 
-                <!-- 리뷰 내용 -->
-                <div class="review_text_container">
-                    리뷰입니다.
-                </div>
-            </li>
-        </ul>
+            <div class="differentArea">
+                <h3>다른 방 둘러보기</h3>
+                <ul>
+                    <li>
+                        <div class="imgBox" style="background-image: url(../../static/images/oneroom_detailOne01.png);">
+                            다른 원룸 방 이미지
+                        </div>
+                        <p>
+                            <strong>월세 40만원</strong>
+                            원룸
+                        </p>
+                        <small>2층 18평, 관리비 60만</small>
+                        <small>목포대 다이소 근처</small>
+                    </li>
+                    <li>
+                        <div class="imgBox" style="background-image: url(../../static/images/oneroom_detailOne02.png);">
+                            다른 원룸 방 이미지
+                        </div>
+                        <p>
+                            <strong>월세 40만원</strong>
+                            원룸
+                        </p>
+                        <small>2층 18평, 관리비 60만</small>
+                        <small>목포대 다이소 근처</small>
+                    </li>
+                    <li>
+                        <div class="imgBox" style="background-image: url(../../static/images/oneroom_detailOne03.png);">
+                            다른 원룸 방 이미지
+                        </div>
+                        <p>
+                            <strong>월세 40만원</strong>
+                            원룸
+                        </p>
+                        <small>2층 18평, 관리비 60만</small>
+                        <small>목포대 다이소 근처</small>
+                    </li>
+                    <li>
+                        <div class="imgBox" style="background-image: url(../../static/images/oneroom_detailOne04.png);">
+                            다른 원룸 방 이미지
+                        </div>
+                        <p>
+                            <strong>월세 40만원</strong>
+                            원룸
+                        </p>
+                        <small>2층 18평, 관리비 60만</small>
+                        <small>목포대 다이소 근처</small>
+                    </li>
+                    <li>
+                        <div class="imgBox" style="background-image: url(../../static/images/oneroom_detailOne05.png);">
+                            다른 원룸 방 이미지
+                        </div>
+                        <p>
+                            <strong>월세 40만원</strong>
+                            원룸
+                        </p>
+                        <small>2층 18평, 관리비 60만</small>
+                        <small>목포대 다이소 근처</small>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </div>
-
-    <!-- 페이지 네비게이션 -->
-    <div class="pagination">
-        <ul class="page_ul">
-            <li class="page_li"><</li>
-            <li class="page_li">1</li>
-            <li class="page_li">2</li>
-            <li class="page_li">3</li>
-            <li class="page_li">4</li>
-            <li class="page_li">5</li>
-            <li class="page_li">></li>
-        </ul>
-    </div>
-
-    <!-- 다른방 둘러보기 -->
-    <div class="another_rooms">
-        <div class="title">다른 방 둘러보기</div>
-        <ul class="another_rooms_ul">
-            <!-- 방 이미지 + 정보 -->
-            <li class="another_rooms_li">
-                <img src="" alt="다른방" class="another_rooms_img">
-                <div class="another_rooms_content">월세 30</div>
-            </li>
-
-        </ul>
-    </div>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="js/com.js"></script>
     <script>
-        // 모달창 전체를 감싸는 컨테이너
-        const modal_container = document.querySelector('.modal_container');
-        // 연락처보기 버튼
-        const contact_btn = document.querySelector('.contact_btn');
-        // 연락처를 띄우는 창
-        const contact_window = document.querySelector('.contact_window');
-        // 연락처 창 중간부분
-        const contact_body = document.querySelector('.contact_body');
-        // 닫기 버튼
-        const x_btn = document.querySelector('.x_btn');
-        // 리뷰 띄우는 창
-        const review_write_window = document.querySelector('.review_write_window');
+        $(document).ready(function(){
+            $('[data-popup]').click(function(e){
+                e.preventDefault();
+                var popupArea = $(this).siblings('.' + $(this).attr('data-popup'));
+                if(popupArea.length == 0){
+                    popupArea = $('.' + $(this).attr('data-popup'));
+                }
+                popupArea.addClass('active');
+                popupArea.click(function(){
+                    popupArea.removeClass('active')
+                })
+                popupArea.find('.closeBtn').click(function(){
+                    popupArea.removeClass('active')
+                })
+                popupArea.children('div').click(function(e){
+                    e.stopPropagation();
+                })
+            })
 
-        // 연락처 Text
-        let contact = '{{ data.first.owner_contact }}';
-        contact_body.textContent = contact;
-
-        // Modal 배경 보이기/가리기
-        function toggleModal() {
-            modal_container.classList.toggle('hidden');
-        }
-
-        // 연락처 창 보이기/가리기
-        function toggleContact() {
-            contact_window.classList.toggle('hidden');
-        }
-
-        // 연락처버튼 Event 등록
-        contact_btn.addEventListener('click', () => {
-            toggleModal();
-            toggleContact();
-        })
-
-        // 리뷰 작성
-        // 리뷰작성 버튼
-        const review_write = document.querySelector('.review_write');
-
-        function toggleReview() {
-            review_write_window.classList.toggle('hidden');
-        }
-
-        review_write.addEventListener('click', () => {
-            toggleModal();
-            toggleReview();
-        })
-
-        // x 버튼 Event 등록
-        modal_container.addEventListener('click', (e) => {
-            if (e.target.className.includes('x_btn')) {
-                e.target.parentNode.parentNode.classList.toggle('hidden');
-                toggleModal();
-            }
+            $('[data-popup="moreImg_popup"]').click(function(){
+                $('.slider').bxSlider();
+                var popupArea = $(this).siblings('.' + $(this).attr('data-popup'));
+                if(popupArea.length == 0){
+                    popupArea = $('.' + $(this).attr('data-popup'));
+                }
+                popupArea.children('div').click(function(e){
+                    e.stopPropagation();
+                })
+            });
         })
     </script>
 {% endblock %}
