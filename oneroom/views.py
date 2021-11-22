@@ -9,7 +9,7 @@ from .models import *
 
 def index(request):
     data = Post.objects.order_by('create_date')
-    context = {'data_list': data}
+    context = {'data': data}
     return render(request, 'oneroom/index.html', context)
 
 

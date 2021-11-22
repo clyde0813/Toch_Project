@@ -1,8 +1,6 @@
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, redirect
-
 from django.utils import timezone
 
 from ip_gather import get_client_ip
@@ -59,6 +57,7 @@ def usedtrade_chat(request, num):
         return render(request, 'common/usedtrade_chat.html', context)
 
 
+@login_required(login_url='common:login')
 def usedtrade_chat_send(request, chatroom_id):
     if request.method == 'POST':
         form = ChatForm(request.POST)
@@ -81,6 +80,7 @@ def usedtrade_chat_send(request, chatroom_id):
             return redirect('common:usedtrade_chat', chatroom_id)
 
 
+@login_required(login_url='common:login')
 def community_chat(request):
     return render(request, 'common/community_chat.html')
 
@@ -102,6 +102,7 @@ def community_chat(request, num):
         return render(request, 'common/community_chat.html', context)
 
 
+@login_required(login_url='common:login')
 def community_chat_send(request, chatroom_id):
     if request.method == 'POST':
         form = ChatForm(request.POST)
@@ -123,8 +124,13 @@ def community_chat_send(request, chatroom_id):
             return redirect('common:community_chat', chatroom_id)
 
 
+@login_required(login_url='common:login')
 def service(request):
     return render(request, 'common/mypage_question.html')
+
+
+def job_opening(request):
+    return render(request, 'etc/job_opening.html')
 
 # def email(request):
 #     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Toch.settings.local")

@@ -7,6 +7,7 @@ app_name = 'common'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('job', views.job_opening, name='job_opening'),
     path('mypage/', views.mypage, name='mypage'),
     path('login/', auth_views.LoginView.as_view(template_name='common/login.html'), name='login'),
     path('login_Find', views.login_find, name='login_find'),
