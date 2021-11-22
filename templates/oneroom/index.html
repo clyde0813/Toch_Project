@@ -101,8 +101,9 @@
     <script src="../static/scripts/com.js"></script>
     <script type="text/javascript">
         const container = document.querySelector('.myMap');
-        const itemList = document.querySelector('.bottomArea');
-        //const recommend_btn = document.querySelector('.recommend_btn')
+        const itemList = document.querySelector('.bottomArea > ul');
+        const MNU_LATITUDE = 34.91124654247272;
+        const MNU_LONGITUDE = 126.43614580709644;
 
         let MARKER_WIDTH = 33, // 기본, 클릭 마커의 너비
             MARKER_HEIGHT = 36, // 기본, 클릭 마커의 높이
@@ -128,23 +129,26 @@
 
         // 마커를 표시할 위치와 해당 정보를 담은 객체 배열
         let positions = [
-            {% if data_list %}
-                {% for data in data_list %}
+            {% if data %}
+                {% for i in data %}
                     {
-                        title: '{{ data.title }}',
-                        price: '월세 200/35',
-                        type: '원룸',
-                        space: '7평',
-                        latlng: new kakao.maps.LatLng({{ data.latitude }}, {{ data.longitude }}), // 원룸 좌표
-                        id: {{ data.id }},
-                        main_img: '{{ data.file_set.first.file.url }}',
+                        id: {{ i.id }},
+                        rent_type: '{{ i.rent_type }}',
+                        price: '{{ i.rent_amount }}',
+                        latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
+                        main_img: '{{ i.file_set.first.file.url }}',
+                        floor_num : '{{ i.floor_num }}',
+                        common_area : '{{ i.common_area }}',
+                        address : '{{ i.address }}'
                     },
                 {% endfor %}
             {% endif %}
         ];
 
+
+
         const options = {
-            center: new kakao.maps.LatLng(34.91124654247272, 126.43614580709644), // 지도의 중심 좌표
+            center: new kakao.maps.LatLng(MNU_LATITUDE, MNU_LONGITUDE), // 지도의 중심 좌표
             level: 5 // 지도의 레벨(확대, 축소 정도)
         };
 
@@ -159,13 +163,15 @@
                 overOrigin = new kakao.maps.Point(gapX * 2, overOriginY); // 스프라이트 이미지에서 클릭 마커로 사용할 영역의 좌상단 좌표
 
             let info = {
-                title: positions[i].title,
-                price: positions[i].price,
-                type: positions[i].type,
-                space: positions[i].space,
                 id: positions[i].id,
+                rent_type : positions[i].rent_type,
+                price : positions[i].price,
                 main_img: positions[i].main_img,
+                floor_num: positions[i].floor_num,
+                common_area: positions[i].common_area,
+                address: positions[i].address,
             }
+
 
             // 마커를 생성하고 지도위에 표시합니다
             addMarker(positions[i].latlng, normalOrigin, overOrigin, clickOrigin, info);
@@ -226,42 +232,37 @@
 
         // 첫 로드시 리스트에 방들을 전부 보여주는 함수
         function showAllItems(info) {
-            const item = document.createElement('li');
-            itemList.appendChild(item);
-
             const roomInfo = roomListItem(info);
 
-            item.innerHTML = roomInfo;
+            itemList.insertAdjacentHTML('beforeend', roomInfo);
         }
 
         // 마커 클릭시 리스트에 방들을 보여주는 함수
         function setListItem(info) {
             const roomInfo = roomListItem(info);
-
             itemList.innerHTML = roomInfo;
         }
 
-        // 리스트에 들어갈 요소들을 묶어서 한번에 반환하는 함수
         function roomListItem(info) {
-           return ` <li>
-                <a onclick="location.href=${info.id}">
-                    <div className="imgBox"></div>
+            return ` <li>
+                 <a onclick="location.href=${info.id}">
+                     <div class="imgBox" style="background-image: url(${info.main_img})"></div>
 
-                    <div className="textArea">
-                        <strong>
-                            <small>${info.type}</small>
-                            월세 ${info.price}
-                        </strong>
-                        <p>n층 n평 관리비 n만원</p>
-                        <p>서울특별시 서초구 서초동 1603-80</p>
-                        <div>
-                            <span>원룸</span>
-                            <span>공대근처</span>
-                            <span>다이소근처</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
+                     <div class="textArea">
+                         <strong>
+                             <small>${info.rent_type}</small>
+                             ${info.rent_type} ${info.price}
+                         </strong>
+                         <p>${info.floor_num} ${info.common_area} 관리비 n만원</p>
+                         <p>${info.address}</p>
+                         <div>
+                             <span>원룸</span>
+                             <span>공대근처</span>
+                             <span>다이소근처</span>
+                         </div>
+                     </div>
+                 </a>
+             </li>
             `
         }
 

@@ -278,7 +278,7 @@
 /* 원룸 페이지 지도 */
 .oneRoomArea .contArea .mapArea{width: calc(100% - 720px); height: 100%; position: relative;}
 /* 검색바 search_bar */
-.oneRoomArea .contArea .mapArea .inputArea{position: absolute; left: 15px; top: 20px; padding: 20px; height: 85px; background-color: white; border: 1px solid #dadada; display: flex; z-index: 2;}
+.oneRoomArea .contArea .mapArea .inputArea{position: absolute; left: 15px; top: 20px; padding: 20px; height: 45px; background-color: white; border: 1px solid #dadada; display: flex; z-index: 2;}
 .oneRoomArea .contArea .mapArea .inputArea div{position: relative; height: 100%;}
 .oneRoomArea .contArea .mapArea .inputArea div input{width: 323px; height: 100%; border: 2px solid #ff9900; box-sizing: border-box;}
 .oneRoomArea .contArea .mapArea .inputArea div button{position: absolute; top:12px; right: 11px; width: 19px; height: 19px; background: url('../images/oneroom_search.png') no-repeat center / cover;}

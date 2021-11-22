@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="../../static/scripts/com.js"></script>
     <div class="subPage oneRoomPage">
         <section class="detailArea width1200">
             <h2 class="hidden">원룸</h2>
@@ -104,7 +108,7 @@
                     <button data-popup="moreImg_popup">더보기</button>
                 </li>
                 <li>
-                    <div class="imgBox" style="background-image: url('images/oneroom_detailImg02.png');"></div>
+                    <div class="imgBox" style="background-image: url('../../static/images/oneroom_detailImg02.png');"></div>
                     <button data-popup="moreImg_popup">더보기</button>
                 </li>
                 <li>
@@ -116,6 +120,7 @@
                     <button data-popup="moreImg_popup">더보기</button>
                 </li>
             </ul>
+
             <div class="moreImg_popup">
                 <div class="slider">
                     <div>
@@ -176,8 +181,8 @@
                         <textarea>리뷰를 작성해주세요.</textarea>
                         <div class="imgRegiBox">
                             <div class="fileArea">
-                                <input type="file">
-                                <label for="">+</label>
+                                <input type="file" id="review_write_append_photo">
+                                <label for="review_write_append_photo">+</label>
                                 <div class="imgBox" style="background-image: url(../../static/images/registrationImg.png);">
                                     <button class="removeBtn">-</button>
                                 </div>
@@ -192,7 +197,7 @@
                                 </div>
                             </div>
                             <p>
-                                허위 리뷰나 명예훼손, 욕설, 타인비방글 등 제3자의 권리를
+                                허위 리뷰나 명예훼손, 욕설, 타인비방글 등 제3자의 권리를 
                                 침해하는 게시물은 관련 법률에 따라 제제를 받을 수 있습니다.
                             </p>
                             <button>리뷰 작성</button>
@@ -211,11 +216,11 @@
                             <b>홍길동</b>
                             <time>1월 1일</time>
                             <div class="scopeArea">
-                                <img src="images/filledStar.png" alt="">
-                                <img src="images/filledStar.png" alt="">
-                                <img src="images/filledStar.png" alt="">
-                                <img src="images/filledStar.png" alt="">
-                                <img src="images/emptyStar.png" alt="">
+                                <img src="../../static/images/filledStar.png" alt="">
+                                <img src="../../static/images/filledStar.png" alt="">
+                                <img src="../../static/images/filledStar.png" alt="">
+                                <img src="../../static/images/filledStar.png" alt="">
+                                <img src="../../static/images/emptyStar.png" alt="">
                             </div>
                             <p>잘 살다 갑니다.</p>
                         </div>
@@ -228,11 +233,11 @@
                             <b>홍길동</b>
                             <time>1월 1일</time>
                             <div class="scopeArea">
-                                <img src="images/filledStar.png" alt="">
-                                <img src="images/emptyStar.png" alt="">
-                                <img src="images/emptyStar.png" alt="">
-                                <img src="images/emptyStar.png" alt="">
-                                <img src="images/emptyStar.png" alt="">
+                                <img src="../../static/images/filledStar.png" alt="">
+                                <img src="../../static/images/emptyStar.png" alt="">
+                                <img src="../../static/images/emptyStar.png" alt="">
+                                <img src="../../static/images/emptyStar.png" alt="">
+                                <img src="../../static/images/emptyStar.png" alt="">
                             </div>
                             <p>잘 살다 갑니다.</p>
                         </div>
@@ -319,9 +324,7 @@
             </div>
         </section>
     </div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script src="js/com.js"></script>
+
     <script>
         $(document).ready(function(){
             $('[data-popup]').click(function(e){
