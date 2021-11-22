@@ -1,0 +1,119 @@
+
+/* 컨텐츠 크기 */
+.width1200{width: 1200px; margin: 0 auto;}
+
+.mainPage{padding-top: 130px;}
+.loginPage > [class *="Area"]{padding: 200px 0 70px;}
+.myPage > [class *="Area"]{padding: 200px 0 70px;}
+.oneRoomPage > [class *="Area"]:not(.oneRoomArea){padding: 130px 0 70px;}
+
+.hidden{height: 0.001px; overflow: hidden;}
+
+mark{color: #ff9900; background-color: transparent;}
+mark > *{color: #ff9900;}
+
+.blackBtn{display: block; margin: 0 auto; width: 125px; line-height: 45px; background-color: black; font-size: 18px; font-weight: 800; color: white; text-align: center;}
+[class*="material-icons-outlined"]{font-family: 'Material Icons';}
+
+/* 페이저 */
+.pageBox{display: flex; justify-content: center; align-items: center; margin-top: 20px;}
+.pageBox > a{width: 60px; height: 30px; font-size: 14px; color: #888888; display: flex; justify-content: center; align-items: center; border: 1px solid #d2d2d2;}
+.pageBox > a:first-of-type mark{margin-right: 5px;}
+.pageBox > a:last-of-type mark{margin-left: 5px;}
+.pageBox ol{display: flex; justify-content: center; align-items: center; margin: 0 50px;}
+.pageBox ol li:not(:last-child){margin-right: 10px;}
+.pageBox ol li a{display: block; color: #888888; width: 15px; text-align: center;  position: relative;}
+.pageBox ol li a:hover,.pageBox ol li.active a{color: black; font-weight: 800;}
+.pageBox ol li a:hover::after,
+.pageBox ol li.active a::after{content: ''; position: absolute; left: 0; bottom: -5px; width: 100%; height: 2px; background-color: #ff9900;}
+
+/* 이미지 업로드 공통 */
+.imgRegiBox > .fileArea{display: flex; flex-wrap: wrap;}
+.imgRegiBox > .fileArea > *{}
+.imgRegiBox > .fileArea input{display: none;}
+.imgRegiBox > .fileArea label ,.imgRegiBox > .fileArea .imgBox {width: 65px; height: 65px; border: 1px solid #b8b8b8; box-sizing: border-box;}
+.imgRegiBox > .fileArea label{display: flex; justify-content: center; align-items: center; color: #ababab; font-weight: 900; background-color: #f5f5f5;}
+.imgRegiBox > .fileArea .imgBox{position: relative;}
+.imgRegiBox > .fileArea .imgBox .removeBtn{position: absolute; right: -6px; top: -6px; width: 20px; line-height: 20px; text-align: center; background-color: black; border-radius: 100%; font-size: 20px; color: white; font-weight: 900;}
+
+
+/* 팝업 */
+[class*='popup']{display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 100; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.8);}
+[class*='popup'].active{display: flex;}
+[class*='popup'] > div:not([class='bx-wrapper']){ width: 360px; background-color: white;  position: relative;}
+[class*='popup'] .closeBtn{position: absolute; right: 20px; top: 20px; font-size: 40px; cursor: pointer;}
+/* 아이디 비밀번호 찾기 팝업 */
+.find_popup > div{ padding: 80px 20px 40px;  box-sizing: border-box;}
+.find_popup > div strong{display: block; font-size: 20px; font-weight: 800; text-align: left; margin-bottom: 20px;}
+/* 원룸 연락처 */
+.contact_popup > div{padding: 100px 0 40px;}
+.contact_popup > div p{font-size: 20px; margin-bottom: 75px; text-align: center;}
+.contact_popup > div p span{position: relative;}
+.contact_popup > div p span::after{content: ''; position: absolute; left: 0; bottom: -15px; width: 100%; height: 1px; background-color: black;}
+.contact_popup > div div{display: flex; justify-content: center;}
+.contact_popup > div div button{width: 125px; height: 45px; font-size: 18px; color: #888888; font-weight: 700; display: flex; justify-content: space-between; align-items: center; border: 1px solid #d2d2d2; padding: 0 20px; box-sizing: border-box;}
+.contact_popup > div div button:not(:last-of-type){margin-right: 8px;}
+.contact_popup > div div button::before{content: ''; width: 22px; height: 22px; background-repeat: no-repeat; background-position: center; background-size: cover;}
+.contact_popup > div div button:nth-of-type(1)::before{background-image: url('../images/oneroom_contact01.png');}
+.contact_popup > div div button:nth-of-type(2)::before{background-image: url('../images/oneroom_contact02.png');}
+/* 로그인 필요 */
+.loginRequired_popup p{font-size: 20px; text-align: center; line-height: 275px;}
+/* 리뷰 작성 */
+.review_popup > div{padding-bottom: 20px;}
+.review_popup > div .titleArea{padding: 60px 0 30px; background-color: #f5f5f5; border-bottom: 1px solid #e0e0e0; text-align: center;}
+.review_popup > div .titleArea p{font-size: 20px; margin-bottom: 10px;}
+.review_popup > div textarea{width: 100%; height: 300px; padding: 20px; box-sizing: border-box; border: none; resize: none;}
+.review_popup .imgRegiBox > .fileArea{padding: 10px;}
+.review_popup .imgRegiBox > .fileArea > *{margin: 10px;}
+.review_popup .imgRegiBox P{font-size: 13px; color: #888888; line-height: 20px; padding: 0 20px; margin-bottom: 30px;}
+.review_popup .imgRegiBox > button{display: block; width: calc(100% - 40px); height: 45px; margin: 0 auto; background-color: black; font-size: 18px; font-weight: 700; color: white;}
+/* 슬라이더  */
+.moreImg_popup .bx-wrapper{width: 800px; box-shadow: none; border: none; background-color: transparent;}
+.moreImg_popup .bx-wrapper img{width: 100%;}
+.moreImg_popup .bx-wrapper .bx-controls-direction a{width: 30px; height: 59px;}
+.moreImg_popup .bx-wrapper .bx-prev{background: url('../images/slider_prev.png') no-repeat center; left: -70px;}
+.moreImg_popup .bx-wrapper .bx-next{background: url('../images/slider_next.png') no-repeat center; right: -70px;}
+.moreImg_popup .bx-wrapper .bx-pager.bx-default-pager a{background: white; opacity: 1;}
+.moreImg_popup .bx-wrapper .bx-pager.bx-default-pager a.active{background-color: #ff9900;}
+
+/* 아이콘 */
+.login_icon , .mail_icon{width: 30px; height: 30px; text-indent: -9999px; background-repeat: no-repeat; background-position: center; background-size: cover;}
+.login_icon{background-image: url('../images/loginIcon.png');}
+.mail_icon{background-image: url('../images/mailIcon.png'); position: relative;}
+.mail_icon[data-count]::after{content: attr(data-count); position: absolute; right: -10px; top: -7px; width: 20px; height: 20px; background-color: #ff9900; border: 2px solid white; border-radius: 100%; display: flex; justify-content: center; align-items: center; text-indent: 0; font-size: 11px; font-weight: 900;}
+
+.point::after{content: ''; width: 5px; height: 5px; background-color: #46ccbb; border-radius: 100%; display: inline-block; vertical-align: text-top; margin-left: 8px;}
+.bold{font-weight: 800; display: flex; align-items: center;}
+
+header{position: fixed; left: 0; top: 0; width: 100%; border-bottom: 1px solid #dadada; background-color: white; z-index: 10;}
+header > div{display: flex; justify-content: center; align-items: center;}
+header > div > *:first-child{margin-right: auto;}
+header > div > *:last-child{margin-left: auto;}
+header > div h1 small{font-size: 18px; font-weight: 700; margin-left: 10px;}
+header > div nav > ul{display: flex}
+header > div nav > ul > li:not(:last-child){margin-right: 60px;}
+header > div nav > ul > li > a{font-size: 29px; font-weight: 700; line-height: 120px;}
+header > div nav > ul > li > a:hover span,
+header > div nav > ul > li > a.active span{position: relative;}
+header > div nav > ul > li > a:hover span::after,
+header > div nav > ul > li > a.active span::after{content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 10px; background-color: #ff9900; z-index: -1;}
+header > div nav > ul > li > div{display: none; position: absolute; top: 120px; left: 0; width: 100%; background-color: #f7f7f7; border-width: 1px 0; border-style: solid; border-color:#dadada;}
+header > div nav > ul > li > div div{display: flex; padding: 30px 0;}
+header > div nav > ul > li > div div ul{flex: 1; padding: 0 20px;  border-left: 1px solid #dadada;}
+header > div nav > ul > li > div div ul li:not(:last-child){margin-bottom: 20px;}
+header > div nav > ul > li > div div ul li a{font-size: 16px; font-weight: 700;}
+header > div nav > ul > li > div div ul li a:hover{color:#ff9900;}
+header > div > ul{display: flex;}
+header > div > ul li:not(:last-child){margin-right: 45px;}
+
+footer{background-color: #242424; padding: 20px 0;}
+footer > div{position: relative;}
+footer > div h2{margin-bottom: 25px;}
+footer > div > ul{position: absolute; right: 0; top: 5px; display: flex;}
+footer > div > ul li:not(:last-child){margin-right: 30px;}
+footer > div > ul li a{color: white;}
+footer > div > ul ~ *{font-size: 14px; color: #9b9b9b; line-height: 21px;}
+footer > div > address{font-style: normal; display: flex; flex-wrap: nowrap;}
+footer > div > address > *:not(:last-child){margin-right: 20px;}
+footer > div > address dl{display: flex;}
+footer > div > address dl dt::after{content: ':'; display: inline-block; margin: 0 5px;}

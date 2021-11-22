@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>커뮤니티 - toch</title>
+    <!-- Iphone 모바일 확대 방지 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0">
+    <title>회원정보 - toch</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/com.js"></script>
     <link rel="stylesheet" href="css/import.css">
 </head>
 <body>
@@ -78,139 +81,65 @@
         <section class="width1200 myArea">
             <h2>메인페이지</h2>
             <ul class="menuBox">
-                <li>
+                <li class="active">
                     <a href="mypage_member.html">회원정보</a>
                 </li>
                 <li>
                     <a href="mypage_used.html" data-count="3">중고거래</a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="mypage_community.html" data-count="3">커뮤니티</a>
                 </li>
                 <li>
                     <a href="mypage_question.html">문의</a>
                 </li>
             </ul>
-
-            <div class="tolkBox commuArea">
-                <div class="tolkList">
-                    <ul>
-                        <li class="active">
-                            <b>김개똥</b>
-                            <time>오후 9:01</time>
-                            <p>거래 보고 연락 거래 보고 연락..</p>
-                            <span>3</span>
-                        </li>
-                        <li>
-                            <b>익명</b>
-                            <time>오전 11:01</time>
-                            <p>팔렸나요?</p>
-                        </li>
-                        <li>
-                            <b>111</b>
-                            <time>어제</time>
-                            <p>못갈것 같아요~</p>
-                        </li>
-                        <li>
-                            <b>111</b>
-                            <time>어제</time>
-                            <p>못갈것 같아요~</p>
-                        </li>
-                        <li>
-                            <b>111</b>
-                            <time>어제</time>
-                            <p>못갈것 같아요~</p>
-                        </li>
-                        <li>
-                            <b>111</b>
-                            <time>어제</time>
-                            <p>못갈것 같아요~</p>
-                        </li>
-                        <li>
-                            <b>111</b>
-                            <time>어제</time>
-                            <p>못갈것 같아요~</p>
-                        </li>
-                        <li>
-                            <b>111</b>
-                            <time>어제</time>
-                            <p>못갈것 같아요~</p>
-                        </li>
-                        <li>
-                            <b>111</b>
-                            <time>어제</time>
-                            <p>못갈것 같아요~</p>
-                        </li>
-                        <li>
-                            <b>111</b>
-                            <time>어제</time>
-                            <p>못갈것 같아요~</p>
-                        </li>
-                        <li>
-                            <b>111</b>
-                            <time>어제</time>
-                            <p>못갈것 같아요~</p>
-                        </li>
-                        <li>
-                            <b>111</b>
-                            <time>어제</time>
-                            <p>못갈것 같아요~</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="tolkDetail">
-                    <div class="tolkSubject">
-                        <p>
-                            자유게시판
-                            <strong>교수님 과제 좀 그만 내주세요!</strong>
-                        </p>
-                        <button>차단</button>
-                    </div>
-                    <div class="tolkArea">
-                        <div class="opponentTolk">
-                            <div class="imgBox" style="background-image: url('images/mypage_used_user.png');">
-                                김개똥 이미지    
+            <div class="paddingBox memberArea">
+                <div>
+                    <strong>프로필</strong>
+                    <div>
+                        <div>
+                            <div class="imgBox" style="background-image: url(images/mypage_member_user.png);">
+                                유저 이미지
                             </div>
-                            <blockquote>
-                                <cite>김개똥</cite>
-                                <q data-unread="1">거래 요청 드려요~거래 요청 드려요~거래 요청 드려요~ 요청 드려요~ 요청 드려요~ 요청 드려요~</q>
-                                <time>오후 9:00</time>
-                            </blockquote>
+                            <button>업로드</button>
                         </div>
-                        <div class="meTolk">
-                            <blockquote>
-                                <time>오후 9:01</time>
-                                <q>잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요</q>
-                            </blockquote>
-                        </div>
-                        <span><time>2021년 11월 10일</time></span>
-                        <div class="meTolk">
-                            <blockquote>
-                                <time>오후 9:01</time>
-                                <q>잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요</q>
-                            </blockquote>
-                        </div>
-                        <span><time>2021년 11월 10일</time></span>
-                        <div class="meTolk">
-                            <blockquote>
-                                <time>오후 9:01</time>
-                                <q>잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요</q>
-                            </blockquote>
-                        </div>
-                        <span><time>2021년 11월 10일</time></span>
-                        <div class="meTolk">
-                            <blockquote>
-                                <time>오후 9:01</time>
-                                <q data-unread="1">잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요잠시만요</q>
-                            </blockquote>
-                        </div>
-                        <span><time>2021년 11월 10일</time></span>
+                        <ul>
+                            <li>
+                                <b>이름</b>
+                                <p>홍길동</p>
+                            </li>
+                            <li>
+                                <b>아이디</b>
+                                <p>hong1234</p>
+                            </li>
+                            <li>
+                                <b>비밀번호</b>
+                                <p>********</p>
+                            </li>
+                            <li>
+                                <b>비밀번호 확인 </b>
+                                <p>********</p>
+                            </li>
+                            <li>
+                                <b>휴대전화</b>
+                                <p>010 - 1234 - 1234</p>
+                            </li>
+                            <li>
+                                <b>이메일</b>
+                                <p>hong1234@gmail.com</p>
+                            </li>
+                            <li>
+                                <b>주소</b>
+                                <p>전남 무안군 청계면 영산로 1666</p>
+                            </li>
+                            <li>
+                                <b>배송주소</b>
+                                <p>전남 무안군 청계면 영산로 1666</p>
+                            </li>
+                        </ul>
                     </div>
-
-                    <div class="inputArea">
-                        <input type="text">
-                        <button>입력</button>
-                    </div>
+                    <a href="#" class="blackBtn">수정</a>
                 </div>
             </div>
         </section>

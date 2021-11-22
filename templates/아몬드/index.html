@@ -9,20 +9,8 @@
     <title>toch</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/com.js"></script>
     <link rel="stylesheet" href="css/import.css">
-    <script>
-        $(document).ready(function(){
-            $('.hover').hover(function(){
-                $(this).children('div').stop().slideDown()
-            },function(){
-                $(this).children('div').stop().slideUp()
-            });
-
-            $('.heartIcon').click(function(){
-                $(this).toggleClass('active');
-            })
-        })
-    </script>
 </head>
 <body>
     <div class="mainPage">
