@@ -283,7 +283,8 @@
 .oneRoomArea .contArea .mapArea .inputArea div button{position: absolute; top:12px; right: 11px; width: 19px; height: 19px; background: url('../images/oneroom_search.png') no-repeat center / cover;}
 .oneRoomArea .contArea .mapArea .inputArea > button{width: 100px; height: 100%; border: 1px solid #d2d2d2; font-size: 18px; color: #888888; display: flex; justify-content: center; align-items: center; margin-left: 20px;}
 .oneRoomArea .contArea .mapArea .inputArea > button:nth-of-type(1)::before{content: ''; width: 21px; height: 17px; background: url('../images/oneroom_filter.png') no-repeat center / cover; margin-right: 17px;}
-.oneRoomArea .contArea .mapArea iframe{width: 100%; height: 100%;}
+/* iframe */
+.oneRoomArea .contArea .mapArea .myMap{width: 100%; height: 100%;}
 
 /* 원룸 페이지 리스트 공통 */
 .oneRoomArea .contArea .listArea{width: 720px; display: flex; flex-direction: column; position: relative;}

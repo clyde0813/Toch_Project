@@ -1,107 +1,49 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <div class="subPage oneRoomPage">
-        <section class="oneRoomArea">
-            <h2 class="hidden">원룸</h2>
-            <div class="contArea">
-                <div class="mapArea">
-                    <div class="inputArea">
-                        <div>
-                            <input type="text">
-                            <button></button>
-                        </div>
-                        <button>필터</button>
-                        <button>AI 추천</button>
-                    </div>
-                    <div class="myMap"></div>
-<!--                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.7923309835637!2d126.43208108271764!3d34.911660690245846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3573afedcb87cab7%3A0xe41ed555ebbc6901!2z66qp7Y-s64yA7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1637395324402!5m2!1sko!2skr"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>-->
-                </div>
-                <div class="listArea">
-                    <div class="topArea">
-                        <p>전체 방<mark>24</mark>개</p>
-                        <select>
-                            <option value="">낮은 가격</option>
-                        </select>
-                        <div class="suggestionArea">
-                            <div class="imgArea">
-                                <div class="imgBox" style="background-image: url(../../static/images/oneroom_suggestion01.png);">
+    <link rel="stylesheet" href="{% static 'oneroom/oneroom_index.css' %}">
+    <style>
+        .search_bar {
+            position: absolute;
 
-                                </div>
-                                <div class="imgBox" style="background-image: url(../../static/images/oneroom_suggestion02.png);">
+            float: left;
+            z-index: 2;
+            width: 500px;
+            height: 25px;
+        }
 
-                                </div>
-                                <div class="imgBox" style="background-image: url(../../static/images/oneroom_suggestion03.png);">
+        .filter_btn, .recommend_btn {
+            width: 70px;
+            height: 25px;
+            background-color: white;
+            border: 1px solid grey;
+        }
 
-                                </div>
-                                <div class="imgBox" style="background-image: url(../../static/images/oneroom_suggestion04.png);">
+    </style>
 
-                                </div>
-                            </div>
-                            <div class="textArea">
-                                <strong>
-                                    월세 1000/55
-                                </strong>
-                                <p>서울특별시 서초구 서초동 1603-80</p>
-                                <div>
-                                    <dl>
-                                        <dt>전용면적</dt>
-                                        <dd>23.14㎡</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>방향</dt>
-                                        <dd>남동</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>해당층/건물층</dt>
-                                        <dd>3층/4층</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>난방종류</dt>
-                                        <dd>개별난방</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>방 수/욕실 수</dt>
-                                        <dd>1개/1개</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>입주가능일</dt>
-                                        <dd>즉시 입주</dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottomArea">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <div class="imgBox" style="background-image: url(../../static/images/oneroom_monthly.png);"></div>
-                                    <div class="textArea">
-                                        <strong>
-                                            <small>원룸</small>
-                                            월세 1000/55
-                                        </strong>
-                                        <p>3층 8평 관리비 8만원</p>
-                                        <p>서울특별시 서초구 서초동 1603-80</p>
-                                        <div>
-                                            <span>원룸</span>
-                                            <span>공대근처</span>
-                                            <span>다이소근처</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+    <div class="mainContainer">
+        <section>
+            <div class="myMap">
+                <div class="search_bar">
+                    <input type="text">
+                    <button class="filter_btn">필터</button>
+                    <button class="recommend_btn" onclick="fetchData()">ai추천</button>
                 </div>
             </div>
         </section>
+
+        <section>
+            <div class="listContainer">
+                <ul class="itemList">
+                </ul>
+            </div>
+        </section>
     </div>
+
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98a0001a3486109fd99e7a58b946cfbe&libraries=clusterer,services"></script>
-    <script src="../static/scripts/com.js"></script>
     <script type="text/javascript">
         const container = document.querySelector('.myMap');
-        const itemList = document.querySelector('.bottomArea');
+        const itemList = document.querySelector('.itemList');
         //const recommend_btn = document.querySelector('.recommend_btn')
 
         let MARKER_WIDTH = 33, // 기본, 클릭 마커의 너비
@@ -243,41 +185,20 @@
 
         // 리스트에 들어갈 요소들을 묶어서 한번에 반환하는 함수
         function roomListItem(info) {
-           return ` <li>
-                <a onclick="location.href=${info.id}">
-                    <div className="imgBox"></div>
-
-                    <div className="textArea">
-                        <strong>
-                            <small>${info.type}</small>
-                            월세 ${info.price}
-                        </strong>
-                        <p>n층 n평 관리비 n만원</p>
-                        <p>서울특별시 서초구 서초동 1603-80</p>
-                        <div>
-                            <span>원룸</span>
-                            <span>공대근처</span>
-                            <span>다이소근처</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            `
-
-            // return `
-            //         <a onclick="location.href=${info.id}">
-            //             <li>
-            //                 <div style="margin: 0 30px"><img width="80px" height="80ox" src="${info.main_img}"></div>
-            //                 <div>
-            //                     <p>
-            //                         <h3>${info.title}</h3>
-            //                         <span>${info.price}</span>
-            //                         <span>${info.space}</span>
-            //                     </p>
-            //                 </div>
-            //             </li>
-            //         </a>
-            //     `
+            return `
+                    <a onclick="location.href=${info.id}">
+                        <li>
+                            <div style="margin: 0 30px"><img width="80px" height="80ox" src="${info.main_img}"></div>
+                            <div>
+                                <p>
+                                    <h3>${info.title}</h3>
+                                    <span>${info.price}</span>
+                                    <span>${info.space}</span>
+                                </p>
+                            </div>
+                        </li>
+                    </a>
+                `
         }
 
         let ai = {
