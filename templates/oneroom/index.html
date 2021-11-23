@@ -1,33 +1,123 @@
 {% extends 'base.html' %}
 {% block content %}
-    <style>
-        .aiQuestionBox {
-
-        }
-    </style>
-
-
     <div class="subPage oneRoomPage">
         <section class="oneRoomArea" style="padding: 120px 0 0 0">
             <h2 class="hidden">원룸</h2>
             <div class="contArea">
                 <div class="mapArea">
                     <div class="inputArea">
-                        <div>
-                            <input type="text">
-                            <button></button>
+
+                        <div class="seachBox">
+                            <input type="search">
+                            <button>검색버튼</button>
                         </div>
-                        <button>필터</button>
-                        <button onclick="fetchData()">AI 추천</button>
+                        <button data-popup="filter_box">필터</button>
+                        <div class="filter_box">
+                            <form>
+                                <fieldset>
+                                    <div>
+                                        <button>초기화</button>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <label>반려동물</label>
+                                            <div>
+                                                <input type="radio" name="pet">
+                                                <label>Yes</label>
+                                                <input type="radio" name="pet">
+                                                <label>No</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <label>자차보유</label>
+                                            <div>
+                                                <input type="radio" name="car">
+                                                <label>Yes</label>
+                                                <input type="radio" name="car">
+                                                <label>No</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <label>외향/내향</label>
+                                            <div>
+                                                <input type="radio" name="personality">
+                                                <label>Yes</label>
+                                                <input type="radio" name="personality">
+                                                <label>No</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <button>Toch  AI 추천</button>
+                                    <span class="material-icons-outlined closeBtn">
+                                        close
+                                    </span>
+                                </fieldset>
+                            </form>
+                        </div>
+
+                        <button data-popup="AI_box">AI 추천</button>
+
+                        <div class="AI_box">
+                            <form>
+                                <fieldset>
+                                    <div>
+                                        <button>초기화</button>
+                                    </div>
+
+                                    <ul>
+                                        <li>
+                                            <label>거래유형</label>
+                                            <mark>연세</mark>
+                                            <div>
+                                                <input type="radio" checked>
+                                                <label>연세</label>
+                                                <input type="radio">
+                                                <label>월세</label>
+                                                <input type="radio">
+                                                <label>전세</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <label>보증금</label>
+                                            <mark>500만원</mark>
+{#                                            <label for="deposit_range"></label>#}
+                                            <div>
+                                                <div class="rangeBox">
+                                                    <div>
+                                                        <span></span>
+                                                        <span>
+                                                            <span>500만원</span>
+                                                        </span>
+{#                                                        <input type="range" id="deposit_range" name="deposit_range" min="0" max="5000" step="100">#}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <label>월세</label>
+                                            <mark>500만원</mark>
+                                            <div>
+                                                <div class="rangeBox">
+                                                    <div>
+                                                        <span></span>
+                                                        <span>
+                                                            <span>500만원</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <span class="material-icons-outlined closeBtn">
+                                        close
+                                    </span>
+                                </fieldset>
+                            </form>
+                        </div>
                     </div>
 
-                    <!-- AI TEST -->
-                    {#                    <div class="aiQuestionBox">#}
-                    {#                        <form method="POST">#}
-                    {#                            <span>질문 A</span><input type="radio"><input type="radio">#}
-                    {#                        </form>#}
-                    {#                    </div>#}
-                    <!-- AI TEST -->
+
 
                     <div class="myMap"></div>
                 </div>
@@ -53,34 +143,10 @@
             imageOption = {offset: new kakao.maps.Point(10, 30)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
         // 마커를 표시할 위치와 해당 정보를 담은 배열
-        let tmp_list = [];
-        let positions = [];
-        if (tmp_list.length) {
-            for (let j in tmp_list) {
-                {% if data %}
-                    {% for i in data %}
-                        if (Number(j) === {{ i.id }}) {
-                            positions.push({
-                                id: {{ i.id }},
-                                title: '{{ i.title }}',
-                                rent_type: '{{ i.rent_type }}',
-                                rent_amount: '{{ i.rent_amount }}',
-                                deposit: '{{ i.deposit }}',
-                                latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
-                                main_img: '{{ i.file_set.first.file.url }}',
-                                floor_num: '{{ i.floor_num }}',
-                                common_area: '{{ i.common_area }}',
-                                address: '{{ i.address }}',
-                                manage_amount: '{{ i.manage_amount }}'
-                            })
-                        }
-                    {% endfor %}
-                {% endif %}
-            }
-        } else {
+        let positions = [
             {% if data %}
                 {% for i in data %}
-                    positions.push({
+                    {
                         id: {{ i.id }},
                         title: '{{ i.title }}',
                         rent_type: '{{ i.rent_type }}',
@@ -92,11 +158,11 @@
                         common_area: '{{ i.common_area }}',
                         address: '{{ i.address }}',
                         manage_amount: '{{ i.manage_amount }}'
-                    })
+                    },
                 {% endfor %}
             {% endif %}
-        }
-        console.log(tmp_list);
+        ];
+
         const options = {
             center: new kakao.maps.LatLng(MNU_LATITUDE, MNU_LONGITUDE), // 지도의 중심 좌표
             level: 5 // 지도의 레벨(확대, 축소 정도)
@@ -192,8 +258,7 @@
         function getUserPreference() {
             let preference = {}
 
-            const A = document.getElementsByName('A');
-
+            const pet = document.getElementsByName('pet');
             return preference
         }
 
@@ -246,7 +311,7 @@
             fetch("{% url 'oneroom:test' %}", {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'text/plain;charset=UTF-8',
                     "X-CSRFToken": getCookie("csrftoken")
                 },
                 body: JSON.stringify(
@@ -261,8 +326,33 @@
                 .then(response => response.json())
                 .then(data => {
                     let userPreference = getUserPreference();
-                    tmp_list = arithmeticMean(data, userPreference);
+                    const preference_str = arithmeticMean(data, userPreference).join();
+                    sendData(preference_str);
+                    alert(`${preference_str} 전송 완료`);
                 })
         }
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('[data-popup]').click(function(e){
+                e.preventDefault();
+                $('[class*="box"]').removeClass('active');
+                var popupArea = $(this).siblings('.' + $(this).attr('data-popup'));
+                if(popupArea.length == 0){
+                    popupArea = $('.' + $(this).attr('data-popup'));
+                }
+                popupArea.addClass('active');
+                popupArea.click(function(e){
+                    e.stopPropagation();
+
+                })
+                popupArea.find('.closeBtn').click(function(){
+                    popupArea.removeClass('active')
+                })
+                popupArea.children('div').click(function(e){
+                    e.stopPropagation();
+                })
+            })
+        })
     </script>
 {% endblock %}

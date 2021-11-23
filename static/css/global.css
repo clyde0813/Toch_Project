@@ -14,6 +14,7 @@
 mark{color: #ff9900; background-color: transparent;}
 mark > *{color: #ff9900;}
 
+
 .blackBtn{display: block; margin: 0 auto; width: 125px; line-height: 45px; background-color: black; font-size: 18px; font-weight: 800; color: white; text-align: center;}
 [class*="material-icons-outlined"]{font-family: 'Material Icons';}
 
@@ -32,8 +33,6 @@ mark > *{color: #ff9900;}
 .seachBox{position: relative; height: 45px; width: 323px;}
 .seachBox input{width: 100%;  height: 100%; border: 2px solid #ff9900; box-sizing: border-box;}
 .seachBox button{position: absolute; top:12px; right: 11px; width: 19px; height: 19px; background: url('../images/oneroom_search.png') no-repeat center / cover; text-indent: -9999px;}
-
-
 
 /* 페이저 */
 .pageBox{display: flex; justify-content: center; align-items: center; margin-top: 20px;}
@@ -75,7 +74,6 @@ mark > *{color: #ff9900;}
 
 /* 이미지 업로드 공통 */
 .imgRegiBox > .fileArea{display: flex; flex-wrap: wrap;}
-.imgRegiBox > .fileArea > *{}
 .imgRegiBox > .fileArea input{display: none;}
 .imgRegiBox > .fileArea label ,.imgRegiBox > .fileArea .imgBox {width: 65px; height: 65px; border: 1px solid #b8b8b8; box-sizing: border-box;}
 .imgRegiBox > .fileArea label{display: flex; justify-content: center; align-items: center; color: #ababab; font-weight: 900; background-color: #f5f5f5;}
@@ -143,13 +141,23 @@ mark > *{color: #ff9900;}
 .review_popup .imgRegiBox P{font-size: 13px; color: #888888; line-height: 20px; padding: 0 20px; margin-bottom: 30px;}
 .review_popup .imgRegiBox > button{display: block; width: calc(100% - 40px); height: 45px; margin: 0 auto; background-color: black; font-size: 18px; font-weight: 700; color: white;}
 /* 슬라이더  */
-.moreImg_popup .bx-wrapper{width: 800px; box-shadow: none; border: none; background-color: transparent;}
-.moreImg_popup .bx-wrapper img{width: 100%;}
-.moreImg_popup .bx-wrapper .bx-controls-direction a{width: 30px; height: 59px;}
-.moreImg_popup .bx-wrapper .bx-prev{background: url('../images/slider_prev.png') no-repeat center; left: -70px;}
-.moreImg_popup .bx-wrapper .bx-next{background: url('../images/slider_next.png') no-repeat center; right: -70px;}
+.bx-wrapper{width: 800px; box-shadow: none; border: none; background-color: transparent; margin: 0;}
+.bx-wrapper img{width: 100%;}
+.bx-wrapper .bx-controls-direction a{width: 30px; height: 59px;}
+.bx-wrapper .bx-prev{background-repeat: no-repeat; left: -70px;}
+.bx-wrapper .bx-next{background-repeat: no-repeat; right: -70px;}
+.bx-wrapper .bx-pager.bx-default-pager a.active{background-color: #ff9900;}
+.moreImg_popup .bx-wrapper .bx-prev{background: url('../images/slider_prev.png') no-repeat center;}
+.moreImg_popup .bx-wrapper .bx-next{background: url('../images/slider_next.png') no-repeat center;}
 .moreImg_popup .bx-wrapper .bx-pager.bx-default-pager a{background: white; opacity: 1;}
-.moreImg_popup .bx-wrapper .bx-pager.bx-default-pager a.active{background-color: #ff9900;}
+
+/*.moreImg_popup .bx-wrapper{width: 800px; box-shadow: none; border: none; background-color: transparent;}*/
+/*.moreImg_popup .bx-wrapper img{width: 100%;}*/
+/*.moreImg_popup .bx-wrapper .bx-controls-direction a{width: 30px; height: 59px;}*/
+/*.moreImg_popup .bx-wrapper .bx-prev{background: url('../images/slider_prev.png') no-repeat center; left: -70px;}*/
+/*.moreImg_popup .bx-wrapper .bx-next{background: url('../images/slider_next.png') no-repeat center; right: -70px;}*/
+/*.moreImg_popup .bx-wrapper .bx-pager.bx-default-pager a{background: white; opacity: 1;}*/
+/*.moreImg_popup .bx-wrapper .bx-pager.bx-default-pager a.active{background-color: #ff9900;}*/
 
 /* 아이콘 */
 .login_icon , .mail_icon{width: 30px; height: 30px; text-indent: -9999px; background-repeat: no-repeat; background-position: center; background-size: cover;}
@@ -170,6 +178,44 @@ mark > *{color: #ff9900;}
 .iconBox .imgBox.downIcon{width: 18px; height: 19px; background-image: url('../images/downIcon.png');}
 .iconBox span:not(.material-icons-outlined){font-size: 14px; margin-left: 5px;}
 .iconBox span:not(.material-icons-outlined):not(:last-child){margin-right: 15px;}
+
+/* 원룸 팝업 */
+.mapArea{position: relative; }
+[class*='_box']{position: absolute; ; left: 0; top: 86px;  background-color: white; display: none;} /*width: 100%;*/
+[class*='_box'].active{display: block;}
+[class*='_box'] fieldset{position: relative;}
+[class*='_box'] fieldset > div{padding: 20px; display: flex; justify-content: flex-end; align-items: center;}
+[class*='_box'] fieldset > div button{width: 80px; height: 40px; font-size: 14px; display: flex; justify-content: center; align-items: center; border: 1px solid #cacaca;}
+[class*='_box'] fieldset > div button::before{content: ''; width: 12px; height: 16px; background: url('../images/resetIcon.png') no-repeat center / cover; margin-right: 10px;}
+[class*='_box'] fieldset > ul{border-width: 1px 0; border-style: solid; border-color: #ebebeb;}
+[class*='_box'] fieldset > ul li{display: flex; align-items: center; padding: 20px;}
+[class*='_box'] fieldset > ul li:not(:last-child){border-bottom: 1px solid #ebebeb;}
+[class*='_box'] fieldset > ul li > label{width: 100px; font-size: 18px;}
+[class*='_box'] fieldset > ul li div{display: flex;}
+.filter_box fieldset > ul li div input[type='radio'] + label{font-size: 17px; color: #888888; display: flex; align-items: center;}
+.filter_box fieldset > ul li div input[type='radio'] + label::before{content: ''; width: 20px; height: 20px; background-image: url('../images/radioBtn.png'); background-repeat: no-repeat; background-position: center; background-size: cover; margin-right: 10px;}
+.filter_box fieldset > ul li div input[type='radio']:checked + label::before{background-image: url('../images/radioBtn_active.png');}
+[class*='_box'] fieldset > ul li > div {flex: 1;}
+[class*='_box'] fieldset > ul li div input[type='text'] , [class*='_box'] fieldset > ul li div select{width: 100%; height: 40px; border: 1px solid #cacaca; padding: 0 10px; box-sizing: border-box;}
+[class*='_box'] fieldset > button{font-size: 18px; font-weight: 700; width: 160px; height: 45px; border: 1px solid black; display: block; margin: 20px auto;}
+[class*='_box'] fieldset .closeBtn{position: absolute; left: 15px; top: 20px; font-size: 40px; cursor: pointer;}
+
+.AI_box fieldset > ul li{flex-direction: column; align-items: flex-start;}
+.AI_box fieldset > ul li label{font-size: 18px; margin-bottom: 10px;}
+.AI_box fieldset > ul li mark{font-size: 24px; font-weight: 700; color: #ff9900; margin-bottom: 20px;}
+.AI_box fieldset > ul li > div{width: 100%;}
+.AI_box fieldset > ul li > div input[type='radio'] + label{width: calc((100% - 10px) / 3); height: 40px; display: flex; justify-content: center; align-items: center; border: 1px solid #cacaca;}
+.AI_box fieldset > ul li > div label:not(:last-of-type){margin-right: 5px;}
+.AI_box fieldset > ul li > div input[type='radio']:checked + label{background-color: #ff9900; color: white;}
+/* .AI_box fieldset > ul li div{width: 100%; padding-bottom: 30px;} */
+.AI_box fieldset > ul li > div{width: 100%;}
+.AI_box fieldset > ul li > div .rangeBox{ width: 100%; height: 4px; background-color: #eeeeee; margin-bottom: 30px;}
+.AI_box fieldset > ul li > div .rangeBox div{width: 50%; height: 100%; background-color: #ff9900; position: relative;}
+.AI_box fieldset > ul li > div .rangeBox div > span{content: ''; width: 23px; height: 23px; background: url('../images/rangeIcon.png') no-repeat center / cover; position: absolute; top: -10px;}
+.AI_box fieldset > ul li > div .rangeBox div > span:nth-of-type(1){left: -10px;}
+.AI_box fieldset > ul li > div .rangeBox div > span:nth-of-type(2){right: -10px;}
+.AI_box fieldset > ul li > div .rangeBox div > span:nth-of-type(2) span{position: absolute; left: -10px; top: 30px; font-size: 13px; white-space: nowrap;}
+
 
 /* 메뉴 포인트 */
 .point::after{content: ''; width: 5px; height: 5px; background-color: #46ccbb; border-radius: 100%; display: inline-block; vertical-align: text-top; margin-left: 8px;}
