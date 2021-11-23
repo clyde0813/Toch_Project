@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
+
 from ip_gather import get_client_ip
 from .forms import *
 
@@ -13,8 +14,9 @@ def index(request):
 
 def detail(request, num):
     if Post.objects.filter(id=num):
+        post = Post.objects.order_by('create_date')
         data = Post.objects.filter(id=num).first()
-        context = {'data': data}
+        context = {'data': data, 'post': post}
         return render(request, 'usedtrade/detail.html', context)
     else:
         return render(request, '404.html')
