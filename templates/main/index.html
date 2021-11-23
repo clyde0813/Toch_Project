@@ -22,7 +22,7 @@
                     <div class="boardArea">
                         <div class="width100 borderBox paddingBox">
                             <!-- 실시간 인기 게시물 -->
-                            <strong>실시간 인기 게시물 <a href="#">+</a></strong>
+                            <strong>실시간 인기 게시물 <a href="{% url 'community:index' %}">+</a></strong>
                             <ul class="hoverEvent">
                                 {% for data in community %}
                                     <li>
@@ -37,7 +37,7 @@
 
                         <!-- 자유게시판 -->
                         <div class="borderBox paddingBox">
-                            <strong>자유게시판<a href="#">+</a></strong>
+                            <strong>자유게시판<a href="{% url 'community:index' %}">+</a></strong>
                             <ul class="hoverEvent">
                                 {% for data in community2 %}
                                     <li>
@@ -52,7 +52,7 @@
 
                         <!-- 비밀게시판 -->
                         <div class="borderBox paddingBox">
-                            <strong>비밀게시판<a href="#">+</a></strong>
+                            <strong>비밀게시판<a href="{% url 'community:index' %}">+</a></strong>
                             <ul class="hoverEvent">
                                 {% for data in community2 %}
                                     <li>
@@ -67,7 +67,7 @@
 
                         <!-- 정보게시판 -->
                         <div class="borderBox paddingBox">
-                            <strong>정보게시판<a href="#">+</a></strong>
+                            <strong>정보게시판<a href="{% url 'community:index' %}">+</a></strong>
                             <ul class="hoverEvent">
                                 {% for data in community2 %}
                                     <li>
@@ -82,7 +82,7 @@
 
                         <!-- 홍보 게시판 -->
                         <div class="borderBox paddingBox">
-                            <strong>홍보게시판<a href="#">+</a></strong>
+                            <strong>홍보게시판<a href="{% url 'community:index' %}">+</a></strong>
                             <ul class="hoverEvent">
                                 {% for data in community2 %}
                                     <li>
@@ -101,10 +101,10 @@
                         <!-- main tab 원룸 거래 -->
                         <ul class="tabBtn">
                             <li>
-                                <button class="active">원룸</button>
+                                <button class="active" onclick="location.href='{% url 'oneroom:index' %}'">원룸</button>
                             </li>
                             <li>
-                                <button>거래</button>
+                                <button onclick="location.href='{% url 'usedtrade:index' %}'">거래</button>
                             </li>
                         </ul>
 

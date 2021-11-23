@@ -20,6 +20,8 @@ def detail(request, num):
 
 
 def test(request):
+    if request.method == 'POST':
+        print('test post')
     tmp = ['7', '6', '5', '4', '3', '2', '0', '1', '9', '8']
     preserved = Case(*[When(pk=pk, then=pos) for pos, pk in enumerate(tmp)])
     data = Post.objects.filter(pk__in=tmp).order_by(preserved)
