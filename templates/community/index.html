@@ -9,14 +9,15 @@
                 </div>
                 
                 <ul class="commuListBox">
+                    {% for post in post %}
                     <li>
-                        <a href="#">
-                            <div class="imgBox" style="background-image: url(../../static/images/community_img01.png);">
+                        <a href="{% url 'community:detail' post.id %}">
+                            <div class="imgBox" style="background-image: url(../../media/{{ post.file_set.all.0.file }});">
                                 이미지
                             </div>
                             <div class="textArea">
-                                <strong>교수님 과제 좀 그만주세요</strong>
-                                <p>교수님 과제 좀 그만주세요</p>
+                                <strong>{{ post.title }}</strong>
+                                <p>{{ post.content }}</p>
                                 <div class="iconBox">
                                     <div class="imgBox upIcon">
                                         업 아이콘
@@ -44,110 +45,7 @@
                             </div>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <div class="imgBox" style="background-image: url(../../static/images/community_img02.png);">
-                                이미지
-                            </div>
-                            <div class="textArea">
-                                <strong>교수님 과제 좀 그만주세요</strong>
-                                <p>교수님 과제 좀 그만주세요</p>
-                                <div class="iconBox">
-                                    <div class="imgBox upIcon">
-                                        업 아이콘
-                                    </div>
-                                    <span>
-                                        10
-                                    </span>
-                                    <div class="imgBox downIcon">
-                                        다운 아이콘
-                                    </div>
-                                    <span>
-                                        10
-                                    </span>
-                                    <div class="imgBox commentIcon">
-                                        댓글 아이콘
-                                    </div>
-                                    <span>
-                                        5
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="writerArea">
-                                <time>2시간전</time>
-                                <b>개굴개굴개구리</b>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="textArea">
-                                <strong>교수님 과제 좀 그만주세요</strong>
-                                <p>교수님 과제 좀 그만주세요</p>
-                                <div class="iconBox">
-                                    <div class="imgBox upIcon">
-                                        업 아이콘
-                                    </div>
-                                    <span>
-                                        10
-                                    </span>
-                                    <div class="imgBox downIcon">
-                                        다운 아이콘
-                                    </div>
-                                    <span>
-                                        10
-                                    </span>
-                                    <div class="imgBox commentIcon">
-                                        댓글 아이콘
-                                    </div>
-                                    <span>
-                                        5
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="writerArea">
-                                <time>2시간전</time>
-                                <b>개굴개굴개구리</b>
-                            </div>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="#">
-                            <div class="imgBox" style="background-image: url(../../static/images/community_img01.png);">
-                                이미지
-                            </div>
-                            <div class="textArea">
-                                <strong>교수님 과제 좀 그만주세요</strong>
-                                <p>교수님 과제 좀 그만주세요</p>
-                                <div class="iconBox">
-                                    <div class="imgBox upIcon">
-                                        업 아이콘
-                                    </div>
-                                    <span>
-                                        10
-                                    </span>
-                                    <div class="imgBox downIcon">
-                                        다운 아이콘
-                                    </div>
-                                    <span>
-                                        10
-                                    </span>
-                                    <div class="imgBox commentIcon">
-                                        댓글 아이콘
-                                    </div>
-                                    <span>
-                                        5
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="writerArea">
-                                <time>2시간전</time>
-                                <b>개굴개굴개구리</b>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                    {% endfor %}
 
                 <div class="pageBox">
                     <a href="#"><mark>&lt;</mark>이전</a>

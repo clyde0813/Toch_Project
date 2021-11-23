@@ -6,10 +6,10 @@
             <div class="leftContArea">
                 <h3>자유게시판</h3>
                 <div class="titlaArea">
-                    <p>주님 한명 갑니다</p>
+                    <p>{{ data.0.title }}</p>
                     <div>
-                        <span>개굴개굴개구리</span>
-                        <time>21.09.08</time>
+                        <span>{{ data.0.author }}</span>
+                        <time>{{ data.0.create_date }}</time>
                         <span>256</span>
                         <div class="iconBox">
                             <div class="imgBox upIcon">
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="contentsArea">
-                    깝치면 뒤져
+                    {{ data.0.content }}
                 </div>
 
                 <div class="commentBox">

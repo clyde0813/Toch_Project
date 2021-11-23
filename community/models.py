@@ -50,3 +50,10 @@ class Status(models.Model):
     view_status = models.BooleanField()
     like_status = models.BooleanField()
     dislike_status = models.BooleanField()
+
+
+class File(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="file_set")
+    file = models.FileField(upload_to='community/post')
+    create_date = models.DateField()
+    modify_date = models.DateField(blank=True, null=True)
