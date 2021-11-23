@@ -42,6 +42,7 @@
                 {% for i in data %}
                     {
                         id: {{ i.id }},
+                        title: '{{ i.title }}',
                         rent_type: '{{ i.rent_type }}',
                         rent_amount: '{{ i.rent_amount }}',
                         deposit: '{{ i.deposit }}',
@@ -66,6 +67,7 @@
         for (let i = 0, len = positions.length; i < len; i++) {
             let info = {
                 id: positions[i].id,
+                title: positions[i].title,
                 rent_type: positions[i].rent_type,
                 rent_amount: positions[i].rent_amount,
                 deposit: positions[i].deposit,
@@ -128,7 +130,7 @@
 
                      <div class="textArea">
                          <strong>
-                             <small>${info.rent_type}</small>
+                             <small>${info.title}</small>
                              ${info.rent_type} ${info.deposit} / ${info.rent_amount}
                          </strong>
                          <p>${info.floor_num}층 ${info.common_area}㎡ 관리비 ${info.manage_amount}만원</p>
