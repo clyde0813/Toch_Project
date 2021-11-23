@@ -16,11 +16,11 @@ def index(request):
     usedtrade_paginator = Paginator(usedtrade_data, 4)
     usedtrade_data = usedtrade_paginator.get_page(1)
 
-    oneroom_data = oneroomPost.objects.all().order_by('id')
+    oneroom_data = oneroomPost.objects.filter(browse_status=True).order_by('id')
     oneroom_paginator = Paginator(oneroom_data, 4)
     oneroom_data = oneroom_paginator.get_page(1)
 
-    oneroom_data2 = oneroomPost.objects.all().order_by('-id')
+    oneroom_data2 = oneroomPost.objects.filter(browse_status=True).order_by('-id')
     oneroom_paginator2 = Paginator(oneroom_data2, 4)
     oneroom_data2 = oneroom_paginator2.get_page(1)
 
