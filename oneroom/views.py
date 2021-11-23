@@ -1,5 +1,7 @@
+import json
+
 from django.db.models import Case, When
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import *
 
@@ -20,9 +22,10 @@ def detail(request, num):
 
 def test(request):
     if request.method == "POST":
-        print(request.POST.get('str'))
-    tmp = ['7', '6', '5', '4', '3', '2', '0', '1', '9', '8']
+        data = json.load(request)
+        tmp = data.split(',')
     preserved = Case(*[When(pk=pk, then=pos) for pos, pk in enumerate(tmp)])
     data = Post.objects.filter(pk__in=tmp).order_by(preserved)
     context = {'data': data}
-    return render(request, 'oneroom/test.html', context)
+    print(data)
+    return render(request, 'oneroom/index.html', context)
