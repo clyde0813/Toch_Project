@@ -7,7 +7,7 @@
                     <li>
                         <a href="{% url 'usedtrade:detail' data.id %}">
                             <div class="imgBox borderBox"
-                                 style="background-image: url('{{ data.file_set.last.file }}');">
+                                 style="background-image: url('{{ data.file_set.last.file.url }}');">
                                 실시간 인기 중고 이미지
                             </div>
                             <p>
@@ -49,7 +49,7 @@
                 <a href="#">다음
                     <mark>&gt;</mark>
                 </a>
-                <button class="writeBtn">작성하기</button>
+                <button class="writeBtn" onclick="location.href='{% url 'usedtrade:create_post' %}'">작성하기</button>
             </div>
             <div class="seachBox">
                 <input type="text">

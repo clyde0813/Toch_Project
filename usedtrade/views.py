@@ -29,6 +29,9 @@ def create_post(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.create_date = timezone.now()
+            post.author = request.user
+            post.author_ip = get_client_ip(request)
+            post.delete_status = False
             post.save()
             if form_file.is_valid() and request.FILES.get("file") is not None:
                 for i in request.FILES.getlist("file"):
@@ -37,6 +40,8 @@ def create_post(request):
                     file.create_date = post.create_date
                     file.post = post
                     file.file = i
+                    file.author = request.user
+                    file.author_ip = get_client_ip(request)
                     file.save()
             return redirect('usedtrade:detail', post.id)
     else:

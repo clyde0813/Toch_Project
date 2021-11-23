@@ -2,15 +2,16 @@
 {% block content %}
     <div class="subPage usedTradePage">
         <div class="registrationArea width1200">
-            <form>
+            <form action="{% url 'usedtrade:create_post' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <fieldset>
                     <div>
-                        <input type="text" title="상품명" placeholder="상품명을 입력해주세요.">
+                        <input type="text" title="상품명" placeholder="상품명을 입력해주세요." class="form-control" name="title">
                     </div>
                     <div>
                         <strong>판매가격</strong>
                         <div>
-                            <input type="text" placeholder="가격을 입력하세요"><span>원</span>
+                            <input type="text" placeholder="가격을 입력하세요" class="form-control" name="price"><span>원</span>
                         </div>
                         <strong>상품 상태</strong>
                         <div>
@@ -34,17 +35,22 @@
                     <div>
                         <div class="imgRegiBox">
                             <div class="fileArea">
-                                <input type="file">
-                                <label for="">+</label>
-                                <div class="imgBox" style="background-image: url(../../static/images/registrationImg.png);">
+                                <input class="multiFileInput" type="file" name="file" id="file"
+                                       onchange="newInput();" multiple>
+                                <label for="file">+</label>
+                                <div class="imgBox"
+                                     style="background-image: url(../../static/images/registrationImg.png);">
                                     <button class="removeBtn">-</button>
                                 </div>
-                                <div class="imgBox" style="background-image: url(../../static/images/registrationImg.png);">
+                                <div class="imgBox"
+                                     style="background-image: url(../../static/images/registrationImg.png);">
                                     <button class="removeBtn">-</button>
                                 </div>
                             </div>
                         </div>
-                        <div>에디터 공간</div>
+                        <div>
+                            <input type="text" placeholder="내용을 입력하세요" class="form-control" name="content"><span></span>
+                        </div>
                     </div>
                     <input type="submit" value="등록" class="blackBtn">
                 </fieldset>
