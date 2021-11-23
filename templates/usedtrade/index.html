@@ -3,146 +3,36 @@
     <div class="subPage usedTradePage">
         <section class="usedTradeArea width1200">
             <ul class="usedTradeBox fontCase01">
-                <li>
-                    <a href="">
-                        <div class="imgBox borderBox"
-                             style="background-image: url('../../static/images/realTime01.png');">
-                            실시간 인기 중고 이미지
-                        </div>
-                        <p>
-                            <time>2시간전</time>
-                            아이패드 프로 11인치
-                            <strong>605,000원</strong>
-                        </p>
-                        <small>대구 중구 달서동</small>
-                    </a>
-                    <div class="iconBox">
-                        <div class="imgBox heartIcon">
-                            하트 아이콘
-                        </div>
-                        <span>
+                {% for data in data %}
+                    <li>
+                        <a href="">
+                            <div class="imgBox borderBox"
+                                 style="background-image: url('../../static/images/realTime01.png');">
+                                실시간 인기 중고 이미지
+                            </div>
+                            <p>
+                                <time>2시간전</time>
+                                {{ data.title }}
+                                <strong>605,000원</strong>
+                            </p>
+                            <small>대구 중구 달서동</small>
+                        </a>
+                        <div class="iconBox">
+                            <div class="imgBox heartIcon">
+                                하트 아이콘
+                            </div>
+                            <span>
                             10
                         </span>
-                        <div class="imgBox mailIcon">
-                            메일 아이콘
-                        </div>
-                        <span>
+                            <div class="imgBox mailIcon">
+                                메일 아이콘
+                            </div>
+                            <span>
                             5
                         </span>
-                    </div>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="imgBox borderBox"
-                             style="background-image: url('../../static/images/realTime01.png');">
-                            실시간 인기 중고 이미지
                         </div>
-                        <p>
-                            <time>2시간전</time>
-                            아이패드 프로 11인치
-                            <strong>605,000원</strong>
-                        </p>
-                        <small>대구 중구 달서동</small>
-                    </a>
-                    <div class="iconBox">
-                        <div class="imgBox heartIcon">
-                            하트 아이콘
-                        </div>
-                        <span>
-                            10
-                        </span>
-                        <div class="imgBox mailIcon">
-                            메일 아이콘
-                        </div>
-                        <span>
-                            5
-                        </span>
-                    </div>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="imgBox borderBox"
-                             style="background-image: url('../../static/images/realTime01.png');">
-                            실시간 인기 중고 이미지
-                        </div>
-                        <p>
-                            <time>2시간전</time>
-                            아이패드 프로 11인치
-                            <strong>605,000원</strong>
-                        </p>
-                        <small>대구 중구 달서동</small>
-                    </a>
-                    <div class="iconBox">
-                        <div class="imgBox heartIcon">
-                            하트 아이콘
-                        </div>
-                        <span>
-                            10
-                        </span>
-                        <div class="imgBox mailIcon">
-                            메일 아이콘
-                        </div>
-                        <span>
-                            5
-                        </span>
-                    </div>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="imgBox borderBox"
-                             style="background-image: url('../../static/images/realTime01.png');">
-                            실시간 인기 중고 이미지
-                        </div>
-                        <p>
-                            <time>2시간전</time>
-                            아이패드 프로 11인치
-                            <strong>605,000원</strong>
-                        </p>
-                        <small>대구 중구 달서동</small>
-                    </a>
-                    <div class="iconBox">
-                        <div class="imgBox heartIcon">
-                            하트 아이콘
-                        </div>
-                        <span>
-                            10
-                        </span>
-                        <div class="imgBox mailIcon">
-                            메일 아이콘
-                        </div>
-                        <span>
-                            5
-                        </span>
-                    </div>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="imgBox borderBox"
-                             style="background-image: url('../../static/images/realTime01.png');">
-                            실시간 인기 중고 이미지
-                        </div>
-                        <p>
-                            <time>2시간전</time>
-                            아이패드 프로 11인치
-                            <strong>605,000원</strong>
-                        </p>
-                        <small>대구 중구 달서동</small>
-                    </a>
-                    <div class="iconBox">
-                        <div class="imgBox heartIcon">
-                            하트 아이콘
-                        </div>
-                        <span>
-                            10
-                        </span>
-                        <div class="imgBox mailIcon">
-                            메일 아이콘
-                        </div>
-                        <span>
-                            5
-                        </span>
-                    </div>
-                </li>
+                    </li>
+                {% endfor %}
             </ul>
             <div class="pageBox">
                 <a href="#">
