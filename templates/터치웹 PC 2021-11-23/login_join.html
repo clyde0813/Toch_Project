@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iphone 모바일 확대 방지 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0">
+    <title>회원가입 - toch</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/com.js"></script>
+    <link rel="stylesheet" href="css/import.css">
+</head>
+<body>
+    <div class="subPage loginPage">
+        <header>
+            <div class="width1200">
+                <h1><img src="images/logo.png" alt="logo"><small>목포대</small></h1>
+                <nav>
+                    <ul>
+                        <li><a href="#"><span>원룸</span></a></li>
+                        <li><a href="#"><span>중고거래</span></a></li>
+                        <li class="hover">
+                            <a href="#"><span>커뮤니티</span></a>
+                            <div>
+                                <div class="width1200">
+                                    <ul>
+                                        <li><a href="#" class="point">자유게시판</a></li>
+                                        <li><a href="#" class="point">비밀게시판</a></li>
+                                        <li><a href="#" class="point">졸업생게시판</a></li>
+                                        <li><a href="#" class="point">새내기게시판</a></li>
+                                        <li><a href="#">시사·이슈</a></li>
+                                        <li><a href="#">장터게시판</a></li>
+                                        <li><a href="#">정보게시판</a></li>
+                                        <li><a href="#">홍보게시판</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#" class="point">동아리학회</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#">취업·진로</a></li>
+                                        <li><a href="#">공무원&공기업준비</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#">어른들의 놀이터</a></li>
+                                        <li><a href="#">이상형 게시판</a></li>
+                                        <li><a href="#" class="point">끝말잇기게시판</a></li>
+                                        <li><a href="#">요.듣.노(요즘 듣는 노래)</a></li>
+                                        <li><a href="#">게임 게시판</a></li>
+                                        <li><a href="#">연애상담 게시판</a></li>
+                                        <li><a href="#">운동하자!</a></li>
+                                        <li><a href="#">성소수자 모여라!</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#">우울게시판</a></li>
+                                        <li><a href="#">자취생 뭐 먹니?</a></li>
+                                        <li><a href="#">동물 게시판</a></li>
+                                        <li><a href="#">주식게시판</a></li>
+                                        <li><a href="#">만남의 게시판</a></li>
+                                        <li>
+                                            <a href="#" class="bold">게시판 찾기
+                                                <span class="material-icons-outlined">
+                                                    east
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <ul>
+                    <li><a href="#" class="login_icon">로그인</a></li>
+                    <li><a href="#" class="mail_icon" data-count="7">메일</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="joinArea">
+            <form>
+                <fieldset>
+                    <legend>회원가입</legend>
+                    <ul>
+                        <li>
+                            <label for="">아이디</label>
+                            <input type="text" placeholder="아이디">
+                        </li>
+                        <li>
+                            <label for="">비밀번호</label>
+                            <input type="password" placeholder="비밀번호">
+                        </li>
+                        <li>
+                            <label for="">비밀번호 확인</label>
+                            <input type="password" placeholder="비밀번호 확인">
+                        </li>
+                        <li>
+                            <label for="">이름</label>
+                            <input type="text" placeholder="이름을 입력해 주세요">
+                        </li>
+                        <li>
+                            <label for="">생년월일</label>
+                            <div>
+                                <input type="text" placeholder="년(4자)" >
+                                <select>
+                                    <option value="">월</option>
+                                </select>
+                                <select>
+                                    <option value="">일</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">성별</label>
+                            <select>
+                                <option value="">남</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="">전화 번호 (선택)</label>
+                            <input type="text" placeholder="전화 번호를 입력해주세요.">
+                        </li>
+                        <li>
+                            <label for="">이메일 주소</label>
+                            <div>
+                                <input type="text" placeholder="이메일 주소를 입력해주세요">
+                                <button>인증번호 받기</button>
+                            </div>
+                            <input type="text" placeholder="인증번호를 입력해주세요">
+                        </li>
+                    </ul>
+                    <input type="submit" value="가입하기">
+                </fieldset>
+            </form>
+        </div>
+
+
+        <footer>
+            <div class="width1200">
+                <h2><img src="images/footer_logo.png" alt="logo"></h2>
+                <ul>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">커뮤니티이용규칙</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+                <address>
+                    <dl>
+                        <dt>회사명</dt>
+                        <dd>Toch</dd>
+                    </dl>
+                    <dl>
+                        <dt>사업자등록번호</dt>
+                        <dd>000-00-00000</dd>
+                    </dl>
+                    <dl>
+                        <dt>주소</dt>
+                        <dd>전남 무안군 청계면 영산로 1666</dd>
+                    </dl>
+                    <dl>
+                        <dt>연락처</dt>
+                        <dd>080-000-0000</dd>
+                    </dl>
+                    <dl>
+                        <dt>이메일</dt>
+                        <dd>toch@toch.co.kr</dd>
+                    </dl>
+                </address>
+                <p>Copyright   2021 toch. All rights reserved.ⓒ</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iphone 모바일 확대 방지 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0">
+    <title>원룸 상세페이지 - toch</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/com.js"></script>
+    <link rel="stylesheet" href="css/import.css">
+    <script>
+        $(document).ready(function(){
+            $('[data-popup]').click(function(e){
+                e.preventDefault();
+                var popupArea = $(this).siblings('.' + $(this).attr('data-popup'));
+                if(popupArea.length == 0){
+                    popupArea = $('.' + $(this).attr('data-popup'));
+                }
+                popupArea.addClass('active');
+                popupArea.click(function(){
+                    popupArea.removeClass('active')
+                })
+                popupArea.find('.closeBtn').click(function(){
+                    popupArea.removeClass('active')
+                })
+                popupArea.children('div').click(function(e){
+                    e.stopPropagation();
+                })
+            })
+
+            $('[data-popup="moreImg_popup"]').click(function(){
+                $('.moreImg_popup .slider').bxSlider();
+                var popupArea = $(this).siblings('.' + $(this).attr('data-popup'));
+                if(popupArea.length == 0){
+                    popupArea = $('.' + $(this).attr('data-popup'));
+                }
+                popupArea.children('div').click(function(e){
+                    e.stopPropagation();
+                })
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="subPage oneRoomPage">
+        <header>
+            <div class="width1200">
+                <h1><img src="images/logo.png" alt="logo"><small>목포대</small></h1>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active"><span>원룸</span></a></li>
+                        <li><a href="#"><span>중고거래</span></a></li>
+                        <li class="hover">
+                            <a href="#"><span>커뮤니티</span></a>
+                            <div>
+                                <div class="width1200">
+                                    <ul>
+                                        <li><a href="#" class="point">자유게시판</a></li>
+                                        <li><a href="#" class="point">비밀게시판</a></li>
+                                        <li><a href="#" class="point">졸업생게시판</a></li>
+                                        <li><a href="#" class="point">새내기게시판</a></li>
+                                        <li><a href="#">시사·이슈</a></li>
+                                        <li><a href="#">장터게시판</a></li>
+                                        <li><a href="#">정보게시판</a></li>
+                                        <li><a href="#">홍보게시판</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#" class="point">동아리학회</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#">취업·진로</a></li>
+                                        <li><a href="#">공무원&공기업준비</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#">어른들의 놀이터</a></li>
+                                        <li><a href="#">이상형 게시판</a></li>
+                                        <li><a href="#" class="point">끝말잇기게시판</a></li>
+                                        <li><a href="#">요.듣.노(요즘 듣는 노래)</a></li>
+                                        <li><a href="#">게임 게시판</a></li>
+                                        <li><a href="#">연애상담 게시판</a></li>
+                                        <li><a href="#">운동하자!</a></li>
+                                        <li><a href="#">성소수자 모여라!</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#">우울게시판</a></li>
+                                        <li><a href="#">자취생 뭐 먹니?</a></li>
+                                        <li><a href="#">동물 게시판</a></li>
+                                        <li><a href="#">주식게시판</a></li>
+                                        <li><a href="#">만남의 게시판</a></li>
+                                        <li>
+                                            <a href="#" class="bold">게시판 찾기
+                                                <span class="material-icons-outlined">
+                                                    east
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <ul>
+                    <li><a href="#" class="login_icon">로그인</a></li>
+                    <li><a href="#" class="mail_icon" data-count="7">메일</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <section class="detailArea width1200">
+            <h2 class="hidden">원룸</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <div>
+                                <strong>
+                                    월세 <b>200 / 40만원</b>
+                                </strong>
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div>
+                                <p>
+                                    <small>전용면적</small>
+                                    76.03m2 (N평)
+                                </p>
+                            </div>
+                        </td>
+                        <td colspan="4">
+                            <div>
+                                <p>
+                                    <small>한달 예상 주거비</small>
+                                    <mark>40만원 + a</mark>
+                                </p>
+                                <button data-popup="contact_popup">연락처 보기</button>
+                                <div class="contact_popup">
+                                    <div>
+                                        <p><span>010-1234-5678</span></p>
+                                        <div>
+                                            <button>전화</button>
+                                            <button>문자</button>
+                                        </div>
+                                        <span class="material-icons-outlined closeBtn">
+                                            close
+                                        </span>
+                                    </div>
+                                </div>
+                                <button data-popup="loginRequired_popup">공유하기</button>
+                                <div class="loginRequired_popup">
+                                    <div>
+                                        <p>
+                                            로그인이 필요한 서비스 입니다.
+                                        </p>
+                                        <span class="material-icons-outlined closeBtn">
+                                            close
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>해당층/건물층</th>
+                        <td>1층 / 4층</td>
+                        <th>전용/공급면적</th>
+                        <td>120 / 30</td>
+                        <th>방 / 욕실 수</th>
+                        <td>1개 / 1개</td>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>난방종류</th>
+                        <td>도시가스</td>
+                        <th>옵션 수</th>
+                        <td>5개</td>
+                        <th>건물 주차수</th>
+                        <td>총 4대</td>
+                        <th>세대당 주차수</th>
+                        <td>0.4대</td>
+                    </tr>
+                    <tr>
+                        <th>엘리베이터</th>
+                        <td>없음</td>
+                        <th></th>
+                        <td></td>
+                        <th>주용도</th>
+                        <td>오피스텔</td>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>완공일</th>
+                        <td>2019.08.11</td>
+                        <th></th>
+                        <td></td>
+                        <th></th>
+                        <td></td>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul>
+                <li>
+                    <div class="imgBox" style="background-image: url('images/oneroom_detailImg01.png');"></div>
+                    <button data-popup="moreImg_popup">더보기</button>
+                </li>
+                <li>
+                    <div class="imgBox" style="background-image: url('images/oneroom_detailImg02.png');"></div>
+                    <button data-popup="moreImg_popup">더보기</button>
+                </li>
+                <li>
+                    <div class="imgBox" style="background-image: url('images/oneroom_detailImg03.png');"></div>
+                    <button data-popup="moreImg_popup">더보기</button>
+                </li>
+                <li>
+                    <div class="imgBox" style="background-image: url('images/oneroom_detailImg01.png');"></div>
+                    <button data-popup="moreImg_popup">더보기</button>
+                </li>
+            </ul>
+            <div class="moreImg_popup">
+                <div class="slider">
+                    <div>
+                        <img src="images/oneroom_detailImg01.png" alt="">
+                    </div>
+                    <div>
+                        <img src="images/oneroom_detailImg02.png" alt="">
+                    </div>
+                    <div>
+                        <img src="images/oneroom_detailImg03.png" alt="">
+                    </div>
+                    <div>
+                        <img src="images/oneroom_detailImg01.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3>옵션</h3>
+                <ul class="optionBox">
+                    <li><img src="images/oneroom_option01.png" alt="에어컨">에어컨</li>
+                    <li><img src="images/oneroom_option02.png" alt="세탁기">세탁기</li>
+                    <li><img src="images/oneroom_option03.png" alt="냉장고">냉장고</li>
+                    <li><img src="images/oneroom_option04.png" alt="책상">책상</li>
+                    <li><img src="images/oneroom_option05.png" alt="옷장">옷장</li>
+                    <li><img src="images/oneroom_option06.png" alt="신발장">신발장</li>
+                    <li><img src="images/oneroom_option07.png" alt="인덕션">인덕션</li>
+                    <li><img src="images/oneroom_option08.png" alt="전자도어락">전자도어락</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>보안/안전 시설</h3>
+                <ul class="optionBox">
+                    <li><img src="images/oneroom_option09.png" alt="비디오폰">비디오폰</li>
+                    <li><img src="images/oneroom_option10.png" alt="공동현관">공동현관</li>
+                    <li><img src="images/oneroom_option11.png" alt="CCTV">CCTV</li>
+                    <li><img src="images/oneroom_option12.png" alt="화재경보기">화재경보기</li>
+                    <li><img src="images/oneroom_option13.png" alt="가스누출경보기">가스누출경보기</li>
+                </ul>
+            </div>
+
+            <div class="reviewArea">
+                <h3>실거주자 리뷰</h3>
+                <button class="writeBtn" data-popup="review_popup">리뷰작성</button>
+                <div class="review_popup">
+                    <div>
+                        <div class="titleArea">
+                            <p>상품 이름</p>
+                            <div class="scopeArea">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/emptyStar.png" alt="">
+                            </div>
+                        </div>
+                        <textarea>리뷰를 작성해주세요.</textarea>
+                        <div class="imgRegiBox">
+                            <div class="fileArea">
+                                <input type="file">
+                                <label for="">+</label>
+                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                            </div>
+                            <p>
+                                허위 리뷰나 명예훼손, 욕설, 타인비방글 등 제3자의 권리를 
+                                침해하는 게시물은 관련 법률에 따라 제제를 받을 수 있습니다.
+                            </p>
+                            <button>리뷰 작성</button>
+                            <span class="material-icons-outlined closeBtn">
+                                close
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <div class="imgBox" style="background-image: url(images/oneroom_user01.png);">
+                            사용자 이미지
+                        </div>
+                        <div class="textArea">
+                            <b>홍길동</b>
+                            <time>1월 1일</time>
+                            <div class="scopeArea">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/emptyStar.png" alt="">
+                            </div>
+                            <p>잘 살다 갑니다.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="imgBox" style="background-image: url(images/oneroom_user02.png);">
+                            사용자 이미지
+                        </div>
+                        <div class="textArea">
+                            <b>홍길동</b>
+                            <time>1월 1일</time>
+                            <div class="scopeArea">
+                                <img src="images/filledStar.png" alt="">
+                                <img src="images/emptyStar.png" alt="">
+                                <img src="images/emptyStar.png" alt="">
+                                <img src="images/emptyStar.png" alt="">
+                                <img src="images/emptyStar.png" alt="">
+                            </div>
+                            <p>잘 살다 갑니다.</p>
+                        </div>
+                        <div class="imgArea">
+                            <div class="imgBox" style="background-image: url(images/oneroom_userImg.png);">
+                                사용자가 올린 사진
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="pageBox">
+                    <a href="#"><mark>&lt;</mark>이전</a>
+                    <ol>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                    </ol>
+                    <a href="#">다음<mark>&gt;</mark></a>
+                </div>
+            </div>
+
+            <div class="differentArea">
+                <h3>다른 방 둘러보기</h3>
+                <ul>
+                    <li>
+                        <div class="imgBox" style="background-image: url(images/oneroom_detailOne01.png);">
+                            다른 원룸 방 이미지
+                        </div>
+                        <p>
+                            <strong>월세 40만원</strong>
+                            원룸
+                        </p>
+                        <small>2층 18평, 관리비 60만</small>
+                        <small>목포대 다이소 근처</small>
+                    </li>
+                    <li>
+                        <div class="imgBox" style="background-image: url(images/oneroom_detailOne02.png);">
+                            다른 원룸 방 이미지
+                        </div>
+                        <p>
+                            <strong>월세 40만원</strong>
+                            원룸
+                        </p>
+                        <small>2층 18평, 관리비 60만</small>
+                        <small>목포대 다이소 근처</small>
+                    </li>
+                    <li>
+                        <div class="imgBox" style="background-image: url(images/oneroom_detailOne03.png);">
+                            다른 원룸 방 이미지
+                        </div>
+                        <p>
+                            <strong>월세 40만원</strong>
+                            원룸
+                        </p>
+                        <small>2층 18평, 관리비 60만</small>
+                        <small>목포대 다이소 근처</small>
+                    </li>
+                    <li>
+                        <div class="imgBox" style="background-image: url(images/oneroom_detailOne04.png);">
+                            다른 원룸 방 이미지
+                        </div>
+                        <p>
+                            <strong>월세 40만원</strong>
+                            원룸
+                        </p>
+                        <small>2층 18평, 관리비 60만</small>
+                        <small>목포대 다이소 근처</small>
+                    </li>
+                    <li>
+                        <div class="imgBox" style="background-image: url(images/oneroom_detailOne05.png);">
+                            다른 원룸 방 이미지
+                        </div>
+                        <p>
+                            <strong>월세 40만원</strong>
+                            원룸
+                        </p>
+                        <small>2층 18평, 관리비 60만</small>
+                        <small>목포대 다이소 근처</small>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <div class="width1200">
+                <h2><img src="images/footer_logo.png" alt="logo"></h2>
+                <ul>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">커뮤니티이용규칙</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+                <address>
+                    <dl>
+                        <dt>회사명</dt>
+                        <dd>Toch</dd>
+                    </dl>
+                    <dl>
+                        <dt>사업자등록번호</dt>
+                        <dd>000-00-00000</dd>
+                    </dl>
+                    <dl>
+                        <dt>주소</dt>
+                        <dd>전남 무안군 청계면 영산로 1666</dd>
+                    </dl>
+                    <dl>
+                        <dt>연락처</dt>
+                        <dd>080-000-0000</dd>
+                    </dl>
+                    <dl>
+                        <dt>이메일</dt>
+                        <dd>toch@toch.co.kr</dd>
+                    </dl>
+                </address>
+                <p>Copyright   2021 toch. All rights reserved.ⓒ</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
