@@ -67,7 +67,7 @@ input[type="submit"], input[type="reset"]{cursor: pointer;}
 
 input[type="password"]{font-family: Serif}
 
-input:focus, select:focus { outline-color: #ff9900; }
+input:focus, select:focus, textarea:focus { outline-color: #ff9900; }
 
 a:hover { color: #ff9900 }
 

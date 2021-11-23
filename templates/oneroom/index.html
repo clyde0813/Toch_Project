@@ -11,86 +11,13 @@
                             <button></button>
                         </div>
                         <button>필터</button>
-                        <button>AI 추천</button>
+                        <button onclick="fetchData()">AI 추천</button>
                     </div>
                     <div class="myMap"></div>
-<!--                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.7923309835637!2d126.43208108271764!3d34.911660690245846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3573afedcb87cab7%3A0xe41ed555ebbc6901!2z66qp7Y-s64yA7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1637395324402!5m2!1sko!2skr"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>-->
                 </div>
                 <div class="listArea">
-                    <div class="topArea">
-                        <p>전체 방<mark>24</mark>개</p>
-                        <select>
-                            <option value="">낮은 가격</option>
-                        </select>
-                        <div class="suggestionArea">
-                            <div class="imgArea">
-                                <div class="imgBox" style="background-image: url(../../static/images/oneroom_suggestion01.png);">
-
-                                </div>
-                                <div class="imgBox" style="background-image: url(../../static/images/oneroom_suggestion02.png);">
-
-                                </div>
-                                <div class="imgBox" style="background-image: url(../../static/images/oneroom_suggestion03.png);">
-
-                                </div>
-                                <div class="imgBox" style="background-image: url(../../static/images/oneroom_suggestion04.png);">
-
-                                </div>
-                            </div>
-                            <div class="textArea">
-                                <strong>
-                                    월세 1000/55
-                                </strong>
-                                <p>서울특별시 서초구 서초동 1603-80</p>
-                                <div>
-                                    <dl>
-                                        <dt>전용면적</dt>
-                                        <dd>23.14㎡</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>방향</dt>
-                                        <dd>남동</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>해당층/건물층</dt>
-                                        <dd>3층/4층</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>난방종류</dt>
-                                        <dd>개별난방</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>방 수/욕실 수</dt>
-                                        <dd>1개/1개</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>입주가능일</dt>
-                                        <dd>즉시 입주</dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="bottomArea">
                         <ul>
-                            <li>
-                                <a href="#">
-                                    <div class="imgBox" style="background-image: url(../../static/images/oneroom_monthly.png);"></div>
-                                    <div class="textArea">
-                                        <strong>
-                                            <small>원룸</small>
-                                            월세 1000/55
-                                        </strong>
-                                        <p>3층 8평 관리비 8만원</p>
-                                        <p>서울특별시 서초구 서초동 1603-80</p>
-                                        <div>
-                                            <span>원룸</span>
-                                            <span>공대근처</span>
-                                            <span>다이소근처</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -134,12 +61,13 @@
                     {
                         id: {{ i.id }},
                         rent_type: '{{ i.rent_type }}',
-                        price: '{{ i.rent_amount }}',
+                        rent_amount: '{{ i.rent_amount }}',
                         latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
                         main_img: '{{ i.file_set.first.file.url }}',
                         floor_num : '{{ i.floor_num }}',
                         common_area : '{{ i.common_area }}',
-                        address : '{{ i.address }}'
+                        address : '{{ i.address }}',
+                        manage_amount: '{{ i.manage_amount }}'
                     },
                 {% endfor %}
             {% endif %}
@@ -165,11 +93,12 @@
             let info = {
                 id: positions[i].id,
                 rent_type : positions[i].rent_type,
-                price : positions[i].price,
+                rent_amount : positions[i].rent_amount,
                 main_img: positions[i].main_img,
                 floor_num: positions[i].floor_num,
                 common_area: positions[i].common_area,
                 address: positions[i].address,
+                manage_amount: positions[i].manage_amount
             }
 
 
@@ -251,9 +180,9 @@
                      <div class="textArea">
                          <strong>
                              <small>${info.rent_type}</small>
-                             ${info.rent_type} ${info.price}
+                             ${info.rent_type} ${info.rent_amount}
                          </strong>
-                         <p>${info.floor_num} ${info.common_area} 관리비 n만원</p>
+                         <p>${info.floor_num}층 ${info.common_area}㎡ 관리비 ${info.manage_amount}만원</p>
                          <p>${info.address}</p>
                          <div>
                              <span>원룸</span>
@@ -287,14 +216,19 @@
                 }
                 arithmeticMean[post] = sum
             }
-            alert(Object.keys(arithmeticMean).sort((a,b) => { return arithmeticMean[b]-arithmeticMean[a] }));
+            // [{ 집 id : 점수 }] -> 점수순으로 정렬
+            return Object.keys(arithmeticMean).sort((a,b) => { return arithmeticMean[b]-arithmeticMean[a] });
         }
 
+        function renderRecommend(data, ai) {
+            const recommend = arithmeticMean(data, ai);
+
+        }
         // JSON 데이터 받아오는 함수
         function fetchData() {
             fetch('http://127.0.0.1:8000/api/oneroom/')
             .then(response => response.json())
-            .then(data => arithmeticMean(data, ai))
+            .then(data => renderRecommend(data, ai))
         }
     </script>
 {% endblock %}
