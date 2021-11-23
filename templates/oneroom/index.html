@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
+    <style>
+        .aiQuestionBox {
+
+        }
+    </style>
+
+
     <div class="subPage oneRoomPage">
         <section class="oneRoomArea" style="padding: 120px 0 0 0">
             <h2 class="hidden">원룸</h2>
@@ -13,6 +20,15 @@
                         <button>필터</button>
                         <button onclick="fetchData()">AI 추천</button>
                     </div>
+
+                    <!-- AI TEST -->
+                    <div class="aiQuestionBox">
+                        <form method="POST">
+                            <span>질문 A</span><input type="radio"><input type="radio">
+                        </form>
+                    </div>
+                    <!-- AI TEST -->
+
                     <div class="myMap"></div>
                 </div>
                 <div class="listArea">
@@ -181,8 +197,8 @@
             fetch('http://127.0.0.1:8000/api/oneroom/')
                 .then(response => response.json())
                 .then(data => {
-                    const reco_arr = arithmeticMean(data, ai).join();
-                    console.log(typeof reco_arr);
+                    const reco_str = arithmeticMean(data, ai).join();
+                    console.log(typeof reco_str);
                     alert(reco_arr);
                 })
         }

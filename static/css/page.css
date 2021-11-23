@@ -117,7 +117,7 @@
 .mainPage aside .boardArea ul li:not(:last-child){margin-bottom: 20px;}
 .mainPage aside .boardArea ul li a{display: flex; justify-content: space-between; align-items: flex-end;}
 
-.mainPage aside .boardArea ul.latestPosts li:not(:last-child){border-bottom: 1px solid #efefef; padding-bottom: 10px;} 
+.mainPage aside .boardArea ul.latestPosts li:not(:last-child){border-bottom: 1px solid #efefef; padding-bottom: 10px;}
 
 
 .subPage h2,
@@ -481,8 +481,9 @@
 .usedTradePage .detailArea .goodsArea .userArea .goodsInfo button{position: absolute; right: 0; top: 20px;}
 
 .usedTradePage .detailArea .realTimeArea > strong {display: block; font-size: 26px; font-weight: 800; margin-bottom: 20px;}
-.usedTradePage .detailArea .realTimeArea .usedTradeBox{justify-content: flex-start;}
-.usedTradePage .detailArea .realTimeArea .usedTradeBox li{width: 215px;}
+/* 아래 사진 밀리는거 수정*/
+.usedTradePage .detailArea .realTimeArea .usedTradeBox{justify-content: flex-start; width: 915px;}
+.usedTradePage .detailArea .realTimeArea .usedTradeBox li{width: 210px;}
 .usedTradePage .detailArea .realTimeArea .usedTradeBox li:not(:nth-child(4n)){margin-right: 10px;}
 .usedTradePage .detailArea .realTimeArea .usedTradeBox li:not(:nth-child(-n + 4)){margin-top: 60px;}
 .usedTradePage .detailArea .realTimeArea .usedTradeBox li a .imgBox{height: 145px;}
