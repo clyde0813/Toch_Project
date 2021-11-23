@@ -1,30 +1,54 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
-    <form action="{% url 'usedtrade:create_post' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <br>
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" name="title"></textarea>
-            <label for="floatingTextarea">제목</label>
+    <div class="subPage usedTradePage">
+        <div class="registrationArea width1200">
+            <form>
+                <fieldset>
+                    <div>
+                        <input type="text" title="상품명" placeholder="상품명을 입력해주세요.">
+                    </div>
+                    <div>
+                        <strong>판매가격</strong>
+                        <div>
+                            <input type="text" placeholder="가격을 입력하세요"><span>원</span>
+                        </div>
+                        <strong>상품 상태</strong>
+                        <div>
+                            <input type="radio" checked>
+                            <label for="">미개봉</label>
+                            <input type="radio">
+                            <label for="">거의 새 것</label>
+                            <input type="radio">
+                            <label for="">사용감 있음</label>
+                        </div>
+                        <strong>배송 방법</strong>
+                        <div>
+                            <input type="radio" checked>
+                            <label for="">직거래</label>
+                            <input type="radio">
+                            <label for="">택배</label>
+                            <input type="radio">
+                            <label for="">온라인 전송</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="imgRegiBox">
+                            <div class="fileArea">
+                                <input type="file">
+                                <label for="">+</label>
+                                <div class="imgBox" style="background-image: url(../../static/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(../../static/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>에디터 공간</div>
+                    </div>
+                    <input type="submit" value="등록" class="blackBtn">
+                </fieldset>
+            </form>
         </div>
-        <br>
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" name="price"></textarea>
-            <label for="floatingTextarea">판매가격</label>
-        </div>
-        <br>
-        <div class="input-group">
-            <input class="form-control form-control-sm" name="file" id="file" type="file" multiple="multiple"
-                   style="width: 60%">
-        </div>
-        <br>
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" name="content"
-                      style="height: 100px"></textarea>
-            <label for="floatingTextarea2">Comments</label>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-outline-secondary">글쓰기</button>
-    </form>
+    </div>
 {% endblock %}

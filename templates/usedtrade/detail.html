@@ -1,117 +1,477 @@
 {% extends 'base.html' %}
-{% load static %}
-
 {% block content %}
-    <link rel="stylesheet" href="{% static 'usedtrade/detail.css' %}">
-    <article id="content" data-id="295261694">
-        <section id="article-images">
-            <br>
-            <div id="image-slider">
-                <div class="slider-wrap">
-                    <div class="slider slick-initialized slick-slider slick-dotted" data-article-id="295261694">
-                        <div class="slick-list draggable">
-                            <div class="slick-track"
-                                 style="opacity: 1; width: 6561px; transform: translate3d(-729px, 0px, 0px);">
-                                <div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true"
-                                     tabindex="-1" style="width: 729px;">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+    <div class="subPage usedTradePage">
+        <div class="asideBox detailArea width1200">
+            <div class="leftContArea">
+                <div class="goodsArea borderBox">
+                    <div class="sliderArea">
+                        <div class="slider">
+                            <div>
+                                <img src="../../static/images/usedtrade_slider01.png" alt="">
+                            </div>
+                            <div>
+                                <img src="../../static/images/usedtrade_slider01.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="userArea">
+                        <div class="userBox sellerArea">
+                            <div class="imgBox" style="background-image: url(../../static/images/oneroom_user01.png);">
+                                판매자 이미지
+                            </div>
+                            <div class="textArea">
+                                <b>touch_1111</b>
+                                <small>대구 중구 달서동</small>
+                            </div>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox commentIcon">
+                                    댓글 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </div>
+                        <div class="goodsInfo">
+                            <b>아이폰13 시에라블루 256GB</b>
+                            <div>
+                                <span>카테고리</span><span>몇시간 전</span>
+                            </div>
+                            <strong>3,000원</strong>
+                            <p>
+                                쓴지 얼마 안되었습니다.<br/>
+                                연락주세요 네고가능 거래는 직거래만 가능<br/>
+                                010-0000-0000
+                            </p>
+                            <button class="blackBtn">거래하기</button>
+                        </div>
+
+                        <div class="commentBox">
+                            <strong>댓글</strong>
+                            <div class="userBox">
+                                <div class="imgBox" style="background-image: url(../../static/images/oneroom_user01.png);">
+                                    회원 이미지
+                                </div>
+                                <div class="textArea">
+                                    <b>아이디랍니다</b>
+                                    <p>팔렸나요?</p>
                                     <div>
-                                        <div>
-                                            <div class="image-wrap" data-image-id="1189881616" data-image-index="4">
-                                                <img data-lazy="https://dnvefa72aowie.cloudfront.net/origin/article/202110/E553675C8C682EEDE8436F17B9851AFB99F927D32F5699E90A0AC76B5CBB72F2.jpg?q=95&amp;s=1440x1440&amp;t=inside"
-                                                     class="portrait" alt="스캇 MTB 산악자전거의 사진 4"
-                                                     src="https://dnvefa72aowie.cloudfront.net/hoian/category/thumbnails/v2/img_thumb_sports.png">
-                                            </div>
-                                        </div>
+                                        <time>2021.09.20 <span>18:00</span></time>
                                     </div>
                                 </div>
-                                <div class="slick-slide slick-current slick-active" data-slick-index="0"
-                                     aria-hidden="false" role="tabpanel" id="slick-slide00" style="width: 729px;">
+                            </div>
+                            <div class="userBox">
+                                <img src="images/commentIcon01.png" alt="">
+                                <div class="imgBox" style="background-image: url(../../static/images/oneroom_user02.png);">
+                                    회원 이미지
+                                </div>
+                                <div class="textArea">
+                                    <b>아이디랍니다</b>
+                                    <p>팔렸나요?</p>
                                     <div>
-                                        <div>
-                                            <div class="image-wrap" data-image-id="1189881617" data-image-index="1">
-                                                <img class="landscape"
-                                                     src="{{ data.file_set.first.file.url }}"
-                                                     style="opacity: 1;" alt="">
-                                            </div>
-                                        </div>
+                                        <time>2021.09.20 <span>18:00</span></time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="userBox">
+                                <div class="imgBox" style="background-image: url(../../static/images/oneroom_user01.png);">
+                                    회원 이미지
+                                </div>
+                                <div class="textArea">
+                                    <b>아이디랍니다</b>
+                                    <p>팔렸나요?</p>
+                                    <div>
+                                        <time>2021.09.20 <span>18:00</span></time>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="article-profile">
-            <a id="article-profile-link" href="#">
-                <div class="space-between">
-                    <div>
-                        <div id="article-profile-image">
-                            <img alt="고래밥"
-                                 src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-7e50c459a71e0e88c474406a45bbbdce8a3bf2ed4f2efcae59a064e39ea9ff30.png">
-                        </div>
-                        <div id="article-profile-left">
-                            <div id="nickname">고래밥</div>
-                            <div id="region-name">연수구 송도동</div>
-                        </div>
-                    </div>
-                    <div id="article-profile-right">
-                        <div class="meters">
-                            <div class=" bar bar-color-03" style="width: 100%;"></div>
+                        <div class="enrollmentBox">
+                            <b>ddbbnncc87</b>
+                            <textarea></textarea>
+                            <button><mark>등록</mark></button>
                         </div>
                     </div>
                 </div>
-            </a></section>
-
-        <section id="article-description">
-            <h1 property="schema:name" id="article-title" style="margin-top:0px;">{{ data.title }}</h1>
-            <p id="article-category">
-                <time>
-                    {{ data.created_date }}
-                </time>
-            </p>
-            <p property="schema:priceValidUntil" datatype="xsd:date" content="2023-10-05"></p>
-            <p rel="schema:url" resource="https://www.daangn.com/295261694"></p>
-            <p property="schema:priceCurrency" content="KRW"></p>
-            <p id="article-price" property="schema:price" content="150000.0" style="font-size:18px; font-weight:bold;">
-                {{ data.price }}원
-            </p>
-            <div property="schema:description" id="article-detail">
-                {{ data.content }}
+                <div class="realTimeArea">
+                    <strong>실시간 인기 중고</strong>
+                    <ul class="usedTradeBox fontCase01">
+                        <li>
+                            <a href="">
+                                <div class="imgBox borderBox" style="background-image: url('../../static/images/realTime01.png');">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="imgBox borderBox" style="background-image: url('../../static/images/realTime01.png');">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="imgBox borderBox" style="background-image: url('../../static/images/realTime01.png');">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="imgBox borderBox" style="background-image: url('../../static/images/realTime01.png');">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="imgBox borderBox" style="background-image: url('../../static/images/realTime01.png');">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="imgBox borderBox" style="background-image: url('../../static/images/realTime01.png');">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="imgBox borderBox" style="background-image: url('../../static/images/realTime01.png');">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="imgBox borderBox" style="background-image: url('../../static/images/realTime01.png');">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="imgBox borderBox" style="background-image: url('../../static/images/realTime01.png');">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="imgBox borderBox" style="background-image: url('../../static/images/realTime01.png');">
+                                    실시간 인기 중고 이미지
+                                </div>
+                                <p>
+                                    <time>2시간전</time>
+                                    아이패드 프로 11인치
+                                    <strong>605,000원</strong>
+                                </p>
+                                <small>대구 중구 달서동</small>
+                            </a>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </section>
-    </article>
-    <div class="container">
-        <button onclick="location.href='{% url 'usedtrade:delete_post' data.id %}'" class="btn btn-outline-danger">삭제
-        </button>
-    </div>
-    <form action="{% url 'usedtrade:create_comment' data.id %}" method="post">
-        {% csrf_token %}
-        <div class="form-floating">
-            <textarea class="form-control" name="content" style="height: 100px"></textarea>
-            <label for="floatingTextarea2">댓글</label>
-            <button type="submit" class="btn btn-outline-secondary">댓글작성</button>
+            <aside>
+                <div class="boardArea">
+
+                    <div class="borderBox">
+                        <strong>실시간 인기 글</strong>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        우리학교 로고 어디서 봤나
+                                        <span>존똑이네</span>
+                                    </b>
+                                    <p>자유게시판</p>
+                                    <div class="iconBox">
+                                        <div class="imgBox heartIcon">
+                                            하트 아이콘
+                                        </div>
+                                        <span>
+                                            10
+                                        </span>
+                                        <div class="imgBox commentIcon">
+                                            메일 아이콘
+                                        </div>
+                                        <span>
+                                            5
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        우리학교 로고 어디서 봤나
+                                        <span>존똑이네</span>
+                                    </b>
+                                    <p>자유게시판</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- side banner -->
+                <div class="mainSideBanner">
+                    <img src="../../static/images/main_sideBanner.png" alt="라포르테블랑 서현">
+                </div>
+
+                <div class="boardArea">
+                    <div class="borderBox">
+                        <strong>여기 어때요?</strong>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        베스트빌 원룸 상태 깨끗
+                                    </b>
+                                    <p>월세 200 / 40</p>
+                                    <p>26m2</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        베스트빌 원룸 상태 깨끗
+                                    </b>
+                                    <p>월세 200 / 40</p>
+                                    <p>26m2</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        베스트빌 원룸 상태 깨끗
+                                    </b>
+                                    <p>월세 200 / 40</p>
+                                    <p>26m2</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
         </div>
-    </form>
-    <div class="comment_box">
-        <ul class="comment_list">
-            {% for comment in data.comment_set.all %}
-                <li>{{ comment.content }}</li>
-                {% for nested in comment.nested_set.all %}
-                    <li>{{ nested.content }}</li>
-                {% endfor %}
-                <li>
-                    <form action="{% url 'usedtrade:create_nested' data.id comment.id %}" method="post">
-                        {% csrf_token %}
-                        <div class="form-floating">
-                            <textarea class="form-control" name="content" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2">댓글</label>
-                            <button type="submit" class="btn btn-outline-secondary">댓글작성</button>
-                        </div>
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
     </div>
+     <script src="../../static/scripts/com.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.usedTradePage .slider').bxSlider();
+        })
+    </script>
 {% endblock %}
