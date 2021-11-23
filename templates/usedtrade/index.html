@@ -7,7 +7,7 @@
                     <li>
                         <a href="{% url 'usedtrade:detail' data.id %}">
                             <div class="imgBox borderBox"
-                                 style="background-image: url('{{ data.file_set.last.file }}');">
+                                 style="background-image: url('{{ data.file_set.last.file.url }}');">
                                 실시간 인기 중고 이미지
                             </div>
                             <p>
