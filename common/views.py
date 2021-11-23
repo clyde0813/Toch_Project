@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.utils import timezone
 
+from community.models import Post as communityPost
 from ip_gather import get_client_ip
 from oneroom.models import Post as oneroomPost
 from usedtrade.models import Post as usedtradePost
@@ -24,7 +25,16 @@ def index(request):
     oneroom_paginator2 = Paginator(oneroom_data2, 4)
     oneroom_data2 = oneroom_paginator2.get_page(1)
 
-    context = {'usedtrade': usedtrade_data, 'oneroom': oneroom_data, 'oneroom2': oneroom_data2}
+    community_data = communityPost.objects.all().order_by('id')
+    community_paginator = Paginator(community_data, 8)
+    community_data = community_paginator.get_page(1)
+
+    community_data2 = communityPost.objects.all().order_by('-id')
+    community_paginator2 = Paginator(community_data2, 4)
+    community_data2 = community_paginator2.get_page(1)
+
+    context = {'usedtrade': usedtrade_data, 'oneroom': oneroom_data, 'oneroom2': oneroom_data2,
+               'community': community_data, 'community2': community_data2}
     return render(request, 'main/index.html', context)
 
 
