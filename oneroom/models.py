@@ -56,6 +56,8 @@ class Post(models.Model):
     # 주소
     address = models.TextField(blank=True, null=True)
 
+    browse_status = models.BooleanField(null=True)
+
     def __str__(self):
         return self.title
 
