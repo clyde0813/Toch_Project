@@ -6,7 +6,6 @@
             <div class="contArea">
                 <div class="mapArea">
                     <div class="inputArea">
-
                         <div class="seachBox">
                             <input type="search">
                             <button>검색버튼</button>
@@ -22,32 +21,32 @@
                                         <li>
                                             <label>반려동물</label>
                                             <div>
-                                                <input type="radio" name="pet">
+                                                <input type="radio" name="pet" value="1">
                                                 <label>Yes</label>
-                                                <input type="radio" name="pet">
+                                                <input type="radio" name="pet" value="0">
                                                 <label>No</label>
                                             </div>
                                         </li>
                                         <li>
                                             <label>자차보유</label>
                                             <div>
-                                                <input type="radio" name="car">
+                                                <input type="radio" name="car" value="1">
                                                 <label>Yes</label>
-                                                <input type="radio" name="car">
+                                                <input type="radio" name="car" value="0">
                                                 <label>No</label>
                                             </div>
                                         </li>
                                         <li>
                                             <label>외향/내향</label>
                                             <div>
-                                                <input type="radio" name="personality">
+                                                <input type="radio" name="personality" value="1">
                                                 <label>Yes</label>
-                                                <input type="radio" name="personality">
+                                                <input type="radio" name="personality" value="0">
                                                 <label>No</label>
                                             </div>
                                         </li>
                                     </ul>
-                                    <button>Toch  AI 추천</button>
+                                    <button class="ai_reco_btn">Toch  AI 추천</button>
                                     <span class="material-icons-outlined closeBtn">
                                         close
                                     </span>
@@ -143,10 +142,34 @@
             imageOption = {offset: new kakao.maps.Point(10, 30)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
         // 마커를 표시할 위치와 해당 정보를 담은 배열
-        let positions = [
+        let tmp_list = [];
+        let positions = [];
+        if (tmp_list.length) {
+            for (let j in tmp_list) {
+                {% if data %}
+                    {% for i in data %}
+                        if (Number(j) === {{ i.id }}) {
+                            positions.push({
+                                id: {{ i.id }},
+                                title: '{{ i.title }}',
+                                rent_type: '{{ i.rent_type }}',
+                                rent_amount: '{{ i.rent_amount }}',
+                                deposit: '{{ i.deposit }}',
+                                latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
+                                main_img: '{{ i.file_set.first.file.url }}',
+                                floor_num: '{{ i.floor_num }}',
+                                common_area: '{{ i.common_area }}',
+                                address: '{{ i.address }}',
+                                manage_amount: '{{ i.manage_amount }}'
+                            })
+                        }
+                    {% endfor %}
+                {% endif %}
+            }
+        } else {
             {% if data %}
                 {% for i in data %}
-                    {
+                    positions.push({
                         id: {{ i.id }},
                         title: '{{ i.title }}',
                         rent_type: '{{ i.rent_type }}',
@@ -158,17 +181,17 @@
                         common_area: '{{ i.common_area }}',
                         address: '{{ i.address }}',
                         manage_amount: '{{ i.manage_amount }}'
-                    },
+                    })
                 {% endfor %}
             {% endif %}
-        ];
+        }
 
         const options = {
             center: new kakao.maps.LatLng(MNU_LATITUDE, MNU_LONGITUDE), // 지도의 중심 좌표
             level: 5 // 지도의 레벨(확대, 축소 정도)
         };
 
-        const map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+        let map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
         for (let i = 0, len = positions.length; i < len; i++) {
             let info = {
@@ -252,23 +275,40 @@
             `
         }
 
+        //////////////////////////////////////////////////////////////
+        /////////////////////// 추천 알고리즘 코드  //////////////////////
+        //////////////////////////////////////////////////////////////
+        const ai_reco_btn = document.querySelector('.ai_reco_btn');
+        ai_reco_btn.addEventListener('click', e => {
+            e.preventDefault();
+            fetchData();
+        })
 
-        /////////////////////// 추천 알고리즘 코드
-        // user의 선호도 값을 받아오는 함수 .
-        function getUserPreference() {
-            let preference = {}
-
+        function getUserAI() {
             const pet = document.getElementsByName('pet');
-            return preference
-        }
+            const car = document.getElementsByName('car');
+            const personality = document.getElementsByName('personality');
 
-        // 예시 사용자 선택 데이터
-        let ai = {
-            "A": "0",
-            "B": "1",
-            "C": "0",
-            "D": "1",
-            "E": "0",
+            const userAi = {};
+
+            for(let i=0; i<pet.length; i++) {
+                if (pet[i].checked) {
+                    userAi['A'] = pet[i].value;
+                }
+            }
+
+            for(let i=0; i<pet.length; i++) {
+                if (car[i].checked) {
+                    userAi['B'] = car[i].value;
+                }
+            }
+
+            for(let i=0; i<pet.length; i++) {
+                if (personality[i].checked) {
+                    userAi['C'] = personality[i].value;
+                }
+            }
+            return userAi
         }
 
         // 산술평균 값 key로 정렬
@@ -311,7 +351,7 @@
             fetch("{% url 'oneroom:test' %}", {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'text/plain;charset=UTF-8',
+                    'Content-Type': 'application/json',
                     "X-CSRFToken": getCookie("csrftoken")
                 },
                 body: JSON.stringify(
@@ -325,13 +365,55 @@
             fetch('https://toch.kr/api/oneroom/')
                 .then(response => response.json())
                 .then(data => {
-                    let userPreference = getUserPreference();
-                    const preference_str = arithmeticMean(data, userPreference).join();
-                    sendData(preference_str);
-                    alert(`${preference_str} 전송 완료`);
+                    let userPreference = getUserAI();
+                    tmp_list = arithmeticMean(data, userPreference);
+                    console.log(userPreference);
+                    console.log(tmp_list)
+                    map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+                    positions = [];
+                    itemList.innerHTML = "";
+                    for (let j in tmp_list) {
+                        {% if data %}
+                            {% for i in data %}
+                                if (Number(j) + 1 === {{ i.id }}) {
+                                    positions.push({
+                                        id: {{ i.id }},
+                                        title: '{{ i.title }}',
+                                        rent_type: '{{ i.rent_type }}',
+                                        rent_amount: '{{ i.rent_amount }}',
+                                        deposit: '{{ i.deposit }}',
+                                        latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
+                                        main_img: '{{ i.file_set.first.file.url }}',
+                                        floor_num: '{{ i.floor_num }}',
+                                        common_area: '{{ i.common_area }}',
+                                        address: '{{ i.address }}',
+                                        manage_amount: '{{ i.manage_amount }}'
+                                    })
+                                }
+                            {% endfor %}
+                        {% endif %}
+                    }
+                    for (let i = 0, len = positions.length; i < len; i++) {
+                        let info = {
+                            id: positions[i].id,
+                            title: positions[i].title,
+                            rent_type: positions[i].rent_type,
+                            rent_amount: positions[i].rent_amount,
+                            deposit: positions[i].deposit,
+                            main_img: positions[i].main_img,
+                            floor_num: positions[i].floor_num,
+                            common_area: positions[i].common_area,
+                            address: positions[i].address,
+                            manage_amount: positions[i].manage_amount
+                        }
+                        // 마커를 생성하고 지도위에 표시합니다
+                        addMarker(positions[i].latlng, info);
+                        // 아이템 모두 표시
+                        showAllItems(info);
+                    }
                 })
         }
-    </script>
+        </script>
     <script>
         $(document).ready(function(){
             $('[data-popup]').click(function(e){
