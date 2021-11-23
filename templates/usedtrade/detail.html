@@ -10,7 +10,7 @@
                         <div class="slider">
                             {% for file in data.file_set.all %}
                                 <div>
-                                    <img src="{{ file.file }}" alt="">
+                                    <img src="{{ file.file.url }}" alt="">
                                 </div>
                             {% endfor %}
                         </div>
