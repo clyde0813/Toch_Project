@@ -1,7 +1,5 @@
-from django.contrib import auth
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
-
+from django.shortcuts import render
+from django.db.models import Case, Q, When
 from .models import *
 
 
@@ -19,3 +17,9 @@ def detail(request, num):
     return render(request, 'oneroom/detail.html', context)
 
 
+def test(request):
+    tmp = ['7', '6', '5', '4', '3', '2', '0', '1', '9', '8']
+    preserved = Case(*[When(pk=pk, then=pos) for pos, pk in enumerate(tmp)])
+    data = Post.objects.filter(pk__in=tmp).order_by(preserved)
+    context = {'data': data}
+    return render(request, 'oneroom/test.html', context)
