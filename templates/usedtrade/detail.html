@@ -9,8 +9,10 @@
                     <div class="sliderArea">
                         <div class="slider">
                             {% for file in data.file_set.all %}
-                                <div>
-                                    <img src="{{ file.file.url }}" alt="">
+                                <div class="image-wrap"
+                                     style="position: relative;width: 700px;margin: 0 auto;height: 500px;border-radius: 8px;overflow: hidden;">
+                                    <img src="{{ file.file.url }}" alt=""
+                                         style="border-radius: 8px;position: relative;min-width: 100%;left: 50%;top: 50%;transform: translate(-50%, -50%);color: transparent;">
                                 </div>
                             {% endfor %}
                         </div>
