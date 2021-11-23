@@ -146,6 +146,9 @@
             `
         }
 
+
+        /////////////////////// 추천 알고리즘 코드
+        // 예시 사용자 선택 데이터
         let ai = {
             "A": "0",
             "B": "1",
@@ -168,46 +171,20 @@
                 }
                 arithmeticMean[post] = sum
             }
-            // [{ 집 id : 점수 }] -> 점수순으로 정렬
             return Object.keys(arithmeticMean).sort((a, b) => {
                 return arithmeticMean[b] - arithmeticMean[a]
             });
-        }
-
-        function getRecommend(data, ai) {
-            while (itemList.firstChild) {
-                itemList.removeChild(itemList.firstChild);
-            }
-            let test = [];
-            const recommend = arithmeticMean(data, ai); // 추천 순위 배열, 집의 id값이 들어있음.
-            for (let i = 0; i < recommend.length; i++) {
-                let reco_id = recommend[i];
-                let info = {
-                    {% if data %}
-                        {% for d in data %}
-                            {% if d == reco_id %}
-                                id: {{d.id }},
-                                rent_type: '{{ d.rent_type }}',
-                                rent_amount: '{{ d.rent_amount }}',
-                                latlng: new kakao.maps.LatLng({{ d.latitude }}, {{ d.longitude }}), // 원룸 좌표
-                                main_img: '{{ d.file_set.first.file.url }}',
-                                floor_num: '{{ d.floor_num }}',
-                                common_area: '{{ d.common_area }}',
-                                address: '{{ d.address }}',
-                                manage_amount: '{{ d.manage_amount }}'
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
-                }
-                test.push(info);
-            }
         }
 
         // JSON 데이터 받아오는 함수
         function fetchData() {
             fetch('http://127.0.0.1:8000/api/oneroom/')
                 .then(response => response.json())
-                .then(data => renderRecommend(data, ai))
+                .then(data => {
+                    const reco_arr = arithmeticMean(data, ai).join();
+                    console.log(typeof reco_arr);
+                    alert(reco_arr);
+                })
         }
     </script>
 {% endblock %}
