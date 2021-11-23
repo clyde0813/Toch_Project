@@ -3,34 +3,6 @@
     <div class="subPage communityPage">
         <div class="asideBox communityArea width1200">
             <div class="leftContArea">
-                <!-- TEST -->
-                <div class="writeBox">
-                    <input type="text">
-                    <button onclick="toggleWriteForm()" class="community_write_btn">글쓰기</button>
-                </div>
-
-                <div class="inputBox none" >
-                    <form>
-                        <fieldset>
-                            <input type="text" placeholder="제목">
-                            <textarea placeholder="글을 작성해주세요."></textarea>
-                            <div class="imgRegiBox">
-                                <div class="fileArea">
-                                    <input type="file">
-                                    <label for="">+</label>
-                                    <div class="imgBox" style="background-image: url(../../static/images/registrationImg.png);">
-                                        <button class="removeBtn">-</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="formBtn">
-                                <input type="reset" value="취소">
-                                <input type="submit" value="등록">
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <!-- TEST -->
                 <ul class="commuListBox">
                     {% for post in post %}
                     <li>
@@ -172,18 +144,5 @@
             </aside>
         </div>
     </div>
-    <style>
-        .none {
-            display: none;
-        }
-    </style>
     <script src="../../static/scripts/com.js"></script>
-    <script>
-        const community_write_btn = document.querySelector('.community_write_btn');
-        const input_box = document.querySelector('.inputBox');
-        function toggleWriteForm() {
-            console.log(1);
-            input_box.classList.toggle('none');
-        }
-    </script>
 {% endblock %}

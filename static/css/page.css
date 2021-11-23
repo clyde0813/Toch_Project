@@ -323,7 +323,6 @@
 .oneRoomArea .contArea .listArea .bottomArea ul li a .textArea div span::before{content: '#';}
 .oneRoomArea .contArea .listArea .bottomArea ul li a .textArea div span:not(:last-child){margin-right: 10px;}
 
-
 /* 원룸 - 상세페이지 */
 .oneRoomPage .detailArea h3{font-size: 26px; font-weight: 800; margin-bottom: 20px;}
 .oneRoomPage .detailArea > *:not(:first-child){margin-bottom: 80px;}
