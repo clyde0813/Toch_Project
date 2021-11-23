@@ -22,11 +22,11 @@
                     </div>
 
                     <!-- AI TEST -->
-                    <div class="aiQuestionBox">
-                        <form method="POST">
-                            <span>질문 A</span><input type="radio"><input type="radio">
-                        </form>
-                    </div>
+{#                    <div class="aiQuestionBox">#}
+{#                        <form method="POST">#}
+{#                            <span>질문 A</span><input type="radio"><input type="radio">#}
+{#                        </form>#}
+{#                    </div>#}
                     <!-- AI TEST -->
 
                     <div class="myMap"></div>
@@ -164,6 +164,14 @@
 
 
         /////////////////////// 추천 알고리즘 코드
+        // user의 선호도 값을 받아오는 함수 .
+        function getUserPreference() {
+            let preference = {}
+
+            const A = document.getElementsByName('A');
+
+            return preference
+        }
         // 예시 사용자 선택 데이터
         let ai = {
             "A": "0",
@@ -192,14 +200,27 @@
             });
         }
 
+        // 서버로 Data 전송
+        function sendData(str) {
+            fetch('주소들어갈 자리', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    data:str
+                })
+            });
+        }
+
         // JSON 데이터 받아오는 함수
         function fetchData() {
             fetch('http://127.0.0.1:8000/api/oneroom/')
                 .then(response => response.json())
                 .then(data => {
-                    const reco_str = arithmeticMean(data, ai).join();
-                    console.log(typeof reco_str);
-                    alert(reco_arr);
+                    let userPreference = getUserPreference();
+                    const preference_str = arithmeticMean(data, userPreference).join();
+                    alert(`${preference_str} 전송 완료`);
                 })
         }
     </script>
