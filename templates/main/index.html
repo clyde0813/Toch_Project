@@ -242,7 +242,7 @@
                     <ul class="fontCase01">
                         {% for data in oneroom2 %}
                             <li class="borderBox">
-                                <a href="#">
+                                <a href="{% url 'oneroom:detail' data.id %}">
                                     <div class="imgBox"
                                          style="background-image: url({{ data.file_set.last.file.url }});">원룸 이미지
                                     </div>
