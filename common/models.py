@@ -21,4 +21,5 @@ class Chat(models.Model):
     community_post = models.ForeignKey(CommunityPost, on_delete=models.CASCADE, related_name='community_post',
                                        blank=True, null=True)
     chatroom = models.ForeignKey(ChatRoom, on_delete=models.CASCADE, null=True, related_name='chat_list')
-    chat_status = models.BooleanField(null=True)
+    # 챗 읽었는지 유뮤 0=않읽음, 1=읽음
+    chat_status = models.BooleanField(default=0)

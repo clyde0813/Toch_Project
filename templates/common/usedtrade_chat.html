@@ -3,8 +3,10 @@
 {% block content %}
     <div class="subPage myPage">
 
-
         <section class="width1200 myArea">
+            {% for data in data %}
+                {{ data.id }}
+            {% endfor %}
             <h2>메인페이지</h2>
             <ul class="menuBox">
                 <li>
