@@ -281,7 +281,8 @@
         const ai_reco_btn = document.querySelector('.ai_reco_btn');
         ai_reco_btn.addEventListener('click', e => {
             e.preventDefault();
-            fetchData();
+            setTimeout(() => fetchData(), 600);
+            //fetchData();
         })
 
         function getUserAI() {
