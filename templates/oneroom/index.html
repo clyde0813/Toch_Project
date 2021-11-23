@@ -44,11 +44,12 @@
                         id: {{ i.id }},
                         rent_type: '{{ i.rent_type }}',
                         rent_amount: '{{ i.rent_amount }}',
+                        deposit: '{{ i.deposit }}',
                         latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
                         main_img: '{{ i.file_set.first.file.url }}',
-                        floor_num : '{{ i.floor_num }}',
-                        common_area : '{{ i.common_area }}',
-                        address : '{{ i.address }}',
+                        floor_num: '{{ i.floor_num }}',
+                        common_area: '{{ i.common_area }}',
+                        address: '{{ i.address }}',
                         manage_amount: '{{ i.manage_amount }}'
                     },
                 {% endfor %}
@@ -65,8 +66,9 @@
         for (let i = 0, len = positions.length; i < len; i++) {
             let info = {
                 id: positions[i].id,
-                rent_type : positions[i].rent_type,
-                rent_amount : positions[i].rent_amount,
+                rent_type: positions[i].rent_type,
+                rent_amount: positions[i].rent_amount,
+                deposit: positions[i].deposit,
                 main_img: positions[i].main_img,
                 floor_num: positions[i].floor_num,
                 common_area: positions[i].common_area,
@@ -100,7 +102,7 @@
                 // 클릭한 마커에 해당되는 list 보여주기
                 setListItem(info);
             });
-             // 마커가 지도 위에 표시되도록 설정합니다
+            // 마커가 지도 위에 표시되도록 설정합니다
             marker.setMap(map);
         }
 
@@ -127,7 +129,7 @@
                      <div class="textArea">
                          <strong>
                              <small>${info.rent_type}</small>
-                             ${info.rent_type} ${info.rent_amount}
+                             ${info.rent_type} ${info.deposit} / ${info.rent_amount}
                          </strong>
                          <p>${info.floor_num}층 ${info.common_area}㎡ 관리비 ${info.manage_amount}만원</p>
                          <p>${info.address}</p>
@@ -143,11 +145,11 @@
         }
 
         let ai = {
-            "A" : "0",
-            "B" : "1",
-            "C" : "0",
-            "D" : "1",
-            "E" : "0",
+            "A": "0",
+            "B": "1",
+            "C": "0",
+            "D": "1",
+            "E": "0",
         }
 
         // 산술평균 값 key로 정렬
@@ -155,26 +157,28 @@
             let keys = Object.keys(json[0]);
             let arithmeticMean = {}
 
-            for(let i=0; i<json.length; i++) {
+            for (let i = 0; i < json.length; i++) {
                 let sum = 0
                 let post = json[i][keys[0]];
-                for(let k=1; k<keys.length; k++) {
+                for (let k = 1; k < keys.length; k++) {
                     let post_score = json[i][keys[k]];
                     sum += post_score * ai[keys[k]]
                 }
                 arithmeticMean[post] = sum
             }
             // [{ 집 id : 점수 }] -> 점수순으로 정렬
-            return Object.keys(arithmeticMean).sort((a,b) => { return arithmeticMean[b]-arithmeticMean[a] });
+            return Object.keys(arithmeticMean).sort((a, b) => {
+                return arithmeticMean[b] - arithmeticMean[a]
+            });
         }
 
         function getRecommend(data, ai) {
-            while(itemList.firstChild) {
+            while (itemList.firstChild) {
                 itemList.removeChild(itemList.firstChild);
             }
             let test = [];
             const recommend = arithmeticMean(data, ai); // 추천 순위 배열, 집의 id값이 들어있음.
-            for(let i=0; i<recommend.length; i++) {
+            for (let i = 0; i < recommend.length; i++) {
                 let reco_id = recommend[i];
                 let info = {
                     {% if data %}
@@ -185,9 +189,9 @@
                                 rent_amount: '{{ d.rent_amount }}',
                                 latlng: new kakao.maps.LatLng({{ d.latitude }}, {{ d.longitude }}), // 원룸 좌표
                                 main_img: '{{ d.file_set.first.file.url }}',
-                                floor_num : '{{ d.floor_num }}',
-                                common_area : '{{ d.common_area }}',
-                                address : '{{ d.address }}',
+                                floor_num: '{{ d.floor_num }}',
+                                common_area: '{{ d.common_area }}',
+                                address: '{{ d.address }}',
                                 manage_amount: '{{ d.manage_amount }}'
                             {% endif %}
                         {% endfor %}
@@ -200,8 +204,8 @@
         // JSON 데이터 받아오는 함수
         function fetchData() {
             fetch('http://127.0.0.1:8000/api/oneroom/')
-            .then(response => response.json())
-            .then(data => renderRecommend(data, ai))
+                .then(response => response.json())
+                .then(data => renderRecommend(data, ai))
         }
     </script>
 {% endblock %}
