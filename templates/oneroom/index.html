@@ -22,11 +22,11 @@
                     </div>
 
                     <!-- AI TEST -->
-{#                    <div class="aiQuestionBox">#}
-{#                        <form method="POST">#}
-{#                            <span>질문 A</span><input type="radio"><input type="radio">#}
-{#                        </form>#}
-{#                    </div>#}
+                    {#                    <div class="aiQuestionBox">#}
+                    {#                        <form method="POST">#}
+                    {#                            <span>질문 A</span><input type="radio"><input type="radio">#}
+                    {#                        </form>#}
+                    {#                    </div>#}
                     <!-- AI TEST -->
 
                     <div class="myMap"></div>
@@ -172,6 +172,7 @@
 
             return preference
         }
+
         // 예시 사용자 선택 데이터
         let ai = {
             "A": "0",
@@ -200,26 +201,44 @@
             });
         }
 
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
         // 서버로 Data 전송
         function sendData(str) {
-            fetch('주소들어갈 자리', {
+            fetch("{% url 'oneroom:test' %}", {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'plain/text',
+                    "X-CSRFToken": getCookie("csrftoken")
                 },
-                body: JSON.stringify({
-                    data:str
-                })
+                body: JSON.stringify(
+                    str
+                )
             });
         }
 
         // JSON 데이터 받아오는 함수
         function fetchData() {
-            fetch('http://127.0.0.1:8000/api/oneroom/')
+            fetch('https://toch.kr/api/oneroom/')
                 .then(response => response.json())
                 .then(data => {
                     let userPreference = getUserPreference();
                     const preference_str = arithmeticMean(data, userPreference).join();
+                    sendData(preference_str);
                     alert(`${preference_str} 전송 완료`);
                 })
         }
