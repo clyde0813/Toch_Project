@@ -222,7 +222,7 @@
             fetch("{% url 'oneroom:test' %}", {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'plain/text',
+                    'Content-Type': 'application/json',
                     "X-CSRFToken": getCookie("csrftoken")
                 },
                 body: JSON.stringify(
@@ -239,7 +239,6 @@
                     let userPreference = getUserPreference();
                     const preference_str = arithmeticMean(data, userPreference).join();
                     sendData(preference_str);
-                    alert(`${preference_str} 전송 완료`);
                 })
         }
     </script>
