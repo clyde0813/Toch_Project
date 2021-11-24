@@ -6,4 +6,4 @@ from oneroom.models import Attribution
 class AttributionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Attribution
-        fields = ['post', 'A', 'B', 'C', 'D', 'E']
+        fields = ['post', 'A', 'B', 'C']
