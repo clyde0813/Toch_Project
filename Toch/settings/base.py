@@ -30,7 +30,6 @@ SECRET_KEY = 'django-insecure-=@mny3bnasw-35c6%0_zrh0y-h7ok^^*@tikp1g&wa!$o!(#4u
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders',
     'api',
     'rest_framework',
     'community.apps.CommunityConfig',
@@ -46,7 +45,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

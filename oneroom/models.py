@@ -66,7 +66,7 @@ class Post(models.Model):
 
 
 class Attribution(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, blank=True, null=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, blank=True, null=True, related_name='oneroom_attribute')
     A = models.IntegerField(blank=True, null=True)
     B = models.IntegerField(blank=True, null=True)
     C = models.IntegerField(blank=True, null=True)
