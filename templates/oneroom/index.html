@@ -356,7 +356,7 @@
                 }
                 arithmeticMean[post] = sum
             }
-            console.log(arithmeticMean);
+
             return Object.keys(arithmeticMean).sort((a, b) => {
                 return arithmeticMean[b] - arithmeticMean[a]
             });
@@ -370,15 +370,18 @@
                     let userPreference = getUserAI();
 
                     tmp_list = arithmeticMean(data, userPreference);
-                    console.log(userPreference);
+                    console.log(tmp_list);
 
                     map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
                     positions = [];
-                    itemList.innerHTML = "";
+                    while(itemList.firstChild) {
+                        itemList.removeChild(itemList.firstChild);
+                    }
+
                     for (let j in tmp_list) {
                         {% if data %}
                             {% for i in data %}
-                                if (Number(j) + 1 === {{ i.id }}) {
+                                if (Number(tmp_list[j])  === {{ i.id }}) {
                                     positions.push({
                                         id: {{ i.id }},
                                         title: '{{ i.title }}',
