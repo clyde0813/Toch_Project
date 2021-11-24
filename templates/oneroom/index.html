@@ -322,25 +322,6 @@
             return userAi
         }
 
-        // 산술평균 값 key로 정렬
-        function arithmeticMean(json, ai) {
-            let keys = Object.keys(json[0]);
-            let arithmeticMean = {}
-
-            for (let i = 0; i < json.length; i++) {
-                let sum = 0
-                let post = json[i][keys[0]];
-                for (let k = 1; k < keys.length; k++) {
-                    let post_score = json[i][keys[k]];
-                    sum += post_score * ai[keys[k]]
-                }
-                arithmeticMean[post] = sum
-            }
-            return Object.keys(arithmeticMean).sort((a, b) => {
-                return arithmeticMean[b] - arithmeticMean[a]
-            });
-        }
-
         function getCookie(name) {
             var cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -357,17 +338,27 @@
             return cookieValue;
         }
 
-        // 서버로 Data 전송
-        function sendData(str) {
-            fetch("{% url 'oneroom:test' %}", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    "X-CSRFToken": getCookie("csrftoken")
-                },
-                body: JSON.stringify(
-                    str
-                )
+
+         // 산술평균 값 key로 정렬
+        function arithmeticMean(json, ai) {
+            let keys = Object.keys(json[0]);
+            let arithmeticMean = {}
+
+            for (let i = 0; i < json.length; i++) {
+                let sum = 0
+                let post = json[i][keys[0]];
+
+
+                for (let k = 1; k < keys.length; k++) {
+                    let post_score = json[i][keys[k]];
+                    //console.log('post_ : ' + post_score);
+                    sum += post_score * ai[keys[k]]
+                }
+                arithmeticMean[post] = sum
+            }
+            console.log(arithmeticMean);
+            return Object.keys(arithmeticMean).sort((a, b) => {
+                return arithmeticMean[b] - arithmeticMean[a]
             });
         }
 
@@ -377,9 +368,10 @@
                 .then(response => response.json())
                 .then(data => {
                     let userPreference = getUserAI();
+
                     tmp_list = arithmeticMean(data, userPreference);
                     console.log(userPreference);
-                    console.log(tmp_list)
+
                     map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
                     positions = [];
                     itemList.innerHTML = "";

@@ -70,8 +70,6 @@ class Attribution(models.Model):
     A = models.IntegerField(blank=True, null=True)
     B = models.IntegerField(blank=True, null=True)
     C = models.IntegerField(blank=True, null=True)
-    D = models.IntegerField(blank=True, null=True)
-    E = models.IntegerField(blank=True, null=True)
 
 
 class File(models.Model):
