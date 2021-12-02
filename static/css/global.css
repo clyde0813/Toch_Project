@@ -55,7 +55,7 @@ mark > *{color: #ff9900;}
 [class*="Page"]:not(.communityPage) .asideBox .leftContArea > *{margin-bottom: 80px;}
 .mainPage .asideBox .leftContArea > div > *:not(:first-child){margin-top: 10px;}
 
-.asideBox aside .mainSideBanner img{width: 100%;}
+.asideBox aside .mainSideBanner img{width: 280px;}
 
 .asideBox aside .boardArea > *:not(:last-child){margin-bottom: 10px;}
 .asideBox aside .boardArea > *{padding: 30px 20px 20px; box-sizing: border-box;}
