@@ -30,6 +30,7 @@ SECRET_KEY = 'django-insecure-=@mny3bnasw-35c6%0_zrh0y-h7ok^^*@tikp1g&wa!$o!(#4u
 # Application definition
 
 INSTALLED_APPS = [
+    'Toch',
     'api',
     'rest_framework',
     'community.apps.CommunityConfig',
@@ -55,7 +56,6 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-
 
 ROOT_URLCONF = 'Toch.urls'
 
