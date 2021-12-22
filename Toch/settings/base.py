@@ -30,6 +30,7 @@ SECRET_KEY = 'django-insecure-=@mny3bnasw-35c6%0_zrh0y-h7ok^^*@tikp1g&wa!$o!(#4u
 # Application definition
 
 INSTALLED_APPS = [
+    'Toch',
     'api',
     'rest_framework',
     'community.apps.CommunityConfig',
@@ -55,7 +56,6 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-
 
 ROOT_URLCONF = 'Toch.urls'
 
@@ -110,13 +110,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = 'toch.text.email@gmail.com'
-EMAIL_HOST_PASSWORD = 'Toch1234!'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_HOST_USER = 'toch.text.email@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Toch1234!'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # ASGI_APPLICATION = 'Toch.routing.application'
 #
