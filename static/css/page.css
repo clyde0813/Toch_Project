@@ -2464,3 +2464,24 @@
     padding-top: 30px;
     border-top: 1px solid #ebebeb;
 }
+
+/* 검색 필터 (cutsom) */
+.filter_range_input {
+    height: 100%;
+    width: 563px;
+    -webkit-appearance: none;
+    border-radius: 25px;
+    background-color: #eeeeee;
+}
+
+.filter_range_input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 23px;
+    height: 23px;
+    background: url("../../static/images/rangeIcon.png");
+    cursor: ew-resize;
+}
+
+
+
+

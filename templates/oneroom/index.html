@@ -78,31 +78,27 @@
                                                 <label for="jeonse">전세</label>
                                             </div>
                                         </li>
+
                                         <li>
                                             <label>보증금</label>
-                                            <mark>500만원</mark>
+                                            <mark class="deposit_mark">전체</mark>
                                             <div>
                                                 <div class="rangeBox">
-                                                    <div>
-                                                        <span></span>
-                                                        <span>
-                                                            <span>500만원</span>
-                                                        </span>
-                                                    </div>
+                                                    <input type="range" min="0" max="1000" value="0" step="10" class="filter_range_input deposit_range" style="width:563px">
                                                 </div>
+{#                                               <div class="deposit_value">#}
+{#                                                    <div class="deposit_min">최소</div>#}
+{#                                                    <div class="deposit_max">최대</div>#}
+{#                                                </div>#}
                                             </div>
                                         </li>
+
                                         <li>
                                             <label>월세</label>
-                                            <mark>500만원</mark>
+                                            <mark  class="monthly_mark">전체</mark>
                                             <div>
                                                 <div class="rangeBox">
-                                                    <div>
-                                                        <span></span>
-                                                        <span>
-                                                            <span>500만원</span>
-                                                        </span>
-                                                    </div>
+                                                    <input type="range" min="0" max="100" value="0" step="5" class="filter_range_input monthly_range" style="width:563px">
                                                 </div>
                                             </div>
                                         </li>
@@ -419,5 +415,27 @@
                 })
             })
         })
+    </script>
+    <!-- 필터 범위 -->
+    <script>
+        const ai_box = document.querySelector('.AI_box');
+        const deposit_mark = document.querySelector('.deposit_mark');
+        const monthly_mark = document.querySelector('.monthly_mark');
+
+        ai_box.addEventListener('input', e => {
+            if(e.target.className.includes('deposit')) {
+                const self = e.target;
+                let value = self.value;
+                self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value/10 +'%, #fff ' + self.value/10 + '%, white 100%)'
+                deposit_mark.textContent = value + '만원'
+            }
+            if(e.target.className.includes('monthly')) {
+                const self = e.target
+                let value = self.value;
+                self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value +'%, #fff ' + self.value/10 + '%, white 100%)'
+                monthly_mark.textContent = value + '만원'
+            }
+        })
+
     </script>
 {% endblock %}
