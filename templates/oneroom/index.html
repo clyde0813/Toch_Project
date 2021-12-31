@@ -86,10 +86,7 @@
                                                 <div class="rangeBox">
                                                     <input type="range" min="0" max="1000" value="0" step="10" class="filter_range_input deposit_range" style="width:563px">
                                                 </div>
-{#                                               <div class="deposit_value">#}
-{#                                                    <div class="deposit_min">최소</div>#}
-{#                                                    <div class="deposit_max">최대</div>#}
-{#                                                </div>#}
+{#
                                             </div>
                                         </li>
 
@@ -125,7 +122,8 @@
     </div>
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98a0001a3486109fd99e7a58b946cfbe&libraries=clusterer,services"></script>
     <script src="../static/scripts/com.js"></script>
-    <script type="text/javascript">
+    <script type="module">
+        // 지도, 원룸 리스트
         const container = document.querySelector('.myMap');
         const itemList = document.querySelector('.bottomArea > ul');
 
@@ -209,7 +207,7 @@
             renderRoom(info);
         }
 
-        // 마커를 생성하고 지도 위에 표시하고, 마커에 mouseover, mouseout, click 이벤트를 등록하는 함수입니다
+        // 마커 생성, 지도 위에 표시
         function addMarker(latlng, info) {
             // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
             var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
@@ -223,15 +221,19 @@
 
             // 마커에 click 이벤트를 등록합니다
             kakao.maps.event.addListener(marker, 'click', function () {
-                // 기존 item 들을 삭제합니다.
-                while (itemList.firstChild) {
-                    itemList.removeChild(itemList.firstChild);
-                }
+                removeRoomItems();
                 // 클릭한 마커에 해당되는 list 보여주기
                 renderRoom(info);
             });
             // 마커가 지도 위에 표시되도록 설정합니다
             marker.setMap(map);
+        }
+
+        // 기존 item 들을 삭제합니다.
+        function removeRoomItems() {
+            while (itemList.firstChild) {
+                itemList.removeChild(itemList.firstChild);
+            }
         }
 
         // 첫 로드시 리스트에 방들을 전부 보여주는 함수
@@ -392,7 +394,62 @@
                     }
                 })
         }
-        </script>
+
+        // 필터 범위 eventHandler
+        const ai_box = document.querySelector('.AI_box');
+        const deposit_mark = document.querySelector('.deposit_mark');
+        const monthly_mark = document.querySelector('.monthly_mark');
+
+        ai_box.addEventListener('input', e => {
+            const self = e.target;
+            removeRoomItems();
+            // 거래 유형 필터
+            if(self.id === 'yearly') {
+
+            } else if(self.id === 'monthly') {
+
+            } else if(self.id === 'jeonse') {
+
+            }
+
+            // 보증금 필터
+            if(self.className.includes('deposit')) {
+                let value = Number(self.value);
+                self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value/10 +'%, #fff ' + self.value/10 + '%, white 100%)';
+                deposit_mark.textContent = value + '만원 이하';
+
+                //removeRoomItems();
+                positions.map(room => {
+                    if(room.deposit <= value) {
+                        renderRoom(room);
+                    }
+                })
+            }
+            // 월세 필터
+            if(self.className.includes('monthly')) {
+                let value = Number(self.value);
+                self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value +'%, #fff ' + self.value/10 + '%, white 100%)';
+                monthly_mark.textContent = value + '만원 이하';
+
+                //removeRoomItems();
+                positions.map(room => {
+                    if(room.rent_amount <= value) {
+                        renderRoom(room);
+                    }
+                })
+            }
+            // null 처리
+            if(!itemList.firstChild) {
+                itemList.innerHTML = `
+                    <p style="position: relative; width: 100%; height: 100%; text-align: center; font-size: 20px; margin-top: 250px;">
+                        <span style="font-size: 30px; font-weight: bold;">검색조건에 맞는 매물이 없습니다.</span>
+                        <br><br>거래 유형 설정과 필터값을 변경해보세요.
+                    </p>
+                `;
+            }
+        })
+
+    </script>
     <!-- 필터 버튼 -->
     <script>
         $(document).ready(function(){
@@ -415,27 +472,5 @@
                 })
             })
         })
-    </script>
-    <!-- 필터 범위 -->
-    <script>
-        const ai_box = document.querySelector('.AI_box');
-        const deposit_mark = document.querySelector('.deposit_mark');
-        const monthly_mark = document.querySelector('.monthly_mark');
-
-        ai_box.addEventListener('input', e => {
-            if(e.target.className.includes('deposit')) {
-                const self = e.target;
-                let value = self.value;
-                self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value/10 +'%, #fff ' + self.value/10 + '%, white 100%)'
-                deposit_mark.textContent = value + '만원'
-            }
-            if(e.target.className.includes('monthly')) {
-                const self = e.target
-                let value = self.value;
-                self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value +'%, #fff ' + self.value/10 + '%, white 100%)'
-                monthly_mark.textContent = value + '만원'
-            }
-        })
-
     </script>
 {% endblock %}
