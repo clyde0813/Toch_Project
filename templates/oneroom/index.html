@@ -70,7 +70,7 @@
                                     <ul>
                                         <li class="transaction_type">
                                             <label>거래유형</label>
-                                            <mark>연세</mark>
+                                            <mark class="transaction_type_mark">전체</mark>
                                             <div>
                                                 <input type="radio" id="yearly" name="transaction_type">
                                                 <label for="yearly">연세</label>
@@ -400,57 +400,74 @@
         const ai_box = document.querySelector('.AI_box');
         const deposit_mark = document.querySelector('.deposit_mark');
         const monthly_mark = document.querySelector('.monthly_mark');
+        const transaction_type_mark = document.querySelector('.transaction_type_mark');
 
         ai_box.addEventListener('input', e => {
             const self = e.target;
+            let monthly_value;
+            let deposit_value;
             // 리스트 초기화
             removeRoomItems();
             // 거래 유형(전,월세) 필터
-            if(self.id === 'yearly') {
+            if(self.name.includes('transaction')) {
+                let type_id = self.id;
+                let transaction_type = '';
+
+                if(type_id === 'yearly') {
+                    transaction_type = '연세'
+                } else if(type_id === 'monthly') {
+                    transaction_type = '월세'
+                } else if(type_id === 'jeonse') {
+                    transaction_type = '전세'
+                }
+                transaction_type_mark.textContent = transaction_type;
                 positions.map(room => {
-                    if(room.rent_type === '연세') {
-                        renderRoom(room);
-                    }
-                })
-            } else if(self.id === 'monthly') {
-                positions.map(room => {
-                    if(room.rent_type === '월세') {
-                        renderRoom(room);
-                    }
-                })
-            } else if(self.id === 'jeonse') {
-                positions.map(room => {
-                    if(room.rent_type === '전세') {
+                    if(room.rent_type === transaction_type) {
                         renderRoom(room);
                     }
                 })
             }
 
             // 보증금 필터
+            // 보증금만 선택된 경우,  월세만 선택된 경우,  둘다 선택된 경우.
             if(self.className.includes('deposit')) {
-                let value = Number(self.value);
+                deposit_value = Number(self.value);
                 self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value/10 +'%, #fff ' + self.value/10 + '%, white 100%)';
-                deposit_mark.textContent = value + '만원 이하';
+                deposit_mark.textContent = deposit_value + '만원 이하';
 
-                //removeRoomItems();
-                positions.map(room => {
-                    if(room.deposit <= value) {
-                        renderRoom(room);
-                    }
-                })
+                if(monthly_value) {
+                    positions.map(room => {
+                        if(room.deposit <= deposit_value && room.rent_amount <= monthly_value) {
+                            renderRoom(room);
+                        }
+                    })
+                } else {
+                    positions.map(room => {
+                        if(room.deposit <= deposit_value) {
+                            renderRoom(room);
+                        }
+                    })
+                }
             }
             // 월세 필터
             if(self.className.includes('monthly')) {
-                let value = Number(self.value);
+                monthly_value = Number(self.value);
                 self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value +'%, #fff ' + self.value/10 + '%, white 100%)';
-                monthly_mark.textContent = value + '만원 이하';
+                monthly_mark.textContent = monthly_value + '만원 이하';
 
-                //removeRoomItems();
-                positions.map(room => {
-                    if(room.rent_amount <= value) {
-                        renderRoom(room);
-                    }
-                })
+                if(deposit_value) {
+                    positions.map(room => {
+                        if(room.deposit <= deposit_value && room.rent_amount <= monthly_value) {
+                            renderRoom(room);
+                        }
+                    })
+                } else {
+                    positions.map(room => {
+                        if(room.rent_amount <= monthly_value) {
+                            renderRoom(room);
+                        }
+                    })
+                }
             }
             // null 처리
             if(!itemList.firstChild) {
@@ -462,7 +479,6 @@
                 `;
             }
         })
-
     </script>
     <!-- 필터 버튼 -->
     <script>
