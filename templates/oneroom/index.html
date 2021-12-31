@@ -127,7 +127,8 @@
         // 지도, 원룸 리스트
         const container = document.querySelector('.myMap');
         const itemList = document.querySelector('.bottomArea > ul');
-
+        // REST API url
+        const fetch_url = 'http://toch.kr/api/oneroom/';
         // Map & Marker 설정
         let imageSrc = '../../static/images/maker.png'; // 마커이미지의 주소입니다
         let imageSize = new kakao.maps.Size(30, 30); // 마커이미지의 크기입니다
@@ -342,7 +343,7 @@
 
         // JSON 데이터 받아오는 함수
         function fetchData() {
-            fetch('http://toch.kr/api/oneroom/')
+            fetch(fetch_url)
                 .then(response => response.json())
                 .then(data => {
                     let userPreference = getUserAI();
@@ -351,9 +352,7 @@
 
                     map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
                     positions = [];
-                    while(itemList.firstChild) {
-                        itemList.removeChild(itemList.firstChild);
-                    }
+                    {#removeRoomItems();#}
                     for (let j in tmp_list) {
                         {% if data %}
                             {% for i in data %}
@@ -388,6 +387,8 @@
                             address: positions[i].address,
                             manage_amount: positions[i].manage_amount
                         }
+                        // 리스트 초기화
+                        removeRoomItems();
                         // 마커를 생성하고 지도위에 표시합니다
                         addMarker(positions[i].latlng, info);
                         // 아이템 모두 표시
@@ -404,11 +405,24 @@
 
         ai_box.addEventListener('input', e => {
             const self = e.target;
-            let monthly_value;
-            let deposit_value;
-            // 리스트 초기화
+            // 매물 리스트 초기화
             removeRoomItems();
-            // 거래 유형(전,월세) 필터
+            // 거래 유형(전,월세) 선택에 따른 UI 업데이트
+            transTypeHandler(self);
+            // 범위바 변경에 따른 UI 업데이트
+            rangeHandler(self);
+            // 검색 조건에 맞는 매물 없을 경우
+            if(!itemList.firstChild){ // 필터 결과가 없는경우
+                itemList.innerHTML = `
+                    <p style="position: relative; width: 100%; height: 100%; text-align: center; font-size: 20px; margin-top: 250px;">
+                        <span style="font-size: 30px; font-weight: bold;">검색조건에 맞는 매물이 없습니다.</span>
+                        <br><br>거래 유형 설정과 필터값을 변경해보세요.
+                    </p>
+                `;
+            }
+        })
+
+        function transTypeHandler(self) {
             if(self.name.includes('transaction')) {
                 let type_id = self.id;
                 let transaction_type = '';
@@ -427,41 +441,38 @@
                     }
                 })
             }
+        }
 
-            // 보증금 필터
-            // 보증금만 선택된 경우,  월세만 선택된 경우,  둘다 선택된 경우.
-            if(self.className.includes('deposit')) {
-                deposit_value = Number(self.value);
-                self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value/10 +'%, #fff ' + self.value/10 + '%, white 100%)';
-                deposit_mark.textContent = deposit_value + '만원 이하';
+        function rangeHandler(self) {
+            if(self.className.includes('filter_range_input')) {
+                let monthly_value;
+                let deposit_value;
+                // 범위 바 UI 업데이트
+                if(self.className.includes('deposit')) {
+                    deposit_value = Number(self.value);
+                    self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value/10 +'%, #fff ' + self.value/10 + '%, white 100%)';
+                    deposit_mark.textContent = deposit_value + '만원 이하';
+                }
+                if(self.className.includes('monthly')) {
+                    monthly_value = Number(self.value);
+                    self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value +'%, #fff ' + self.value/10 + '%, white 100%)';
+                    monthly_mark.textContent = monthly_value + '만원 이하';
+                }
 
-                if(monthly_value) {
-                    positions.map(room => {
+                // 보증금, 월세 둘다 필터 있는경우
+                if(deposit_value && monthly_value) {
+                     positions.map(room => {
                         if(room.deposit <= deposit_value && room.rent_amount <= monthly_value) {
                             renderRoom(room);
                         }
                     })
-                } else {
+                } else if(deposit_value) { // 보증금만 필터 있는경우
                     positions.map(room => {
                         if(room.deposit <= deposit_value) {
                             renderRoom(room);
                         }
                     })
-                }
-            }
-            // 월세 필터
-            if(self.className.includes('monthly')) {
-                monthly_value = Number(self.value);
-                self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value +'%, #fff ' + self.value/10 + '%, white 100%)';
-                monthly_mark.textContent = monthly_value + '만원 이하';
-
-                if(deposit_value) {
-                    positions.map(room => {
-                        if(room.deposit <= deposit_value && room.rent_amount <= monthly_value) {
-                            renderRoom(room);
-                        }
-                    })
-                } else {
+                } else if(monthly_value) { // 월세만
                     positions.map(room => {
                         if(room.rent_amount <= monthly_value) {
                             renderRoom(room);
@@ -469,16 +480,7 @@
                     })
                 }
             }
-            // null 처리
-            if(!itemList.firstChild) {
-                itemList.innerHTML = `
-                    <p style="position: relative; width: 100%; height: 100%; text-align: center; font-size: 20px; margin-top: 250px;">
-                        <span style="font-size: 30px; font-weight: bold;">검색조건에 맞는 매물이 없습니다.</span>
-                        <br><br>거래 유형 설정과 필터값을 변경해보세요.
-                    </p>
-                `;
-            }
-        })
+        }
     </script>
     <!-- 필터 버튼 -->
     <script>
