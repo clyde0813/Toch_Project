@@ -138,6 +138,11 @@
 
         // 마커들을 담을 배열
         let markers = [];
+
+        // 필터,Ai폼 변화 상태 (초기화 기능을 위해서 필요)
+        let isFilterChange = false;
+        let isAiFormChange = false;
+
         // 지도 중심 좌표 설정
         const MNU_LATITUDE = 34.91124654247272;
         const MNU_LONGITUDE = 126.43614580709644;
@@ -428,6 +433,9 @@
         const yearly_range = document.querySelector('.yearly_range');
 
         ai_box.addEventListener('input', e => {
+            if(!isFilterChange) {
+                isFilterChange = true;
+            }
             const self = e.target;
             // 매물 리스트 초기화
             removeAllRooms();
@@ -543,50 +551,54 @@
         ai_reset_btn.addEventListener('click', resetAiForm);
         function resetAiForm(e) {
             e.preventDefault();
-            for(let i=0; i<radio_btn.length; i++) {
-                let btn = radio_btn[i];
-                if(btn.name != "transaction_type") {
-                    btn.checked = false;
+            if(!isAiFormChange) {
+                for(let i=0; i<radio_btn.length; i++) {
+                    let btn = radio_btn[i];
+                    if(btn.name != "transaction_type") {
+                        btn.checked = false;
+                    }
                 }
+                // 초기화 상태일때는 눌러도 초기화가 안되게끔 하는 조건문 추가해야함.
+                removeAllRooms();
+                removeAllMarkers();
+                renderAllRooms();
+                markers.map(marker => marker.setMap(map));
             }
-            // 초기화 상태일때는 눌러도 초기화가 안되게끔 하는 조건문 추가해야함.
-            removeAllRooms();
-            removeAllMarkers();
-            renderAllRooms();
-            markers.map(marker => marker.setMap(map));
         }
 
         const filter_reset_btn = document.querySelector('.filter_reset_btn');
         filter_reset_btn.addEventListener('click', resetFilter)
         function resetFilter(e) {
             e.preventDefault();
-            for(let i=0; i<radio_btn.length; i++) {
-                let btn = radio_btn[i];
-                if(btn.name === "transaction_type") {
-                    btn.checked = false;
+            if(isFilterChange) {
+                for(let i=0; i<radio_btn.length; i++) {
+                    let btn = radio_btn[i];
+                    if(btn.name === "transaction_type") {
+                        btn.checked = false;
+                    }
                 }
+                // 거래유형 초기화
+                monthly_mark.textContent = '전체';
+                yearly_mark.textContent = '전체';
+                deposit_mark.textContent = '전체';
+                transaction_type_mark.textContent = '전체';
+
+                deposit_range.value = 0;
+                monthly_range.value = 0;
+                yearly_range.value = 0;
+
+                // 보증금 금액 초기화, 범위 막대 초기화
+                stylingRangeBar(deposit_range);
+                stylingRangeBar(monthly_range);
+                stylingRangeBar(yearly_range);
+
+                toggleRangeBar(monthly_range);
+
+                removeAllRooms();
+                removeAllMarkers();
+                renderAllRooms();
+                markers.map(marker => marker.setMap(map));
             }
-            // 거래유형 초기화
-            monthly_mark.textContent = '전체';
-            yearly_mark.textContent = '전체';
-            deposit_mark.textContent = '전체';
-            transaction_type_mark.textContent = '전체';
-
-            deposit_range.value = 0;
-            monthly_range.value = 0;
-            yearly_range.value = 0;
-
-            // 보증금 금액 초기화, 범위 막대 초기화
-            stylingRangeBar(deposit_range);
-            stylingRangeBar(monthly_range);
-            stylingRangeBar(yearly_range);
-
-            toggleRangeBar(monthly_range);
-
-            removeAllRooms();
-            removeAllMarkers();
-            renderAllRooms();
-            markers.map(marker => marker.setMap(map));
         }
 
         function searchRoom() {
