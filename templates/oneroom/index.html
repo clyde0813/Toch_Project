@@ -64,7 +64,7 @@
                             <form>
                                 <fieldset>
                                     <div class="filter_header">
-                                        <button>초기화</button>
+                                        <button class="filter_reset_btn">초기화</button>
                                     </div>
 
                                     <ul>
@@ -74,7 +74,7 @@
                                             <div>
                                                 <input type="radio" id="yearly" name="transaction_type">
                                                 <label for="yearly">연세</label>
-                                                <input type="radio" id="monthly" name="transaction_type">
+                                                <input type="radio" id="monthly" name="transaction_type" checked="true">
                                                 <label for="monthly">월세</label>
                                                 <input type="radio" id="jeonse" name="transaction_type">
                                                 <label for="jeonse">전세</label>
@@ -91,12 +91,14 @@
                                             </div>
                                         </li>
 
-                                        <li>
-                                            <label>월세</label>
-                                            <mark  class="monthly_mark">전체</mark>
+                                        <li class="transaction_type_range">
+                                            <label class="transaction_type_label">월세</label>
+                                            <mark class="monthly_mark ">전체</mark>
+                                            <mark class="yearly_mark none">연세</mark>
                                             <div>
                                                 <div class="rangeBox">
                                                     <input type="range" min="0" max="100" value="0" step="5" class="filter_range_input monthly_range" style="width:563px">
+                                                    <input type="range" min="0" max="1000" value="0" step="50" class="filter_range_input yearly_range none" style="width:563px">
                                                 </div>
                                             </div>
                                         </li>
@@ -123,7 +125,7 @@
     </div>
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98a0001a3486109fd99e7a58b946cfbe&libraries=clusterer,services"></script>
     <script src="../static/scripts/com.js"></script>
-    <script type="module">
+    <script>
         // 지도, 원룸 리스트
         const container = document.querySelector('.myMap');
         const itemList = document.querySelector('.bottomArea > ul');
@@ -134,6 +136,8 @@
         let imageSize = new kakao.maps.Size(30, 30); // 마커이미지의 크기입니다
         let imageOption = {offset: new kakao.maps.Point(10, 30)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
+        // 마커들을 담을 배열
+        let markers = [];
         // 지도 중심 좌표 설정
         const MNU_LATITUDE = 34.91124654247272;
         const MNU_LONGITUDE = 126.43614580709644;
@@ -203,10 +207,18 @@
                 address: positions[i].address,
                 manage_amount: positions[i].manage_amount
             }
-            // 마커를 생성하고 지도위에 표시합니다
-            addMarker(positions[i].latlng, info);
-            // 아이템 모두 표시
-            renderRoom(info);
+        }
+
+        window.onload = renderAllRooms();
+
+        function renderAllRooms() {
+            for (let i = 0, len = positions.length; i < len; i++) {
+                let info = positions[i];
+                // 마커를 생성하고 지도위에 표시합니다
+                addMarker(positions[i].latlng, info);
+                // 아이템 모두 표시
+                renderRoom(info);
+            }
         }
 
         // 마커 생성, 지도 위에 표시
@@ -223,16 +235,22 @@
 
             // 마커에 click 이벤트를 등록합니다
             kakao.maps.event.addListener(marker, 'click', function () {
-                removeRoomItems();
+                removeAllRooms();
                 // 클릭한 마커에 해당되는 list 보여주기
                 renderRoom(info);
             });
-            // 마커가 지도 위에 표시되도록 설정합니다
+
+            markers.push(marker);
+            // 마커가 지도 위에 표시되도록 설정합니다.
             marker.setMap(map);
         }
 
+        function removeAllMarkers() {
+            markers.map(marker => marker.setMap(null));
+        }
+
         // 기존 item 들을 삭제합니다.
-        function removeRoomItems() {
+        function removeAllRooms() {
             while (itemList.firstChild) {
                 itemList.removeChild(itemList.firstChild);
             }
@@ -350,13 +368,15 @@
 
                 tmp_list = arithmeticMean(data, userPreference);
 
-                map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
                 positions = [];
-                {#removeRoomItems();#}
+                // 리스트 초기화
+                removeAllRooms();
+                // 마커 초기화
+                removeAllMarkers();
                 for (let j in tmp_list) {
                     {% if data %}
                         {% for i in data %}
-                            if (Number(tmp_list[j])  === {{ i.id }}) {
+                            if (Number(tmp_list[j]) === {{ i.id }}) {
                                 positions.push({
                                     id: {{ i.id }},
                                     title: '{{ i.title }}',
@@ -387,27 +407,32 @@
                         address: positions[i].address,
                         manage_amount: positions[i].manage_amount
                     }
-                    // 리스트 초기화
-                    removeRoomItems();
                     // 마커를 생성하고 지도위에 표시합니다
                     addMarker(positions[i].latlng, info);
                     // 아이템 모두 표시
                     renderRoom(info);
                 }
             })
-            .catch(console.log("An Error Occured while getting JSON Data"));
+            .catch(err => console.log(err));
         }
 
         // 필터 범위 eventHandler
         const ai_box = document.querySelector('.AI_box');
         const deposit_mark = document.querySelector('.deposit_mark');
         const monthly_mark = document.querySelector('.monthly_mark');
+        const yearly_mark = document.querySelector('.yearly_mark');
         const transaction_type_mark = document.querySelector('.transaction_type_mark');
+        const transaction_type_label = document.querySelector('.transaction_type_label');
+        const deposit_range = document.querySelector('.deposit_range');
+        const monthly_range = document.querySelector('.monthly_range');
+        const yearly_range = document.querySelector('.yearly_range');
 
         ai_box.addEventListener('input', e => {
             const self = e.target;
             // 매물 리스트 초기화
-            removeRoomItems();
+            removeAllRooms();
+            // 마커 초기화
+            removeAllMarkers();
             // 거래 유형(전,월세) 선택에 따른 UI 업데이트
             transTypeHandler(self);
             // 범위바 변경에 따른 UI 업데이트
@@ -424,6 +449,19 @@
             }
         })
 
+        function toggleRangeBar(target) {
+            if(target.className.includes('none')) {
+                monthly_range.classList.toggle('none');
+                yearly_range.classList.toggle('none');
+                monthly_mark.classList.toggle('none');
+                yearly_mark.classList.toggle('none');
+            }
+        }
+
+        function stylingRangeBar(el, rate = 10) {
+            el.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ el.value/rate +'%, #fff ' + el.value/10 + '%, white 100%)';
+        }
+
         function transTypeHandler(self) {
             if(self.name.includes('transaction')) {
                 let type_id = self.id;
@@ -431,15 +469,21 @@
 
                 if(type_id === 'yearly') {
                     transaction_type = '연세'
+                    toggleRangeBar(yearly_range);
                 } else if(type_id === 'monthly') {
                     transaction_type = '월세'
+                    toggleRangeBar(monthly_range);
                 } else if(type_id === 'jeonse') {
                     transaction_type = '전세'
                 }
+
                 transaction_type_mark.textContent = transaction_type;
+                transaction_type_label.textContent = transaction_type;
+
                 positions.map(room => {
                     if(room.rent_type === transaction_type) {
                         renderRoom(room);
+                        addMarker(room.latlng, room);
                     }
                 })
             }
@@ -449,39 +493,104 @@
             if(self.className.includes('filter_range_input')) {
                 let monthly_value;
                 let deposit_value;
+                let yearly_value;
                 // 범위 바 UI 업데이트
                 if(self.className.includes('deposit')) {
                     deposit_value = Number(self.value);
-                    self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value/10 +'%, #fff ' + self.value/10 + '%, white 100%)';
+                    stylingRangeBar(self);
                     deposit_mark.textContent = deposit_value + '만원 이하';
                 }
                 if(self.className.includes('monthly')) {
                     monthly_value = Number(self.value);
-                    self.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ self.value +'%, #fff ' + self.value/10 + '%, white 100%)';
+                    stylingRangeBar(self, 1);
                     monthly_mark.textContent = monthly_value + '만원 이하';
                 }
-
+                if(self.className.includes('yearly')) {
+                    yearly_value = Number(self.value);
+                    stylingRangeBar(self);
+                    yearly_mark.textContent = yearly_value + '만원 이하';
+                }
                 // 보증금, 월세 둘다 필터 있는경우
+                // 연세도 추가해야함.
                 if(deposit_value && monthly_value) {
-                     positions.map(room => {
+                    positions.map(room => {
                         if(room.deposit <= deposit_value && room.rent_amount <= monthly_value) {
                             renderRoom(room);
+                            addMarker(room.latlng, room);
                         }
                     })
                 } else if(deposit_value) { // 보증금만 필터 있는경우
                     positions.map(room => {
                         if(room.deposit <= deposit_value) {
                             renderRoom(room);
+                            addMarker(room.latlng, room);
                         }
                     })
                 } else if(monthly_value) { // 월세만
                     positions.map(room => {
                         if(room.rent_amount <= monthly_value) {
                             renderRoom(room);
+                            addMarker(room.latlng, room);
                         }
                     })
                 }
             }
+        }
+
+        // 초기화
+        const radio_btn = document.querySelectorAll('input[type="radio"]');
+        const ai_reset_btn = document.querySelector('.ai_reset_btn');
+        ai_reset_btn.addEventListener('click', resetAiForm);
+        function resetAiForm(e) {
+            e.preventDefault();
+            for(let i=0; i<radio_btn.length; i++) {
+                let btn = radio_btn[i];
+                if(btn.name != "transaction_type") {
+                    btn.checked = false;
+                }
+            }
+            // 초기화 상태일때는 눌러도 초기화가 안되게끔 하는 조건문 추가해야함.
+            removeAllRooms();
+            removeAllMarkers();
+            renderAllRooms();
+            markers.map(marker => marker.setMap(map));
+        }
+
+        const filter_reset_btn = document.querySelector('.filter_reset_btn');
+        filter_reset_btn.addEventListener('click', resetFilter)
+        function resetFilter(e) {
+            e.preventDefault();
+            for(let i=0; i<radio_btn.length; i++) {
+                let btn = radio_btn[i];
+                if(btn.name === "transaction_type") {
+                    btn.checked = false;
+                }
+            }
+            // 거래유형 초기화
+            monthly_mark.textContent = '전체';
+            yearly_mark.textContent = '전체';
+            deposit_mark.textContent = '전체';
+            transaction_type_mark.textContent = '전체';
+
+            deposit_range.value = 0;
+            monthly_range.value = 0;
+            yearly_range.value = 0;
+
+            // 보증금 금액 초기화, 범위 막대 초기화
+            stylingRangeBar(deposit_range);
+            stylingRangeBar(monthly_range);
+            stylingRangeBar(yearly_range);
+
+            toggleRangeBar(monthly_range);
+
+            removeAllRooms();
+            removeAllMarkers();
+            renderAllRooms();
+            markers.map(marker => marker.setMap(map));
+        }
+
+        function searchRoom() {
+            
         }
     </script>
     <!-- 필터 버튼 -->
