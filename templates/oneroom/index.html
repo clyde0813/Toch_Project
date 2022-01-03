@@ -257,7 +257,7 @@
                          <p>${info.floor_num}층 ${info.common_area}㎡ 관리비 ${info.manage_amount}만원</p>
                          <p>${info.address}</p>
                          <div>
-                             <span>원룸</span>
+                             <span >원룸</span>
                              <span>공대근처</span>
                              <span>다이소근처</span>
                          </div>
@@ -344,57 +344,58 @@
         // JSON 데이터 받아오는 함수
         function fetchData() {
             fetch(fetch_url)
-                .then(response => response.json())
-                .then(data => {
-                    let userPreference = getUserAI();
+            .then(response => response.json())
+            .then(data => {
+                let userPreference = getUserAI();
 
-                    tmp_list = arithmeticMean(data, userPreference);
+                tmp_list = arithmeticMean(data, userPreference);
 
-                    map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-                    positions = [];
-                    {#removeRoomItems();#}
-                    for (let j in tmp_list) {
-                        {% if data %}
-                            {% for i in data %}
-                                if (Number(tmp_list[j])  === {{ i.id }}) {
-                                    positions.push({
-                                        id: {{ i.id }},
-                                        title: '{{ i.title }}',
-                                        rent_type: '{{ i.rent_type }}',
-                                        rent_amount: '{{ i.rent_amount }}',
-                                        deposit: '{{ i.deposit }}',
-                                        latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
-                                        main_img: '{{ i.file_set.first.file.url }}',
-                                        floor_num: '{{ i.floor_num }}',
-                                        common_area: '{{ i.common_area }}',
-                                        address: '{{ i.address }}',
-                                        manage_amount: '{{ i.manage_amount }}'
-                                    })
-                                }
-                            {% endfor %}
-                        {% endif %}
+                map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+                positions = [];
+                {#removeRoomItems();#}
+                for (let j in tmp_list) {
+                    {% if data %}
+                        {% for i in data %}
+                            if (Number(tmp_list[j])  === {{ i.id }}) {
+                                positions.push({
+                                    id: {{ i.id }},
+                                    title: '{{ i.title }}',
+                                    rent_type: '{{ i.rent_type }}',
+                                    rent_amount: '{{ i.rent_amount }}',
+                                    deposit: '{{ i.deposit }}',
+                                    latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
+                                    main_img: '{{ i.file_set.first.file.url }}',
+                                    floor_num: '{{ i.floor_num }}',
+                                    common_area: '{{ i.common_area }}',
+                                    address: '{{ i.address }}',
+                                    manage_amount: '{{ i.manage_amount }}'
+                                })
+                            }
+                        {% endfor %}
+                    {% endif %}
+                }
+                for (let i = 0, len = positions.length; i < len; i++) {
+                    let info = {
+                        id: positions[i].id,
+                        title: positions[i].title,
+                        rent_type: positions[i].rent_type,
+                        rent_amount: positions[i].rent_amount,
+                        deposit: positions[i].deposit,
+                        main_img: positions[i].main_img,
+                        floor_num: positions[i].floor_num,
+                        common_area: positions[i].common_area,
+                        address: positions[i].address,
+                        manage_amount: positions[i].manage_amount
                     }
-                    for (let i = 0, len = positions.length; i < len; i++) {
-                        let info = {
-                            id: positions[i].id,
-                            title: positions[i].title,
-                            rent_type: positions[i].rent_type,
-                            rent_amount: positions[i].rent_amount,
-                            deposit: positions[i].deposit,
-                            main_img: positions[i].main_img,
-                            floor_num: positions[i].floor_num,
-                            common_area: positions[i].common_area,
-                            address: positions[i].address,
-                            manage_amount: positions[i].manage_amount
-                        }
-                        // 리스트 초기화
-                        removeRoomItems();
-                        // 마커를 생성하고 지도위에 표시합니다
-                        addMarker(positions[i].latlng, info);
-                        // 아이템 모두 표시
-                        renderRoom(info);
-                    }
-                })
+                    // 리스트 초기화
+                    removeRoomItems();
+                    // 마커를 생성하고 지도위에 표시합니다
+                    addMarker(positions[i].latlng, info);
+                    // 아이템 모두 표시
+                    renderRoom(info);
+                }
+            })
+            .catch(console.log("An Error Occured while getting JSON Data"));
         }
 
         // 필터 범위 eventHandler
@@ -412,11 +413,12 @@
             // 범위바 변경에 따른 UI 업데이트
             rangeHandler(self);
             // 검색 조건에 맞는 매물 없을 경우
-            if(!itemList.firstChild){ // 필터 결과가 없는경우
+            if(!itemList.firstChild){
                 itemList.innerHTML = `
-                    <p style="position: relative; width: 100%; height: 100%; text-align: center; font-size: 20px; margin-top: 250px;">
+                    <p style="position: relative; width: 100%; height: 100%; font-size: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center">
                         <span style="font-size: 30px; font-weight: bold;">검색조건에 맞는 매물이 없습니다.</span>
-                        <br><br>거래 유형 설정과 필터값을 변경해보세요.
+                        <br>
+                        <span>거래 유형 설정과 필터값을 변경해보세요.</span>
                     </p>
                 `;
             }
