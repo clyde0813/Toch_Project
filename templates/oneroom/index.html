@@ -3,7 +3,6 @@
     <!-- 원룸 추천 로딩 gif -->
     <div class="loading_page none" style="height: 100vh; opacity: 0.5; z-index: 4; background-image: url(../../static/images/ai_loading.gif);  background-size: 10%"></div>
     <!-- 원룸 추천 로딩 gif -->
-
     <div class="subPage oneRoomPage">
         <section class="oneRoomArea">
             <h2 class="hidden">원룸</h2>
@@ -12,7 +11,7 @@
                     <div class="inputArea">
                         <div class="seachBox">
                             <input type="search">
-                            <button>검색버튼</button>
+                            <button class="oneroom_search_btn">검색버튼</button>
                         </div>
                         <button data-popup="filter_box">AI 추천</button>
                         <div class="filter_box">
@@ -138,6 +137,7 @@
 
         // 마커들을 담을 배열
         let markers = [];
+        let current_markers = [];
 
         // 필터,Ai폼 변화 상태 (초기화 기능을 위해서 필요)
         let isFilterChange = false;
@@ -217,17 +217,19 @@
         window.onload = renderAllRooms();
 
         function renderAllRooms() {
+            // 마커 배열 복사
             for (let i = 0, len = positions.length; i < len; i++) {
                 let info = positions[i];
-                // 마커를 생성하고 지도위에 표시합니다
-                addMarker(positions[i].latlng, info);
+                // 마커를 생성하고 지도위에 표시합니다.
+                addMarker(positions[i].latlng, info, current_markers);
                 // 아이템 모두 표시
                 renderRoom(info);
             }
+            markers = current_markers;
         }
 
         // 마커 생성, 지도 위에 표시
-        function addMarker(latlng, info) {
+        function addMarker(latlng, info, marker_arr=current_markers) {
             // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
             var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
                 markerPosition = latlng; // 마커가 표시될 위치입니다
@@ -245,13 +247,13 @@
                 renderRoom(info);
             });
 
-            markers.push(marker);
+            marker_arr.push(marker);
             // 마커가 지도 위에 표시되도록 설정합니다.
             marker.setMap(map);
         }
 
         function removeAllMarkers() {
-            markers.map(marker => marker.setMap(null));
+            current_markers.map(marker => marker.setMap(null));
         }
 
         // 기존 item 들을 삭제합니다.
@@ -558,7 +560,6 @@
                         btn.checked = false;
                     }
                 }
-                // 초기화 상태일때는 눌러도 초기화가 안되게끔 하는 조건문 추가해야함.
                 removeAllRooms();
                 removeAllMarkers();
                 renderAllRooms();
@@ -601,8 +602,50 @@
             }
         }
 
-        function searchRoom() {
-            
+        ////////////////////////////////////////////////////////////
+        //////////////////////////// 검색 //////////////////////////
+        ////////////////////////////////////////////////////////////
+        const search_box = document.querySelector('.seachBox > input[type="search"]');
+        const search_btn = document.querySelector('.oneroom_search_btn');
+        let currentInput = '';
+
+        search_btn.addEventListener('click', e => {
+            let validInput = validateSearchInput();
+            // 입력 연타 방지
+            if(currentInput !== validInput) {
+                searchRoom(validInput);
+            }
+        })
+
+        search_box.addEventListener('keyup', e => {
+            if (e.code === 'Enter') {
+                search_btn.click();
+            }
+        })
+
+        function validateSearchInput() {
+            let userInput = search_box.value.trim();
+            // 유효성 검사
+            //let validateUserInput = userInput.replace(/ /gi, ''); // \s/gi
+            return userInput
+        }
+
+        function searchRoom(validInput) {
+            currentInput = validInput;
+            positions.map(room => {
+                if(room.title.includes(validInput)) {
+                    console.log(current_markers);
+                    // 리스트 다 지우고.
+                    removeAllRooms();
+                    // 현재 그려진 마커 초기화
+                    removeAllMarkers();
+                    current_markers = [];
+
+                    // 검색한것만 다시 그리기
+                    renderRoom(room);
+                    addMarker(room.latlng, room, current_markers);
+                }
+            })
         }
     </script>
     <!-- 필터 버튼 -->
