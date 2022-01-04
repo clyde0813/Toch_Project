@@ -225,7 +225,6 @@
                 // 아이템 모두 표시
                 renderRoom(info);
             }
-            markers = current_markers;
         }
 
         // 마커 생성, 지도 위에 표시
@@ -248,6 +247,7 @@
             });
 
             marker_arr.push(marker);
+            markers.push(marker)
             // 마커가 지도 위에 표시되도록 설정합니다.
             marker.setMap(map);
         }
@@ -563,7 +563,9 @@
                 removeAllRooms();
                 removeAllMarkers();
                 renderAllRooms();
-                markers.map(marker => marker.setMap(map));
+
+                current_markers = markers;
+                current_markers.map(marker => marker.setMap(map));
             }
         }
 
@@ -598,7 +600,9 @@
                 removeAllRooms();
                 removeAllMarkers();
                 renderAllRooms();
-                markers.map(marker => marker.setMap(map));
+
+                current_markers = markers;
+                current_markers.map(marker => marker.setMap(map));
             }
         }
 
@@ -609,32 +613,24 @@
         const search_btn = document.querySelector('.oneroom_search_btn');
         let currentInput = '';
 
-        search_btn.addEventListener('click', e => {
-            let validInput = validateSearchInput();
-            // 입력 연타 방지
-            if(currentInput !== validInput) {
-                searchRoom(validInput);
-            }
-        })
-
         search_box.addEventListener('keyup', e => {
             if (e.code === 'Enter') {
                 search_btn.click();
             }
         })
 
-        function validateSearchInput() {
-            let userInput = search_box.value.trim();
-            // 유효성 검사
-            //let validateUserInput = userInput.replace(/ /gi, ''); // \s/gi
-            return userInput
-        }
+        search_btn.addEventListener('click', e => {
+            let validInput = search_box.value.trim();
+            // 입력 연타 방지
+            if(currentInput !== validInput && '' !== validInput) {
+                searchRoom(validInput);
+            }
+        })
 
         function searchRoom(validInput) {
             currentInput = validInput;
             positions.map(room => {
-                if(room.title.includes(validInput)) {
-                    console.log(current_markers);
+                if(room.title.includes(currentInput)) {
                     // 리스트 다 지우고.
                     removeAllRooms();
                     // 현재 그려진 마커 초기화
