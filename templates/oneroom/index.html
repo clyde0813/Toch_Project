@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-
     <!-- 원룸 추천 로딩 gif -->
-    <div class="loading_page none" style="z-index: 3">
-        <div class="modal_bg">
-            <div class="ring">t o c h
-                <span class="ring_span"></span>
+    <link rel="stylesheet" href="../../static/css/loading.css">
+    <div class="loading_page none" style="z-index: 10">
+        <div class="modal_bg" style="z-index: 10">
+            <div class="ring" style="z-index: 10">t o c h
+                <span class="ring_span" style="z-index: 10"></span>
             </div>
         </div>
     </div>
@@ -330,7 +330,7 @@
             setTimeout(() => {
                 loading_page.classList.add('none');
                 fetchData();
-            }, 2000)
+            }, 3500)
         })
 
         function getUserAI() {
@@ -388,7 +388,6 @@
                     let userPreference = getUserAI();
 
                     tmp_list = arithmeticMean(data, userPreference);
-
                     positions = [];
                     // 리스트 초기화
                     removeAllRooms();
