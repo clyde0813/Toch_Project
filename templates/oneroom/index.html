@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
+
     <!-- 원룸 추천 로딩 gif -->
-    <div class="loading_page none" style="height: 100vh; opacity: 0.5; z-index: 4; background-image: url(../../static/images/ai_loading.gif);  background-size: 10%"></div>
+    <div class="loading_page none" style="z-index: 3">
+        <div class="modal_bg">
+            <div class="ring">t o c h
+                <span class="ring_span"></span>
+            </div>
+        </div>
+    </div>
     <!-- 원룸 추천 로딩 gif -->
     <div class="subPage oneRoomPage">
         <section class="oneRoomArea">
@@ -49,7 +56,7 @@
                                             </div>
                                         </li>
                                     </ul>
-                                    <button class="ai_reco_btn">Toch  AI 추천</button>
+                                    <button class="ai_reco_btn">Toch AI 추천</button>
                                     <span class="material-icons-outlined closeBtn">
                                         ×
                                     </span>
@@ -85,7 +92,8 @@
                                             <mark class="deposit_mark">전체</mark>
                                             <div>
                                                 <div class="rangeBox">
-                                                    <input type="range" min="0" max="1000" value="0" step="10" class="filter_range_input deposit_range" style="width:563px">
+                                                    <input type="range" min="0" max="1000" value="0" step="10"
+                                                           class="filter_range_input deposit_range" style="width:563px">
                                                 </div>
                                             </div>
                                         </li>
@@ -96,8 +104,11 @@
                                             <mark class="yearly_mark none">연세</mark>
                                             <div>
                                                 <div class="rangeBox">
-                                                    <input type="range" min="0" max="100" value="0" step="5" class="filter_range_input monthly_range" style="width:563px">
-                                                    <input type="range" min="0" max="1000" value="0" step="50" class="filter_range_input yearly_range none" style="width:563px">
+                                                    <input type="range" min="0" max="100" value="0" step="5"
+                                                           class="filter_range_input monthly_range" style="width:563px">
+                                                    <input type="range" min="0" max="1000" value="0" step="50"
+                                                           class="filter_range_input yearly_range none"
+                                                           style="width:563px">
                                                 </div>
                                             </div>
                                         </li>
@@ -228,7 +239,7 @@
         }
 
         // 마커 생성, 지도 위에 표시
-        function addMarker(latlng, info, marker_arr=current_markers) {
+        function addMarker(latlng, info, marker_arr = current_markers) {
             // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
             var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
                 markerPosition = latlng; // 마커가 표시될 위치입니다
@@ -272,7 +283,7 @@
         function roomTemplate(info) {
             return ` <li>
                  <a onclick="location.href=${info.id}">
-                     <div class="imgBox" style="background-image: url(${info.main_img})"></div>
+                     <div class="imgBox" style="background-image: url(${info.main_img})"  id="room${info.id}"></div>
 
                      <div class="textArea">
                          <strong>
@@ -316,7 +327,10 @@
             e.preventDefault();
             const loading_page = document.querySelector('.loading_page');
             loading_page.classList.remove('none');
-            setTimeout(() => { loading_page.classList.add('none'); fetchData(); }, 2000)
+            setTimeout(() => {
+                loading_page.classList.add('none');
+                fetchData();
+            }, 2000)
         })
 
         function getUserAI() {
@@ -325,17 +339,17 @@
             const personality = document.getElementsByName('personality');
 
             const userAi = {};
-            for(let i=0; i<pet.length; i++) {
+            for (let i = 0; i < pet.length; i++) {
                 if (pet[i].checked) {
                     userAi['A'] = pet[i].value;
                 }
             }
-            for(let i=0; i<pet.length; i++) {
+            for (let i = 0; i < pet.length; i++) {
                 if (car[i].checked) {
                     userAi['B'] = car[i].value;
                 }
             }
-            for(let i=0; i<pet.length; i++) {
+            for (let i = 0; i < pet.length; i++) {
                 if (personality[i].checked) {
                     userAi['C'] = personality[i].value;
                 }
@@ -347,7 +361,7 @@
             return userAi
         }
 
-         // 산술평균 값 ( key로 정렬 )
+        // 산술평균 값 ( key로 정렬 )
         function arithmeticMean(json, ai) {
             let keys = Object.keys(json[0]);
             let arithmeticMean = {}
@@ -369,61 +383,61 @@
         // JSON 데이터 받아오는 함수
         function fetchData() {
             fetch(fetch_url)
-            .then(response => response.json())
-            .then(data => {
-                let userPreference = getUserAI();
+                .then(response => response.json())
+                .then(data => {
+                    let userPreference = getUserAI();
 
-                tmp_list = arithmeticMean(data, userPreference);
+                    tmp_list = arithmeticMean(data, userPreference);
 
-                positions = [];
-                // 리스트 초기화
-                removeAllRooms();
-                // 마커 초기화
-                removeAllMarkers();
-                for (let j in tmp_list) {
-                    {% if data %}
-                        {% for i in data %}
-                            if (Number(tmp_list[j]) === {{ i.id }}) {
-                                positions.push({
-                                    id: {{ i.id }},
-                                    title: '{{ i.title }}',
-                                    rent_type: '{{ i.rent_type }}',
-                                    rent_amount: '{{ i.rent_amount }}',
-                                    deposit: '{{ i.deposit }}',
-                                    latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
-                                    main_img: '{{ i.file_set.first.file.url }}',
-                                    floor_num: '{{ i.floor_num }}',
-                                    common_area: '{{ i.common_area }}',
-                                    address: '{{ i.address }}',
-                                    manage_amount: '{{ i.manage_amount }}'
-                                })
-                            }
-                        {% endfor %}
-                    {% endif %}
-                }
-                for (let i = 0, len = positions.length; i < len; i++) {
-                    let info = {
-                        id: positions[i].id,
-                        title: positions[i].title,
-                        rent_type: positions[i].rent_type,
-                        rent_amount: positions[i].rent_amount,
-                        deposit: positions[i].deposit,
-                        main_img: positions[i].main_img,
-                        floor_num: positions[i].floor_num,
-                        common_area: positions[i].common_area,
-                        address: positions[i].address,
-                        manage_amount: positions[i].manage_amount
+                    positions = [];
+                    // 리스트 초기화
+                    removeAllRooms();
+                    // 마커 초기화
+                    removeAllMarkers();
+                    for (let j in tmp_list) {
+                        {% if data %}
+                            {% for i in data %}
+                                if (Number(tmp_list[j]) === {{ i.id }}) {
+                                    positions.push({
+                                        id: {{ i.id }},
+                                        title: '{{ i.title }}',
+                                        rent_type: '{{ i.rent_type }}',
+                                        rent_amount: '{{ i.rent_amount }}',
+                                        deposit: '{{ i.deposit }}',
+                                        latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
+                                        main_img: '{{ i.file_set.first.file.url }}',
+                                        floor_num: '{{ i.floor_num }}',
+                                        common_area: '{{ i.common_area }}',
+                                        address: '{{ i.address }}',
+                                        manage_amount: '{{ i.manage_amount }}'
+                                    })
+                                }
+                            {% endfor %}
+                        {% endif %}
                     }
-                    // 마커를 생성하고 지도위에 표시합니다
-                    addMarker(positions[i].latlng, info);
-                    // 아이템 모두 표시
-                    renderRoom(info);
-                }
-            })
-            .catch(err => console.log(err));
+                    for (let i = 0, len = positions.length; i < len; i++) {
+                        let info = {
+                            id: positions[i].id,
+                            title: positions[i].title,
+                            rent_type: positions[i].rent_type,
+                            rent_amount: positions[i].rent_amount,
+                            deposit: positions[i].deposit,
+                            main_img: positions[i].main_img,
+                            floor_num: positions[i].floor_num,
+                            common_area: positions[i].common_area,
+                            address: positions[i].address,
+                            manage_amount: positions[i].manage_amount
+                        }
+                        // 마커를 생성하고 지도위에 표시합니다
+                        addMarker(positions[i].latlng, info);
+                        // 아이템 모두 표시
+                        renderRoom(info);
+                    }
+                })
+                .catch(err => console.log(err));
         }
 
-        // 필터 범위 eventHandler
+        // 필터  eventHandler
         const ai_box = document.querySelector('.AI_box');
         const deposit_mark = document.querySelector('.deposit_mark');
         const monthly_mark = document.querySelector('.monthly_mark');
@@ -435,7 +449,7 @@
         const yearly_range = document.querySelector('.yearly_range');
 
         ai_box.addEventListener('input', e => {
-            if(!isFilterChange) {
+            if (!isFilterChange) {
                 isFilterChange = true;
             }
             const self = e.target;
@@ -448,7 +462,7 @@
             // 범위바 변경에 따른 UI 업데이트
             rangeHandler(self);
             // 검색 조건에 맞는 매물 없을 경우
-            if(!itemList.firstChild){
+            if (!itemList.firstChild) {
                 itemList.innerHTML = `
                     <p style="position: relative; width: 100%; height: 100%; font-size: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center">
                         <span style="font-size: 30px; font-weight: bold;">검색조건에 맞는 매물이 없습니다.</span>
@@ -460,7 +474,7 @@
         })
 
         function toggleRangeBar(target) {
-            if(target.className.includes('none')) {
+            if (target.className.includes('none')) {
                 monthly_range.classList.toggle('none');
                 yearly_range.classList.toggle('none');
                 monthly_mark.classList.toggle('none');
@@ -469,21 +483,21 @@
         }
 
         function stylingRangeBar(el, rate = 10) {
-            el.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 '+ el.value/rate +'%, #fff ' + el.value/10 + '%, white 100%)';
+            el.style.background = 'linear-gradient(to right, #ff9900 0%, #ff9900 ' + el.value / rate + '%, #fff ' + el.value / 10 + '%, white 100%)';
         }
 
         function transTypeHandler(self) {
-            if(self.name.includes('transaction')) {
+            if (self.name.includes('transaction')) {
                 let type_id = self.id;
                 let transaction_type = '';
 
-                if(type_id === 'yearly') {
+                if (type_id === 'yearly') {
                     transaction_type = '연세'
                     toggleRangeBar(yearly_range);
-                } else if(type_id === 'monthly') {
+                } else if (type_id === 'monthly') {
                     transaction_type = '월세'
                     toggleRangeBar(monthly_range);
-                } else if(type_id === 'jeonse') {
+                } else if (type_id === 'jeonse') {
                     transaction_type = '전세'
                 }
 
@@ -491,7 +505,7 @@
                 transaction_type_label.textContent = transaction_type;
 
                 positions.map(room => {
-                    if(room.rent_type === transaction_type) {
+                    if (room.rent_type === transaction_type) {
                         renderRoom(room);
                         addMarker(room.latlng, room);
                     }
@@ -500,45 +514,45 @@
         }
 
         function rangeHandler(self) {
-            if(self.className.includes('filter_range_input')) {
+            if (self.className.includes('filter_range_input')) {
                 let monthly_value;
                 let deposit_value;
                 let yearly_value;
                 // 범위 바 UI 업데이트
-                if(self.className.includes('deposit')) {
+                if (self.className.includes('deposit')) {
                     deposit_value = Number(self.value);
                     stylingRangeBar(self);
                     deposit_mark.textContent = deposit_value + '만원 이하';
                 }
-                if(self.className.includes('monthly')) {
+                if (self.className.includes('monthly')) {
                     monthly_value = Number(self.value);
                     stylingRangeBar(self, 1);
                     monthly_mark.textContent = monthly_value + '만원 이하';
                 }
-                if(self.className.includes('yearly')) {
+                if (self.className.includes('yearly')) {
                     yearly_value = Number(self.value);
                     stylingRangeBar(self);
                     yearly_mark.textContent = yearly_value + '만원 이하';
                 }
                 // 보증금, 월세 둘다 필터 있는경우
                 // 연세도 추가해야함.
-                if(deposit_value && monthly_value) {
+                if (deposit_value && monthly_value) {
                     positions.map(room => {
-                        if(room.deposit <= deposit_value && room.rent_amount <= monthly_value) {
+                        if (room.deposit <= deposit_value && room.rent_amount <= monthly_value) {
                             renderRoom(room);
                             addMarker(room.latlng, room);
                         }
                     })
-                } else if(deposit_value) { // 보증금만 필터 있는경우
+                } else if (deposit_value) { // 보증금만 필터 있는경우
                     positions.map(room => {
-                        if(room.deposit <= deposit_value) {
+                        if (room.deposit <= deposit_value) {
                             renderRoom(room);
                             addMarker(room.latlng, room);
                         }
                     })
-                } else if(monthly_value) { // 월세만
+                } else if (monthly_value) { // 월세만
                     positions.map(room => {
-                        if(room.rent_amount <= monthly_value) {
+                        if (room.rent_amount <= monthly_value) {
                             renderRoom(room);
                             addMarker(room.latlng, room);
                         }
@@ -551,12 +565,15 @@
         const radio_btn = document.querySelectorAll('input[type="radio"]');
         const ai_reset_btn = document.querySelector('.ai_reset_btn');
         ai_reset_btn.addEventListener('click', resetAiForm);
+
         function resetAiForm(e) {
             e.preventDefault();
-            if(!isAiFormChange) {
-                for(let i=0; i<radio_btn.length; i++) {
+            if (!isAiFormChange) {
+                console.log(1);
+                isAiFormChange = true;
+                for (let i = 0; i < radio_btn.length; i++) {
                     let btn = radio_btn[i];
-                    if(btn.name != "transaction_type") {
+                    if (btn.name != "transaction_type") {
                         btn.checked = false;
                     }
                 }
@@ -571,12 +588,13 @@
 
         const filter_reset_btn = document.querySelector('.filter_reset_btn');
         filter_reset_btn.addEventListener('click', resetFilter)
+
         function resetFilter(e) {
             e.preventDefault();
-            if(isFilterChange) {
-                for(let i=0; i<radio_btn.length; i++) {
+            if (isFilterChange) {
+                for (let i = 0; i < radio_btn.length; i++) {
                     let btn = radio_btn[i];
-                    if(btn.name === "transaction_type") {
+                    if (btn.name === "transaction_type") {
                         btn.checked = false;
                     }
                 }
@@ -622,7 +640,7 @@
         search_btn.addEventListener('click', e => {
             let validInput = search_box.value.trim();
             // 입력 연타 방지
-            if(currentInput !== validInput && '' !== validInput) {
+            if (currentInput !== validInput && '' !== validInput) {
                 searchRoom(validInput);
             }
         })
@@ -630,7 +648,7 @@
         function searchRoom(validInput) {
             currentInput = validInput;
             positions.map(room => {
-                if(room.title.includes(currentInput)) {
+                if (room.title.includes(currentInput)) {
                     // 리스트 다 지우고.
                     removeAllRooms();
                     // 현재 그려진 마커 초기화
@@ -643,25 +661,35 @@
                 }
             })
         }
+
+        ////////////////////////////////////////////
+        /////////////// 원룸 마우스 오버 ///////////////
+        ////////////////////////////////////////////
+        itemList.addEventListener('mouseover', e => {
+            if (e.target.className === 'imgBox') {
+                console.log(e.target.id)
+            }
+        })
+
     </script>
-    <!-- 필터 버튼 -->
+    <!-- 필터 접었다 폇다 -->
     <script>
-        $(document).ready(function(){
-            $('[data-popup]').click(function(e){
+        $(document).ready(function () {
+            $('[data-popup]').click(function (e) {
                 e.preventDefault();
                 $('[class*="box"]').removeClass('active');
                 var popupArea = $(this).siblings('.' + $(this).attr('data-popup'));
-                if(popupArea.length == 0){
+                if (popupArea.length == 0) {
                     popupArea = $('.' + $(this).attr('data-popup'));
                 }
                 popupArea.addClass('active');
-                popupArea.click(function(e){
+                popupArea.click(function (e) {
                     e.stopPropagation();
                 })
-                popupArea.find('.closeBtn').click(function(){
+                popupArea.find('.closeBtn').click(function () {
                     popupArea.removeClass('active')
                 })
-                popupArea.children('div').click(function(e){
+                popupArea.children('div').click(function (e) {
                     e.stopPropagation();
                 })
             })
