@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
     <!-- 원룸 추천 로딩 gif -->
-    <link rel="stylesheet" href="../../static/css/loading.css">
     <div class="loading_page none" style="z-index: 10">
-        <div class="modal_bg" style="z-index: 10">
-            <div class="ring" style="z-index: 10">t o c h
-                <span class="ring_span" style="z-index: 10"></span>
+        <div class="modal_bg">
+            <div class="ring">t o c h
+                <span class="ring_span"></span>
             </div>
         </div>
     </div>
@@ -323,9 +322,10 @@
         /////////////////////// 추천 알고리즘 코드  //////////////////////
         //////////////////////////////////////////////////////////////
         const ai_reco_btn = document.querySelector('.ai_reco_btn');
+        const loading_page = document.querySelector('.loading_page');
         ai_reco_btn.addEventListener('click', e => {
+            // 문항이 다 체크되었는지 검사하는 코드 추가해야함.
             e.preventDefault();
-            const loading_page = document.querySelector('.loading_page');
             loading_page.classList.remove('none');
             setTimeout(() => {
                 loading_page.classList.add('none');
@@ -354,9 +354,6 @@
                     userAi['C'] = personality[i].value;
                 }
             }
-            pet.checked = false;
-            car.checked = false;
-            personality.checked = false;
 
             return userAi
         }
