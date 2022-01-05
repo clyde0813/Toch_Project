@@ -198,15 +198,12 @@
             }
         }
 
-        window.onload = renderAllRooms();
+        renderAllRooms();
 
         function renderAllRooms() {
-            // 마커 배열 복사
             for (let i = 0, len = positions.length; i < len; i++) {
                 let info = positions[i];
-                // 마커를 생성하고 지도위에 표시합니다.
                 addMarker(info, current_markers);
-                // 아이템 모두 표시
                 renderRoom(info);
             }
         }
@@ -247,7 +244,7 @@
             }
         }
 
-        // 첫 로드시 리스트에 방들을 전부 보여주는 함수
+        // 오른쪽 리스트에 방 추가
         function renderRoom(info) {
             const roomInfo = roomTemplate(info);
             itemList.insertAdjacentHTML('beforeend', roomInfo);
@@ -274,22 +271,6 @@
                  </a>
              </li>
             `
-        }
-
-        function getCookie(name) {
-            var cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                var cookies = document.cookie.split(';');
-                for (var i = 0; i < cookies.length; i++) {
-                    var cookie = jQuery.trim(cookies[i]);
-                    // Does this cookie string begin with the name we want?
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
         }
 
         //////////////////////////////////////////////////////////////
@@ -609,6 +590,7 @@
 
     </script>
     <!-- 필터 접었다 폇다 -->
+    <script src="../../static/scripts/cookie.js"></script>
     <script>
         $(document).ready(function () {
             $('[data-popup]').click(function (e) {

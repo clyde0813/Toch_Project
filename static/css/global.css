@@ -4,7 +4,7 @@
 .mainPage{padding-top: 10px;}
 .loginPage > [class *="Area"]{padding: 200px 0 70px;}
 .myPage > [class *="Area"]{padding: 200px 0 70px;}
-.oneRoomPage > [class *="Area"]:not(.oneRoomArea){padding: 130px 0 70px;}
+.oneRoomPage > [class *="Area"]:not(.oneRoomArea){padding: 10px 0 70px;}
 .usedTradePage > [class *="Area"]{padding: 10px 0 0 0}
 .communityPage > [class *="Area"]{padding: 10px 0 0 0}
 
