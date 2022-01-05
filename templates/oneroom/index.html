@@ -16,7 +16,7 @@
                 <div class="mapArea">
                     <div class="inputArea">
                         <div class="seachBox">
-                            <input type="search">
+                            <input type="search" placeholder=" 원룸 이름 검색">
                             <button class="oneroom_search_btn">검색버튼</button>
                         </div>
                         <button data-popup="filter_box">AI 추천</button>
@@ -138,8 +138,7 @@
         // 지도, 원룸 리스트
         const container = document.querySelector('.myMap');
         const itemList = document.querySelector('.bottomArea > ul');
-        // REST API url
-        const fetch_url = 'http://toch.kr/api/oneroom/';
+
         // Map & Marker 설정
         let imageSrc = '../../static/images/maker.png'; // 마커이미지의 주소입니다
         let imageSize = new kakao.maps.Size(30, 30); // 마커이미지의 크기입니다
@@ -165,49 +164,24 @@
         let map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
         // 마커를 표시할 위치와 해당 정보를 담은 배열
-        let tmp_list = [];
         let positions = [];
-        if (tmp_list.length) {
-            for (let j in tmp_list) {
-                {% if data %}
-                    {% for i in data %}
-                        if (Number(j) === {{ i.id }}) {
-                            positions.push({
-                                id: {{ i.id }},
-                                title: '{{ i.title }}',
-                                rent_type: '{{ i.rent_type }}',
-                                rent_amount: '{{ i.rent_amount }}',
-                                deposit: '{{ i.deposit }}',
-                                latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
-                                main_img: '{{ i.file_set.first.file.url }}',
-                                floor_num: '{{ i.floor_num }}',
-                                common_area: '{{ i.common_area }}',
-                                address: '{{ i.address }}',
-                                manage_amount: '{{ i.manage_amount }}'
-                            })
-                        }
-                    {% endfor %}
-                {% endif %}
-            }
-        } else {
-            {% if data %}
-                {% for i in data %}
-                    positions.push({
-                        id: {{ i.id }},
-                        title: '{{ i.title }}',
-                        rent_type: '{{ i.rent_type }}',
-                        rent_amount: '{{ i.rent_amount }}',
-                        deposit: '{{ i.deposit }}',
-                        latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
-                        main_img: '{{ i.file_set.first.file.url }}',
-                        floor_num: '{{ i.floor_num }}',
-                        common_area: '{{ i.common_area }}',
-                        address: '{{ i.address }}',
-                        manage_amount: '{{ i.manage_amount }}'
-                    })
-                {% endfor %}
-            {% endif %}
-        }
+        {% if data %}
+            {% for i in data %}
+                positions.push({
+                    id: {{ i.id }},
+                    title: '{{ i.title }}',
+                    rent_type: '{{ i.rent_type }}',
+                    rent_amount: '{{ i.rent_amount }}',
+                    deposit: '{{ i.deposit }}',
+                    latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
+                    main_img: '{{ i.file_set.first.file.url }}',
+                    floor_num: '{{ i.floor_num }}',
+                    common_area: '{{ i.common_area }}',
+                    address: '{{ i.address }}',
+                    manage_amount: '{{ i.manage_amount }}'
+                })
+            {% endfor %}
+        {% endif %}
 
         for (let i = 0, len = positions.length; i < len; i++) {
             let info = {
@@ -231,17 +205,17 @@
             for (let i = 0, len = positions.length; i < len; i++) {
                 let info = positions[i];
                 // 마커를 생성하고 지도위에 표시합니다.
-                addMarker(positions[i].latlng, info, current_markers);
+                addMarker(info, current_markers);
                 // 아이템 모두 표시
                 renderRoom(info);
             }
         }
 
         // 마커 생성, 지도 위에 표시
-        function addMarker(latlng, info, marker_arr = current_markers) {
+        function addMarker(info, marker_arr = current_markers) {
             // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
             var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-                markerPosition = latlng; // 마커가 표시될 위치입니다
+                markerPosition = info.latlng; // 마커가 표시될 위치입니다
 
             // 마커를 생성합니다
             var marker = new kakao.maps.Marker({
@@ -379,58 +353,27 @@
 
         // JSON 데이터 받아오는 함수
         function fetchData() {
-            fetch(fetch_url)
-                .then(response => response.json())
-                .then(data => {
-                    let userPreference = getUserAI();
-
-                    tmp_list = arithmeticMean(data, userPreference);
-                    positions = [];
-                    // 리스트 초기화
-                    removeAllRooms();
-                    // 마커 초기화
-                    removeAllMarkers();
-                    for (let j in tmp_list) {
-                        {% if data %}
-                            {% for i in data %}
-                                if (Number(tmp_list[j]) === {{ i.id }}) {
-                                    positions.push({
-                                        id: {{ i.id }},
-                                        title: '{{ i.title }}',
-                                        rent_type: '{{ i.rent_type }}',
-                                        rent_amount: '{{ i.rent_amount }}',
-                                        deposit: '{{ i.deposit }}',
-                                        latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
-                                        main_img: '{{ i.file_set.first.file.url }}',
-                                        floor_num: '{{ i.floor_num }}',
-                                        common_area: '{{ i.common_area }}',
-                                        address: '{{ i.address }}',
-                                        manage_amount: '{{ i.manage_amount }}'
-                                    })
-                                }
-                            {% endfor %}
-                        {% endif %}
-                    }
-                    for (let i = 0, len = positions.length; i < len; i++) {
-                        let info = {
-                            id: positions[i].id,
-                            title: positions[i].title,
-                            rent_type: positions[i].rent_type,
-                            rent_amount: positions[i].rent_amount,
-                            deposit: positions[i].deposit,
-                            main_img: positions[i].main_img,
-                            floor_num: positions[i].floor_num,
-                            common_area: positions[i].common_area,
-                            address: positions[i].address,
-                            manage_amount: positions[i].manage_amount
+            fetch('http://toch.kr/api/oneroom/')
+            .then(response => response.json())
+            .then(data => {
+                let userPreference = getUserAI();
+                let arith_result = arithmeticMean(data, userPreference);
+                let ai_result = [];
+                for(let i=0; i<3; i++) {
+                    for(let j=0; j<positions.length; j++) {
+                        if(positions[j].id === Number(arith_result[i])) {
+                            ai_result.push(positions[j]);
                         }
-                        // 마커를 생성하고 지도위에 표시합니다
-                        addMarker(positions[i].latlng, info);
-                        // 아이템 모두 표시
-                        renderRoom(info);
                     }
-                })
-                .catch(err => console.log(err));
+                }
+                removeAllMarkers();
+                removeAllRooms();
+                ai_result.map(room => {
+                    renderRoom(room);
+                    addMarker(room);
+                });
+            })
+            .catch(err => console.log('An Error occured (err : ' + err + ')'));
         }
 
         // 필터  eventHandler
@@ -503,7 +446,7 @@
                 positions.map(room => {
                     if (room.rent_type === transaction_type) {
                         renderRoom(room);
-                        addMarker(room.latlng, room);
+                        addMarker(room);
                     }
                 })
             }
@@ -536,21 +479,21 @@
                     positions.map(room => {
                         if (room.deposit <= deposit_value && room.rent_amount <= monthly_value) {
                             renderRoom(room);
-                            addMarker(room.latlng, room);
+                            addMarker(room);
                         }
                     })
                 } else if (deposit_value) { // 보증금만 필터 있는경우
                     positions.map(room => {
                         if (room.deposit <= deposit_value) {
                             renderRoom(room);
-                            addMarker(room.latlng, room);
+                            addMarker(room);
                         }
                     })
                 } else if (monthly_value) { // 월세만
                     positions.map(room => {
                         if (room.rent_amount <= monthly_value) {
                             renderRoom(room);
-                            addMarker(room.latlng, room);
+                            addMarker(room);
                         }
                     })
                 }
@@ -565,7 +508,6 @@
         function resetAiForm(e) {
             e.preventDefault();
             if (!isAiFormChange) {
-                console.log(1);
                 isAiFormChange = true;
                 for (let i = 0; i < radio_btn.length; i++) {
                     let btn = radio_btn[i];
@@ -613,6 +555,7 @@
 
                 removeAllRooms();
                 removeAllMarkers();
+
                 renderAllRooms();
 
                 current_markers = markers;
@@ -645,15 +588,12 @@
             currentInput = validInput;
             positions.map(room => {
                 if (room.title.includes(currentInput)) {
-                    // 리스트 다 지우고.
                     removeAllRooms();
-                    // 현재 그려진 마커 초기화
                     removeAllMarkers();
-                    current_markers = [];
 
-                    // 검색한것만 다시 그리기
+                    //current_markers = [];
                     renderRoom(room);
-                    addMarker(room.latlng, room, current_markers);
+                    addMarker(room);
                 }
             })
         }
