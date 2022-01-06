@@ -567,15 +567,18 @@
 
         function searchRoom(validInput) {
             currentInput = validInput;
-            positions.map(room => {
-                if (room.title.includes(currentInput)) {
-                    removeAllRooms();
-                    removeAllMarkers();
+            const search_result = positions.filter(room => room.title.includes(currentInput));
+            if(search_result.length === 0) {
+                alert('검색 결과가 없습니다.');
+                search_box.value = '';
+                return;
+            }
+            search_result.map(room => {
+                removeAllRooms();
+                removeAllMarkers();
 
-                    //current_markers = [];
-                    renderRoom(room);
-                    addMarker(room);
-                }
+                renderRoom(room);
+                addMarker(room);
             })
         }
 
