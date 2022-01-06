@@ -573,10 +573,9 @@
                 search_box.value = '';
                 return;
             }
+            removeAllRooms();
+            removeAllMarkers();
             search_result.map(room => {
-                removeAllRooms();
-                removeAllMarkers();
-
                 renderRoom(room);
                 addMarker(room);
             })
