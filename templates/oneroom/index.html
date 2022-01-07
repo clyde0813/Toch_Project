@@ -30,27 +30,27 @@
                                         <li>
                                             <label>반려동물</label>
                                             <div>
-                                                <input type="radio" id="pet_yes" name="pet" value="1">
+                                                <input type="radio" id="pet_yes" class="ai_answer" name="pet" value="1">
                                                 <label for="pet_yes">Yes</label>
-                                                <input type="radio" id="pet_no" name="pet" value="0">
+                                                <input type="radio" id="pet_no" class="ai_answer" name="pet" value="0">
                                                 <label for="pet_no">No</label>
                                             </div>
                                         </li>
                                         <li>
                                             <label>자차보유</label>
                                             <div>
-                                                <input type="radio" id="car_yes" name="car" value="1">
+                                                <input type="radio" id="car_yes" class="ai_answer" name="car" value="1">
                                                 <label for="car_yes">Yes</label>
-                                                <input type="radio" id="car_no" name="car" value="0">
+                                                <input type="radio" id="car_no" class="ai_answer" name="car" value="0">
                                                 <label for="car_no">No</label>
                                             </div>
                                         </li>
                                         <li>
                                             <label>외향/내향</label>
                                             <div>
-                                                <input type="radio" id="personality_yes" name="personality" value="1">
+                                                <input type="radio" id="personality_yes" class="ai_answer" name="personality" value="1">
                                                 <label for="personality_yes">Yes</label>
-                                                <input type="radio" id="personality_no" name="personality" value="0">
+                                                <input type="radio" id="personality_no" class="ai_answer" name="personality" value="0">
                                                 <label for="personality_no">No</label>
                                             </div>
                                         </li>
@@ -135,7 +135,7 @@
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98a0001a3486109fd99e7a58b946cfbe&libraries=clusterer,services"></script>
     <script src="../static/scripts/com.js"></script>
     <script>
-        // 지도, 원룸 리스트
+        // 지도 컨테이너
         const container = document.querySelector('.myMap');
         const itemList = document.querySelector('.bottomArea > ul');
 
@@ -143,14 +143,6 @@
         let imageSrc = '../../static/images/maker.png'; // 마커이미지의 주소입니다
         let imageSize = new kakao.maps.Size(30, 30); // 마커이미지의 크기입니다
         let imageOption = {offset: new kakao.maps.Point(10, 30)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-
-        // 마커들을 담을 배열
-        let markers = [];
-        let current_markers = [];
-
-        // 필터,Ai폼 변화 상태 (초기화 기능을 위해서 필요)
-        let isFilterChange = false;
-        let isAiFormChange = false;
 
         // 지도 중심 좌표 설정
         const MNU_LATITUDE = 34.91124654247272;
@@ -163,7 +155,12 @@
 
         let map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
+        let isFilterChange = false;
+        let isAiFormChange = false;
         // 마커를 표시할 위치와 해당 정보를 담은 배열
+        // 마커들을 담을 배열
+        let markers = [];
+        let current_markers = [];
         let positions = [];
         {% if data %}
             {% for i in data %}
@@ -183,29 +180,13 @@
             {% endfor %}
         {% endif %}
 
-        for (let i = 0, len = positions.length; i < len; i++) {
-            let info = {
-                id: positions[i].id,
-                title: positions[i].title,
-                rent_type: positions[i].rent_type,
-                rent_amount: positions[i].rent_amount,
-                deposit: positions[i].deposit,
-                main_img: positions[i].main_img,
-                floor_num: positions[i].floor_num,
-                common_area: positions[i].common_area,
-                address: positions[i].address,
-                manage_amount: positions[i].manage_amount
-            }
-        }
-
         renderAllRooms();
 
         function renderAllRooms() {
-            for (let i = 0, len = positions.length; i < len; i++) {
-                let info = positions[i];
-                addMarker(info, current_markers);
-                renderRoom(info);
-            }
+            positions.map(room => {
+                addMarker(room);
+                renderRoom(room);
+            })
         }
 
         // 마커 생성, 지도 위에 표시
@@ -279,12 +260,14 @@
         const ai_reco_btn = document.querySelector('.ai_reco_btn');
         const loading_page = document.querySelector('.loading_page');
         ai_reco_btn.addEventListener('click', e => {
-            // 문항이 다 체크되었는지 검사하는 코드 추가해야함.
             e.preventDefault();
+            let userPreference = getUserAI();
+
+            // ai form Null Check
             loading_page.classList.remove('none');
             setTimeout(() => {
                 loading_page.classList.add('none');
-                fetchData();
+                fetchData(userPreference);
             }, 3500)
         })
 
@@ -292,23 +275,11 @@
             const pet = document.getElementsByName('pet');
             const car = document.getElementsByName('car');
             const personality = document.getElementsByName('personality');
-
             const userAi = {};
-            for (let i = 0; i < pet.length; i++) {
-                if (pet[i].checked) {
-                    userAi['A'] = pet[i].value;
-                }
-            }
-            for (let i = 0; i < pet.length; i++) {
-                if (car[i].checked) {
-                    userAi['B'] = car[i].value;
-                }
-            }
-            for (let i = 0; i < pet.length; i++) {
-                if (personality[i].checked) {
-                    userAi['C'] = personality[i].value;
-                }
-            }
+
+            Array(pet).map(q => { if(q.checked) userAi['A'] = q.value; });
+            Array(car).map(q => { if(q.checked) userAi['B'] = q.value; });
+            Array(personality).map(q => { if(q.checked) userAi['C'] = q.value; });
 
             return userAi
         }
@@ -333,28 +304,23 @@
         }
 
         // JSON 데이터 받아오는 함수
-        function fetchData() {
-            fetch('http://toch.kr/api/oneroom/')
+        function fetchData(userPreference) {
+            fetch('https://toch.kr/api/oneroom/')
             .then(response => response.json())
             .then(data => {
-                let userPreference = getUserAI();
+                removeAllMarkers();
+                removeAllRooms();
                 let arith_result = arithmeticMean(data, userPreference);
-                let ai_result = [];
                 for(let i=0; i<3; i++) {
                     for(let j=0; j<positions.length; j++) {
                         if(positions[j].id === Number(arith_result[i])) {
-                            ai_result.push(positions[j]);
+                            renderRoom(positions[j]);
+                            addMarker(positions[j]);
                         }
                     }
                 }
-                removeAllMarkers();
-                removeAllRooms();
-                ai_result.map(room => {
-                    renderRoom(room);
-                    addMarker(room);
-                });
             })
-            .catch(err => console.log('An Error occured (err : ' + err + ')'));
+            .catch(err => console.log('Error Message : ' + err));
         }
 
         // 필터  eventHandler
@@ -369,9 +335,7 @@
         const yearly_range = document.querySelector('.yearly_range');
 
         ai_box.addEventListener('input', e => {
-            if (!isFilterChange) {
-                isFilterChange = true;
-            }
+            isFilterChange = true;
             const self = e.target;
             // 매물 리스트 초기화
             removeAllRooms();
@@ -438,6 +402,7 @@
                 let monthly_value;
                 let deposit_value;
                 let yearly_value;
+                let filtered_room = [];
                 // 범위 바 UI 업데이트
                 if (self.className.includes('deposit')) {
                     deposit_value = Number(self.value);
@@ -457,27 +422,16 @@
                 // 보증금, 월세 둘다 필터 있는경우
                 // 연세도 추가해야함.
                 if (deposit_value && monthly_value) {
-                    positions.map(room => {
-                        if (room.deposit <= deposit_value && room.rent_amount <= monthly_value) {
-                            renderRoom(room);
-                            addMarker(room);
-                        }
-                    })
+                    filtered_room = positions.filter(room => room.deposit <= deposit_value && room.rent_amount <= monthly_value);
                 } else if (deposit_value) { // 보증금만 필터 있는경우
-                    positions.map(room => {
-                        if (room.deposit <= deposit_value) {
-                            renderRoom(room);
-                            addMarker(room);
-                        }
-                    })
+                    filtered_room = positions.filter(room => room.deposit <= deposit_value);
                 } else if (monthly_value) { // 월세만
-                    positions.map(room => {
-                        if (room.rent_amount <= monthly_value) {
-                            renderRoom(room);
-                            addMarker(room);
-                        }
-                    })
+                    filtered_room = positions.filter(room => room.rent_amount <= monthly_value);
                 }
+                filtered_room.map(room => {
+                    renderRoom(room);
+                    addMarker(room);
+                })
             }
         }
 
@@ -496,53 +450,49 @@
                         btn.checked = false;
                     }
                 }
-                removeAllRooms();
-                removeAllMarkers();
-                renderAllRooms();
-
-                current_markers = markers;
-                current_markers.map(marker => marker.setMap(map));
             }
         }
 
         const filter_reset_btn = document.querySelector('.filter_reset_btn');
-        filter_reset_btn.addEventListener('click', resetFilter)
-
-        function resetFilter(e) {
+        filter_reset_btn.addEventListener('click', e => {
             e.preventDefault();
-            if (isFilterChange) {
-                for (let i = 0; i < radio_btn.length; i++) {
-                    let btn = radio_btn[i];
-                    if (btn.name === "transaction_type") {
-                        btn.checked = false;
-                    }
-                }
-                // 거래유형 초기화
-                monthly_mark.textContent = '전체';
-                yearly_mark.textContent = '전체';
-                deposit_mark.textContent = '전체';
-                transaction_type_mark.textContent = '전체';
-
-                deposit_range.value = 0;
-                monthly_range.value = 0;
-                yearly_range.value = 0;
-
-                // 보증금 금액 초기화, 범위 막대 초기화
-                stylingRangeBar(deposit_range);
-                stylingRangeBar(monthly_range);
-                stylingRangeBar(yearly_range);
-
-                toggleRangeBar(monthly_range);
-
-                removeAllRooms();
-                removeAllMarkers();
-
-                renderAllRooms();
-
-                current_markers = markers;
-                current_markers.map(marker => marker.setMap(map));
+            // 이미 초기화 상태일 경우 early return
+            if(!isFilterChange) {
+                return;
             }
-        }
+            isFilterChange = false;
+
+            for (let i = 0; i < radio_btn.length; i++) {
+                let btn = radio_btn[i];
+                if (btn.name === "transaction_type") {
+                    btn.checked = false;
+                }
+            }
+            // 거래유형 초기화
+            monthly_mark.textContent = '전체';
+            yearly_mark.textContent = '전체';
+            deposit_mark.textContent = '전체';
+            transaction_type_mark.textContent = '전체';
+
+            deposit_range.value = 0;
+            monthly_range.value = 0;
+            yearly_range.value = 0;
+
+            // 보증금 금액 초기화, 범위 막대 초기화
+            stylingRangeBar(deposit_range);
+            stylingRangeBar(monthly_range);
+            stylingRangeBar(yearly_range);
+
+            toggleRangeBar(monthly_range);
+
+            removeAllRooms();
+            removeAllMarkers();
+
+            renderAllRooms();
+
+            current_markers = markers;
+            current_markers.map(marker => marker.setMap(map));
+        });
 
         ////////////////////////////////////////////////////////////
         //////////////////////////// 검색 //////////////////////////
@@ -560,9 +510,10 @@
         search_btn.addEventListener('click', e => {
             let validInput = search_box.value.trim();
             // 입력 연타 방지
-            if (currentInput !== validInput && '' !== validInput) {
-                searchRoom(validInput);
+            if (currentInput === validInput && '' === validInput) {
+                return;
             }
+            searchRoom(validInput);
         })
 
         function searchRoom(validInput) {
