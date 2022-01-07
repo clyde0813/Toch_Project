@@ -157,6 +157,7 @@ def service(request):
 def job_opening(request):
     return render(request, 'etc/job_opening.html')
 
+
 # def email(request):
 #     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Toch.settings.local")
 #     otp = str(random.randint(100000, 999999))
@@ -170,3 +171,7 @@ def job_opening(request):
 #     context = {'otp': otp}
 #     print(context)
 #     return render(request, 'common/email.html', context)
+
+
+def fixing(request):
+    return render(request, 'fixing.html')

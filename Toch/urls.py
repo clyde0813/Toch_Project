@@ -17,6 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from common import views as common_views
 
 urlpatterns = [
                   path('', include('common.urls')),
