@@ -150,7 +150,8 @@
                     floor_num: '{{ i.floor_num }}',
                     common_area: '{{ i.common_area }}',
                     address: '{{ i.address }}',
-                    manage_amount: '{{ i.manage_amount }}'
+                    manage_amount: '{{ i.manage_amount }}',
+                    room_num: '{{ i.room_num }}',
                 })
             {% endfor %}
         {% endif %}
@@ -173,7 +174,7 @@
         function addMarker(info) {
             let content = document.createElement('div');
             content.classList.add('custom_overlay');
-            content.textContent = 10;
+            content.textContent = info.room_num;
             content.onclick = () => {
                 console.log(content.className);
                 removeAllRooms();

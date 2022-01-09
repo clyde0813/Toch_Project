@@ -187,14 +187,14 @@
                     floor_num: '{{ i.floor_num }}',
                     common_area: '{{ i.common_area }}',
                     address: '{{ i.address }}',
-                    manage_amount: '{{ i.manage_amount }}'
+                    manage_amount: '{{ i.manage_amount }}',
+                    room_num: '{{ i.room_num }}',
                 })
             {% endfor %}
         {% endif %}
 
         function addAllMarkers() {
             positions.map(room => addMarker(room));
-            console.log(1111);
         }
 
         addAllMarkers();

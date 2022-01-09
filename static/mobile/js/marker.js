@@ -2,7 +2,7 @@
 function addMarker(info) {
     let content = document.createElement('div');
     content.classList.add('custom_overlay');
-    content.textContent = 10;
+    content.textContent = info.room_num;
     content.onclick = () => {
         console.log('CLICKED');
     }
