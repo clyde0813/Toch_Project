@@ -5,32 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Iphone 모바일 확대 방지 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0"">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0"
+    ">
     <title>원룸 - toch</title>
     <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- 공통 script -->
     <script src="../../../static/mobile/js/com.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="../../../static/mobile/css/import.css">
     <script>
-        $(document).ready(function(){
-            $('[data-popup2]').click(function(e){
+        $(document).ready(function () {
+            $('[data-popup2]').click(function (e) {
                 e.preventDefault();
                 $('[class*="box"]').removeClass('active');
                 var popupArea = $(this).siblings('.' + $(this).attr('data-popup2'));
-                if(popupArea.length == 0){
+                if (popupArea.length == 0) {
                     popupArea = $('.' + $(this).attr('data-popup2'));
                 }
                 popupArea.addClass('active');
-                popupArea.click(function(e){
+                popupArea.click(function (e) {
                     e.stopPropagation();
-                    
+
                 })
-                popupArea.find('.closeBtn').click(function(){
+                popupArea.find('.closeBtn').click(function () {
                     popupArea.removeClass('active')
                 })
-                popupArea.children('div').click(function(e){
+                popupArea.children('div').click(function (e) {
                     e.stopPropagation();
                 })
             })
@@ -38,179 +40,180 @@
     </script>
 </head>
 <body>
-    <div class="oneRoomPage">
-        <header class="paddingBox">
-            <h1>
-                <a href="#">
-                    <img src="../../../static/mobile/images/logo.png" alt="toch logo">
-                </a>
-            </h1>
-            <div class="btnArea">
-                <button class="imgBox" data-click="gnbSearchBox">
-                    검색버튼
-                </button>
-                <button class="imgBox">
-                    인기버튼
-                </button>
-                <button class="imgBox">
-                    ??버튼
-                </button>
-            </div>
-            <div class="gnbSearchBox paddingBox">
-                <input type="search" placeholder="검색어를 입력하세요">
-                <button class="imgBox">
-                    검색버튼
-                </button>
-                <button class="imgBox close">
-                    검색 닫기 버튼
-                </button>
-            </div>
-        </header>
-
-        <div class="oneRoomArea">
-            <div class="inputArea">
-                <div class="seachBox">
-                    <input type="search">
-                    <button>검색버튼</button>
-                </div>
-                <button data-popup2="filter_box">필터</button>
-                <div class="filter_box">
-                    <form>
-                        <fieldset>
-                            <div>
-                                <button>초기화</button>
-                            </div>
-                            <ul>
-                                <li>
-                                    <label>성별</label>
-                                    <div>
-                                        <input type="radio" checked>
-                                        <label>남성</label>
-                                        <input type="radio">
-                                        <label>여성</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>나이</label>
-                                    <div>
-                                        <select>
-                                            <option value="">10~20대</option>
-                                        </select>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>단과대</label>
-                                    <div>
-                                        <input type="text">
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>반려동물</label>
-                                    <div>
-                                        <input type="radio" checked>
-                                        <label>Yes</label>
-                                        <input type="radio">
-                                        <label>No</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>자차보유</label>
-                                    <div>
-                                        <input type="radio" checked> 
-                                        <label>Yes</label>
-                                        <input type="radio">
-                                        <label>No</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>mbti</label>
-                                    <div>
-                                        <select>
-                                            <option value="">ISTJ</option>
-                                        </select>
-                                    </div>
-                                </li>
-                            </ul>
-                            <button>Toch  AI 추천</button>
-                            <span class="imgBox closeBtn">
-                                닫기
-                            </span>
-                        </fieldset>
-                    </form>
-                </div>
-
-                <button data-popup2="AI_box">AI 추천</button>
-
-                <div class="AI_box">
-                    <form>
-                        <fieldset>
-                            <div>
-                                <button>초기화</button>
-                            </div>
-
-                            <ul>
-                                <li>
-                                    <label>거래유형</label>
-                                    <mark>연세</mark>
-                                    <div>
-                                        <input type="radio" checked>
-                                        <label>연세</label>
-                                        <input type="radio">
-                                        <label>월세</label>
-                                        <input type="radio">
-                                        <label>전세</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>조증금</label>
-                                    <mark>500만원</mark>
-                                    <div>
-                                        <div class="rangeBox">
-                                            <div>
-                                                <span></span>
-                                                <span>
-                                                    <span>500만원</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>월세</label>
-                                    <mark>500만원</mark>
-                                    <div>
-                                        <div class="rangeBox">
-                                            <div>
-                                                <span></span>
-                                                <span>
-                                                    <span>500만원</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            
-                            <span class="imgBox closeBtn">
-                                닫기
-                            </span>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.7923309835637!2d126.43208108271764!3d34.911660690245846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3573afedcb87cab7%3A0xe41ed555ebbc6901!2z66qp7Y-s64yA7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1637395324402!5m2!1sko!2skr"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            <a href="#" class="fixedLink">LIST</a>
+<div class="oneRoomPage">
+    <header class="paddingBox">
+        <h1>
+            <a href="#">
+                <img src="../../../static/mobile/images/logo.png" alt="toch logo">
+            </a>
+        </h1>
+        <div class="btnArea">
+            <button class="imgBox" data-click="gnbSearchBox">
+                검색버튼
+            </button>
+            <button class="imgBox">
+                인기버튼
+            </button>
+            <button class="imgBox">
+                ??버튼
+            </button>
         </div>
+        <div class="gnbSearchBox paddingBox">
+            <input type="search" placeholder="검색어를 입력하세요">
+            <button class="imgBox">
+                검색버튼
+            </button>
+            <button class="imgBox close">
+                검색 닫기 버튼
+            </button>
+        </div>
+    </header>
 
-        <nav>
-            <ul>
-                <li class="active"><a href="#">원룸</a></li>
-                <li><a href="#">중고</a></li>
-                <li class="home"><a href="#">홈</a></li>
-                <li><a href="#">커뮤니티</a></li>
-                <li><a href="#">마이</a></li>
-            </ul>
-        </nav>
+    <div class="oneRoomArea">
+        <div class="inputArea">
+            <div class="seachBox">
+                <input type="search">
+                <button>검색버튼</button>
+            </div>
+            <button data-popup2="filter_box">필터</button>
+            <div class="filter_box">
+                <form>
+                    <fieldset>
+                        <div>
+                            <button>초기화</button>
+                        </div>
+                        <ul>
+                            <li>
+                                <label>성별</label>
+                                <div>
+                                    <input type="radio" checked>
+                                    <label>남성</label>
+                                    <input type="radio">
+                                    <label>여성</label>
+                                </div>
+                            </li>
+                            <li>
+                                <label>나이</label>
+                                <div>
+                                    <select>
+                                        <option value="">10~20대</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <label>단과대</label>
+                                <div>
+                                    <input type="text">
+                                </div>
+                            </li>
+                            <li>
+                                <label>반려동물</label>
+                                <div>
+                                    <input type="radio" checked>
+                                    <label>Yes</label>
+                                    <input type="radio">
+                                    <label>No</label>
+                                </div>
+                            </li>
+                            <li>
+                                <label>자차보유</label>
+                                <div>
+                                    <input type="radio" checked>
+                                    <label>Yes</label>
+                                    <input type="radio">
+                                    <label>No</label>
+                                </div>
+                            </li>
+                            <li>
+                                <label>mbti</label>
+                                <div>
+                                    <select>
+                                        <option value="">ISTJ</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                        <button>Toch AI 추천</button>
+                        <span class="imgBox closeBtn">
+                                닫기
+                            </span>
+                    </fieldset>
+                </form>
+            </div>
+
+            <button data-popup2="AI_box">AI 추천</button>
+
+            <div class="AI_box">
+                <form>
+                    <fieldset>
+                        <div>
+                            <button>초기화</button>
+                        </div>
+
+                        <ul>
+                            <li>
+                                <label>거래유형</label>
+                                <mark>연세</mark>
+                                <div>
+                                    <input type="radio" checked>
+                                    <label>연세</label>
+                                    <input type="radio">
+                                    <label>월세</label>
+                                    <input type="radio">
+                                    <label>전세</label>
+                                </div>
+                            </li>
+                            <li>
+                                <label>조증금</label>
+                                <mark>500만원</mark>
+                                <div>
+                                    <div class="rangeBox">
+                                        <div>
+                                            <span></span>
+                                            <span>
+                                                    <span>500만원</span>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>월세</label>
+                                <mark>500만원</mark>
+                                <div>
+                                    <div class="rangeBox">
+                                        <div>
+                                            <span></span>
+                                            <span>
+                                                    <span>500만원</span>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <span class="imgBox closeBtn">
+                                닫기
+                            </span>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.7923309835637!2d126.43208108271764!3d34.911660690245846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3573afedcb87cab7%3A0xe41ed555ebbc6901!2z66qp7Y-s64yA7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1637395324402!5m2!1sko!2skr"
+                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <a href="{% url 'mobile:oneroom_list' %}" class="fixedLink">LIST</a>
     </div>
+
+    <nav>
+        <ul>
+            <li class="active"><a href="{% url 'mobile:oneroom_index' %}">원룸</a></li>
+            <li><a href="#">중고</a></li>
+            <li class="home"><a href="{% url 'mobile:index' %}">홈</a></li>
+            <li><a href="#">커뮤니티</a></li>
+            <li><a href="#">마이</a></li>
+        </ul>
+    </nav>
+</div>
 </body>
 </html>

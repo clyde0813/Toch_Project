@@ -5,5 +5,6 @@ app_name = 'mobile'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('oneroom/', views.oneroom_index, name='oneroom_index')
+    path('oneroom/', views.oneroom_index, name='oneroom_index'),
+    path('onroom/list', views.oneroom_list, name='oneroom_list'),
 ]
