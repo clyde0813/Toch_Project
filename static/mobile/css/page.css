@@ -1,0 +1,387 @@
+/* 인트로 */
+.introArea{height: 100vh; display: flex; justify-content: center; align-items: center;}
+.introArea img{width: 16.000rem;}
+
+/* 메인 컨텐츠 */
+.mainArea > *:not(:last-child) {margin-bottom: 3.750rem;}
+
+/* 메인 */
+/* 메인 텝 */
+.mainArea .mainTab .tabContents{padding: 0 1.875rem;}
+/* 메인 - 인기원룸 */
+.mainPopularityArea{padding: 0 1.875rem;}
+/* 메인 - 실시간 인기 중고 */
+.mainUsedArea{padding: 0 1.875rem;}
+
+/* 메인 - 베너 */
+.mainBannerArea img{width: 100%;}
+
+/* 메인 텝 */
+.mainArea .mainTab .tabBtn{display: flex; border-bottom: 0.063rem solid #ff9900;}
+.mainArea .mainTab .tabBtn li{flex: 1;}
+.mainArea .mainTab .tabBtn li button{width: 100%; line-height: 4.375rem; font-size: 1.875rem; font-weight: 800; color: #a8a8a8; background-color: #f5f5f5; border-top: 0.063rem solid #e0e0e0;}
+.mainArea .mainTab .tabBtn li.active button{background-color: #ff9900; border-top: 0.063rem solid #ff9900; color: white;}
+
+/* 메인 텝 컨텐츠 */
+.mainArea .mainTab .tabContents{padding: 1.875rem; border-bottom: 0.063rem solid #ff9900;}
+.mainArea .mainTab .tabContents li:not(:last-child){margin-bottom: 1.875rem;}
+.mainArea .mainTab .tabContents li a{display: flex; align-items: flex-end;}
+.mainArea .mainTab .tabContents li a .imgBox{width: 12.500rem; height: 8.438rem; border: 0.063rem solid #b8b8b8; box-sizing: border-box; margin-right: 1.250rem;}
+.mainArea .mainTab .tabContents li a .textArea strong{display: block; font-size: 1.500rem; font-weight: 700; margin-bottom: 1.250rem;}
+.mainArea .mainTab .tabContents li a .textArea strong small{font-size: 1.250rem; color: #888888;}
+.mainArea .mainTab .tabContents li a .textArea p{font-size: 1.250rem; font-weight: 300; line-height: 1.750rem;}
+.mainArea .mainTab .tabContents li a .textArea p.textHidden{max-width: 24.688rem; overflow: hidden; text-overflow: ellipsis;}
+
+/* 메인 - 인기 원룸 */
+.mainPopularityArea ul li{border: 0.063rem solid #e0e0e0;}
+.mainPopularityArea ul li:not(:last-child){margin-bottom: 1.250rem;}
+.mainPopularityArea ul li a{display: flex; align-items: center; background-color: #f5f5f5;}
+.mainPopularityArea ul li a .imgBox{width: 12.500rem; height: 8.438rem; margin-right: 1.250rem;}
+.mainPopularityArea ul li a .textArea strong{display: block; font-size: 1.500rem; font-weight: 700; margin-bottom: 1.250rem;}
+.mainPopularityArea ul li a .textArea strong small{font-size: 1.250rem; color: #888888;}
+.mainPopularityArea ul li a .textArea p{font-size: 1.250rem; font-weight: 300; line-height: 1.750rem;}
+
+
+/* 로그인 */
+.loginPage .loginArea{height: 100vh; min-height: 36.563rem; display: flex; align-items: center; padding: 7.500rem 0 8.438rem;}
+.loginPage fieldset{min-height: 36.563rem;}
+.loginPage fieldset legend{font-size: 3.125rem; font-weight: 700; text-align: center; margin-bottom: 4.375rem;}
+.loginPage fieldset input:not([type='submit']){width: 100%; font-size: 1.500rem; padding: 1.250rem; box-sizing: border-box; border: 0.063rem solid #cacaca; margin-bottom: 1.250rem; }
+.loginPage fieldset input:not([type='submit'])::placeholder{color: #888888;}
+.loginPage fieldset p{font-size: 1.375rem;}
+.loginPage fieldset p:first-of-type{margin-bottom: 3.438rem;}
+.loginPage fieldset input[type="submit"]{font-size: 1.875rem; font-weight: 700; line-height: 4.375rem; width: 100%; border: none; background-color: #ff9900; margin-bottom: 3.750rem;}
+.loginPage fieldset p:not(:first-of-type){text-align: center;}
+.loginPage fieldset p:not(:first-of-type):not(:last-of-type){margin-bottom: 1.875rem;}
+.loginPage fieldset p mark a{text-decoration: underline;}
+
+
+/* 마이페이지 */
+.myPageArea div button ,
+.linkBox a:not(.backLink){width: 5.938rem; line-height: 3.313rem; font-size: 1.375rem; font-weight: 700; text-align: center;}
+.linkBox{display: flex; align-items: center;}
+.linkBox .backLink{margin-right: 1.875rem;}
+.linkBox p{font-size: 1.875rem; font-weight: 700;}
+.linkBox a:not(.backLink){margin-left: auto; color: white; background-color: black; border: 0.063rem solid #555555;}
+
+.myPageArea .linkBox{margin-bottom: 2.813rem;}
+
+.myPageArea .imgArea{margin-bottom: 2.500rem; text-align: center;}
+.myPageArea .imgArea .imgBox{width: 8.750rem; height: 8.750rem; border: 0.063rem solid #b8b8b8; border-radius: 100%; margin: 0 auto 1.250rem;} 
+.myPageArea .imgArea button{color: #888888; border: 0.063rem solid #d2d2d2;}
+
+.myPageArea .textArea{padding-top: 2.500rem; padding-bottom: 2.500rem; border-width: 0.063rem 0; border-style: solid; border-color: #e0e0e0; margin-bottom: 2.500rem;}
+.myPageArea .textArea dl{display: flex; justify-content: space-between; align-items: center; font-size: 1.500rem;}
+.myPageArea .textArea dl:not(:last-of-type){margin-bottom: 2.500rem;}
+.myPageArea .textArea dl dt{font-weight: 700;}
+
+.myPageArea > button{width: 100%; height: 4.375rem; font-size: 1.875rem; font-weight: 700; background-color: #ff9900;}
+
+/* 마이페이지 - 수정 */
+.myPage .correctionArea .linkBox{margin-bottom: 3.750rem;}
+.myPage .correctionArea ul{padding-bottom: 2.500rem; border-bottom: 0.063rem solid #e0e0e0; margin-bottom: 2.500rem;}
+.myPage .correctionArea ul li:not(:last-child){margin-bottom: 2.500rem;}
+.myPage .correctionArea ul li label{display: block; font-size: 1.250rem; font-weight: 700; margin-bottom: 0.938rem;}
+.myPage .correctionArea ul li input{width: 100%; height: 4.375rem; font-size: 1.500rem; padding: 1.250rem; border: 0.063rem solid #cacaca; box-sizing: border-box;}
+.myPage .correctionArea ul li input::placeholder{color: #888888;}
+.myPage .correctionArea ul li input[readonly]{border: none; outline: none;}
+.myPage .correctionArea input[type="submit"]{width: 100%; height: 4.375rem; font-size: 1.875rem; font-weight: 700; background-color: #ff9900; border: none;}
+
+
+/* 원룸페이지 공통*/
+.oneRoomPage .inputArea{display: flex; padding: 1.250rem; box-sizing: border-box; }
+.oneRoomPage .inputArea .seachBox{flex: 1; position: relative;}
+.oneRoomPage .inputArea .seachBox input{width: 100%; height: 3.750rem; border: 0.125rem solid #ff9900; box-sizing: border-box;}
+.oneRoomPage .inputArea .seachBox button{position: absolute; right: 1.250rem; top: 0.938rem; width: 1.688rem; height: 1.688rem; background: url('../images/oneroom_search.png') no-repeat center / cover; text-indent: -9999px;}
+.oneRoomPage .inputArea > *:not(:last-child){margin-right: 0.625rem;}
+.oneRoomPage .inputArea > button{width: 7.500rem; height: 3.750rem; font-size: 1.500rem; color: #888888; display: flex; justify-content: center; align-items: center; border: 0.063rem solid #d2d2d2;}
+.oneRoomPage .inputArea > button:nth-of-type(1)::before{content: ''; width: 1.563rem; height: 1.313rem; background: url('../images/oneroom_filter.png') no-repeat center / cover; margin-right: 1.250rem;}
+
+/* 원룸페이지 */
+.oneRoomArea{height: 100vh; display: flex; flex-direction: column; position: relative; box-sizing: border-box;} 
+.oneRoomArea .oneRoomList{position: fixed; left: 0; bottom: 8.438rem; width: 100%; background-color: white;}
+.oneRoomArea iframe{flex: 1;}
+
+/* 원룸 팝업 */
+[class*='_box']{position: fixed; ; left: 0; top: 13.750rem; bottom: 8.438rem; width: 100%; background-color: white; border-width: 0.063rem 0; border-style: solid; border-color:#dadada; display: none; overflow: auto; z-index: 1000;}
+[class*='_box'].active{display: block;}
+[class*='_box'] fieldset{position: relative;}
+[class*='_box'] fieldset > div{padding: 1.875rem; display: flex; justify-content: flex-end; align-items: center;}
+[class*='_box'] fieldset > div button{width: 7.813rem; height: 3.125rem; font-size: 1.500rem; display: flex; justify-content: center; align-items: center; border: 0.063rem solid #cacaca;}
+[class*='_box'] fieldset > ul{border-width: 0.063rem 0; border-style: solid; border-color: #ebebeb;}
+[class*='_box'] fieldset > ul li{display: flex; align-items: center; padding: 1.875rem;}
+[class*='_box'] fieldset > ul li:not(:last-child){border-bottom: 0.063rem solid #ebebeb;}
+[class*='_box'] fieldset > ul li > label{width: 6.250rem; font-size: 1.500rem;}
+[class*='_box'] fieldset > ul li div{display: flex;}
+[class*='_box'] fieldset > ul li > div {flex: 1;}
+[class*='_box'] fieldset > ul li div input[type='text'] , [class*='_box'] fieldset > ul li div select{width: 100%; font-size: 1.500rem; height: 3.125rem; border: 0.063rem solid #cacaca; padding: 0 0.625rem; box-sizing: border-box;}
+[class*='_box'] fieldset > button{font-size: 1.500rem; font-weight: 700; width: 11.250rem; height: 3.438rem; border: 0.063rem solid black; display: block; margin: 1.250rem auto;}
+[class*='_box'] fieldset .closeBtn{position: absolute; left: 1.875rem; top: 2.500rem; width: 1.875rem; height: 1.875rem; background-image: url('../images/closeBtn.png'); cursor: pointer;}
+
+.filter_box fieldset > ul li div input[type='radio']:checked + label::before{background-image: url('../images/radioBtn_active.png');}
+.filter_box fieldset > ul li div input[type='radio'] + label{font-size: 1.500rem; color: #888888; display: flex; align-items: center;}
+.filter_box fieldset > ul li div input[type='radio'] + label:not(:first-of-type){margin-left: 1.875rem;}
+.filter_box fieldset > ul li div input[type='radio'] + label::before{content: ''; width: 1.875rem; height: 1.875rem; background-image: url('../images/radioBtn.png'); background-repeat: no-repeat; background-position: center; background-size: cover; margin-right: 0.625rem;}
+
+.AI_box fieldset > ul li{flex-direction: column; align-items: flex-start;}
+.AI_box fieldset > ul li label{font-size: 1.500rem; margin-bottom: 0.625rem;}
+.AI_box fieldset > ul li mark{font-size: 2rem; font-weight: 700; color: #ff9900; margin-bottom: 1.250rem;}
+.AI_box fieldset > ul li > div{width: 100%;}
+.AI_box fieldset > ul li > div input[type='radio']{display: none;}
+.AI_box fieldset > ul li > div input[type='radio'] + label{width: calc((100% - 0.625rem) / 3); height: 3.125rem; display: flex; justify-content: center; align-items: center; border: 0.063rem solid #cacaca;}
+.AI_box fieldset > ul li > div label:not(:last-of-type){margin-right: 0.313rem;}
+.AI_box fieldset > ul li > div input[type='radio']:checked + label{background-color: #ff9900; color: white;}
+.AI_box fieldset > ul li > div .rangeBox{ width: 100%; height: 0.625rem; background-color: #eeeeee; margin-bottom: 1.875rem;}
+.AI_box fieldset > ul li > div .rangeBox div{width: 50%; height: 100%; background-color: #ff9900; position: relative;}
+.AI_box fieldset > ul li > div .rangeBox div > span{content: ''; width: 1.875rem; height: 1.875rem; background: url('../images/rangeIcon.png') no-repeat center / cover; position: absolute; top: -0.625rem;}
+.AI_box fieldset > ul li > div .rangeBox div > span:nth-of-type(1){left: -0.625rem;}
+.AI_box fieldset > ul li > div .rangeBox div > span:nth-of-type(2){right: -0.625rem;}
+.AI_box fieldset > ul li > div .rangeBox div > span:nth-of-type(2) span{position: absolute; left: -0.938rem; top: 2.500rem; font-size: 1.250rem; white-space: nowrap;}
+ 
+
+/* 원룸페이지 - 리스트 */
+.oneRoomPage .listArea{height: 100vh; box-sizing: border-box; display: flex; flex-direction: column;}
+.oneRoomPage .listArea ul{flex: 1; overflow: auto;}
+.oneRoomPage .listArea ul li:not(:last-child){margin-bottom: 1.875rem;}
+
+
+/* 원룸페이지 - 상세 */
+.oneRoomPage .detailArea{background-color: #f5f5f5;}
+.oneRoomPage .detailArea > div{background-color: white;}
+.oneRoomPage .detailArea > div:not(.bx-wrapper):not(:last-child){margin-bottom: 1.250rem;}
+
+.oneRoomPage .detailArea .bx-wrapper{border-bottom: 0.063rem solid #b8b8b8;}
+.oneRoomPage .detailArea .bx-wrapper .bx-pager{left: 50%; bottom:1.875rem; width: 7.500rem; line-height: 2.813rem; background-color: rgba(0, 0, 0, 0.6); border-radius: 6.250rem; transform: translateX(-50%); padding: 0;}
+.oneRoomPage .detailArea .bx-wrapper .bx-pager .bx-pager-item{vertical-align: middle;}
+.oneRoomPage .detailArea .bx-wrapper .bx-pager .bx-pager-item a{width: 0.875rem; height: 0.875rem; background-color: white; border-radius: 100%; opacity: 0.4;}
+.oneRoomPage .detailArea .bx-wrapper .bx-pager .bx-pager-item a.active{opacity: 1;}
+
+.oneRoomPage .detailArea .infoArea > div{display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; padding-top: 2.188rem; padding-bottom: 2.188rem;}
+.oneRoomPage .detailArea .infoArea > div h2{width: 50%; font-size: 2.250rem; font-weight: 800; }
+.oneRoomPage .detailArea .infoArea > div time{width: 50%; font-size: 1.250rem; color: #888888; text-align: right;}
+.oneRoomPage .detailArea .infoArea > div .iconBox{margin-left: auto; margin-top: 1.250rem; }
+.oneRoomPage .detailArea .infoArea ul li{display: flex; align-items: center; border-top: 0.063rem solid #e0e0e0; padding-top: 1.250rem; padding-bottom: 1.250rem;}
+.oneRoomPage .detailArea .infoArea ul li dl:not(:last-of-type){margin-right: 3.125rem;}
+.oneRoomPage .detailArea .infoArea ul li dl dt{font-size: 1.250rem; color: #555555; margin-bottom: 0.938rem;}
+.oneRoomPage .detailArea .infoArea ul li dl dd{font-size: 1.500rem; font-weight: 700;}
+.oneRoomPage .detailArea .infoArea ul li dl dd mark{color: #df2c27;}
+.oneRoomPage .detailArea .infoArea ul li button:first-of-type{margin-left: auto;}
+.oneRoomPage .detailArea .infoArea ul li button:not(:last-of-type){margin-right: 0.625rem;}
+
+.oneRoomPage .detailArea .infoArea ul li:nth-child(1) button{width: 12.500rem; line-height: 5.000rem; font-size: 1.875rem; font-weight: 700; text-align: center; color: white;  background-color: black; }
+
+.oneRoomPage .detailArea .infoArea ul li:nth-child(2) button{padding: 0 0.938rem; line-height: 5.000rem; font-size: 1.875rem; font-weight: 700; color: #888888; display: flex; justify-content: center; align-items: center; border: 0.063rem solid #d2d2d2; box-sizing: border-box;}
+.oneRoomPage .detailArea .infoArea ul li:nth-child(2) button::before{content: ''; width: 1.500rem; height: 1.875rem; background-repeat: no-repeat; background-position: center; background-size: cover; margin-right: 0.625rem;}
+.oneRoomPage .detailArea .infoArea ul li:nth-child(2) button:nth-of-type(1)::before{background-image: url('../images/oneroom_detailBtn01.png');}
+.oneRoomPage .detailArea .infoArea ul li:nth-child(2) button:nth-of-type(2)::before{background-image: url('../images/oneroom_detailBtn02.png');}
+
+
+.oneRoomPage .detailArea div h3{font-size: 1.875rem; font-weight: 800; padding-top: 1.563rem; padding-bottom: 1.563rem;}
+.oneRoomPage .detailArea div h3[data-click]{display: flex; justify-content: space-between; align-items: center;}
+.oneRoomPage .detailArea div h3[data-click]::after{content: ''; width: 1.750rem; height: 0.938rem; background: url('../images/upDownIcon.png') no-repeat center / cover; transition: 0.5s transform;}
+.oneRoomPage .detailArea div h3[data-click].active::after{transform: rotate(180deg);} 
+
+.oneRoomPage .detailArea .detaliInfo ul{border-top: 0.063rem solid #e0e0e0;}
+.oneRoomPage .detailArea .detaliInfo ul li{padding: 1.250rem 0;}
+.oneRoomPage .detailArea .detaliInfo ul li:not(:last-child){border-bottom: 0.063rem solid #e0e0e0;}
+.oneRoomPage .detailArea .detaliInfo ul li dl{font-size: 1.375rem; display: flex;}
+.oneRoomPage .detailArea .detaliInfo ul li dl dt{width: 10.313rem; color: #555555;}
+
+.oneRoomPage .detailArea .facilityBox ul{padding: 2.188rem 0; border-top: 0.063rem solid #e0e0e0;}
+.oneRoomPage .detailArea .facilityBox ul::after{content: ''; display: block; clear: both;}
+.oneRoomPage .detailArea .facilityBox ul li{float: left; width: 20%; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1.375rem;}
+.oneRoomPage .detailArea .facilityBox ul li:not(:nth-child(-n + 5)){margin-top: 2.188rem;}
+.oneRoomPage .detailArea .facilityBox ul li img{width: 3.688rem; height: 3.813rem; margin-bottom: 1.250rem;}
+
+
+.oneRoomPage .detailArea .detailReview{padding-bottom: 1.875rem;}
+.oneRoomPage .detailArea .detailReview > div ul{border-top: 0.063rem solid #e0e0e0;}
+.oneRoomPage .detailArea .detailReview > div ul li{padding: 1.875rem 0; border-bottom: 0.063rem solid #e0e0e0;}
+.oneRoomPage .detailArea .detailReview > div ul li .reviewBox{display: flex; align-items: center;}
+.oneRoomPage .detailArea .detailReview > div ul li .reviewBox .imgBox{width: 4.500rem; height: 4.500rem; margin-right: 0.938rem;}
+.oneRoomPage .detailArea .detailReview > div ul li .reviewBox .textArea{display: flex; flex-wrap: wrap; align-items: flex-end;}
+.oneRoomPage .detailArea .detailReview > div ul li .reviewBox .textArea b{font-size: 1.500rem; font-weight: 700;}
+.oneRoomPage .detailArea .detailReview > div ul li .reviewBox .textArea b time{display: inline-block; font-size: 1.125rem; color: #555555; margin-left: 0.625rem;}
+.oneRoomPage .detailArea .detailReview > div ul li .reviewBox .textArea .scopeArea{margin-left: 2.500rem;}
+.oneRoomPage .detailArea .detailReview > div ul li .reviewBox .textArea .scopeArea img{width: 1.313rem;}
+.oneRoomPage .detailArea .detailReview > div ul li .reviewBox .textArea p{width: 100%; font-size: 1.375rem; margin-top: 0.938rem;}
+.oneRoomPage .detailArea .detailReview > div ul li > .imgBox{width: 12.500rem; height: 8.438rem; border: 0.063rem solid #b8b8b8; box-sizing: border-box; margin: 1.563rem 0 0 5.625rem;}
+
+.oneRoomPage .detailArea .detailReview > div .pageBox{margin-bottom: 2.500rem;}
+
+.oneRoomPage .detailArea .detailReview > div > a{width: 12.500rem; height: 4.375rem; display: flex; justify-content: center; align-items: center; font-size: 1.250rem; font-weight: 700; color: #888888; border: 0.063rem solid #d2d2d2; margin: 0 auto;}
+.oneRoomPage .detailArea .detailReview > div > a::before{content: ''; width: 2.313rem; height: 1.813rem; background: url('../images/oneroom_detailReview.png') no-repeat center / cover; margin-right: 1.250rem;}
+
+
+.oneRoomPage .detailArea .differentArea{padding-bottom: 4.375rem;}
+.oneRoomPage .detailArea .differentArea ul{display: flex; flex-wrap: wrap;}
+.oneRoomPage .detailArea .differentArea ul li{width: calc((100% - 1.250rem) / 2);}
+.oneRoomPage .detailArea .differentArea ul li:nth-child(2n + 1){margin-right: 1.250rem;}
+.oneRoomPage .detailArea .differentArea ul li:not(:nth-child(-n + 2)){margin-top: 2.500rem;}
+.oneRoomPage .detailArea .differentArea ul li a{width: 100%;}
+.oneRoomPage .detailArea .differentArea ul li a .imgBox{width: 100%; height: 13.438rem; border: 0.063rem solid #b8b8b8; box-sizing: border-box; margin-bottom: 1.250rem;}
+.oneRoomPage .detailArea .differentArea ul li a strong{display: block; font-size: 1.500rem; font-weight: 800; margin-bottom: 1.250rem;}
+.oneRoomPage .detailArea .differentArea ul li a strong small{display: block; font-size: 1.250rem; font-weight: 400; margin-top: 0.625rem;}
+.oneRoomPage .detailArea .differentArea ul li a p{font-size: 1.250rem; color: #888888; line-height: 1.625rem;}
+
+
+
+/* 중고거래 */
+.usedTradePage .usedTradeArea ul li{border-bottom: 0.063rem solid #e0e0e0;}
+.usedTradePage .usedTradeArea ul li a{display: flex; align-items: center; padding: 1.875rem 0;}
+.usedTradePage .usedTradeArea ul li a > .imgBox{width: 12.500rem; height: 12.500rem; border: 0.063rem solid #b8b8b8; margin-right: 1.875rem;}
+.usedTradePage .usedTradeArea ul li a .textArea{flex: 1; position: relative;}
+.usedTradePage .usedTradeArea ul li a .textArea p{font-size: 1.875rem; margin-bottom: 0.938rem;}
+.usedTradePage .usedTradeArea ul li a .textArea strong{display: block; font-size: 1.625rem; font-weight: 800; margin-bottom: 1.563rem;}
+.usedTradePage .usedTradeArea ul li a .textArea address{display: block; font-size: 1.250rem; color: #888888; margin-bottom: 2.188rem;}
+.usedTradePage .usedTradeArea ul li a .textArea time{font-size: 1.125rem; color: #888888;}
+.usedTradePage .usedTradeArea ul li a .textArea .iconBox{position: absolute; right: 0; bottom: 0;}
+
+/* 중고거래 - 상세 */
+.usedTradePage .detailArea{background-color: #f5f5f5;}
+.usedTradePage .detailArea > div{background-color: white;}
+.usedTradePage .detailArea > div:last-of-type{padding-bottom: 4.375rem;}
+.usedTradePage .detailArea > div:not(.bx-wrapper):not(:last-child){margin-bottom: 1.250rem;}
+.usedTradePage .detailArea .bx-wrapper{border-bottom: 0.063rem solid #b8b8b8;}
+.usedTradePage .detailArea .bx-wrapper .bx-pager{left: 50%; bottom:1.875rem; width: 7.500rem; line-height: 2.813rem; background-color: rgba(0, 0, 0, 0.6); border-radius: 6.250rem; transform: translateX(-50%); padding: 0;}
+.usedTradePage .detailArea .bx-wrapper .bx-pager .bx-pager-item{vertical-align: middle;}
+.usedTradePage .detailArea .bx-wrapper .bx-pager .bx-pager-item a{width: 0.875rem; height: 0.875rem; background-color: white; border-radius: 100%; opacity: 0.4;}
+.usedTradePage .detailArea .bx-wrapper .bx-pager .bx-pager-item a.active{opacity: 1;}
+
+.usedTradePage .detailArea div .reviewBox{display: flex; align-items: center; padding-top: 2.500rem; padding-bottom: 2.500rem;}
+.usedTradePage .detailArea div .reviewBox .imgBox{width: 3.438rem; height: 3.438rem; margin-right: 0.938rem;}
+.usedTradePage .detailArea div .reviewBox .textArea{display: flex; flex-wrap: wrap; align-items: flex-end;}
+.usedTradePage .detailArea div .reviewBox .textArea b{font-size: 1.375rem; font-weight: 700;}
+.usedTradePage .detailArea div .reviewBox .textArea address{width: 100%; font-size: 1.125rem; color: #888888; margin-top: 0.625rem;}
+.usedTradePage .detailArea div .reviewBox .iconArea{margin-left: auto;}
+.usedTradePage .detailArea div .reviewBox .iconArea img{width: 1.875rem; height: 1.875rem;}
+.usedTradePage .detailArea div .reviewBox .iconArea img:not(:last-child){margin-right: 1.563rem;}
+
+.usedTradePage .detailArea div .contentsArea{padding-top: 2.500rem; padding-bottom: 2.500rem; border-top: 0.063rem solid #e0e0e0; position: relative; }
+.usedTradePage .detailArea div .contentsArea strong{display: block; font-size: 1.875rem; font-weight: 700; margin-bottom: 0.625rem;}
+.usedTradePage .detailArea div .contentsArea .categoryArea{font-size: 1.250rem; color: #888888; display: flex; margin-bottom: 1.250rem;}
+.usedTradePage .detailArea div .contentsArea .categoryArea > *:not(:last-child){display: flex;}
+.usedTradePage .detailArea div .contentsArea .categoryArea > *:not(:last-child)::after{content: '·'; margin: 0 0.313rem;}
+.usedTradePage .detailArea div .contentsArea b{display: block; font-size: 1.813rem; font-weight: 800; margin-bottom: 1.563rem;}
+.usedTradePage .detailArea div .contentsArea p{font-size: 1.500rem; line-height: 2.250rem;}
+.usedTradePage .detailArea div .contentsArea p:last-of-type{margin-bottom: 2.188rem;}
+.usedTradePage .detailArea div .contentsArea > button{position: absolute; right: 1.875rem; top: 2.500rem; width: 12.500rem; line-height: 4.375rem; font-size: 1.875rem; font-weight: 700; background-color: black; color: white; text-align: center;}
+
+.usedTradePage .detailArea div > strong{display: block; font-size: 1.500rem; font-weight: 800;}
+
+
+/* 커뮤니티 */
+.communityPage .communityArea ul li{border-bottom: 0.063rem solid #e0e0e0;}
+.communityPage .communityArea ul li a{display: flex; align-items: flex-end; padding: 1.875rem 0;}
+.communityPage .communityArea ul li a > .imgBox{width: 12.500rem; height: 7.813rem; border: 0.063rem solid #b8b8b8; margin-right: 1.875rem; }
+.communityPage .communityArea ul li a .textArea{flex: 1; position: relative;}
+.communityPage .communityArea ul li a .textArea strong{display: block; font-size: 1.500rem; font-weight: 700; margin-bottom: 0.625rem;}
+.communityPage .communityArea ul li a .textArea p{font-size: 1.250rem; margin-bottom: 2.500rem;}
+.communityPage .communityArea ul li a .textArea > div{display: flex; align-items: center;}
+.communityPage .communityArea ul li a .textArea > div time{font-size: 0.875rem; color: #888888;}
+.communityPage .communityArea ul li a .textArea > div b{font-size: 1.000rem; margin-left: 0.625rem;}
+.communityPage .communityArea ul li a .textArea .iconBox{margin-left: auto;}
+
+/* 커뮤니티 - 메뉴 */
+.menuBox{position: fixed; left: 0; top: 7.500rem; width: 100%; height: calc(100% - 15.938rem); overflow: auto;}
+.menuBox ul{padding: 2.500rem 0;}
+.menuBox ul:not(:last-of-type){border-bottom: 0.063rem solid #e0e0e0;}
+.menuBox ul li:not(:last-child){margin-bottom: 2.188rem;}
+.menuBox ul li a{display: block; font-size: 1.500rem;}
+.menuBox ul li.point a::after{content: ''; display: inline-block; width: 0.625rem; height: 0.625rem; background-color: #46ccbb; border-radius: 100%; margin-left: 1.563rem;}
+.menuBox ul li a b{font-weight: 800; display: flex; align-items: center;}
+.menuBox ul li a b::after{content: ''; width: 1.875rem; height: 1.250rem; background: url('../images/menu_arrow.png') no-repeat center / cover; margin-left: 1.875rem;}
+
+
+/* 회원가입 - 수정 */
+.membershipPage .correctionArea .linkBox{margin-bottom: 3.750rem;}
+.membershipPage .correctionArea ul{padding-bottom: 2.500rem; border-bottom: 0.063rem solid #e0e0e0; margin-bottom: 2.500rem;}
+.membershipPage .correctionArea ul li:not(:last-child){margin-bottom: 2.500rem;}
+.membershipPage .correctionArea ul li label{display: block; font-size: 1.250rem; font-weight: 700; margin-bottom: 0.938rem;}
+.membershipPage .correctionArea ul li div{display: flex;}
+.membershipPage .correctionArea ul li div input{height: 4.375rem; font-size: 1.500rem; padding: 1.250rem; border: 0.063rem solid #cacaca; box-sizing: border-box;}
+.membershipPage .correctionArea ul li div input:first-child{flex: 1; width: 0;}
+.membershipPage .correctionArea ul li div input::placeholder{color: #888888;}
+.membershipPage .correctionArea ul li div input[readonly]{border: none; outline: none;}
+.membershipPage .correctionArea ul li div select{background: url('../images/selectIcon.png') no-repeat right 1.250rem top 1.875rem;}
+.membershipPage .correctionArea ul li div select:first-child:last-child{flex: 1; height: 4.375rem; font-size: 1.500rem; padding: 1.250rem; border: 0.063rem solid #cacaca; box-sizing: border-box;}
+.membershipPage .correctionArea ul li div select option{color: #888888;}
+.membershipPage .correctionArea ul li div input:first-child ~ select{width: 12.188rem; height: 4.375rem; font-size: 1.500rem; padding: 1.250rem; border: 0.063rem solid #cacaca; box-sizing: border-box; margin-left: 0.625rem;}
+.membershipPage .correctionArea ul li .addressInput{flex-wrap: wrap;}
+.membershipPage .correctionArea ul li .addressInput button{width: 10.313rem; height: 4.375rem;; font-size: 1.500rem; color: white; background-color: #888888; margin-left: 0.625rem;}
+.membershipPage .correctionArea ul li .addressInput button ~ input{width: 100%; margin-top: 0.625rem;}
+.membershipPage .correctionArea input[type="submit"]{width: 100%; height: 4.375rem; font-size: 1.875rem; font-weight: 700; background-color: #ff9900; border: none;}
+
+/* 회원가입 - 동의 */
+.membershipPage .agreementArea > div{height: calc(100vh - 20.938rem);}
+.membershipPage .agreementArea > div{display: flex; flex-direction: column;}
+.membershipPage .agreementArea > div .linkBox{margin-bottom: 3.750rem;}
+.membershipPage .agreementArea > div form{flex: 1;}
+.membershipPage .agreementArea > div form fieldset{flex: 1; height: 100%; display: flex; flex-direction: column;}
+.membershipPage .agreementArea > div form fieldset ul li{display: flex; align-items: center;}
+.membershipPage .agreementArea > div form fieldset ul li:not(:last-child){margin-bottom: 2.500rem;}
+.membershipPage .agreementArea > div form fieldset ul li input[type="checkbox"]{display: none;}
+.membershipPage .agreementArea > div form fieldset ul li label{font-size: 1.500rem; display: flex;}
+.membershipPage .agreementArea > div form fieldset ul li label::before{content: ''; width: 1.875rem; height: 1.875rem; background-image: url('../images/checkBox.png'); background-repeat: no-repeat; background-position: center; background-size: cover; margin-right: 1.250rem;}
+.membershipPage .agreementArea > div form fieldset ul li input[type="checkbox"]:checked + label::before{background-image: url('../images/checkBox_active.png');}
+.membershipPage .agreementArea > div form fieldset ul li a{margin-left: auto; font-size: 1.250rem; font-weight: 700; text-decoration: underline;}
+.membershipPage .agreementArea > div form fieldset input[type="submit"]{width: 100%; height: 4.375rem; font-size: 1.875rem; font-weight: 700; background-color: #ff9900; border: none; margin-top: auto;}
+
+
+/* 채팅 */
+.chatPage .chatArea{display: flex; flex-direction: column;}
+.chatPage .chatArea .contentArea{height: calc(100vh - 19.063rem); display: flex; flex-direction: column;}
+.chatPage .chatArea .contentArea .chatLink{padding-top: 3.438rem; display: flex; border-bottom: 0.063rem solid #e0e0e0; margin-bottom: 1.875rem;}
+.chatPage .chatArea .contentArea .chatLink li{flex: 1; font-size: 1.500rem; font-weight: 800; text-align: center;}
+.chatPage .chatArea .contentArea .chatLink li a{display: block; font-size: 1.500rem; font-weight: 800; text-align: center; padding: 1.250rem 0; position: relative;}
+.chatPage .chatArea .contentArea .chatLink li.active a{color: #ff9900;}
+.chatPage .chatArea .contentArea .chatLink li.active a::after{content: ''; position: absolute; left: 0; bottom: -0.125rem; width: 100%; height: 0.188rem; background-color: #ff9900;}
+/* 검색 */
+.chatPage .chatArea .contentArea .searcArea{position: relative;}
+.chatPage .chatArea .contentArea .searcArea input[type="search"]{width: 100%; height: 4.375rem;  font-size: 1.500rem; background-color: #f7f7f7; border: 0.063rem solid #e0e0e0; padding: 1.250rem; box-sizing: border-box;}
+.chatPage .chatArea .contentArea .searcArea input[type="search"]::placeholder{color: #888888;}
+.chatPage .chatArea .contentArea .searcArea button.imgBox{position: absolute; right: 1.250rem; top: 1.250rem; width: 1.688rem; height: 1.688rem; background: url('../images/oneroom_search.png') no-repeat center / cover;}
+/* 채팅 목록 */
+.chatPage .chatArea .contentArea .chatList{flex: 1; overflow: auto;}
+.chatPage .chatArea .contentArea .chatList li{border-bottom: 0.063rem solid #e0e0e0;}
+.chatPage .chatArea .contentArea .chatList li a{display: block;}
+.chatPage .chatArea .contentArea .chatList li a .userArea{display: flex; align-items: center; padding: 2.500rem 0;}
+.chatPage .chatArea .contentArea .chatList li a .userArea .imgBox{width: 4.500rem; height: 4.500rem; margin-right: 0.938rem;}
+.chatPage .chatArea .contentArea .chatList li a .userArea .textArea{display: flex; flex-wrap: wrap; align-items: flex-end;}
+.chatPage .chatArea .contentArea .chatList li a .userArea .textArea b{font-size: 1.500rem; font-weight: 700;}
+.chatPage .chatArea .contentArea .chatList li a .userArea .textArea b time{display: inline-block; font-size: 1.125rem; color: #555555; margin-left: 0.625rem;}
+.chatPage .chatArea .contentArea .chatList li a .userArea .textArea .scopeArea{margin-left: 2.500rem;}
+.chatPage .chatArea .contentArea .chatList li a .userArea .textArea .scopeArea img{width: 1.313rem;}
+.chatPage .chatArea .contentArea .chatList li a .userArea .textArea p{width: 100%; font-size: 1.375rem; margin-top: 0.938rem;}
+
+
+/* 채팅 상세 */
+.chatPage .commuArea .linkBox{padding-bottom: 1.250rem;}
+.chatPage .commuArea .linkBox p{display: flex; align-items: center;}
+.chatPage .commuArea .linkBox p .imgBox{width: 2.813rem; height: 2.813rem; margin-right: 0.938rem;}
+.chatPage .commuArea .linkBox button{text-indent: -9999px; width: 2.063rem; margin-left: auto;}
+.chatPage .commuArea .linkBox button span{display: block; height: 0.188rem; background-color: #c5c5c5;}
+.chatPage .commuArea .linkBox button span:not(:last-child){margin-bottom: 0.500rem;}
+.chatPage .commuArea .contentArea{height: calc(100vh - 21.250rem); display: flex; flex-direction: column;}
+.chatPage .commuArea .contentArea{flex: 1; overflow: auto; padding-bottom: 6.875rem; box-sizing: border-box;}
+.chatPage .commuArea .contentArea > div{padding-top: 3.438rem;}
+.chatPage .commuArea .contentArea blockquote{display: flex; flex-wrap: wrap; align-items: flex-end;}
+.chatPage .commuArea .contentArea blockquote cite{font-size: 1.375rem; color: #888888; width: 100%; margin-bottom: 0.938rem;}
+.chatPage .commuArea .contentArea blockquote q{font-size: 1.563rem; max-width: 21.875rem;  padding: 1.250rem 2.500rem; border-radius: 3.125rem;}
+.chatPage .commuArea .contentArea blockquote time{font-size: 1.125rem; color: #b8b8b8;}
+.chatPage .commuArea .contentArea .opponentTolk{display: flex; align-items: flex-start;}
+.chatPage .commuArea .contentArea .opponentTolk .imgBox{width: 4.375rem; height: 4.375rem; border: 0.063rem solid #b8b8b8; border-radius: 100%; margin-right: 1.875rem; flex-shrink: 0;}
+.chatPage .commuArea .contentArea .opponentTolk blockquote q{background-color: #f8f8f8; margin-right: 0.625rem;}
+.chatPage .commuArea .contentArea .opponentTolk [data-unread]:not([data-unread='0']){position: relative;}
+.chatPage .commuArea .contentArea .opponentTolk [data-unread]:not([data-unread='0'])::before{content: attr(data-unread); position: absolute; right: -1.125rem; bottom: 1.125rem; font-size: 1.125rem; color: black;}
+.chatPage .commuArea .contentArea .meTolk blockquote{justify-content: flex-end;}
+.chatPage .commuArea .contentArea .meTolk blockquote q{ background-color: #ffc12c; margin-left: 0.625rem;}
+.chatPage .commuArea .contentArea .meTolk [data-unread]:not([data-unread='0']){position: relative; }
+.chatPage .commuArea .contentArea .meTolk [data-unread]:not([data-unread='0'])::before{content: attr(data-unread); position: absolute; left: -1.125rem; bottom: 1.125rem; font-size: 1.125rem; color: #ff9900;}
+.chatPage .commuArea .tolkInput{position: fixed; left: 0; bottom: 8.438rem; width: 100%; height: 6.875rem; padding-top: 1.250rem; padding-bottom: 1.250rem;}
+.chatPage .commuArea .tolkInput div{height: 100%; position: relative;}
+.chatPage .commuArea .tolkInput div input{width: 100%; height: 100%; font-size: 1.500rem; box-sizing: border-box; border: 0.063rem solid #e0e0e0; border-radius: 6.250rem; padding: 0 6.250rem; caret-color: #ff9900;}
+.chatPage .commuArea .tolkInput div input::placeholder{color: #888888;}
+.chatPage .commuArea .tolkInput div button{position: absolute; top: 1.250rem;}
+.chatPage .commuArea .tolkInput div button.imgBox{width: 2.375rem; height: 1.875rem; background-image: url('../images/cameraIcon.png'); left: 2.188rem;}
+.chatPage .commuArea .tolkInput div button.inputBtn{font-size: 1.375rem; font-weight: 800; line-height: 1.875rem; color: #ff9900; right: 2.188rem;}

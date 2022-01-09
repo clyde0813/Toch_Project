@@ -1,0 +1,472 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iphone 모바일 확대 방지 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0"
+    ">
+    <title>toch</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- 공통 script -->
+    <script src="{% static 'mobile/js/com.js' %}"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'mobile/css/import.css' %}">
+</head>
+<body>
+<div class="mainPage">
+    <header class="paddingBox">
+        <h1>
+            <a href="#">
+                <img src="../../../static/mobile/images/logo.png" alt="toch logo">
+            </a>
+        </h1>
+        <div class="btnArea">
+            <button class="imgBox" data-click="gnbSearchBox">
+                검색버튼
+            </button>
+            <button class="imgBox">
+                인기버튼
+            </button>
+            <button class="imgBox">
+                ??버튼
+            </button>
+        </div>
+        <div class="gnbSearchBox paddingBox">
+            <input type="search" placeholder="검색어를 입력하세요">
+            <button class="imgBox">
+                검색버튼
+            </button>
+            <button class="imgBox close">
+                검색 닫기 버튼
+            </button>
+        </div>
+    </header>
+
+    <div class="mainArea">
+        <section class="boardBox">
+            <h2>실시간 인기 게시물<a href="#">+</a></h2>
+            <ul>
+                <li>
+                    <a href="#">
+                        <p>냥이 가족이 되었다</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>총학이란 무엇인가?</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>복학후 달라진 점</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>맛집 분석 best 10</p>
+                        <time>5분전</time>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <div class="mainBannerArea">
+            <img src="../../../static/mobile/images/main_banner01.png" alt="라포르테블랑 서현 강남역 30분 역세권!">
+        </div>
+
+        <section class="boardBox">
+            <h2>자유게시판<a href="#">+</a></h2>
+            <ul>
+                <li>
+                    <a href="#">
+                        <p>냥이 가족이 되었다</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>총학이란 무엇인가?</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>복학후 달라진 점</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>맛집 분석 best 10</p>
+                        <time>5분전</time>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="boardBox">
+            <h2>비밀게시판<a href="#">+</a></h2>
+            <ul>
+                <li>
+                    <a href="#">
+                        <p>냥이 가족이 되었다</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>총학이란 무엇인가?</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>복학후 달라진 점</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>맛집 분석 best 10</p>
+                        <time>5분전</time>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="boardBox">
+            <h2>정보게시판<a href="#">+</a></h2>
+            <ul>
+                <li>
+                    <a href="#">
+                        <p>냥이 가족이 되었다</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>총학이란 무엇인가?</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>복학후 달라진 점</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>맛집 분석 best 10</p>
+                        <time>5분전</time>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="boardBox">
+            <h2>홍보게시판<a href="#">+</a></h2>
+            <ul>
+                <li>
+                    <a href="#">
+                        <p>냥이 가족이 되었다</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>총학이란 무엇인가?</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>복학후 달라진 점</p>
+                        <time>방금</time>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>맛집 분석 best 10</p>
+                        <time>5분전</time>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <div class="mainTab">
+            <ul class="tabBtn">
+                <li class="active">
+                    <button>원룸</button>
+                </li>
+                <li>
+                    <button>거래</button>
+                </li>
+            </ul>
+            <div class="tabContents">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="imgBox"
+                                 style="background-image: url(../../../static/mobile/images/main_img01.png);">
+                                행복빌라 A동 이미지
+                            </div>
+                            <div class="textArea">
+                                <strong>행복빌라 A동 <small>월세</small></strong>
+                                <p>학교앞 100m거리 편의점에 위치한 원룸입니다.</p>
+                                <p>좋은 입지조건과 깨끗한 관리로 신식 건물 </p>
+                                <p class="textHidden">못지않게 좋습니다. 도보 15분 거리에 동대문역...</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="imgBox"
+                                 style="background-image: url(../../../static/mobile/images/main_img01.png);">
+                                행복빌라 A동 이미지
+                            </div>
+                            <div class="textArea">
+                                <strong>행복빌라 A동 <small>월세</small></strong>
+                                <p>학교앞 100m거리 편의점에 위치한 원룸입니다.</p>
+                                <p>좋은 입지조건과 깨끗한 관리로 신식 건물 </p>
+                                <p class="textHidden">못지않게 좋습니다. 도보 15분 거리에 동대문역...</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="imgBox"
+                                 style="background-image: url(../../../static/mobile/images/main_img01.png);">
+                                행복빌라 A동 이미지
+                            </div>
+                            <div class="textArea">
+                                <strong>행복빌라 A동 <small>월세</small></strong>
+                                <p>학교앞 100m거리 편의점에 위치한 원룸입니다.</p>
+                                <p>좋은 입지조건과 깨끗한 관리로 신식 건물 </p>
+                                <p class="textHidden">못지않게 좋습니다. 도보 15분 거리에 동대문역...</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="imgBox"
+                                 style="background-image: url(../../../static/mobile/images/main_img01.png);">
+                                행복빌라 A동 이미지
+                            </div>
+                            <div class="textArea">
+                                <strong>행복빌라 A동 <small>월세</small></strong>
+                                <p>학교앞 100m거리 편의점에 위치한 원룸입니다.</p>
+                                <p>좋은 입지조건과 깨끗한 관리로 신식 건물 </p>
+                                <p class="textHidden">못지않게 좋습니다. 도보 15분 거리에 동대문역...</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="mainPopularityArea">
+            <h2>인기 원룸</h2>
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="imgBox"
+                             style="background-image: url(../../../static/mobile/images/main_img02.png);">
+                            인기 원룸 이미지
+                        </div>
+                        <div class="textArea">
+                            <strong>월세 60만원 <small>월세</small></strong>
+                            <p>3층 15평 관리비 5만원</p>
+                            <p>목포대 다이소 근처</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="imgBox"
+                             style="background-image: url(../../../static/mobile/images/main_img02.png);">
+                            인기 원룸 이미지
+                        </div>
+                        <div class="textArea">
+                            <strong>월세 60만원 <small>월세</small></strong>
+                            <p>3층 15평 관리비 5만원</p>
+                            <p>목포대 다이소 근처</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="imgBox"
+                             style="background-image: url(../../../static/mobile/images/main_img02.png);">
+                            인기 원룸 이미지
+                        </div>
+                        <div class="textArea">
+                            <strong>월세 60만원 <small>월세</small></strong>
+                            <p>3층 15평 관리비 5만원</p>
+                            <p>목포대 다이소 근처</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="imgBox"
+                             style="background-image: url(../../../static/mobile/images/main_img02.png);">
+                            인기 원룸 이미지
+                        </div>
+                        <div class="textArea">
+                            <strong>월세 60만원 <small>월세</small></strong>
+                            <p>3층 15평 관리비 5만원</p>
+                            <p>목포대 다이소 근처</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mainUsedArea">
+            <h2>실시간 인기 중고</h2>
+            <ul class="usedBox">
+                <li>
+                    <a href="#">
+                        <div class="imgBox"
+                             style="background-image: url(../../../static/mobile/images/main_img03.png);">
+                            아이패드 프로 11인치
+                        </div>
+                        <div class="textArea">
+                            <time>2시간전</time>
+                            <p>
+                                아이패드 프로 11인치
+                                <strong>605,000원</strong>
+                            </p>
+                            <address>대구 중구 달서동</address>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                        10
+                                    </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                        5
+                                    </span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="imgBox"
+                             style="background-image: url(../../../static/mobile/images/main_img03.png);">
+                            아이패드 프로 11인치
+                        </div>
+                        <div class="textArea">
+                            <time>2시간전</time>
+                            <p>
+                                아이패드 프로 11인치
+                                <strong>605,000원</strong>
+                            </p>
+                            <address>대구 중구 달서동</address>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                        10
+                                    </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                        5
+                                    </span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="imgBox"
+                             style="background-image: url(../../../static/mobile/images/main_img03.png);">
+                            아이패드 프로 11인치
+                        </div>
+                        <div class="textArea">
+                            <time>2시간전</time>
+                            <p>
+                                아이패드 프로 11인치
+                                <strong>605,000원</strong>
+                            </p>
+                            <address>대구 중구 달서동</address>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                        10
+                                    </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                        5
+                                    </span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="imgBox"
+                             style="background-image: url(../../../static/mobile/images/main_img03.png);">
+                            아이패드 프로 11인치
+                        </div>
+                        <div class="textArea">
+                            <time>2시간전</time>
+                            <p>
+                                아이패드 프로 11인치
+                                <strong>605,000원</strong>
+                            </p>
+                            <address>대구 중구 달서동</address>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                        10
+                                    </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                        5
+                                    </span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'mobile:oneroom_index' %}">원룸</a></li>
+            <li><a href="#">중고</a></li>
+            <li class="home"><a href="#">홈</a></li>
+            <li><a href="{% url 'mobile:index' %}">커뮤니티</a></li>
+            <li><a href="#">마이</a></li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>
