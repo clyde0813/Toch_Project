@@ -175,7 +175,7 @@
             content.classList.add('custom_overlay');
             content.textContent = 10;
             content.onclick = () => {
-                console.log('Clicked');
+                console.log(content.className);
                 removeAllRooms();
                 renderRoom(info);
             }
@@ -199,6 +199,13 @@
             //    renderRoom(info);
             //});
         }
+
+        // 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
+        kakao.maps.event.addListener(map, 'zoom_changed', function () {
+            let level = map.getLevel();
+            current_markers.map(marker => marker.cc.className = `custom_overlay level${level}`);
+        });
+
 
         function removeAllMarkers() {
             current_markers.map(marker => marker.setMap(null));
