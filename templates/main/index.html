@@ -29,11 +29,11 @@
                     <div class="boardArea">
                         <div class="width100 borderBox paddingBox">
                             <!-- 실시간 인기 게시물 -->
-                            <strong>실시간 인기 게시물 <a href="{% url 'community:index' %}">+</a></strong>
+                            <strong>실시간 인기 게시물 <a href="#">+</a></strong>
                             <ul class="hoverEvent">
                                 {% for data in community %}
                                     <li>
-                                        <a href="{% url "community:detail" data.id %}">
+                                        <a href="#}">
                                             <p>{{ data.title }}</p>
                                             <time>10.20 15:20</time>
                                         </a>
@@ -44,11 +44,11 @@
 
                         <!-- 자유게시판 -->
                         <div class="borderBox paddingBox">
-                            <strong>자유게시판<a href="{% url 'community:index' %}">+</a></strong>
+                            <strong>자유게시판<a href="#">+</a></strong>
                             <ul class="hoverEvent">
                                 {% for data in community2 %}
                                     <li>
-                                        <a href="{% url "community:detail" data.id %}">
+                                        <a href="#">
                                             <p>{{ data.title }}</p>
                                             <time>10.20 15:20</time>
                                         </a>
@@ -59,11 +59,11 @@
 
                         <!-- 비밀게시판 -->
                         <div class="borderBox paddingBox">
-                            <strong>비밀게시판<a href="{% url 'community:index' %}">+</a></strong>
+                            <strong>비밀게시판<a href="#">+</a></strong>
                             <ul class="hoverEvent">
                                 {% for data in community2 %}
                                     <li>
-                                        <a href="{% url "community:detail" data.id %}">
+                                        <a href="#">
                                             <p>{{ data.title }}</p>
                                             <time>10.20 15:20</time>
                                         </a>
@@ -74,11 +74,11 @@
 
                         <!-- 정보게시판 -->
                         <div class="borderBox paddingBox">
-                            <strong>정보게시판<a href="{% url 'community:index' %}">+</a></strong>
+                            <strong>정보게시판<a href="#">+</a></strong>
                             <ul class="hoverEvent">
                                 {% for data in community2 %}
                                     <li>
-                                        <a href="{% url "community:detail" data.id %}">
+                                        <a href="#">
                                             <p>{{ data.title }}</p>
                                             <time>10.20 15:20</time>
                                         </a>
@@ -89,11 +89,11 @@
 
                         <!-- 홍보 게시판 -->
                         <div class="borderBox paddingBox">
-                            <strong>홍보게시판<a href="{% url 'community:index' %}">+</a></strong>
+                            <strong>홍보게시판<a href="#">+</a></strong>
                             <ul class="hoverEvent">
                                 {% for data in community2 %}
                                     <li>
-                                        <a href="{% url "community:detail" data.id %}">
+                                        <a href="#">
                                             <p>{{ data.title }}</p>
                                             <time>10.20 15:20</time>
                                         </a>
@@ -108,10 +108,10 @@
                         <!-- main tab 원룸 거래 -->
                         <ul class="tabBtn">
                             <li>
-                                <button class="active" onclick="location.href='{% url 'oneroom:index' %}'">원룸</button>
+                                <button class="active" onclick="location.href='#'">원룸</button>
                             </li>
                             <li>
-                                <button onclick="location.href='{% url 'usedtrade:index' %}'">거래</button>
+                                <button onclick="location.href='#'">거래</button>
                             </li>
                         </ul>
 
@@ -119,7 +119,7 @@
                             <ul>
                                 {% for data in oneroom %}
                                     <li>
-                                        <a href="{% url 'oneroom:detail' data.id %}">
+                                        <a href="#">
                                             <div class="imgBox"
                                                  style="background-image: url({{ data.file_set.last.file.url }});">
                                                 행복빌라 A동
@@ -165,7 +165,7 @@
                     <ul class="fontCase01">
                         {% for data in usedtrade %}
                             <li class="">
-                                <a href="{% url 'usedtrade:detail' data.id %}">
+                                <a href="#">
                                     <div class="imgBox borderBox"
                                          style="background-image: url({{ data.file_set.last.file.url }});">
                                         실시간 인기 중고 이미지
@@ -202,7 +202,7 @@
                 <!-- login -->
                 {% if not user.is_authenticated %}
                     <div class="mainLonginArea">
-                        <form action="{% url 'common:login' %}" method="post">
+                        <form action="#" method="post">
                             {% csrf_token %}
                             <fieldset>
                                 <input type="text" placeholder="아이디" class="form-control" name="username" id="username">
@@ -211,7 +211,7 @@
                                 <label for="idSave">아이디 저장</label>
                                 <input type="submit" value="로그인">
                                 <div>
-                                    <a href="{% url "common:login_find" %}">아이디/비밀번호 찾기</a>
+                                    <a href="#">아이디/비밀번호 찾기</a>
                                     <a href="#">회원가입</a>
                                 </div>
                             </fieldset>
@@ -219,7 +219,7 @@
                     </div>
                 {% else %}
                     <div class="mainLonginArea">
-                        <form action="{% url 'common:login' %}" method="post">
+                        <form action="#" method="post">
                             {% csrf_token %}
                             <fieldset>
                                 <div class="mainLonginArea" style="font-weight: bold; font-size: 1.2rem">
@@ -228,7 +228,7 @@
                                 </div>
                                 <div style="margin-top: 1rem;">
                                     <input style="background-color: orange; color: white; font-size: 1.1rem"
-                                           onclick="location.href='{% url 'common:logout' %}'" type="button"
+                                           onclick="location.href='#'" type="button"
                                            value="로그아웃">
                                 </div>
                             </fieldset>

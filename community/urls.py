@@ -10,4 +10,6 @@ urlpatterns = [
     # path('<int:num>', views.detail, name='detail'),
 
     path('', common_views.fixing, name='index'),
+    path('<int:num>', common_views.fixing, name='detail'),
+
 ]
