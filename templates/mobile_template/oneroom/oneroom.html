@@ -167,27 +167,36 @@
     </div>
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98a0001a3486109fd99e7a58b946cfbe&libraries=clusterer,services"></script>
     <script src="../../../static/mobile/js/map.js"></script>
+    <script src="../../../static/mobile/js/marker.js"></script>
     <script>
-        $(document).ready(function () {
-            $('[data-popup2]').click(function (e) {
-                e.preventDefault();
-                $('[class*="box"]').removeClass('active');
-                var popupArea = $(this).siblings('.' + $(this).attr('data-popup2'));
-                if (popupArea.length == 0) {
-                    popupArea = $('.' + $(this).attr('data-popup2'));
-                }
-                popupArea.addClass('active');
-                popupArea.click(function (e) {
-                    e.stopPropagation();
+        // 마커들을 담을 배열
+        let markers = [];
+        let current_markers = [];
+        let positions = [];
+        {% if data %}
+            {% for i in data %}
+                positions.push({
+                    id: {{ i.id }},
+                    title: '{{ i.title }}',
+                    rent_type: '{{ i.rent_type }}',
+                    rent_amount: '{{ i.rent_amount }}',
+                    deposit: '{{ i.deposit }}',
+                    latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
+                    main_img: '{{ i.file_set.first.file.url }}',
+                    floor_num: '{{ i.floor_num }}',
+                    common_area: '{{ i.common_area }}',
+                    address: '{{ i.address }}',
+                    manage_amount: '{{ i.manage_amount }}'
+                })
+            {% endfor %}
+        {% endif %}
 
-                })
-                popupArea.find('.closeBtn').click(function () {
-                    popupArea.removeClass('active')
-                })
-                popupArea.children('div').click(function (e) {
-                    e.stopPropagation();
-                })
-            })
-        })
+        function addAllMarkers() {
+            positions.map(room => addMarker(room));
+            console.log(1111);
+        }
+
+        addAllMarkers();
     </script>
+    <script src="../../../static/mobile/js/toggle.js"></script>
 {% endblock %}

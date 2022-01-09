@@ -134,28 +134,8 @@
     </div>
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98a0001a3486109fd99e7a58b946cfbe&libraries=clusterer,services"></script>
     <script src="../static/scripts/com.js"></script>
+    <script src="../static/scripts/map.js"></script>
     <script>
-        // 지도 컨테이너
-        const container = document.querySelector('.myMap');
-        const itemList = document.querySelector('.bottomArea > ul');
-
-        // 지도 중심 좌표 설정
-        const MNU_LATITUDE = 34.91124654247272;
-        const MNU_LONGITUDE = 126.43614580709644;
-
-        const options = {
-            center: new kakao.maps.LatLng(MNU_LATITUDE, MNU_LONGITUDE),
-            level: 5 // 지도의 레벨(확대, 축소 정도)
-        };
-
-        let map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-
-        let isFilterChange = false;
-        let isAiFormChange = false;
-        // 마커를 표시할 위치와 해당 정보를 담은 배열
-        // 마커들을 담을 배열
-        let markers = [];
-        let current_markers = [];
         let positions = [];
         {% if data %}
             {% for i in data %}
@@ -175,7 +155,10 @@
             {% endfor %}
         {% endif %}
 
-        renderAllRooms();
+
+        // 마커들을 담을 배열
+        const markers = [];
+        let current_markers = [];
 
         function renderAllRooms() {
             positions.map(room => {
@@ -184,12 +167,15 @@
             })
         }
 
+        renderAllRooms();
+
         // 마커 생성, 지도 위에 표시
-        function addMarker(info, marker_arr = current_markers) {
+        function addMarker(info) {
             let content = document.createElement('div');
             content.classList.add('custom_overlay');
             content.textContent = 10;
             content.onclick = () => {
+                console.log('Clicked');
                 removeAllRooms();
                 renderRoom(info);
             }
@@ -200,17 +186,18 @@
                 content: content
             });
 
-            marker_arr.push(marker);
+            current_markers.push(marker);
             markers.push(marker)
             // 마커가 지도 위에 표시되도록 설정합니다.
             marker.setMap(map);
 
-            // 마커에 click 이벤트를 등록
-            const customOverlay = document.querySelector('.custom_overlay');
-            customOverlay.addEventListener('click', () => {
-                removeAllRooms();
-                renderRoom(info);
-            });
+            //마커에 click 이벤트를 등록
+            //const customOverlay = document.querySelector('.custom_overlay');
+            //customOverlay.addEventListener('click', () => {
+            //    console.log('custon_overlay Clicked');
+            //    removeAllRooms();
+            //    renderRoom(info);
+            //});
         }
 
         function removeAllMarkers() {
@@ -323,7 +310,7 @@
         }
 
         // 필터  eventHandler
-        const ai_box = document.querySelector('.AI_box');
+
         const deposit_mark = document.querySelector('.deposit_mark');
         const monthly_mark = document.querySelector('.monthly_mark');
         const yearly_mark = document.querySelector('.yearly_mark');
@@ -333,6 +320,10 @@
         const monthly_range = document.querySelector('.monthly_range');
         const yearly_range = document.querySelector('.yearly_range');
 
+        let isFilterChange = false;
+        let isAiFormChange = false;
+
+        const ai_box = document.querySelector('.AI_box');
         ai_box.addEventListener('input', e => {
             isFilterChange = true;
             const self = e.target;
@@ -492,77 +483,8 @@
             current_markers = markers;
             current_markers.map(marker => marker.setMap(map));
         });
-
-        ////////////////////////////////////////////////////////////
-        //////////////////////////// 검색 //////////////////////////
-        ////////////////////////////////////////////////////////////
-        const search_box = document.querySelector('.seachBox > input[type="search"]');
-        const search_btn = document.querySelector('.oneroom_search_btn');
-        let currentInput = '';
-
-        search_box.addEventListener('keyup', e => {
-            if (e.code === 'Enter') {
-                search_btn.click();
-            }
-        })
-
-        search_btn.addEventListener('click', e => {
-            let validInput = search_box.value.trim();
-            // 입력 연타 방지
-            if (currentInput === validInput && '' === validInput) {
-                return;
-            }
-            searchRoom(validInput);
-        })
-
-        function searchRoom(validInput) {
-            currentInput = validInput;
-            const search_result = positions.filter(room => room.title.includes(currentInput));
-            if(search_result.length === 0) {
-                alert('검색 결과가 없습니다.');
-                search_box.value = '';
-                return;
-            }
-            removeAllRooms();
-            removeAllMarkers();
-            search_result.map(room => {
-                renderRoom(room);
-                addMarker(room);
-            })
-        }
-
-        ////////////////////////////////////////////
-        /////////////// 원룸 마우스 오버 ///////////////
-        ////////////////////////////////////////////
-        itemList.addEventListener('mouseover', e => {
-            if (e.target.className === 'imgBox') {
-                console.log(e.target.id)
-            }
-        })
-
     </script>
-    <!-- 필터 접었다 폇다 -->
+    <script src="../../static/scripts/search.js"></script>
     <script src="../../static/scripts/cookie.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('[data-popup]').click(function (e) {
-                e.preventDefault();
-                $('[class*="box"]').removeClass('active');
-                var popupArea = $(this).siblings('.' + $(this).attr('data-popup'));
-                if (popupArea.length == 0) {
-                    popupArea = $('.' + $(this).attr('data-popup'));
-                }
-                popupArea.addClass('active');
-                popupArea.click(function (e) {
-                    e.stopPropagation();
-                })
-                popupArea.find('.closeBtn').click(function () {
-                    popupArea.removeClass('active')
-                })
-                popupArea.children('div').click(function (e) {
-                    e.stopPropagation();
-                })
-            })
-        })
-    </script>
+    <script src="../../static/scripts/toggle.js"></script>
 {% endblock %}

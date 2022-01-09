@@ -10,5 +10,3 @@ const options = {
 };
 
 let map = new kakao.maps.Map(kakao_map, options); //지도 생성 및 객체 리턴
-
-console.log(map);
