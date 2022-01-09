@@ -139,11 +139,6 @@
         const container = document.querySelector('.myMap');
         const itemList = document.querySelector('.bottomArea > ul');
 
-        {#// Map & Marker 설정#}
-        {#let imageSrc = '../../static/images/maker.png'; // 마커이미지의 주소입니다#}
-        {#let imageSize = new kakao.maps.Size(30, 30); // 마커이미지의 크기입니다#}
-        {#let imageOption = {offset: new kakao.maps.Point(10, 30)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.#}
-
         // 지도 중심 좌표 설정
         const MNU_LATITUDE = 34.91124654247272;
         const MNU_LONGITUDE = 126.43614580709644;
@@ -191,8 +186,6 @@
 
         // 마커 생성, 지도 위에 표시
         function addMarker(info, marker_arr = current_markers) {
-            // 커스텀 오버레이에 표시할 내용입니다
-            // HTML 문자열 또는 Dom Element 입니다
             let content = document.createElement('div');
             content.classList.add('custom_overlay');
             content.textContent = 10;

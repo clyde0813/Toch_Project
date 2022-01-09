@@ -1,30 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Iphone 모바일 확대 방지 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0"">
-    <title>원룸 상세 - toch</title>
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- bxslider -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <!-- 공통 script -->
-    <script src="../../../static/mobile/js/com.js"></script>
-    <!-- css -->
-    <link rel="stylesheet" href="../../../static/mobile/css/import.css">
-    <script>
-        $(document).ready(function(){
-            $('.oneRoomPage .detailArea .slider').bxSlider({
-                controls:false
-            });
-        })
-    </script>
-</head>
-<body>
+{% extends 'mobile_template/base.html' %}
+{% block content %}
     <div class="oneRoomPage">
         <header class="paddingBox">
             <h1>
@@ -202,11 +177,14 @@
                     <ul class="paddingBox">
                         <li>
                             <div class="reviewBox">
-                                <div class="imgBox circle" style="background-image: url('../../../static/mobile/images/userRegiImg01.png');">
+                                <div class="imgBox circle"
+                                     style="background-image: url('../../../static/mobile/images/userRegiImg01.png');">
                                     홍길동 이미지
                                 </div>
                                 <div class="textArea">
-                                    <b>홍길동<time>1월 1일</time></b>
+                                    <b>홍길동
+                                        <time>1월 1일</time>
+                                    </b>
                                     <div class="scopeArea">
                                         <img src="../../../static/mobile/images/filledStar.png" alt="">
                                         <img src="../../../static/mobile/images/filledStar.png" alt="">
@@ -220,11 +198,14 @@
                         </li>
                         <li>
                             <div class="reviewBox">
-                                <div class="imgBox circle" style="background-image: url('../../../static/mobile/images/userImg01.png');">
+                                <div class="imgBox circle"
+                                     style="background-image: url('../../../static/mobile/images/userImg01.png');">
                                     홍길동 이미지
                                 </div>
                                 <div class="textArea">
-                                    <b>홍길동<time>1월 1일</time></b>
+                                    <b>홍길동
+                                        <time>1월 1일</time>
+                                    </b>
                                     <div class="scopeArea">
                                         <img src="../../../static/mobile/images/filledStar.png" alt="">
                                         <img src="../../../static/mobile/images/filledStar.png" alt="">
@@ -235,14 +216,17 @@
                                     <p>잘 살다 갑니다.</p>
                                 </div>
                             </div>
-                            <div class="imgBox" style="background-image: url('../../../static/mobile/images/userRegiImg01.png');">
+                            <div class="imgBox"
+                                 style="background-image: url('../../../static/mobile/images/userRegiImg01.png');">
                                 사용자가 올린 이미지
                             </div>
                         </li>
                     </ul>
 
                     <div class="pageBox">
-                        <a href="#"><mark>&lt;</mark>이전</a>
+                        <a href="#">
+                            <mark>&lt;</mark>
+                            이전</a>
                         <ol>
                             <li class="active"><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
@@ -251,7 +235,9 @@
                             <li><a href="#">5</a></li>
                             <li><a href="#">6</a></li>
                         </ol>
-                        <a href="#">다음<mark>&gt;</mark></a>
+                        <a href="#">다음
+                            <mark>&gt;</mark>
+                        </a>
                     </div>
 
                     <a href="#">리뷰작성</a>
@@ -263,7 +249,8 @@
                 <ul class="paddingBox">
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
+                            <div class="imgBox"
+                                 style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
                                 월세 방 이미지
                             </div>
                             <strong>
@@ -276,7 +263,8 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
+                            <div class="imgBox"
+                                 style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
                                 월세 방 이미지
                             </div>
                             <strong>
@@ -289,7 +277,8 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
+                            <div class="imgBox"
+                                 style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
                                 월세 방 이미지
                             </div>
                             <strong>
@@ -302,7 +291,8 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
+                            <div class="imgBox"
+                                 style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
                                 월세 방 이미지
                             </div>
                             <strong>
@@ -316,16 +306,12 @@
                 </ul>
             </div>
         </section>
-
-        <nav>
-            <ul>
-                <li class="active"><a href="#">원룸</a></li>
-                <li><a href="#">중고</a></li>
-                <li class="home"><a href="#">홈</a></li>
-                <li><a href="#">커뮤니티</a></li>
-                <li><a href="#">마이</a></li>
-            </ul>
-        </nav>
     </div>
-</body>
-</html>
+    <script>
+        $(document).ready(function () {
+            $('.oneRoomPage .detailArea .slider').bxSlider({
+                controls: false
+            });
+        })
+    </script>
+{% endblock %}

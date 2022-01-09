@@ -1,45 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Iphone 모바일 확대 방지 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0"
-    ">
-    <title>원룸 - toch</title>
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- 공통 script -->
-    <script src="../../../static/mobile/js/com.js"></script>
-    <!-- css -->
-    <link rel="stylesheet" href="../../../static/mobile/css/import.css">
-    <script>
-        $(document).ready(function () {
-            $('[data-popup2]').click(function (e) {
-                e.preventDefault();
-                $('[class*="box"]').removeClass('active');
-                var popupArea = $(this).siblings('.' + $(this).attr('data-popup2'));
-                if (popupArea.length == 0) {
-                    popupArea = $('.' + $(this).attr('data-popup2'));
-                }
-                popupArea.addClass('active');
-                popupArea.click(function (e) {
-                    e.stopPropagation();
-
-                })
-                popupArea.find('.closeBtn').click(function () {
-                    popupArea.removeClass('active')
-                })
-                popupArea.children('div').click(function (e) {
-                    e.stopPropagation();
-                })
-            })
-        })
-    </script>
-</head>
-<body>
+{% extends 'mobile_template/base.html' %}
+{% block content %}
 <div class="oneRoomPage">
     <header class="paddingBox">
         <h1>
@@ -204,16 +164,28 @@
                 style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         <a href="{% url 'mobile:oneroom_list' %}" class="fixedLink">LIST</a>
     </div>
-
-    <nav>
-        <ul>
-            <li class="active"><a href="{% url 'mobile:oneroom_index' %}">원룸</a></li>
-            <li><a href="#">중고</a></li>
-            <li class="home"><a href="{% url 'mobile:index' %}">홈</a></li>
-            <li><a href="#">커뮤니티</a></li>
-            <li><a href="#">마이</a></li>
-        </ul>
-    </nav>
 </div>
-</body>
-</html>
+<script>
+    $(document).ready(function () {
+        $('[data-popup2]').click(function (e) {
+            e.preventDefault();
+            $('[class*="box"]').removeClass('active');
+            var popupArea = $(this).siblings('.' + $(this).attr('data-popup2'));
+            if (popupArea.length == 0) {
+                popupArea = $('.' + $(this).attr('data-popup2'));
+            }
+            popupArea.addClass('active');
+            popupArea.click(function (e) {
+                e.stopPropagation();
+
+            })
+            popupArea.find('.closeBtn').click(function () {
+                popupArea.removeClass('active')
+            })
+            popupArea.children('div').click(function (e) {
+                e.stopPropagation();
+            })
+        })
+    })
+</script>
+{% endblock %}
