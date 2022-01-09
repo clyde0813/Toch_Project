@@ -3,7 +3,9 @@ from oneroom.models import *
 
 
 def oneroom_index(request):
-    return render(request, 'mobile_template/oneroom/oneroom.html')
+    data = Post.objects.all()
+    context = {'data': data}
+    return render(request, 'mobile_template/oneroom/oneroom.html', context)
 
 
 def oneroom_list(request):
@@ -14,7 +16,7 @@ def oneroom_list(request):
 
 def oneroom_detail(request, num):
     data = Post.objects.filter(id=num)
-    context = {'data' : data}
+    context = {'data': data}
     return render(request, 'mobile_template/oneroom/oneroom_detail.html', context)
 
 
