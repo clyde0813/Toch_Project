@@ -3,11 +3,17 @@
   align-items: center;
   justify-content: center;
   background-color:#ff9900;
-  width :30px;
-  height: 30px;
+  width :34px;
+  height: 34px;
   border-radius: 50%;
   text-align : center;
   opacity : 0.7;
   font-size: 15px;
   font-weight: bold;
+}
+
+.custom_overlay:hover {
+  cursor: pointer;
+  transition: all 0.2s;
+  opacity: 1;
 }

@@ -2,6 +2,18 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <script type="text/javascript" language="JavaScript">
+        let mobileKeyWords = new Array('iPhone', 'iPod', 'BlackBerry', 'Android', 'Windows CE', 'Windows CE;', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson', 'Mobile', 'Symbian', 'Opera Mobi', 'Opera Mini', 'IEmobile');
+        for (let word in mobileKeyWords) {
+            if(!navigator) {
+                alert("Your Browser doesn't support 'Navigator'");
+            }
+            if (navigator && navigator.userAgent.match(mobileKeyWords[word]) != null) {
+                window.location.href = "https://toch.kr/m/oneroom";
+                break;
+            }
+        }
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
