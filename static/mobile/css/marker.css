@@ -1,0 +1,55 @@
+.custom_overlay {
+  display : flex;
+  align-items: center;
+  justify-content: center;
+  background-color:#ff9900;
+  width :34px;
+  height: 34px;
+  border-radius: 50%;
+  text-align : center;
+  opacity : 0.7;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.custom_overlay:hover {
+  cursor: pointer;
+  transition: all 0.2s;
+  opacity: 1;
+}
+
+.level1 {
+  width : 75px;
+  height: 75px;
+  font-size: 24px;
+}
+
+.level2 {
+  width : 65px;
+  height: 65px;
+  font-size: 22px;
+
+}
+
+.level3 {
+  width :55px;
+  height: 55px;
+  font-size: 18px;
+}
+
+.level4 {
+  width :45px;
+  height: 45px;
+}
+
+.level6 {
+  width :35px;
+  height: 35px;
+  font-size: 12px;
+}
+
+.level7 {
+  width :25px;
+  height: 25px;
+  font-size: 12px;
+}
