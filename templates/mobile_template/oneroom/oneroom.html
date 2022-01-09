@@ -1,10 +1,11 @@
 {% extends 'mobile_template/base.html' %}
+{% load static %}
 {% block content %}
     <div class="oneRoomPage">
         <header class="paddingBox">
             <h1>
                 <a href="#">
-                    <img src="../../../static/mobile/images/logo.png" alt="toch logo">
+                    <img src="{% static 'mobile/images/logo.png' %}" alt="toch logo">
                 </a>
             </h1>
             <div class="btnArea">
@@ -166,8 +167,8 @@
         </div>
     </div>
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98a0001a3486109fd99e7a58b946cfbe&libraries=clusterer,services"></script>
-    <script src="../../../static/mobile/js/map.js"></script>
-    <script src="../../../static/mobile/js/marker.js"></script>
+    <script src="{% static 'mobile/js/map.js' %}"></script>
+    <script src="{% static 'js/marker.js' %}"></script>
     <script>
         // 마커들을 담을 배열
         let markers = [];
@@ -198,5 +199,5 @@
 
         addAllMarkers();
     </script>
-    <script src="../../../static/mobile/js/toggle.js"></script>
+    <script src="{% static 'mobile/js/toggle.js' %}"></script>
 {% endblock %}

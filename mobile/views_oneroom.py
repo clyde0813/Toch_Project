@@ -12,8 +12,10 @@ def oneroom_list(request):
     return render(request, 'mobile_template/oneroom/oneroom_list.html', context)
 
 
-def oneroom_detail(request):
-    return render(request, 'mobile_template/oneroom/oneroom_detail.html')
+def oneroom_detail(request, num):
+    data = Post.objects.filter(id=num)
+    context = {'data' : data}
+    return render(request, 'mobile_template/oneroom/oneroom_detail.html', context)
 
 
 def oneroom_forSale(request):

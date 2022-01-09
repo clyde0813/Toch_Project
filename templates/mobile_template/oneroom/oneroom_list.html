@@ -1,147 +1,89 @@
 {% extends 'mobile_template/base.html' %}
+{% load static %}
 {% block content %}
-<div class="oneRoomPage">
-    <header class="paddingBox">
-        <h1>
-            <a href="#">
-                <img src="../../../static/mobile/images/logo.png" alt="toch logo">
-            </a>
-        </h1>
-        <div class="btnArea">
-            <button class="imgBox" data-click="gnbSearchBox">
-                검색버튼
-            </button>
-            <button class="imgBox">
-                인기버튼
-            </button>
-            <button class="imgBox">
-                ??버튼
-            </button>
-        </div>
-        <div class="gnbSearchBox paddingBox">
-            <input type="search" placeholder="검색어를 입력하세요">
-            <button class="imgBox">
-                검색버튼
-            </button>
-            <button class="imgBox close">
-                검색 닫기 버튼
-            </button>
-        </div>
-    </header>
-
-    <div class="listArea">
-        <div class="inputArea">
-            <div class="seachBox">
-                <input type="search">
-                <button>검색버튼</button>
+    <div class="oneRoomPage">
+        <header class="paddingBox">
+            <h1>
+                <a href="#">
+                    <img src="{% static 'mobile/images/logo.png' %}" alt="toch logo">
+                </a>
+            </h1>
+            <div class="btnArea">
+                <button class="imgBox" data-click="gnbSearchBox">
+                    검색버튼
+                </button>
+                <button class="imgBox">
+                    인기버튼
+                </button>
+                <button class="imgBox">
+                    ??버튼
+                </button>
             </div>
-            <button data-popup="filter_box">필터</button>
-            <button data-popup="AI_box">AI 추천</button>
-        </div>
-        <ul class="paddingBox2">
-            <li class="oneRoomList">
-                <a href="#">
-                    <div class="imgBox" style="background-image: url('../../../static/mobile/images/oneRoomList.png');">
-                        월세 이미지
-                    </div>
-                    <div class="textArea">
-                        <strong>
-                            <small>원룸</small>
-                            월세 1000/55
-                        </strong>
-                        <p>3층 8평 관리비 8만원</p>
-                        <p>서울특별시 서초구 서초동 1603-80</p>
-                        <div>
-                            <span>원룸</span>
-                            <span>공대근처</span>
-                            <span>다이소근처</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="oneRoomList">
-                <a href="#">
-                    <div class="imgBox" style="background-image: url('../../../static/mobile/images/oneRoomList.png');">
-                        월세 이미지
-                    </div>
-                    <div class="textArea">
-                        <strong>
-                            <small>원룸</small>
-                            월세 1000/55
-                        </strong>
-                        <p>3층 8평 관리비 8만원</p>
-                        <p>서울특별시 서초구 서초동 1603-80</p>
-                        <div>
-                            <span>원룸</span>
-                            <span>공대근처</span>
-                            <span>다이소근처</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="oneRoomList">
-                <a href="#">
-                    <div class="imgBox" style="background-image: url('../../../static/mobile/images/oneRoomList.png');">
-                        월세 이미지
-                    </div>
-                    <div class="textArea">
-                        <strong>
-                            <small>원룸</small>
-                            월세 1000/55
-                        </strong>
-                        <p>3층 8평 관리비 8만원</p>
-                        <p>서울특별시 서초구 서초동 1603-80</p>
-                        <div>
-                            <span>원룸</span>
-                            <span>공대근처</span>
-                            <span>다이소근처</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="oneRoomList">
-                <a href="#">
-                    <div class="imgBox" style="background-image: url('../../../static/mobile/images/oneRoomList.png');">
-                        월세 이미지
-                    </div>
-                    <div class="textArea">
-                        <strong>
-                            <small>원룸</small>
-                            월세 1000/55
-                        </strong>
-                        <p>3층 8평 관리비 8만원</p>
-                        <p>서울특별시 서초구 서초동 1603-80</p>
-                        <div>
-                            <span>원룸</span>
-                            <span>공대근처</span>
-                            <span>다이소근처</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="oneRoomList">
-                <a href="#">
-                    <div class="imgBox" style="background-image: url('../../../static/mobile/images/oneRoomList.png');">
-                        월세 이미지
-                    </div>
-                    <div class="textArea">
-                        <strong>
-                            <small>원룸</small>
-                            월세 1000/55
-                        </strong>
-                        <p>3층 8평 관리비 8만원</p>
-                        <p>서울특별시 서초구 서초동 1603-80</p>
-                        <div>
-                            <span>원룸</span>
-                            <span>공대근처</span>
-                            <span>다이소근처</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-        </ul>
+            <div class="gnbSearchBox paddingBox">
+                <input type="search" placeholder="검색어를 입력하세요">
+                <button class="imgBox">
+                    검색버튼
+                </button>
+                <button class="imgBox close">
+                    검색 닫기 버튼
+                </button>
+            </div>
+        </header>
 
-        <a href="#" class="fixedLink">MAP</a>
+        <div class="listArea">
+            <div class="inputArea">
+                <div class="seachBox">
+                    <input type="search">
+                    <button>검색버튼</button>
+                </div>
+                <button data-popup="filter_box">필터</button>
+                <button data-popup="AI_box">AI 추천</button>
+            </div>
+            <ul class="paddingBox2">
+                {% for i in data %}
+                    <li class="oneRoomList">
+                        <a href="{% url 'mobile:oneroom_detail' i.id %}">
+                            <div class="imgBox"
+                                 style="background-image: url('{{ i.file_set.first.file.url }}');">
+                                월세 이미지
+                            </div>
+                            <div class="textArea">
+                                <strong>
+                                    <small>{{ i.title }}</small>
+                                    {% if i.deposit %}
+                                        보증금 {{ i.deposit }}만원 월세 {{ i.rent_amount }}만원
+                                    {% else %}
+                                        월세 비공개/비공개
+                                    {% endif %}
+                                </strong>
+                                <p>
+                                    {% if i.status_set.last.remain %}
+                                        남은 방 : {{ i.status_set.last.remain }}
+                                    {% else %}
+                                        남은 방 : 비공개
+                                    {% endif %}
+                                    /
+                                    {% if i.dedicated_area %}
+                                        면적 : {{ i.dedicated_area }}평
+                                    {% else %}
+                                        면적 : 비공개
+                                    {% endif %}
+                                </p>
+                                <p>{{ i.address }}</p>
+                                <div>
+                                    {% if i.status_set.last.hashtag1 %}
+                                        <span>{{ i.status_set.last.hashtag1 }}</span>
+                                        <span>{{ i.status_set.last.hashtag2 }}</span>
+                                        <span>{{ i.status_set.last.hashtag3 }}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <a href="#" class="fixedLink">MAP</a>
+        </div>
     </div>
-</div>
 {% endblock %}

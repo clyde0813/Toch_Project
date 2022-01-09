@@ -28,7 +28,7 @@ class Post(models.Model):
     # 연세 가격
     year_amount = models.IntegerField(blank=True, null=True)
     # 면적
-    dedicated_area = models.FloatField(blank=True, null=True)
+    dedicated_area = models.IntegerField(blank=True, null=True)
     # 주차가능여부
     parking = models.IntegerField(blank=True, null=True)
     # 엘레베이터 여부
@@ -70,3 +70,11 @@ class File(models.Model):
     create_date = models.DateField()
     modify_date = models.DateField(blank=True, null=True)
     rep = models.BooleanField(blank=True, null=True)
+
+
+class Post_Status(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="status_set")
+    remain = models.IntegerField(blank=True, null=True)
+    hashtag1 = models.TextField(blank=True, null=True)
+    hashtag2 = models.TextField(blank=True, null=True)
+    hashtag3 = models.TextField(blank=True, null=True)
