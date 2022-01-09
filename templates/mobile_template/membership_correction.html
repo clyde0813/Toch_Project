@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iphone 모바일 확대 방지 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0"">
+    <title>회원가입 수정 - toch</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- 공통 script -->
+    <script src="js/com.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="css/import.css">
+</head>
+<body>
+    <div class="membershipPage">
+        <header class="paddingBox">
+            <h1>
+                <a href="#">
+                    <img src="images/logo.png" alt="toch logo">
+                </a>
+            </h1>
+            <div class="btnArea">
+                <button class="imgBox" data-click="gnbSearchBox">
+                    검색버튼
+                </button>
+                <button class="imgBox">
+                    인기버튼
+                </button>
+                <button class="imgBox">
+                    ??버튼
+                </button>
+            </div>
+            <div class="gnbSearchBox paddingBox">
+                <input type="search" placeholder="검색어를 입력하세요">
+                <button class="imgBox">
+                    검색버튼
+                </button>
+                <button class="imgBox close">
+                    검색 닫기 버튼
+                </button>
+            </div>
+        </header>
+
+        <div class="correctionArea paddingBox">
+            <div class="linkBox">
+                <a href="#" class="backLink">뒤로가기</a>
+                <p>Toch 정보 입력</p>
+            </div>
+            <form>
+                <fieldset>
+                    <ul>
+                        <li>
+                            <label for="">아이디</label>
+                            <div>
+                                <input type="text" placeholder="홍길동">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">비밀번호</label>
+                            <div>
+                                <input type="text" placeholder="********">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">비밀번호 확인</label>
+                            <div>
+                                <input type="text" placeholder="">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">이름</label>
+                            <div>
+                                <input type="text" placeholder="이름을 입력해 주세요">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">생년월일</label>
+                            <div>
+                                <input type="text" placeholder="010 - 1234 - 1234">
+                                <select>
+                                    <option value="">월</option>
+                                </select>
+                                <select>
+                                    <option value="">일</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">성별</label>
+                            <div>
+                                <select>
+                                    <option value="">남</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">전화번호 (선택) </label>
+                            <div>
+                                <input type="text" placeholder="전호 번호를 입력해 주세요">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">이메일 주소</label>
+                            <div class="addressInput">
+                                <input type="text" placeholder="전남 무안군 청계면 영산로 1666">
+                                <button>인증번호 받기</button>
+                                <input type="text" placeholder="인증번호를 입력해주세요">
+                            </div>
+                        </li>
+                    </ul>
+                    <input type="submit" value="확인">
+                </fieldset>
+            </form>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">원룸</a></li>
+                <li><a href="#">중고</a></li>
+                <li class="home"><a href="#">홈</a></li>
+                <li><a href="#">커뮤니티</a></li>
+                <li class="active"><a href="#">마이</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

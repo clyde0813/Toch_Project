@@ -32,6 +32,7 @@ SECRET_KEY = 'django-insecure-=@mny3bnasw-35c6%0_zrh0y-h7ok^^*@tikp1g&wa!$o!(#4u
 INSTALLED_APPS = [
     'Toch',
     'api',
+    'django_hosts',
     'rest_framework',
     'community.apps.CommunityConfig',
     'common.apps.CommonConfig',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django_hosts.middleware.HostsRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,7 +55,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_hosts.middleware.HostsResponseMiddleware',
 ]
+
+SITE_ID = 1
+ROOT_HOSTCONF = 'Toch.hosts'
+ROOT_URLCONF = 'Toch.urls'
+DEFAULT_HOST = 'www'
 
 CORS_ORIGIN_ALLOW_ALL = True
 

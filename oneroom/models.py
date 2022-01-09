@@ -7,8 +7,6 @@ from django.db import models
 class Post(models.Model):
     # 작성자
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    # 작성자 IP
-    author_ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=False, blank=True, null=True)
     # 작성일자
     create_date = models.DateTimeField()
     # 수정일자
@@ -27,28 +25,22 @@ class Post(models.Model):
     rent_type = models.TextField(blank=True, null=True)
     # 전월세 가격
     rent_amount = models.IntegerField(blank=True, null=True)
-    # 전용 면적
+    # 연세 가격
+    year_amount = models.IntegerField(blank=True, null=True)
+    # 면적
     dedicated_area = models.FloatField(blank=True, null=True)
-    # 공용 면적
-    common_area = models.FloatField(blank=True, null=True)
     # 주차가능여부
     parking = models.IntegerField(blank=True, null=True)
     # 엘레베이터 여부
     elevator = models.IntegerField(blank=True, null=True)
-    # 입주가능일
-    moving_date = models.DateField(blank=True, null=True)
     # 방개수
     room_num = models.IntegerField(blank=True, null=True)
-    # 방향
-    direction = models.TextField(blank=True, null=True)
     # 화장실 개수
     toilet_num = models.IntegerField(blank=True, null=True)
     # 준공날짜
     construction_date = models.DateTimeField(blank=True, null=True)
     # 전체 층
     floor_total = models.IntegerField(blank=True, null=True)
-    # 매물 층
-    floor_num = models.IntegerField(blank=True, null=True)
     # 위도
     latitude = models.FloatField(blank=True, null=True)
     # 경도
@@ -77,3 +69,4 @@ class File(models.Model):
     file = models.FileField(upload_to='oneroom/post')
     create_date = models.DateField()
     modify_date = models.DateField(blank=True, null=True)
+    rep = models.BooleanField(blank=True, null=True)
