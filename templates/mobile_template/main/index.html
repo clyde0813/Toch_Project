@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,16 +11,16 @@
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- 공통 script -->
-    <script src="js/com.js"></script>
+    <script src="{% static 'mobile/js/com.js' %}"></script>
     <!-- css -->
-    <link rel="stylesheet" href="css/import.css">
+    <link rel="stylesheet" href="{% static 'mobile/css/import.css' %}">
 </head>
 <body>
     <div class="mainPage">
         <header class="paddingBox">
             <h1>
                 <a href="#">
-                    <img src="images/logo.png" alt="toch logo">
+                    <img src="../../../static/mobile/images/logo.png" alt="toch logo">
                 </a>
             </h1>
             <div class="btnArea">
@@ -76,7 +77,7 @@
             </section>
 
             <div class="mainBannerArea">
-                <img src="images/main_banner01.png" alt="라포르테블랑 서현 강남역 30분 역세권!">
+                <img src="../../../static/mobile/images/main_banner01.png" alt="라포르테블랑 서현 강남역 30분 역세권!">
             </div>
             
             <section class="boardBox">
@@ -212,7 +213,7 @@
                     <ul>
                         <li>
                             <a href="#">
-                                <div class="imgBox" style="background-image: url(images/main_img01.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img01.png);">
                                     행복빌라 A동 이미지
                                 </div>
                                 <div class="textArea">
@@ -225,7 +226,7 @@
                         </li>
                         <li>
                             <a href="#">
-                                <div class="imgBox" style="background-image: url(images/main_img01.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img01.png);">
                                     행복빌라 A동 이미지
                                 </div>
                                 <div class="textArea">
@@ -238,7 +239,7 @@
                         </li>
                         <li>
                             <a href="#">
-                                <div class="imgBox" style="background-image: url(images/main_img01.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img01.png);">
                                     행복빌라 A동 이미지
                                 </div>
                                 <div class="textArea">
@@ -251,7 +252,7 @@
                         </li>
                         <li>
                             <a href="#">
-                                <div class="imgBox" style="background-image: url(images/main_img01.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img01.png);">
                                     행복빌라 A동 이미지
                                 </div>
                                 <div class="textArea">
@@ -271,7 +272,7 @@
                 <ul>
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(images/main_img02.png);">
+                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img02.png);">
                                 인기 원룸 이미지
                             </div>
                             <div class="textArea">
@@ -283,7 +284,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(images/main_img02.png);">
+                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img02.png);">
                                 인기 원룸 이미지
                             </div>
                             <div class="textArea">
@@ -295,7 +296,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(images/main_img02.png);">
+                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img02.png);">
                                 인기 원룸 이미지
                             </div>
                             <div class="textArea">
@@ -307,7 +308,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(images/main_img02.png);">
+                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img02.png);">
                                 인기 원룸 이미지
                             </div>
                             <div class="textArea">
@@ -325,7 +326,7 @@
                 <ul class="usedBox">
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(images/main_img03.png);">
+                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img03.png);">
                                 아이패드 프로 11인치
                             </div>
                             <div class="textArea">
@@ -354,7 +355,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(images/main_img03.png);">
+                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img03.png);">
                                 아이패드 프로 11인치
                             </div>
                             <div class="textArea">
@@ -383,7 +384,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(images/main_img03.png);">
+                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img03.png);">
                                 아이패드 프로 11인치
                             </div>
                             <div class="textArea">
@@ -412,7 +413,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <div class="imgBox" style="background-image: url(images/main_img03.png);">
+                            <div class="imgBox" style="background-image: url(../../../static/mobile/images/main_img03.png);">
                                 아이패드 프로 11인치
                             </div>
                             <div class="textArea">

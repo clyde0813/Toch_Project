@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Iphone 모바일 확대 방지 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0"">
-    <title>커뮤니티 작성 - toch</title>
+    <title>원룸 리뷰 작성 - toch</title>
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- 공통 script -->
-    <script src="js/com.js"></script>
+    <script src="../../../static/mobile/js/com.js"></script>
     <!-- css -->
-    <link rel="stylesheet" href="css/import.css">
+    <link rel="stylesheet" href="../../../static/mobile/css/import.css">
 </head>
 <body>
-    <div class="communityPage">
+    <div class="oneRoomPage">
         <header class="paddingBox">
             <h1>
                 <a href="#">
-                    <img src="images/logo.png" alt="toch logo">
+                    <img src="../../../static/mobile/images/logo.png" alt="toch logo">
                 </a>
             </h1>
             <div class="btnArea">
@@ -44,12 +44,12 @@
             </div>
         </header>
 
-        <div class="writeBox">
+        <div class="reviewArea writeBox">
             <form>
                 <fieldset>
                     <div class="btnArea paddingBox">
                         <input type="reset" value="취소">
-                        <input type="submit" value="등록" data-popup="warn_popup">
+                        <input type="submit" value="등록">
                     </div>
                     <div class="imgArea paddingBox2">
                         <b>사진 2/10</b>
@@ -57,57 +57,51 @@
                             <div class="fileArea">
                                 <input type="file">
                                 <label for="">+</label>
-                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
                                     <button class="removeBtn">-</button>
                                 </div>
-                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
                                     <button class="removeBtn">-</button>
                                 </div>
-                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
                                     <button class="removeBtn">-</button>
                                 </div>
-                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
                                     <button class="removeBtn">-</button>
                                 </div>
-                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
                                     <button class="removeBtn">-</button>
                                 </div>
-                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
                                     <button class="removeBtn">-</button>
                                 </div>
-                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
                                     <button class="removeBtn">-</button>
                                 </div>
-                                <div class="imgBox" style="background-image: url(images/registrationImg.png);">
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
                                     <button class="removeBtn">-</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="productArea paddingBox">
-                        <input type="text" placeholder="상품 이름">
-                        <input type="text" placeholder="₩ 판매 가격">
+                    <div class="scopeArea paddingBox2">
+                        <img src="../../../static/mobile/images/filledStar.png" alt="">
+                        <img src="../../../static/mobile/images/filledStar.png" alt="">
+                        <img src="../../../static/mobile/images/filledStar.png" alt="">
+                        <img src="../../../static/mobile/images/filledStar.png" alt="">
+                        <img src="../../../static/mobile/images/emptyStar.png" alt="">
                     </div>
-
                     <textarea placeholder="리뷰를 작성해 주세요" class="paddingBox2"></textarea>
                 </fieldset>
             </form>
         </div>
 
-        <div class="warn_popup">
-            <div class="paddingBox2">
-                제목이 없습니다. 경고문자 입력
-                <button class="imgBox">닫기</button>
-            </div>
-        </div>
-
         <nav>
             <ul>
-                <li><a href="#">원룸</a></li>
+                <li class="active"><a href="#">원룸</a></li>
                 <li><a href="#">중고</a></li>
                 <li class="home"><a href="#">홈</a></li>
-                <li class="active"><a href="#">커뮤니티</a></li>
+                <li><a href="#">커뮤니티</a></li>
                 <li><a href="#">마이</a></li>
             </ul>
         </nav>
