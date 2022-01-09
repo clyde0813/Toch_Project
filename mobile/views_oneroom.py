@@ -22,3 +22,9 @@ def oneroom_detail(request, num):
 
 def oneroom_forSale(request):
     return render(request, 'mobile_template/oneroom/oneroom_forSale.html')
+
+
+def oneroom_edit(request):
+    data = Post_Status.objects.all()
+    context = {'data': data}
+    return render(request, 'mobile_template/oneroom/oneroom_edit.html', context)

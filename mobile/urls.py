@@ -8,4 +8,5 @@ urlpatterns = [
     path('oneroom/', views.oneroom_index, name='oneroom_index'),
     path('onroom/list', views.oneroom_list, name='oneroom_list'),
     path('oneroom/detail/<int:num>', views.oneroom_detail, name='oneroom_detail'),
+    path('oneroom/edit', views.oneroom_edit, name='oneroom_edit')
 ]

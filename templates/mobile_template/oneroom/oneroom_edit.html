@@ -1,0 +1,35 @@
+{% extends 'mobile_template/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="oneRoomPage">
+        <header class="paddingBox">
+            <h1>
+                <a href="#">
+                    <img src="{% static 'mobile/images/logo.png' %}" alt="toch logo">
+                </a>
+            </h1>
+            <div class="btnArea">
+                <button class="imgBox" data-click="gnbSearchBox">
+                    검색버튼
+                </button>
+                <button class="imgBox">
+                    인기버튼
+                </button>
+                <button class="imgBox">
+                    ??버튼
+                </button>
+            </div>
+        </header>
+        <div class="oneRoomArea">
+            <select name="title" onchange="inputChange(this.value)">
+                {% for i in data %}
+                    <option value="{{ i.id }}">{{ i.post }}</option>
+                {% endfor %}
+            </select>
+            <input type="text">
+            <label>남은 방 개수</label>
+            <input type="text" id="remain" value="">
+        </div>
+    </div>
+
+{% endblock %}
