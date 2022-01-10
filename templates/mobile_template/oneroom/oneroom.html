@@ -117,18 +117,13 @@
                     rent_amount: '{{ i.rent_amount }}',
                     deposit: '{{ i.deposit }}',
                     latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
-                    main_img: '{{ i.file_set.first.file.url }}',
+                    main_img: '{{ i.file_set.last.file.url }}',
                     floor_num: '{{ i.floor_num }}',
                     common_area: '{{ i.common_area }}',
                     address: '{{ i.address }}',
                     manage_amount: '{{ i.manage_amount }}',
-<<<<<<< Updated upstream
-                    remain : '{{ i.status_set.last.remain }}',
-                    dedicated_area : '{{ i.dedicated_area }}',
-=======
                     dedicated_area : '{{ i.dedicated_area }}',
                     remain : '{{ i.status_set.last.remain }}',
->>>>>>> Stashed changes
                     hashtag1 : '{{ i.status_set.last.hashtag1 }}',
                     hashtag2 : '{{ i.status_set.last.hashtag2 }}',
                     hashtag3 : '{{ i.status_set.last.hashtag3 }}',
