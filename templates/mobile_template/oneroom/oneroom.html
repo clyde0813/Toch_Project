@@ -122,11 +122,11 @@
                     common_area: '{{ i.common_area }}',
                     address: '{{ i.address }}',
                     manage_amount: '{{ i.manage_amount }}',
-                    remain : '{{ i.remain }}',
-                    {#dedicated_area : {{ i.dedicated_area }},#}
-                    {#hashtag1 : ({{ i.hashtag1 }}),#}
-                    {#hashtag2 : {{ i.hashtag2 }},#}
-                    {#hashtag3 : {{ i.hashtag3 }},#}
+                    remain : '{{ i.status_set.last.remain }}',
+                    dedicated_area : '{{ i.dedicated_area }}',
+                    hashtag1 : '{{ i.status_set.last.hashtag1 }}',
+                    hashtag2 : '{{ i.status_set.last.hashtag2 }}',
+                    hashtag3 : '{{ i.status_set.last.hashtag3 }}',
                 })
             {% endfor %}
         {% endif %}
