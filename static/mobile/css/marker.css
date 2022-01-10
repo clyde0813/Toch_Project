@@ -14,6 +14,7 @@
 }
 
 .custom_overlay:hover {
+  border : 1px solid black;
   cursor: pointer;
   transition: all 0.2s;
   opacity: 1;
