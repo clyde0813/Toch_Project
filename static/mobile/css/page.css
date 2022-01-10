@@ -99,7 +99,7 @@
 
 /* 원룸페이지 */
 .oneRoomArea{height: 100vh; display: flex; flex-direction: column; position: relative; box-sizing: border-box;} 
-.oneRoomList{margin : 2px 10px}
+.oneRoomList{margin : 2px 10px; list-style: none; padding-top: 15px;}
 .oneRoomArea .kakao_map {flex: 1;}
 
 /* 원룸 팝업 */
