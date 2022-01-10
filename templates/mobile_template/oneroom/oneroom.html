@@ -23,8 +23,8 @@
         <div class="oneRoomArea">
             <div class="inputArea">
                 <div class="seachBox">
-                    <input type="search">
-                    <button>검색버튼</button>
+                    <input type="search" placeholder=" 원룸 이름 검색." class="mobile_oneroom_search_box" style="font-size: 1.4rem">
+                    <button class="mobile_oneroom_search_btn">검색버튼</button>
                 </div>
 
                 <!-- 필터 -->
@@ -122,8 +122,13 @@
                     common_area: '{{ i.common_area }}',
                     address: '{{ i.address }}',
                     manage_amount: '{{ i.manage_amount }}',
+<<<<<<< Updated upstream
                     remain : '{{ i.status_set.last.remain }}',
                     dedicated_area : '{{ i.dedicated_area }}',
+=======
+                    dedicated_area : '{{ i.dedicated_area }}',
+                    remain : '{{ i.status_set.last.remain }}',
+>>>>>>> Stashed changes
                     hashtag1 : '{{ i.status_set.last.hashtag1 }}',
                     hashtag2 : '{{ i.status_set.last.hashtag2 }}',
                     hashtag3 : '{{ i.status_set.last.hashtag3 }}',

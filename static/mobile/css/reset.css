@@ -73,6 +73,8 @@ input[type="search"]::-webkit-search-results-decoration{
     display:none;
 }
 
+input:focus, select:focus, textarea:focus { outline-color: #ff9900; }
+
 a{text-decoration: none; color: black; display: inline-block;}
 
 button{background-color: transparent; border: none; cursor: pointer;}
