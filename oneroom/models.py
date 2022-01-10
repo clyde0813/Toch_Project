@@ -57,13 +57,6 @@ class Post(models.Model):
         verbose_name_plural = "매물 이름"
 
 
-class Attribution(models.Model):
-    post = models.TextField()
-    A = models.IntegerField(blank=True, null=True)
-    B = models.IntegerField(blank=True, null=True)
-    C = models.IntegerField(blank=True, null=True)
-
-
 class File(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="file_set")
     file = models.FileField(upload_to='oneroom/post')

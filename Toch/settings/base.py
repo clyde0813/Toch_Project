@@ -31,9 +31,7 @@ SECRET_KEY = 'django-insecure-=@mny3bnasw-35c6%0_zrh0y-h7ok^^*@tikp1g&wa!$o!(#4u
 
 INSTALLED_APPS = [
     'Toch',
-    'api',
     'django_hosts',
-    'rest_framework',
     'community.apps.CommunityConfig',
     'common.apps.CommonConfig',
     'oneroom.apps.OneroomConfig',
