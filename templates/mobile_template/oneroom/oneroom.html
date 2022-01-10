@@ -137,12 +137,9 @@
         // 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'zoom_changed', function () {
             let level = map.getLevel();
+            console.log("level : ",level);
             current_markers.map(marker => marker.cc.className = `custom_overlay level${level}`);
         });
-
-        if(list_container.className.includes('showing')) {
-            console.log('xxxx');
-        }
     </script>
 
 {% endblock %}
