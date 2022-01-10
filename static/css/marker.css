@@ -8,8 +8,9 @@
   border-radius: 50%;
   text-align : center;
   opacity : 0.7;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
+  transform: translateY(120%);
 }
 
 .custom_overlay:hover {
