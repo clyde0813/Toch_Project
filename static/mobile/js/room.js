@@ -1,6 +1,6 @@
-function mobileRenderRoom(info) {
+function mobileRenderRoom(info, ul=oneroom_list_ul) {
   const roomInfo = mobileRoomTemplate(info);
-  oneroom_list_ul.insertAdjacentHTML('beforeend', roomInfo);
+  ul.insertAdjacentHTML('beforeend', roomInfo);
 }
 
 function mobileRenderAllRoom() {
@@ -41,9 +41,9 @@ function mobileRoomTemplate(info) {
     );
 }
 
-function mobileRemoveAllRoom() {
-  while(oneroom_list_ul.firstChild) {
-    oneroom_list_ul.removeChild(oneroom_list_ul.firstChild);
+function mobileRemoveAllRoom(ul=oneroom_list_ul) {
+  while(ul.firstChild) {
+    ul.removeChild(ul.firstChild);
   }
 }
 
