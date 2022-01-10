@@ -48,9 +48,11 @@
                                         <li>
                                             <label>외향/내향</label>
                                             <div>
-                                                <input type="radio" id="personality_yes" class="ai_answer" name="personality" value="1">
+                                                <input type="radio" id="personality_yes" class="ai_answer"
+                                                       name="personality" value="1">
                                                 <label for="personality_yes">Yes</label>
-                                                <input type="radio" id="personality_no" class="ai_answer" name="personality" value="0">
+                                                <input type="radio" id="personality_no" class="ai_answer"
+                                                       name="personality" value="0">
                                                 <label for="personality_no">No</label>
                                             </div>
                                         </li>
@@ -146,12 +148,12 @@
                     rent_amount: '{{ i.rent_amount }}',
                     deposit: '{{ i.deposit }}',
                     latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
-                    main_img: '{{ i.file_set.first.file.url }}',
+                    main_img: '{{ i.file_set.last.file.url }}',
                     floor_num: '{{ i.floor_num }}',
                     common_area: '{{ i.common_area }}',
                     address: '{{ i.address }}',
                     manage_amount: '{{ i.manage_amount }}',
-                    remain: '{{ i.remain }}',
+                    remain: '{{ i.status_set.last.remain }}',
                 })
             {% endfor %}
         {% endif %}
@@ -271,9 +273,15 @@
             const personality = document.getElementsByName('personality');
             const userAi = {};
 
-            Array(pet).map(q => { if(q.checked) userAi['A'] = q.value; });
-            Array(car).map(q => { if(q.checked) userAi['B'] = q.value; });
-            Array(personality).map(q => { if(q.checked) userAi['C'] = q.value; });
+            Array(pet).map(q => {
+                if (q.checked) userAi['A'] = q.value;
+            });
+            Array(car).map(q => {
+                if (q.checked) userAi['B'] = q.value;
+            });
+            Array(personality).map(q => {
+                if (q.checked) userAi['C'] = q.value;
+            });
 
             return userAi
         }
@@ -300,21 +308,21 @@
         // JSON 데이터 받아오는 함수
         function fetchData(userPreference) {
             fetch('https://toch.kr/api/oneroom/')
-            .then(response => response.json())
-            .then(data => {
-                removeAllMarkers();
-                removeAllRooms();
-                let arith_result = arithmeticMean(data, userPreference);
-                for(let i=0; i<3; i++) {
-                    for(let j=0; j<positions.length; j++) {
-                        if(positions[j].id === Number(arith_result[i])) {
-                            renderRoom(positions[j]);
-                            addMarker(positions[j]);
+                .then(response => response.json())
+                .then(data => {
+                    removeAllMarkers();
+                    removeAllRooms();
+                    let arith_result = arithmeticMean(data, userPreference);
+                    for (let i = 0; i < 3; i++) {
+                        for (let j = 0; j < positions.length; j++) {
+                            if (positions[j].id === Number(arith_result[i])) {
+                                renderRoom(positions[j]);
+                                addMarker(positions[j]);
+                            }
                         }
                     }
-                }
-            })
-            .catch(err => console.log('Error Message : ' + err));
+                })
+                .catch(err => console.log('Error Message : ' + err));
         }
 
         // 필터  eventHandler
@@ -455,7 +463,7 @@
         filter_reset_btn.addEventListener('click', e => {
             e.preventDefault();
             // 이미 초기화 상태일 경우 early return
-            if(!isFilterChange) {
+            if (!isFilterChange) {
                 return;
             }
             isFilterChange = false;
