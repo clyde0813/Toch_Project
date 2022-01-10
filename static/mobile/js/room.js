@@ -15,7 +15,7 @@ function mobileRoomTemplate(info) {
         <a href="#">
           <div
             class="imgBox"
-            style="background-image: url(${info.main_img})"
+            style="background-image: url('${info.main_img}')"
           >
             월세 이미지
           </div>
