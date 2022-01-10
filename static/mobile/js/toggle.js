@@ -19,3 +19,20 @@ $(document).ready(function () {
         })
     })
 })
+
+list_btn.addEventListener('click', showList);
+map_btn.addEventListener('click', hideList);
+
+function showList() {
+    list_container.classList.add('showing');
+    list_btn.classList.add('none');
+    map_btn.classList.remove('none');
+}
+
+function hideList() {
+    list_container.classList.remove('showing');
+    list_btn.classList.remove('none');
+    map_btn.classList.add('none');
+}
+
+

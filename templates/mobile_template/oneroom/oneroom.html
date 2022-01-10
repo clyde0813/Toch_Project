@@ -9,24 +9,14 @@
                 </a>
             </h1>
             <div class="btnArea">
-                <button class="imgBox" data-click="gnbSearchBox">
-                    검색버튼
-                </button>
-                <button class="imgBox">
-                    인기버튼
-                </button>
-                <button class="imgBox">
-                    ??버튼
-                </button>
+                <button class="imgBox" data-click="gnbSearchBox">검색버튼</button>
+                <button class="imgBox">인기버튼</button>
+                <button class="imgBox">??버튼</button>
             </div>
             <div class="gnbSearchBox paddingBox">
                 <input type="search" placeholder="검색어를 입력하세요">
-                <button class="imgBox">
-                    검색버튼
-                </button>
-                <button class="imgBox close">
-                    검색 닫기 버튼
-                </button>
+                <button class="imgBox">검색버튼</button>
+                <button class="imgBox close">검색 닫기 버튼</button>
             </div>
         </header>
 
@@ -36,74 +26,9 @@
                     <input type="search">
                     <button>검색버튼</button>
                 </div>
-                <button data-popup2="filter_box">필터</button>
-                <div class="filter_box">
-                    <form>
-                        <fieldset>
-                            <div>
-                                <button>초기화</button>
-                            </div>
-                            <ul>
-                                <li>
-                                    <label>성별</label>
-                                    <div>
-                                        <input type="radio" checked>
-                                        <label>남성</label>
-                                        <input type="radio">
-                                        <label>여성</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>나이</label>
-                                    <div>
-                                        <select>
-                                            <option value="">10~20대</option>
-                                        </select>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>단과대</label>
-                                    <div>
-                                        <input type="text">
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>반려동물</label>
-                                    <div>
-                                        <input type="radio" checked>
-                                        <label>Yes</label>
-                                        <input type="radio">
-                                        <label>No</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>자차보유</label>
-                                    <div>
-                                        <input type="radio" checked>
-                                        <label>Yes</label>
-                                        <input type="radio">
-                                        <label>No</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>mbti</label>
-                                    <div>
-                                        <select>
-                                            <option value="">ISTJ</option>
-                                        </select>
-                                    </div>
-                                </li>
-                            </ul>
-                            <button>Toch AI 추천</button>
-                            <span class="imgBox closeBtn">
-                                닫기
-                            </span>
-                        </fieldset>
-                    </form>
-                </div>
 
+                <!-- 필터 -->
                 <button data-popup2="AI_box">AI 추천</button>
-
                 <div class="AI_box">
                     <form>
                         <fieldset>
@@ -162,13 +87,22 @@
                 </div>
             </div>
             <!-- Kakao Map -->
-            <div class="kakao_map"></div>
-            <a href="{% url 'mobile:oneroom_list' %}" class="fixedLink">LIST</a>
+            <div class="kakao_map">
+                <!-- LIST -->
+                <div class="list_container">
+                    <ul class="oneroom_list_ul"></ul>
+                    <span class="fixedLink map_btn none">MAP</span>
+                </div>
+            </div>
+            <div class="fixedLink list_btn">LIST</div>
         </div>
     </div>
-    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98a0001a3486109fd99e7a58b946cfbe&libraries=clusterer,services" crossorigin="anonymous"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98a0001a3486109fd99e7a58b946cfbe&libraries=clusterer,services"></script>
     <script src="{% static 'mobile/js/map.js' %}"></script>
+    <script src="{% static 'mobile/js/index.js' %}"></script>
     <script src="{% static 'mobile/js/marker.js' %}"></script>
+    <script src="{% static 'mobile/js/toggle.js' %}"></script>
+    <script src="{% static 'mobile/js/room.js' %}"></script>
     <script>
         // 마커들을 담을 배열
         let markers = [];
@@ -188,22 +122,27 @@
                     common_area: '{{ i.common_area }}',
                     address: '{{ i.address }}',
                     manage_amount: '{{ i.manage_amount }}',
-                    room_num: '{{ i.room_num }}',
+                    remain : '{{ i.remain }}',
+                    {#dedicated_area : {{ i.dedicated_area }},#}
+                    {#hashtag1 : ({{ i.hashtag1 }}),#}
+                    {#hashtag2 : {{ i.hashtag2 }},#}
+                    {#hashtag3 : {{ i.hashtag3 }},#}
                 })
             {% endfor %}
         {% endif %}
 
-        function addAllMarkers() {
-            positions.map(room => addMarker(room));
-        }
-
         addAllMarkers();
+        mobileRenderAllRoom();
 
         // 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'zoom_changed', function () {
             let level = map.getLevel();
             current_markers.map(marker => marker.cc.className = `custom_overlay level${level}`);
         });
+
+        if(list_container.className.includes('showing')) {
+            console.log('xxxx');
+        }
     </script>
-    <script src="{% static 'mobile/js/toggle.js' %}"></script>
+
 {% endblock %}
