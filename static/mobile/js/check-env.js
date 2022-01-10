@@ -4,7 +4,7 @@ for (let word in mobileKeyWords) {
         alert("Your Browser doesn't support 'Navigator'");
     }
     if (navigator && navigator.userAgent.match(mobileKeyWords[word]) != null) {
-        window.location.href = "https://toch.kr/m/oneroom";
+        window.location.href = "https://m.toch.kr/oneroom";
         break;
     }
 }

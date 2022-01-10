@@ -63,7 +63,6 @@ DEFAULT_HOST = 'www'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-ROOT_URLCONF = 'Toch.urls'
 
 TEMPLATES = [
     {
