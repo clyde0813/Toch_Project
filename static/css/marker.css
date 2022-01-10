@@ -10,7 +10,6 @@
   opacity : 0.7;
   font-size: 14px;
   font-weight: bold;
-  transform: translateY(120%);
 }
 
 .custom_overlay:hover {
@@ -23,22 +22,38 @@
   width : 75px;
   height: 75px;
   font-size: 24px;
+  transform: translateY(120%);
+
 }
 
 .level2 {
   width : 65px;
   height: 65px;
   font-size: 22px;
-
+  transform: translateY(70%);
 }
 
 .level3 {
-  width :55px;
-  height: 55px;
+  width :50px;
+  height: 50px;
   font-size: 18px;
+  transform: translateY(20px);
 }
 
 .level4 {
   width :45px;
   height: 45px;
+  /*transform: translateY(90%);*/
+}
+
+.level6 {
+  width :35px;
+  height: 35px;
+  font-size: 12px;
+}
+
+.level7 {
+  width :25px;
+  height: 25px;
+  font-size: 12px;
 }
