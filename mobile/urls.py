@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 from . import views
 
@@ -7,4 +9,4 @@ urlpatterns = [
     path('onroom/list', views.oneroom_list, name='oneroom_list'),
     path('oneroom/detail/<int:num>', views.oneroom_detail, name='oneroom_detail'),
     path('oneroom/edit', views.oneroom_edit, name='oneroom_edit')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
