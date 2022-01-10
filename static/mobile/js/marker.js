@@ -4,7 +4,7 @@ function addMarker(info) {
     let content = document.createElement('div');
     content.classList.add('custom_overlay');
     content.setAttribute('id', info.id);
-    content.textContent = (info.remain ? info.remain : '비공개');
+    content.textContent = (info.remain !== 'None' ? info.remain : '비공개');
     content.onclick = (e) => handleMarkerClick(e, info);
 
     let marker = new kakao.maps.CustomOverlay({

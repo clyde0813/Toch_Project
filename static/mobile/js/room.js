@@ -22,17 +22,17 @@ function mobileRoomTemplate(info) {
           <div class="textArea">
             <strong>
               <small> ${info.title} </small>
-              보증금 ${info.deposit}만원 / 월세 ${info.rent_amount}만원
+              보증금 ${info.deposit !== "None" ? info.deposit : "비공개"} / 월세 ${info.rent_amount !== "None" ? info.rent_amount : "비공개"}
             </strong>
             <p>
-              남은 방 : ${info.remain}
-              면적 : ${(info.dedicated_area ? info.dedicated_area : '준비중')}평
+              남은 방 : ${info.remain !== "None" ? info.remain : "비공개"} /
+              면적 : ${info.dedicated_area !== "None" ? info.dedicated_area+"평" : "비공개"}
             </p>
             <p>${info.address}</p>
             <div>
-              <span>${(info.hashtag1 ? info.hashtag1 : '준비중')}</span>
-              <span>${(info.hashtag2 ? info.hashtag2 : '준비중')}</span>
-              <span>${(info.hashtag3 ? info.hashtag3 : '준비중')}</span>
+              <span>${(info.hashtag1 !== "None" ? info.hashtag1 : "준비중")}</span>
+              <span>${(info.hashtag2 !== "None" ? info.hashtag2 : "준비중")}</span>
+              <span>${(info.hashtag3 !== "None" ? info.hashtag3 : "준비중")}</span>
             </div>
           </div>
         </a>
