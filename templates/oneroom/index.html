@@ -151,7 +151,7 @@
                     common_area: '{{ i.common_area }}',
                     address: '{{ i.address }}',
                     manage_amount: '{{ i.manage_amount }}',
-                    room_num: '{{ i.room_num }}',
+                    remain: '{{ i.remain }}',
                 })
             {% endfor %}
         {% endif %}
@@ -174,7 +174,7 @@
         function addMarker(info) {
             let content = document.createElement('div');
             content.classList.add('custom_overlay');
-            content.textContent = info.room_num;
+            content.textContent = (info.remain ? info.remain : '비공개');
             content.onclick = () => {
                 console.log(content.className);
                 removeAllRooms();
