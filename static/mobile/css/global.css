@@ -92,7 +92,7 @@
 .oneRoomList a .textArea p:last-of-type{margin-bottom: 1rem;}
 .oneRoomList a .textArea div{display: flex; margin-bottom: 1rem;}
 .oneRoomList a .textArea div span{font-size: 1.125rem; display: inline-block; padding: 0.625rem 0.75rem;background-color: #ffefd8;
-    max-width: 50px;min-width: 50px;max-height: 10px;min-height: 10px;}
+    max-width: 50px;min-width: 50px;max-height: 10px;min-height: 10px; overflow: auto}
 .oneRoomList a .textArea div span::before{content: '#';}
 .oneRoomList a .textArea div span:not(:last-child){margin-right: 0.750rem;}
 
