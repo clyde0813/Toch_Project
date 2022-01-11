@@ -75,12 +75,6 @@
                     </li>
                     <li>
                         <dl>
-                            <dt>옵션 수</dt>
-                            <dd>???개</dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
                             <dt>건물 주차</dt>
                             <dd>{% if data.0.parking == 0 %} 불가능 {% else %} 가능 {% endif %}</dd>
                         </dl>
@@ -88,13 +82,7 @@
                     <li>
                         <dl>
                             <dt>엘리베이터</dt>
-                            <dd>{% if data.0.elevator == 0 %} 무 {% else %} 유 {% endif %}</dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>주용도</dt>
-                            <dd>???</dd>
+                            <dd>{% if data.0.elevator == 0 %} 없음 {% else %} 있음 {% endif %}</dd>
                         </dl>
                     </li>
                     <li>
@@ -109,6 +97,9 @@
             <div class="facilityBox">
                 <h3 class="paddingBox" data-click="next">옵션</h3>
                 <ul>
+{#                    {% if data.0.option != None %}#}
+{#                        <li><img src="{% static 'mobile/images/oneroom_option01.png' %}" alt="에어컨">에어컨</li>#}
+{#                    {% endif %}#}
                     <li><img src="{% static 'mobile/images/oneroom_option01.png' %}" alt="에어컨">에어컨</li>
                     <li><img src="{% static 'mobile/images/oneroom_option02.png' %}" alt="세탁기">세탁기</li>
                     <li><img src="{% static 'mobile/images/oneroom_option03.png' %}" alt="냉장고">냉장고</li>
@@ -123,6 +114,9 @@
             <div class="facilityBox">
                 <h3 class="paddingBox" data-click="next">보안/안전 시설</h3>
                 <ul>
+{#                    {% if data.0.facility != None %}#}
+{#                        <li><img src="{% static 'mobile/images/oneroom_facility01.png' %}" alt="비디오폰">비디오폰</li>#}
+{#                    {% endif %}#}
                     <li><img src="{% static 'mobile/images/oneroom_facility01.png' %}" alt="비디오폰">비디오폰</li>
                     <li><img src="{% static 'mobile/images/oneroom_facility02.png' %}" alt="공동현관">공동현관</li>
                     <li><img src="{% static 'mobile/images/oneroom_facility03.png' %}" alt="CCTV">CCTV</li>
@@ -209,7 +203,24 @@
         </div>
     </div>
     <script src="{% static 'mobile/js/oneroom-detail-modal.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script>
+        let info = [];
+        {% if data %}
+
+            info.push({
+                id: {{ data.0.id }},
+                title: '{{ data.0.title }}',
+                rent_type: '{{ data.0.rent_type }}',
+                rent_amount: '{{ data.0.rent_amount }}',
+                deposit: '{{ data.0.deposit }}',
+                main_img: '{{ data.0.file_set.last.file.url }}',
+                floor_num: '{{ data.0.floor_num }}',
+                common_area: '{{ data.0.common_area }}',
+                manage_amount: '{{ data.0.manage_amount }}',
+            })
+        {% endif %}
+
+    </script>
     <script>
         $(document).ready(function () {
             $('.oneRoomPage .detailArea .slider').bxSlider({
