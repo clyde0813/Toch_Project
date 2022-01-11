@@ -54,6 +54,7 @@
                     title: '{{ i.title }}',
                     rent_type: '{{ i.rent_type }}',
                     rent_amount: '{{ i.rent_amount }}',
+                    year_amount: '{{ i.year_amount }}',
                     deposit: '{{ i.deposit }}',
                     latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
                     main_img: '{{ i.file_set.last.file.url }}',
@@ -61,11 +62,11 @@
                     common_area: '{{ i.common_area }}',
                     address: '{{ i.address }}',
                     manage_amount: '{{ i.manage_amount }}',
-                    dedicated_area : '{{ i.dedicated_area }}',
-                    remain : '{{ i.status_set.last.remain }}',
-                    hashtag1 : '{{ i.status_set.last.hashtag1 }}',
-                    hashtag2 : '{{ i.status_set.last.hashtag2 }}',
-                    hashtag3 : '{{ i.status_set.last.hashtag3 }}',
+                    dedicated_area: '{{ i.dedicated_area }}',
+                    remain: '{{ i.status_set.last.remain }}',
+                    hashtag1: '{{ i.status_set.last.hashtag1 }}',
+                    hashtag2: '{{ i.status_set.last.hashtag2 }}',
+                    hashtag3: '{{ i.status_set.last.hashtag3 }}',
                 })
             {% endfor %}
         {% endif %}
@@ -76,7 +77,7 @@
         // 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'zoom_changed', function () {
             let level = map.getLevel();
-            console.log("level : ",level);
+            console.log("level : ", level);
             current_markers.map(marker => marker.cc.className = `custom_overlay level${level}`);
         });
     </script>

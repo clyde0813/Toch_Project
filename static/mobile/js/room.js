@@ -1,16 +1,16 @@
-function mobileRenderRoom(info, ul=oneroom_list_ul) {
-  const roomInfo = mobileRoomTemplate(info);
-  ul.insertAdjacentHTML('beforeend', roomInfo);
+function mobileRenderRoom(info, ul = oneroom_list_ul) {
+    const roomInfo = mobileRoomTemplate(info);
+    ul.insertAdjacentHTML('beforeend', roomInfo);
 }
 
 function mobileRenderAllRoom() {
-  mobileRemoveAllRoom();
-  positions.map(room => mobileRenderRoom(room));
+    mobileRemoveAllRoom();
+    positions.map(room => mobileRenderRoom(room));
 }
 
 function mobileRoomTemplate(info) {
-  return (
-    `
+    return (
+        `
       <li class="oneRoomList">
         <a href="#">
           <div
@@ -22,11 +22,11 @@ function mobileRoomTemplate(info) {
           <div class="textArea">
             <strong>
               <small> ${info.title} </small>
-              보증금 ${info.deposit !== "None" ? info.deposit : "비공개"} / 월세 ${info.rent_amount !== "None" ? info.rent_amount : "비공개"}
+                ${info.year_amount !== "None" ? "연세" : "월세"} ${info.deposit !== "None" ? info.deposit : "비공개"}/${info.rent_amount !== "None" ? info.rent_amount : info.year_amount}
             </strong>
             <p>
               남은 방 : ${info.remain !== "None" ? info.remain : "비공개"} /
-              면적 : ${info.dedicated_area !== "None" ? info.dedicated_area+"평" : "비공개"}
+              면적 : ${info.dedicated_area !== "None" ? info.dedicated_area + "평" : "비공개"}
             </p>
             <p>${info.address}</p>
             <div>
@@ -41,9 +41,9 @@ function mobileRoomTemplate(info) {
     );
 }
 
-function mobileRemoveAllRoom(ul=oneroom_list_ul) {
-  while(ul.firstChild) {
-    ul.removeChild(ul.firstChild);
-  }
+function mobileRemoveAllRoom(ul = oneroom_list_ul) {
+    while (ul.firstChild) {
+        ul.removeChild(ul.firstChild);
+    }
 }
 
