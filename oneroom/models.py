@@ -84,3 +84,4 @@ class Post_Status(models.Model):
     CCTV = models.BooleanField(blank=True, null=True)
     fireAlarm = models.BooleanField(blank=True, null=True)
     gasAlarm = models.BooleanField(blank=True, null=True)
+    like = models.IntegerField(blank=True, null=True)

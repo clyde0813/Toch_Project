@@ -8,5 +8,6 @@ urlpatterns = [
                   path('oneroom/', views.oneroom_index, name='mobile_oneroom'),
                   path('onroom/list', views.oneroom_list, name='oneroom_list'),
                   path('oneroom/detail/<int:num>', views.oneroom_detail, name='mobile_oneroom_detail'),
+                  path('oneroom/like/<int:num>', views.oneroom_like, name='mobile_oneroom_like'),
                   path('oneroom/edit', views.oneroom_edit, name='oneroom_edit')
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

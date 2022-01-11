@@ -22,8 +22,10 @@
                         비공개{% endif %}</h2>
                     <time datetime="">5일전</time>
                     <div class="iconBox">
-                        <div class="imgBox heartIcon">하트 아이콘</div>
-                        <span>10</span>
+                        <a href="{% url 'mobile_oneroom_like' data.0.id %}">
+                            <div class="imgBox heartIcon">하트 아이콘</div>
+                        </a>
+                        <span>{{ data.0.status_set.last.like }}</span>
                     </div>
                 </div>
 
