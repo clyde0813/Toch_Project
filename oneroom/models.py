@@ -65,7 +65,7 @@ class File(models.Model):
     rep = models.BooleanField(blank=True, null=True)
 
 
-class Post_Status(models.Model):
+class PostStatus(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="status_set")
     remain = models.IntegerField(blank=True, null=True)
     hashtag1 = models.TextField(blank=True, null=True)
@@ -85,3 +85,9 @@ class Post_Status(models.Model):
     fireAlarm = models.BooleanField(blank=True, null=True)
     gasAlarm = models.BooleanField(blank=True, null=True)
     like = models.IntegerField(blank=True, null=True)
+
+
+class PostLike(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='like_set')
+    ipAddress = models.GenericIPAddressField(protocol='both', unpack_ipv4=False)
+    liked_date = models.DateField(blank=True, null=True)
