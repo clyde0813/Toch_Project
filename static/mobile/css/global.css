@@ -84,14 +84,15 @@
 
 /* 원룸 리스트 */
 .oneRoomList a{display: flex; align-items: flex-end;}
-.oneRoomList a .imgBox{border: 0.063rem solid #b8b8b8; width: 18.125rem; height: 12.188rem; margin-right: 1.875rem;}
+.oneRoomList a .imgBox{border: 0.063rem solid #b8b8b8; max-width: 18.125rem; min-width: 18.125rem; height: 12.188rem; margin-right: 1.875rem;}
 /*.oneRoomList a .textArea strong { height : 11.868rem }*/
 .oneRoomList a .textArea strong{display: block; font-size: 1.550rem; font-weight: 700; margin-bottom: 0.625rem;}
 .oneRoomList a .textArea strong small{display: block; font-size: 1.250rem; color: #888888; margin-bottom: 0.625rem;}
 .oneRoomList a .textArea p{font-size: 1.150rem; line-height: 1.625rem; color: #555555;}
 .oneRoomList a .textArea p:last-of-type{margin-bottom: 1rem;}
 .oneRoomList a .textArea div{display: flex; margin-bottom: 1rem;}
-.oneRoomList a .textArea div span{font-size: 1.125rem; padding: 0.625rem 0.750rem; background-color: #ffefd8;}
+.oneRoomList a .textArea div span{font-size: 1.125rem; display: inline-block; padding: 0.625rem 0.75rem;background-color: #ffefd8;
+    max-width: 50px;min-width: 50px;max-height: 10px;min-height: 10px;}
 .oneRoomList a .textArea div span::before{content: '#';}
 .oneRoomList a .textArea div span:not(:last-child){margin-right: 0.750rem;}
 

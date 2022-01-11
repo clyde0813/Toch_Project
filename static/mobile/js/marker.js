@@ -40,6 +40,7 @@ function handleMarkerClick(e, info) {
         list_btn.classList.add('none');
         map_btn.classList.add('none');
     }
+
     mobileRemoveAllRoom(single_list_container)
     mobileRenderRoom(info, single_list_container);
     single_list_flag = e.target.id;
