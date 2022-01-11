@@ -204,26 +204,10 @@
                 <div class="modal_body">{{ data.0.owner_contact }}</div>
             </div>
         </div>
+
+        <div class="copy_modal">복사되었습니다.</div>
     </div>
     <script src="{% static 'mobile/js/oneroom-detail-modal.js' %}"></script>
-    <script>
-        let info = [];
-        {% if data %}
-
-            info.push({
-                id: {{ data.0.id }},
-                title: '{{ data.0.title }}',
-                rent_type: '{{ data.0.rent_type }}',
-                rent_amount: '{{ data.0.rent_amount }}',
-                deposit: '{{ data.0.deposit }}',
-                main_img: '{{ data.0.file_set.last.file.url }}',
-                floor_num: '{{ data.0.floor_num }}',
-                common_area: '{{ data.0.common_area }}',
-                manage_amount: '{{ data.0.manage_amount }}',
-            })
-        {% endif %}
-
-    </script>
     <script>
         $(document).ready(function () {
             $('.oneRoomPage .detailArea .slider').bxSlider({

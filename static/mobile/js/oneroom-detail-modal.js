@@ -2,6 +2,8 @@ const info_area = document.querySelector('.infoArea');
 const oneroom_detail_modal_container = document.querySelector('.oneroom_detail_modal_container');
 const modal_close_btn = document.querySelector('.modal_close_btn');
 
+const copy_modal = document.querySelector('.copy_modal');
+
 info_area.addEventListener('click', e => {
     if(e.target.className ==='contact_btn') {
         oneroom_detail_modal_container.classList.remove('none');
@@ -13,7 +15,9 @@ info_area.addEventListener('click', e => {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert('복사 되었습니다.');
+        copy_modal.classList.add('copy_message');
+        setTimeout(() => {copy_modal.classList.remove('copy_message');}, 1250);
+
     } else if (e.target.className === 'oneroom_detail_share_btn') {
         console.log('공유');
     }
