@@ -17,7 +17,9 @@
             <!-- 정보 Overview -->
             <div class="infoArea">
                 <div class="paddingBox">
-                    <h2>{{ data.0.rent_type }} {{ data.0.deposit }}/{{ data.0.rent_amount }}</h2>
+                    <h2>{{ data.0.rent_type }} {{ data.0.deposit }}/{% if data.0.rent_amount %}
+                        {{ data.0.rent_amount }}{% elif data.0.year_amount %}{{ data.0.year_amount }}{% else %}
+                        비공개{% endif %}</h2>
                     <time datetime="">5일전</time>
                     <div class="iconBox">
                         <div class="imgBox heartIcon">하트 아이콘</div>
