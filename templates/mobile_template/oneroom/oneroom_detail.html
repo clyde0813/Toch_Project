@@ -100,31 +100,51 @@
             <div class="facilityBox">
                 <h3 class="paddingBox" data-click="next">옵션</h3>
                 <ul>
-                    {#                    {% if data.0.option != None %}#}
-                    {#                        <li><img src="{% static 'mobile/images/oneroom_option01.png' %}" alt="에어컨">에어컨</li>#}
-                    {#                    {% endif %}#}
-                    <li><img src="{% static 'mobile/images/oneroom_option01.png' %}" alt="에어컨">에어컨</li>
-                    <li><img src="{% static 'mobile/images/oneroom_option02.png' %}" alt="세탁기">세탁기</li>
-                    <li><img src="{% static 'mobile/images/oneroom_option03.png' %}" alt="냉장고">냉장고</li>
-                    <li><img src="{% static 'mobile/images/oneroom_option04.png' %}" alt="책상">책상</li>
-                    <li><img src="{% static 'mobile/images/oneroom_option05.png' %}" alt="옷장">옷장</li>
-                    <li><img src="{% static 'mobile/images/oneroom_option06.png' %}" alt="신발장">신발장</li>
-                    <li><img src="{% static 'mobile/images/oneroom_option07.png' %}" alt="인덕션">인덕션</li>
-                    <li><img src="{% static 'mobile/images/oneroom_option08.png' %}" alt="전자도어락">전자도어락</li>
+                    {% if data.0.status_set.last.aircon %}
+                        <li><img src="{% static 'mobile/images/oneroom_option01.png' %}" alt="에어컨">에어컨</li>
+                    {% endif %}
+                    {% if data.0.status_set.last.washer %}
+                        <li><img src="{% static 'mobile/images/oneroom_option02.png' %}" alt="세탁기">세탁기</li>
+                    {% endif %}
+                    {% if data.0.status_set.last.refrigerator %}
+                        <li><img src="{% static 'mobile/images/oneroom_option03.png' %}" alt="냉장고">냉장고</li>
+                    {% endif %}
+                    {% if data.0.status_set.last.desk %}
+                        <li><img src="{% static 'mobile/images/oneroom_option04.png' %}" alt="책상">책상</li>
+                    {% endif %}
+                    {% if data.0.status_set.last.closet %}
+                        <li><img src="{% static 'mobile/images/oneroom_option05.png' %}" alt="옷장">옷장</li>
+                    {% endif %}
+                    {% if data.0.status_set.last.shoeCloset %}
+                        <li><img src="{% static 'mobile/images/oneroom_option06.png' %}" alt="신발장">신발장</li>
+                    {% endif %}
+                    {% if data.0.status_set.last.induction %}
+                        <li><img src="{% static 'mobile/images/oneroom_option07.png' %}" alt="인덕션">인덕션</li>
+                    {% endif %}
+                    {% if data.0.status_set.last.doorLock %}
+                        <li><img src="{% static 'mobile/images/oneroom_option08.png' %}" alt="전자도어락">전자도어락</li>
+                    {% endif %}
                 </ul>
             </div>
 
             <div class="facilityBox">
                 <h3 class="paddingBox" data-click="next">보안/안전 시설</h3>
                 <ul>
-                    {#                    {% if data.0.facility != None %}#}
-                    {#                        <li><img src="{% static 'mobile/images/oneroom_facility01.png' %}" alt="비디오폰">비디오폰</li>#}
-                    {#                    {% endif %}#}
-                    <li><img src="{% static 'mobile/images/oneroom_facility01.png' %}" alt="비디오폰">비디오폰</li>
-                    <li><img src="{% static 'mobile/images/oneroom_facility02.png' %}" alt="공동현관">공동현관</li>
-                    <li><img src="{% static 'mobile/images/oneroom_facility03.png' %}" alt="CCTV">CCTV</li>
-                    <li><img src="{% static 'mobile/images/oneroom_facility04.png' %}" alt="화재경보기">화재경보기</li>
-                    <li><img src="{% static 'mobile/images/oneroom_facility05.png' %}" alt="가스노출경보기">가스노출경보기</li>
+                    {% if data.0.status_set.last.videoPhone %}
+                        <li><img src="{% static 'mobile/images/oneroom_facility01.png' %}" alt="비디오폰">비디오폰</li>
+                    {% endif %}
+                    {% if data.0.status_set.last.entrance %}
+                        <li><img src="{% static 'mobile/images/oneroom_facility02.png' %}" alt="공동현관">공동현관</li>
+                    {% endif %}
+                    {% if data.0.status_set.last.CCTV %}
+                        <li><img src="{% static 'mobile/images/oneroom_facility03.png' %}" alt="CCTV">CCTV</li>
+                    {% endif %}
+                    {% if data.0.status_set.last.fireAlarm %}
+                        <li><img src="{% static 'mobile/images/oneroom_facility04.png' %}" alt="화재경보기">화재경보기</li>
+                    {% endif %}
+                    {% if data.0.status_set.last.gasAlarm %}
+                        <li><img src="{% static 'mobile/images/oneroom_facility05.png' %}" alt="가스노출경보기">가스노출경보기</li>
+                    {% endif %}
                 </ul>
             </div>
 
