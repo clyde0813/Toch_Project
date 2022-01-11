@@ -52,6 +52,7 @@
                 positions.push({
                     id: {{ i.id }},
                     title: '{{ i.title }}',
+                    link: '{% url 'mobile_oneroom_detail' i.id %}',
                     rent_type: '{{ i.rent_type }}',
                     rent_amount: '{{ i.rent_amount }}',
                     year_amount: '{{ i.year_amount }}',

@@ -12,7 +12,7 @@ function mobileRoomTemplate(info) {
     return (
         `
       <li class="oneRoomList">
-        <a href="#">
+        <a href="${info.link}">
           <div
             class="imgBox"
             style="background-image: url('${info.main_img}')"
