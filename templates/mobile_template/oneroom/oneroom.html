@@ -40,7 +40,7 @@
                     year_amount: '{{ i.year_amount }}',
                     deposit: '{{ i.deposit }}',
                     latlng: new kakao.maps.LatLng({{ i.latitude }}, {{ i.longitude }}), // 원룸 좌표
-                    main_img: '{{ i.file_set.last.file.url }}',
+                    main_img: '{{ i.file_set.first.file.url }}',
                     floor_num: '{{ i.floor_num }}',
                     common_area: '{{ i.common_area }}',
                     address: '{{ i.address }}',

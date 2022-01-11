@@ -7,9 +7,11 @@
     <div class="oneRoomPage">
         <section class="detailArea">
             <div class="slider">
-                <div><img src="{% static 'mobile/images/oneroom_detailSlider.png' %}" alt=""></div>
-                <div><img src="{% static 'mobile/images/oneroom_detailSlider.png' %}" alt=""></div>
-                <div><img src="{% static 'mobile/images/oneroom_detailSlider.png' %}" alt=""></div>
+                {% if data.0.file_set %}
+                    {% for i in data.0.file_set.all %}
+                        <div><img src="{{ i.file.url }}" alt=""></div>
+                    {% endfor %}
+                {% endif %}
             </div>
 
             <!-- 정보 Overview -->
