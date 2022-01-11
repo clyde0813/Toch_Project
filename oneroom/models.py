@@ -38,7 +38,7 @@ class Post(models.Model):
     # 화장실 개수
     toilet_num = models.IntegerField(blank=True, null=True)
     # 준공날짜
-    construction_date = models.DateTimeField(blank=True, null=True)
+    construction_date = models.DateField(blank=True, null=True)
     # 전체 층
     floor_total = models.IntegerField(blank=True, null=True)
     # 위도

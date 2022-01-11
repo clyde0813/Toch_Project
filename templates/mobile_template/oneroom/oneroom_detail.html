@@ -44,7 +44,7 @@
 
             <div class="infoArea">
                 <div class="paddingBox">
-                    <h2>월세 1000/55</h2>
+                    <h2>{{ data.0.rent_type }} {{ data.0.deposit }}/{{ data.0.rent_amount }}</h2>
                     <time datetime="">5일전</time>
                     <div class="iconBox">
                         <div class="imgBox heartIcon">
@@ -59,11 +59,11 @@
                     <li class="paddingBox">
                         <dl>
                             <dt>전용면적</dt>
-                            <dd>76.03m2 (N평)</dd>
+                            <dd>{{ data.0.dedicated_area }}평</dd>
                         </dl>
                         <dl>
                             <dt>관리비</dt>
-                            <dd>5만원</dd>
+                            <dd>비공개</dd>
                         </dl>
                         <button>문의하기</button>
                     </li>
@@ -71,7 +71,7 @@
                         <dl>
                             <dt>한달 예상 주거비</dt>
                             <dd>
-                                <mark>40만 원 + a</mark>
+                                <mark>???만 원 + a</mark>
                             </dd>
                         </dl>
                         <button>연락처 보기</button>
@@ -85,62 +85,56 @@
                 <ul class="detaliInfo_click paddingBox">
                     <li>
                         <dl>
-                            <dt>해당층/건물층</dt>
-                            <dd>1층 / 4층</dd>
+                            <dt>건물층</dt>
+                            <dd>{{ data.0.floor_total }}층</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>전용/공급면적</dt>
-                            <dd>120 / 30</dd>
+                            <dd>{{ data.0.dedicated_area }}평</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>방 / 욕실 수</dt>
-                            <dd>1개 / 1개</dd>
+                            <dd>{{ data.0.room_num }}개 / {{ data.0.toilet_num }}개</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>난방종류</dt>
-                            <dd>도시가스</dd>
+                            <dd>{{ data.0.gas_type }}</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>옵션 수</dt>
-                            <dd>5개</dd>
+                            <dd>???개</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
-                            <dt>건물 주차수</dt>
-                            <dd>총 4대</dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>세대당 주차수</dt>
-                            <dd>총 4대</dd>
+                            <dt>건물 주차</dt>
+                            <dd>{% if data.0.parking == 0 %} 불가능 {% else %} 가능 {% endif %}</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>엘리베이터</dt>
-                            <dd>없음</dd>
+                            <dd>{% if data.0.elevator == 0 %} 무 {% else %} 유 {% endif %}</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>주용도</dt>
-                            <dd>오피스텔</dd>
+                            <dd>???</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>완공일</dt>
-                            <dd>2019.08.11</dd>
+                            <dd>{{ data.0.construction_date }}</dd>
                         </dl>
                     </li>
                 </ul>
@@ -190,9 +184,10 @@
                                         <img src="../../../static/mobile/images/filledStar.png" alt="">
                                         <img src="../../../static/mobile/images/filledStar.png" alt="">
                                         <img src="../../../static/mobile/images/filledStar.png" alt="">
-                                        <img src="../../../static/mobile/images/emptyStar.png" alt="">
+                                        <img src="../../../static/mobile/images/filledStar.png" alt="">
+{#                                        <img src="../../../static/mobile/images/emptyStar.png" alt="">#}
                                     </div>
-                                    <p>잘 살다 갑니다.</p>
+                                    <p>예시 입니다.</p>
                                 </div>
                             </div>
                         </li>
@@ -213,13 +208,13 @@
                                         <img src="../../../static/mobile/images/filledStar.png" alt="">
                                         <img src="../../../static/mobile/images/emptyStar.png" alt="">
                                     </div>
-                                    <p>잘 살다 갑니다.</p>
+                                    <p>예시 입니다.</p>
                                 </div>
                             </div>
-                            <div class="imgBox"
-                                 style="background-image: url('../../../static/mobile/images/userRegiImg01.png');">
-                                사용자가 올린 이미지
-                            </div>
+                            {#                            <div class="imgBox"#}
+                            {#                                 style="background-image: url('../../../static/mobile/images/userRegiImg01.png');">#}
+                            {#                                사용자가 올린 이미지#}
+                            {#                            </div>#}
                         </li>
                     </ul>
 
