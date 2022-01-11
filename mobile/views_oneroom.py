@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.utils import timezone
 from django.shortcuts import render, redirect
 from oneroom.models import *
@@ -5,7 +6,7 @@ from ip_gather import get_client_ip
 
 
 def oneroom_index(request):
-    data = Post.objects.all().order_by('-status_set__like')
+    data = Post.objects.all().annotate(num_like=Count('like_set')).order_by('-num_like')
     context = {'data': data}
     return render(request, 'mobile_template/oneroom/oneroom.html', context)
 
