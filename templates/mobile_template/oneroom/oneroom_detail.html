@@ -1,64 +1,25 @@
 {% extends 'mobile_template/base.html' %}
+{% load static %}
 {% block content %}
     <div class="oneRoomPage">
-        <header class="paddingBox">
-            <h1>
-                <a href="#">
-                    <img src="../../../static/mobile/images/logo.png" alt="toch logo">
-                </a>
-            </h1>
-            <div class="btnArea">
-                <button class="imgBox" data-click="gnbSearchBox">
-                    검색버튼
-                </button>
-                <button class="imgBox">
-                    인기버튼
-                </button>
-                <button class="imgBox">
-                    ??버튼
-                </button>
-            </div>
-            <div class="gnbSearchBox paddingBox">
-                <input type="search" placeholder="검색어를 입력하세요">
-                <button class="imgBox">
-                    검색버튼
-                </button>
-                <button class="imgBox close">
-                    검색 닫기 버튼
-                </button>
-            </div>
-        </header>
-
         <section class="detailArea">
-            <!-- Slideshow container -->
-            <div class="slideshow-container">
-                <!-- Full-width images with number and caption text -->
-                <div class="mySlides fade">
-                    <img src="../../../static/mobile/images/oneroom_detailSlider.png" style="width:100%">
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="../../../static/mobile/images/oneroom_detailSlider.png" style="width:100%">
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="../../../static/mobile/images/oneroom_detailSlider.png" style="width:100%">
-                </div>
+            <div class="slider">
+                <div><img src="{% static 'mobile/images/oneroom_detailSlider.png' %}" alt=""></div>
+                <div><img src="{% static 'mobile/images/oneroom_detailSlider.png' %}" alt=""></div>
+                <div><img src="{% static 'mobile/images/oneroom_detailSlider.png' %}" alt=""></div>
             </div>
 
+            <!-- 정보 Overview -->
             <div class="infoArea">
                 <div class="paddingBox">
                     <h2>{{ data.0.rent_type }} {{ data.0.deposit }}/{{ data.0.rent_amount }}</h2>
                     <time datetime="">5일전</time>
                     <div class="iconBox">
-                        <div class="imgBox heartIcon">
-                            하트 아이콘
-                        </div>
-                        <span>
-                            10
-                        </span>
+                        <div class="imgBox heartIcon">하트 아이콘</div>
+                        <span>10</span>
                     </div>
                 </div>
+
                 <ul>
                     <li class="paddingBox">
                         <dl>
@@ -69,7 +30,7 @@
                             <dt>관리비</dt>
                             <dd>비공개</dd>
                         </dl>
-                        <button>문의하기</button>
+                        <button class="contact_btn">연락처 보기</button>
                     </li>
                     <li class="paddingBox">
                         <dl>
@@ -78,12 +39,13 @@
                                 <mark>???만 원 + a</mark>
                             </dd>
                         </dl>
-                        <button>연락처 보기</button>
-                        <button>공유하기</button>
+                        <button class="copy_contact_btn">연락처 복사</button>
+                        <button class="oneroom_detail_share_btn">공유하기</button>
                     </li>
                 </ul>
             </div>
 
+            <!-- 상세 정보 -->
             <div class="detaliInfo">
                 <h3 class="paddingBox" data-click="next">상세 정보</h3>
                 <ul class="detaliInfo_click paddingBox">
@@ -147,25 +109,25 @@
             <div class="facilityBox">
                 <h3 class="paddingBox" data-click="next">옵션</h3>
                 <ul>
-                    <li><img src="../../../static/mobile/images/oneroom_option01.png" alt="에어컨">에어컨</li>
-                    <li><img src="../../../static/mobile/images/oneroom_option02.png" alt="세탁기">세탁기</li>
-                    <li><img src="../../../static/mobile/images/oneroom_option03.png" alt="냉장고">냉장고</li>
-                    <li><img src="../../../static/mobile/images/oneroom_option04.png" alt="책상">책상</li>
-                    <li><img src="../../../static/mobile/images/oneroom_option05.png" alt="옷장">옷장</li>
-                    <li><img src="../../../static/mobile/images/oneroom_option06.png" alt="신발장">신발장</li>
-                    <li><img src="../../../static/mobile/images/oneroom_option07.png" alt="인덕션">인덕션</li>
-                    <li><img src="../../../static/mobile/images/oneroom_option08.png" alt="전자도어락">전자도어락</li>
+                    <li><img src="{% static 'mobile/images/oneroom_option01.png' %}" alt="에어컨">에어컨</li>
+                    <li><img src="{% static 'mobile/images/oneroom_option02.png' %}" alt="세탁기">세탁기</li>
+                    <li><img src="{% static 'mobile/images/oneroom_option03.png' %}" alt="냉장고">냉장고</li>
+                    <li><img src="{% static 'mobile/images/oneroom_option04.png' %}" alt="책상">책상</li>
+                    <li><img src="{% static 'mobile/images/oneroom_option05.png' %}" alt="옷장">옷장</li>
+                    <li><img src="{% static 'mobile/images/oneroom_option06.png' %}" alt="신발장">신발장</li>
+                    <li><img src="{% static 'mobile/images/oneroom_option07.png' %}" alt="인덕션">인덕션</li>
+                    <li><img src="{% static 'mobile/images/oneroom_option08.png' %}" alt="전자도어락">전자도어락</li>
                 </ul>
             </div>
 
             <div class="facilityBox">
                 <h3 class="paddingBox" data-click="next">보안/안전 시설</h3>
                 <ul>
-                    <li><img src="../../../static/mobile/images/oneroom_facility01.png" alt="비디오폰">비디오폰</li>
-                    <li><img src="../../../static/mobile/images/oneroom_facility02.png" alt="공동현관">공동현관</li>
-                    <li><img src="../../../static/mobile/images/oneroom_facility03.png" alt="CCTV">CCTV</li>
-                    <li><img src="../../../static/mobile/images/oneroom_facility04.png" alt="화재경보기">화재경보기</li>
-                    <li><img src="../../../static/mobile/images/oneroom_facility05.png" alt="가스노출경보기">가스노출경보기</li>
+                    <li><img src="{% static 'mobile/images/oneroom_facility01.png' %}" alt="비디오폰">비디오폰</li>
+                    <li><img src="{% static 'mobile/images/oneroom_facility02.png' %}" alt="공동현관">공동현관</li>
+                    <li><img src="{% static 'mobile/images/oneroom_facility03.png' %}" alt="CCTV">CCTV</li>
+                    <li><img src="{% static 'mobile/images/oneroom_facility04.png' %}" alt="화재경보기">화재경보기</li>
+                    <li><img src="{% static 'mobile/images/oneroom_facility05.png' %}" alt="가스노출경보기">가스노출경보기</li>
                 </ul>
             </div>
 
@@ -176,29 +138,7 @@
                         <li>
                             <div class="reviewBox">
                                 <div class="imgBox circle"
-                                     style="background-image: url('../../../static/mobile/images/userRegiImg01.png');">
-                                    홍길동 이미지
-                                </div>
-                                <div class="textArea">
-                                    <b>홍길동
-                                        <time>1월 1일</time>
-                                    </b>
-                                    <div class="scopeArea">
-                                        <img src="../../../static/mobile/images/filledStar.png" alt="">
-                                        <img src="../../../static/mobile/images/filledStar.png" alt="">
-                                        <img src="../../../static/mobile/images/filledStar.png" alt="">
-                                        <img src="../../../static/mobile/images/filledStar.png" alt="">
-                                        <img src="../../../static/mobile/images/filledStar.png" alt="">
-                                        {#                                        <img src="../../../static/mobile/images/emptyStar.png" alt="">#}
-                                    </div>
-                                    <p>예시 입니다.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="reviewBox">
-                                <div class="imgBox circle"
-                                     style="background-image: url('../../../static/mobile/images/userImg01.png');">
+                                     style="background-image: url('{% static 'userRegiImg01.png' %}');">
                                     홍길동 이미지
                                 </div>
                                 <div class="textArea">
@@ -215,10 +155,6 @@
                                     <p>예시 입니다.</p>
                                 </div>
                             </div>
-                            {#                            <div class="imgBox"#}
-                            {#                                 style="background-image: url('../../../static/mobile/images/userRegiImg01.png');">#}
-                            {#                                사용자가 올린 이미지#}
-                            {#                            </div>#}
                         </li>
                     </ul>
 
@@ -249,49 +185,7 @@
                     <li>
                         <a href="#">
                             <div class="imgBox"
-                                 style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
-                                월세 방 이미지
-                            </div>
-                            <strong>
-                                월세 40만원
-                                <small>원룸</small>
-                            </strong>
-                            <p>2층 18평, 관리비 60만</p>
-                            <p>목포대 다이소 근처</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="imgBox"
-                                 style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
-                                월세 방 이미지
-                            </div>
-                            <strong>
-                                월세 40만원
-                                <small>원룸</small>
-                            </strong>
-                            <p>2층 18평, 관리비 60만</p>
-                            <p>목포대 다이소 근처</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="imgBox"
-                                 style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
-                                월세 방 이미지
-                            </div>
-                            <strong>
-                                월세 40만원
-                                <small>원룸</small>
-                            </strong>
-                            <p>2층 18평, 관리비 60만</p>
-                            <p>목포대 다이소 근처</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="imgBox"
-                                 style="background-image: url(../../../static/mobile/images/oneroom_detail.png);">
+                                 style="background-image: url({% static 'mobile/images/oneroom_detail.png' %});">
                                 월세 방 이미지
                             </div>
                             <strong>
@@ -305,7 +199,17 @@
                 </ul>
             </div>
         </section>
+
+        <div class="oneroom_detail_modal_container none">
+            <div class="modal_bg"></div>
+            <div class="oneroom_detail_modal_content">
+                <div class="modal_header"><span class="modal_close_btn">×</span></div>
+                <div class="modal_body">010-1111-2222</div>
+            </div>
+        </div>
     </div>
+    <script src="{% static 'mobile/js/oneroom-detail-modal.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script>
         $(document).ready(function () {
             $('.oneRoomPage .detailArea .slider').bxSlider({
