@@ -78,3 +78,5 @@ a{text-decoration: none; color: black; display: inline-block;}
 button{background-color: transparent; border: none; cursor: pointer;}
 
 mark{background-color: transparent;}
+
+.oneRoomPage .detailArea .bx-wrapper {margin: 0; border: 0}
