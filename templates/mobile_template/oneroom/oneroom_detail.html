@@ -1,6 +1,9 @@
 {% extends 'mobile_template/base.html' %}
 {% load static %}
 {% block content %}
+    <!-- bxslider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <div class="oneRoomPage">
         <section class="detailArea">
             <div class="slider">
@@ -97,9 +100,9 @@
             <div class="facilityBox">
                 <h3 class="paddingBox" data-click="next">옵션</h3>
                 <ul>
-{#                    {% if data.0.option != None %}#}
-{#                        <li><img src="{% static 'mobile/images/oneroom_option01.png' %}" alt="에어컨">에어컨</li>#}
-{#                    {% endif %}#}
+                    {#                    {% if data.0.option != None %}#}
+                    {#                        <li><img src="{% static 'mobile/images/oneroom_option01.png' %}" alt="에어컨">에어컨</li>#}
+                    {#                    {% endif %}#}
                     <li><img src="{% static 'mobile/images/oneroom_option01.png' %}" alt="에어컨">에어컨</li>
                     <li><img src="{% static 'mobile/images/oneroom_option02.png' %}" alt="세탁기">세탁기</li>
                     <li><img src="{% static 'mobile/images/oneroom_option03.png' %}" alt="냉장고">냉장고</li>
@@ -114,9 +117,9 @@
             <div class="facilityBox">
                 <h3 class="paddingBox" data-click="next">보안/안전 시설</h3>
                 <ul>
-{#                    {% if data.0.facility != None %}#}
-{#                        <li><img src="{% static 'mobile/images/oneroom_facility01.png' %}" alt="비디오폰">비디오폰</li>#}
-{#                    {% endif %}#}
+                    {#                    {% if data.0.facility != None %}#}
+                    {#                        <li><img src="{% static 'mobile/images/oneroom_facility01.png' %}" alt="비디오폰">비디오폰</li>#}
+                    {#                    {% endif %}#}
                     <li><img src="{% static 'mobile/images/oneroom_facility01.png' %}" alt="비디오폰">비디오폰</li>
                     <li><img src="{% static 'mobile/images/oneroom_facility02.png' %}" alt="공동현관">공동현관</li>
                     <li><img src="{% static 'mobile/images/oneroom_facility03.png' %}" alt="CCTV">CCTV</li>
