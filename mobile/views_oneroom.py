@@ -26,7 +26,8 @@ def oneroom_detail(request, num):
 
 def oneroom_like(request, num):
     try:
-        PostLike.objects.get(post_id=num, ipAddress=get_client_ip(request), liked_date=timezone.now())
+        like = PostLike.objects.get(post_id=num, ipAddress=get_client_ip(request), liked_date=timezone.now())
+        like.delete()
     except:
         PostLike.objects.create(post_id=num, ipAddress=get_client_ip(request), liked_date=timezone.now())
     return redirect('mobile_oneroom_detail', num)
