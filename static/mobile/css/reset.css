@@ -62,9 +62,7 @@ input , select{-webkit-appearance: none; -webkit-border-radius:0;}
 /* input search 'X' remove */
 input[type="submit"] , input[type="reset"]{cursor: pointer;}
 input[type="search"]::-ms-clear,
-input[type="search"]::-ms-reveal{
-    display:none;
-}
+input[type="search"]::-ms-reveal{display:none;}
 /* 크롬의 경우 */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
