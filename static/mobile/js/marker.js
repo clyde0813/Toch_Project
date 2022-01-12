@@ -26,8 +26,8 @@ function removeAllMarkers() {
 }
 
 function handleMarkerClick(e, info) {
-    if(e.target.id === single_list_flag) {
-        console.log('같은거 클릭됫을때');
+    if(single_list_flag !== '' && e.target.id === single_list_flag.id) {
+        e.target.classList.remove('marker_clicked');
         single_list_container.classList.remove('showing');
         list_btn.classList.remove('none');
         map_btn.classList.remove('none');
@@ -35,13 +35,17 @@ function handleMarkerClick(e, info) {
         return;
     }
     if(single_list_flag === '') {
-        console.log('플래그가 비어있는 경우');
         single_list_container.classList.add('showing');
         list_btn.classList.add('none');
         map_btn.classList.add('none');
     }
 
-    mobileRemoveAllRoom(single_list_container)
+    if(single_list_flag !== '') {
+        single_list_flag.classList.remove('marker_clicked');
+    }
+
+    e.target.classList.add('marker_clicked');
+    mobileRemoveAllRoom(single_list_container);
     mobileRenderRoom(info, single_list_container);
-    single_list_flag = e.target.id;
+    single_list_flag = e.target;
 }
