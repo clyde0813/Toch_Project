@@ -91,3 +91,8 @@ class PostLike(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='like_set')
     ipAddress = models.GenericIPAddressField(protocol='both', unpack_ipv4=False)
     liked_date = models.DateField(blank=True, null=True)
+
+
+class Contact(models.Model):
+    title = models.TextField(blank=True, null=True)
+    contact = models.TextField(blank=True, null=True)
