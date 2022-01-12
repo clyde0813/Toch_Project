@@ -14,6 +14,7 @@
 }
 
 .oneroom_table_container {
+    margin-top: 5px;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -31,11 +32,12 @@
 .oneroom_table {
     height: fit-content;
     margin-top: 20px;
+    text-align: center;
 }
 
 .table_head {
     padding: 10px 5px;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
 }
 
