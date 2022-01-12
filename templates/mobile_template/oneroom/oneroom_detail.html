@@ -17,9 +17,11 @@
             <!-- 정보 Overview -->
             <div class="infoArea">
                 <div class="paddingBox">
-                    <h2>{{ data.0.rent_type }} {{ data.0.deposit }}/{% if data.0.rent_amount %}
-                        {{ data.0.rent_amount }}{% elif data.0.year_amount %}{{ data.0.year_amount }}{% else %}
-                        비공개{% endif %}</h2>
+                    <h2>{% if data.0.rent_type %}{{ data.0.rent_type }} {% if data.0.deposit %}{{ data.0.deposit }}/
+                        {% if data.0.rent_amount %}
+                            {{ data.0.rent_amount }}{% elif data.0.year_amount %}{{ data.0.year_amount }}{% else %}
+                            비공개{% endif %}{% else %}비공개{% endif %}{% else %}비공개{% endif %}
+                    </h2>
                     <time datetime="">5일전</time>
                     <div class="iconBox">
                         <a href="{% url 'mobile_oneroom_like' data.0.id %}">
@@ -33,11 +35,11 @@
                     <li class="paddingBox">
                         <dl>
                             <dt>전용면적</dt>
-                            <dd>{{ data.0.dedicated_area }}평</dd>
+                            <dd>{% if data.0.dedicated_area %}{{ data.0.dedicated_area }}평{% else %}비공개{% endif %}</dd>
                         </dl>
                         <dl>
                             <dt>관리비</dt>
-                            <dd>비공개</dd>
+                            <dd>{% if data.0.manage_amount %}{{ data.0.manage_amount }}{% else %}비공개{% endif %}</dd>
                         </dl>
                         <button class="contact_btn">연락처 보기</button>
                     </li>
@@ -61,43 +63,47 @@
                     <li>
                         <dl>
                             <dt>건물층</dt>
-                            <dd>{{ data.0.floor_total }}층</dd>
+                            <dd>{% if data.0.floor_total %}{{ data.0.floor_total }}층{% else %}비공개{% endif %}</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>전용/공급면적</dt>
-                            <dd>{{ data.0.dedicated_area }}평</dd>
+                            <dd>{% if data.0.dedicated_area %}{{ data.0.dedicated_area }}평{% else %}비공개{% endif %}</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>방 / 욕실 수</dt>
-                            <dd>{{ data.0.room_num }}개 / {{ data.0.toilet_num }}개</dd>
+                            <dd>{% if data.0.room_num %}{{ data.0.room_num }}개 / {{ data.0.toilet_num }}개{% else %}
+                                비공개{% endif %}</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>난방종류</dt>
-                            <dd>{{ data.0.gas_type }}</dd>
+                            <dd>{% if data.0.gas_type %}{{ data.0.gas_type }}{% else %}비공개{% endif %}</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>건물 주차</dt>
-                            <dd>{% if data.0.parking == false %} 불가능 {% else %} 가능 {% endif %}</dd>
+                            <dd>{% if data.0.parking == 0 %} 불가능 {% elif data.0.parking == 1 %} 가능 {% else %}
+                                비공개 {% endif %}</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>엘리베이터</dt>
-                            <dd>{% if data.0.elevator == false %} 없음 {% else %} 있음 {% endif %}</dd>
+                            <dd>{% if data.0.elevator == 0 %} 없음 {% elif data.0.elevator == 1 %} 있음 {% else %}
+                                비공개 {% endif %}</dd>
                         </dl>
                     </li>
                     <li>
                         <dl>
                             <dt>완공일</dt>
-                            <dd>{{ data.0.construction_date }}</dd>
+                            <dd>{% if data.0.construction_date %}{{ data.0.construction_date }}{% else %}
+                                비공개{% endif %}</dd>
                         </dl>
                     </li>
                 </ul>

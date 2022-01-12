@@ -22,7 +22,7 @@ function mobileRoomTemplate(info) {
           <div class="textArea">
             <strong>
               <small> ${info.title} </small>
-                ${info.year_amount !== "None" ? "연세" : "월세"} ${info.deposit !== "None" ? info.deposit : "비공개"}/${info.rent_amount !== "None" ? info.rent_amount : info.year_amount}
+                ${info.year_amount !== "None" ? "연세" : info.rent_amount !== "None" ? "월세" : "비공개"} ${info.deposit !== "None" ? info.deposit : "비공개"}/${info.rent_amount !== "None" ? info.rent_amount : info.year_amount !== "None" ? info.year_amount : "비공개"}
             </strong>
             <p>
               남은 방 : ${info.remain !== "None" ? info.remain : "비공개"} /
