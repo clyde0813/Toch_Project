@@ -6,20 +6,20 @@
             <!-- Kakao Map -->
             <div class="kakao_map">
                 <div class="oneroom_table_btn">more</div>
-                <div class="oneroom_table_container">
+                <div class="oneroom_table_container none">
                     <table class="oneroom_table">
                         <tr>
                             <td class="table_head">원룸 이름</td>
                             <td class="table_head">연락처</td>
                         </tr>
-                        <tr>
-                            <td>첫번째 칸</td>
-                            <td>두번째 칸</td>
-                        </tr>
-                        <tr>
-                            <td>첫번째 칸</td>
-                            <td>두번째 칸</td>
-                        </tr>
+                        {% for i in contact %}
+                            <tr>
+                                <td>{{ i.title }}</td>
+                                <td>{{ i.contact }}</td>
+                            </tr>
+                        {% endfor %}
+
+
                     </table>
                 </div>
                 <!-- SINGLE LIST -->
@@ -41,6 +41,7 @@
     <script src="{% static 'mobile/js/marker.js' %}"></script>
     <script src="{% static 'mobile/js/toggle.js' %}"></script>
     <script src="{% static 'mobile/js/room.js' %}"></script>
+    <script src="{% static 'mobile/js/oneroom-table.js' %}"></script>
     <script>
         // 마커들을 담을 배열
         let markers = [];

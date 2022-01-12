@@ -42,3 +42,7 @@
 .oneroom_table > th,td {
     padding: 10px 5px;
 }
+
+.none {
+    display: none;
+}
