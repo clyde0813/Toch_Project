@@ -68,10 +68,11 @@
                     hashtag1: '{{ i.status_set.last.hashtag1 }}',
                     hashtag2: '{{ i.status_set.last.hashtag2 }}',
                     hashtag3: '{{ i.status_set.last.hashtag3 }}',
+                    contact: '{{ i.status_set.last.contact }}',
                 })
             {% endfor %}
         {% endif %}
-
+        console.log(contact);
         addAllMarkers();
         mobileRenderAllRoom();
 

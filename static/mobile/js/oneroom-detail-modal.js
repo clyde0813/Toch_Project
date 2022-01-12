@@ -31,4 +31,3 @@ function copyContact() {
         copy_modal.classList.remove('copy_message');
     }, 1250);
 }
-
