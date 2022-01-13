@@ -2,34 +2,102 @@
 {% load static %}
 {% block content %}
     <div class="oneRoomPage">
-        <header class="paddingBox">
-            <h1>
-                <a href="#">
-                    <img src="{% static 'mobile/images/logo.png' %}" alt="toch logo">
-                </a>
-            </h1>
-            <div class="btnArea">
-                <button class="imgBox" data-click="gnbSearchBox">
-                    검색버튼
-                </button>
-                <button class="imgBox">
-                    인기버튼
-                </button>
-                <button class="imgBox">
-                    ??버튼
-                </button>
-            </div>
-        </header>
         <div class="oneRoomArea">
+            <style>
+                input {
+                    -webkit-appearance: checkbox;
+                    -webkit-appearance: button;
+                }
+            </style>
             <select name="title" onchange="inputChange(this.value)">
                 {% for i in data %}
                     <option value="{{ i.id }}">{{ i.post }}</option>
                 {% endfor %}
             </select>
-            <input type="text">
-            <label>남은 방 개수</label>
-            <input type="text" id="remain" value="">
+            <form method="post">
+                <!-- 남은 방 개수 -->
+
+                <div class="selectBox" style="margin: 30px 0">
+                    - 남은 방 개수 -
+                    <br><br>
+                    <select id="remain_count" name="remain" class="select">
+                        <option disabled selected>----- 선택 -----</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
+                <!-- 옵션 -->
+                <p style="margin: 15px">
+                    - 옵션 -
+                <div class="option_checkBox">
+                    <label for="aircon">에어컨</label>
+                    <input type="checkbox" id="aricon">
+                    <label for="washer">세탁기</label>
+                    <input type="checkbox" id="washer">
+                    <label for="">냉장고</label>
+                    <input type="checkbox" id="">
+                    <label for="">책상</label>
+                    <input type="checkbox" id="">
+                    <label for="">옷장</label>
+                    <input type="checkbox" id="">
+                    <label for="">신발장</label>
+                    <input type="checkbox" id="">
+                    <label for="">인덕션</label>
+                    <input type="checkbox" id="">
+                </div>
+                </p>
+
+                <!-- 시설-->
+                <br>
+                <br>
+                <p style="margin: 15px">
+                    - 안전 시설 -
+                <div class="facility_checkBox">
+                    <label for="video_phone">비디오폰</label>
+                    <input type="checkbox" id="video_phone">
+                    <label for="front_door">공동현관</label>
+                    <input type="checkbox" id="front_door">
+                    <label for="cctv">CCTV</label>
+                    <input type="checkbox" id="cctv">
+                    <label for="fire_alarm">화재경보기</label>
+                    <input type="checkbox" id="fire_alarm">
+                    <label for="gas_alarm">가스누출경보기</label>
+                    <input type="checkbox" id="gas_alarm">
+                </div>
+                </p>
+
+                <button style="background-color: #ff9900; color: white; width: 45px; height: 20px; border-radius: 2px; margin: 50px auto; display: block">
+                    수정하기
+                </button>
+            </form>
         </div>
     </div>
-
 {% endblock %}
