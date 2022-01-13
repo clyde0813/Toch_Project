@@ -27,7 +27,7 @@ function searchRoom(validInput) {
     }
     removeAllRooms();
     removeAllMarkers();
-    search_result.map(room => {
+    search_result.forEach(room => {
         renderRoom(room);
         addMarker(room);
     })

@@ -164,7 +164,7 @@
         let current_markers = [];
 
         function renderAllRooms() {
-            positions.map(room => {
+            positions.forEach(room => {
                 addMarker(room);
                 renderRoom(room);
             })
@@ -178,50 +178,33 @@
             content.classList.add('custom_overlay');
             content.textContent = (info.remain ? info.remain : '비공개');
             content.onclick = () => {
-                console.log(content.className);
                 removeAllRooms();
                 renderRoom(info);
             }
-
-            // 커스텀 오버레이를 생성합니다
             let marker = new kakao.maps.CustomOverlay({
                 position: info.latlng,
                 content: content
             });
-
             current_markers.push(marker);
             markers.push(marker)
-            // 마커가 지도 위에 표시되도록 설정합니다.
             marker.setMap(map);
-
-            //마커에 click 이벤트를 등록
-            //const customOverlay = document.querySelector('.custom_overlay');
-            //customOverlay.addEventListener('click', () => {
-            //    console.log('custon_overlay Clicked');
-            //    removeAllRooms();
-            //    renderRoom(info);
-            //});
         }
 
-        // 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'zoom_changed', function () {
             let level = map.getLevel();
-            current_markers.map(marker => marker.cc.className = `custom_overlay level${level}`);
+            current_markers.forEach(marker => marker.cc.className = `custom_overlay level${level}`);
         });
 
-
         function removeAllMarkers() {
-            current_markers.map(marker => marker.setMap(null));
+            current_markers.forEach(marker => marker.setMap(null));
         }
 
-        // 기존 item 들을 삭제합니다.
         function removeAllRooms() {
             while (itemList.firstChild) {
                 itemList.removeChild(itemList.firstChild);
             }
         }
 
-        // 오른쪽 리스트에 방 추가
         function renderRoom(info) {
             const roomInfo = roomTemplate(info);
             itemList.insertAdjacentHTML('beforeend', roomInfo);
@@ -259,7 +242,6 @@
             e.preventDefault();
             let userPreference = getUserAI();
 
-            // ai form Null Check
             loading_page.classList.remove('none');
             setTimeout(() => {
                 loading_page.classList.add('none');
@@ -273,13 +255,13 @@
             const personality = document.getElementsByName('personality');
             const userAi = {};
 
-            Array(pet).map(q => {
+            Array(pet).forEach(q => {
                 if (q.checked) userAi['A'] = q.value;
             });
-            Array(car).map(q => {
+            Array(car).forEach(q => {
                 if (q.checked) userAi['B'] = q.value;
             });
-            Array(personality).map(q => {
+            Array(personality).forEach(q => {
                 if (q.checked) userAi['C'] = q.value;
             });
 
@@ -326,7 +308,6 @@
         }
 
         // 필터  eventHandler
-
         const deposit_mark = document.querySelector('.deposit_mark');
         const monthly_mark = document.querySelector('.monthly_mark');
         const yearly_mark = document.querySelector('.yearly_mark');
@@ -394,7 +375,7 @@
                 transaction_type_mark.textContent = transaction_type;
                 transaction_type_label.textContent = transaction_type;
 
-                positions.map(room => {
+                positions.forEach(room => {
                     if (room.rent_type === transaction_type) {
                         renderRoom(room);
                         addMarker(room);
@@ -434,7 +415,7 @@
                 } else if (monthly_value) { // 월세만
                     filtered_room = positions.filter(room => room.rent_amount <= monthly_value);
                 }
-                filtered_room.map(room => {
+                filtered_room.forEach(room => {
                     renderRoom(room);
                     addMarker(room);
                 })
@@ -462,7 +443,6 @@
         const filter_reset_btn = document.querySelector('.filter_reset_btn');
         filter_reset_btn.addEventListener('click', e => {
             e.preventDefault();
-            // 이미 초기화 상태일 경우 early return
             if (!isFilterChange) {
                 return;
             }
@@ -497,7 +477,7 @@
             renderAllRooms();
 
             current_markers = markers;
-            current_markers.map(marker => marker.setMap(map));
+            current_markers.forEach(marker => marker.setMap(map));
         });
     </script>
     <script src="../../static/scripts/search.js"></script>
