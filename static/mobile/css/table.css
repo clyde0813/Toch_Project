@@ -1,13 +1,13 @@
 .oneroom_table_btn {
-    position: fixed;
-    top: 13%;
+    position: relative;
+    top: 5%;
     left: 2%;
     width: 45px;
-    height: 45px;
+    height: 40px;
+    line-height: 40px;
     background-color: black;
     border-radius: 50%;
-    z-index: 5;
-    line-height: 45px;
+    z-index: 2;
     text-align: center;
     opacity: 0.6;
     color: white;
