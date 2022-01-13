@@ -100,7 +100,7 @@
 /* 원룸페이지 */
 .oneRoomArea{height: 100vh; display: flex; flex-direction: column; position: relative; box-sizing: border-box;} 
 .oneRoomList{margin : 2px 10px; list-style: none; padding: 15px 0 20px 0;}
-.oneRoomArea .kakao_map {flex: 1;}
+.oneRoomArea .kakao_map {height: 100%} /**/
 
 /* 원룸 팝업 */
 [class*='_box']{position: fixed; ; left: 0; top: 13.750rem; bottom: 8.438rem; width: 100%; background-color: white; border-width: 0.063rem 0; border-style: solid; border-color:#dadada; display: none; overflow: auto; z-index: 1000;}
