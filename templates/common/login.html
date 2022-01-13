@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="subPage loginPage">
+        <div class="loginArea">
+            <form action="{% url 'common:login' %}" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>로그인</legend>
+                    <ul>
+                        <li>
+                            <input type="text" placeholder="아이디" class="form-control" name="username"
+                                   title="userID">
+                        </li>
+                        <li>
+                            <input type="password" placeholder="비밀번호" class="form-control" name="password"
+                                   title="userPW">
+                        </li>
+                    </ul>
+                    <p>학교 E-mail 또는 ID를 입력하세요.</p>
+                    <input type="submit" value="로그인">
+                    <p>
+                        <mark><a href="login_Find.html">ID 또는 암호를 잊으셨나요?</a></mark>
+                    </p>
+                    <p>
+                        <mark>Toch ID가 없으신가요? <a href="#">지금 생성.</a></mark>
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

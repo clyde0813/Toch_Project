@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% block content %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+    <div class="subPage usedTradePage">
+        <div class="asideBox detailArea width1200">
+            <div class="leftContArea">
+                <div class="goodsArea borderBox">
+                    <div class="sliderArea">
+                        <div class="slider">
+                            {% for file in data.file_set.all %}
+                                <div class="image-wrap"
+                                     style="position: relative;width: 700px;margin: 0 auto;height: 500px;border-radius: 8px;overflow: hidden;">
+                                    <img src="{{ file.file.url }}" alt=""
+                                         style="border-radius: 8px;position: relative;min-width: 100%;left: 50%;top: 50%;transform: translate(-50%, -50%);color: transparent;">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="userArea">
+                        <div class="userBox sellerArea">
+                            <div class="imgBox" style="background-image: url(../../static/images/oneroom_user01.png);">
+                                판매자 이미지
+                            </div>
+                            <div class="textArea">
+                                <b>{{ data.author }}</b>
+                                <small>목포대학교 근처</small>
+                            </div>
+                            <div class="iconBox">
+                                <div class="imgBox heartIcon">
+                                    하트 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox commentIcon">
+                                    댓글 아이콘
+                                </div>
+                                <span>
+                                    10
+                                </span>
+                                <div class="imgBox mailIcon">
+                                    메일 아이콘
+                                </div>
+                                <span>
+                                    5
+                                </span>
+                            </div>
+                        </div>
+                        <div class="goodsInfo">
+                            <b>{{ data.title }}</b>
+                            <div>
+                                <span>카테고리</span><span>몇시간 전</span>
+                            </div>
+                            <strong>{{ data.price }}원</strong>
+                            <p>
+                                {{ data.content|linebreaks }}
+                            </p>
+                            <button class="blackBtn">거래하기</button>
+                        </div>
+
+                        <div class="commentBox">
+                            <strong>댓글</strong>
+                            <div class="userBox">
+                                <div class="imgBox"
+                                     style="background-image: url(../../static/images/oneroom_user01.png);">
+                                    회원 이미지
+                                </div>
+                                <div class="textArea">
+                                    <b>아이디랍니다</b>
+                                    <p>팔렸나요?</p>
+                                    <div>
+                                        <time>2021.09.20 <span>18:00</span></time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="userBox">
+                                <img src="images/commentIcon01.png" alt="">
+                                <div class="imgBox"
+                                     style="background-image: url(../../static/images/oneroom_user02.png);">
+                                    회원 이미지
+                                </div>
+                                <div class="textArea">
+                                    <b>아이디랍니다</b>
+                                    <p>팔렸나요?</p>
+                                    <div>
+                                        <time>2021.09.20 <span>18:00</span></time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="userBox">
+                                <div class="imgBox"
+                                     style="background-image: url(../../static/images/oneroom_user01.png);">
+                                    회원 이미지
+                                </div>
+                                <div class="textArea">
+                                    <b>아이디랍니다</b>
+                                    <p>팔렸나요?</p>
+                                    <div>
+                                        <time>2021.09.20 <span>18:00</span></time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="enrollmentBox">
+                            {#                            <b>ddbbnncc87</b>#}
+                            <textarea></textarea>
+                            <button>
+                                <mark>등록</mark>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="realTimeArea">
+                    <strong>실시간 인기 중고</strong>
+                    <ul class="usedTradeBox fontCase01">
+                        {% for post in post %}
+                            <li>
+                                <a href="">
+                                    <div class="imgBox borderBox"
+                                         style="background-image: url('{{ post.file_set.last.file }}');">
+                                        실시간 인기 중고 이미지
+                                    </div>
+                                    <p>
+                                        <time>2시간전</time>
+                                        {{ post.title }}
+                                        <strong>{{ data.price }}원</strong>
+                                    </p>
+                                    <small>목포대학교 근처</small>
+                                </a>
+                                <div class="iconBox">
+                                    <div class="imgBox heartIcon">
+                                        하트 아이콘
+                                    </div>
+                                    <span>
+                                    10
+                                </span>
+                                    <div class="imgBox mailIcon">
+                                        메일 아이콘
+                                    </div>
+                                    <span>
+                                    5
+                                </span>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <aside>
+                <div class="boardArea">
+
+                    <div class="borderBox">
+                        <strong>실시간 인기 글</strong>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        우리학교 로고 어디서 봤나
+                                        <span>존똑이네</span>
+                                    </b>
+                                    <p>자유게시판</p>
+                                    <div class="iconBox">
+                                        <div class="imgBox heartIcon">
+                                            하트 아이콘
+                                        </div>
+                                        <span>
+                                            10
+                                        </span>
+                                        <div class="imgBox commentIcon">
+                                            메일 아이콘
+                                        </div>
+                                        <span>
+                                            5
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        우리학교 로고 어디서 봤나
+                                        <span>존똑이네</span>
+                                    </b>
+                                    <p>자유게시판</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- side banner -->
+                <div class="mainSideBanner">
+                    <img src="../../static/images/main_sideBanner.png" alt="라포르테블랑 서현">
+                </div>
+
+                <div class="boardArea">
+                    <div class="borderBox">
+                        <strong>여기 어때요?</strong>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        베스트빌 원룸 상태 깨끗
+                                    </b>
+                                    <p>월세 200 / 40</p>
+                                    <p>26m2</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        베스트빌 원룸 상태 깨끗
+                                    </b>
+                                    <p>월세 200 / 40</p>
+                                    <p>26m2</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        베스트빌 원룸 상태 깨끗
+                                    </b>
+                                    <p>월세 200 / 40</p>
+                                    <p>26m2</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="../../static/scripts/com.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.usedTradePage .slider').bxSlider();
+        })
+    </script>
+{% endblock %}

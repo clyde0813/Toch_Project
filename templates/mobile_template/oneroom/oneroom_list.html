@@ -1,0 +1,53 @@
+{% extends 'mobile_template/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="oneRoomPage">
+        <div class="listArea">
+            <ul class="paddingBox2">
+                {% for i in data %}
+                    <li class="oneRoomList">
+                        <a href="{% url 'mobile:oneroom_detail' i.id %}">
+                            <div class="imgBox"
+                                 style="background-image: url('{{ i.file_set.first.file.url }}');">
+                                월세 이미지
+                            </div>
+                            <div class="textArea">
+                                <strong>
+                                    <small>{{ i.title }}</small>
+                                    {% if i.deposit %}
+                                        보증금 {{ i.deposit }}만원 월세 {{ i.rent_amount }}만원
+                                    {% else %}
+                                        월세 비공개/비공개
+                                    {% endif %}
+                                </strong>
+                                <p>
+                                    {% if i.status_set.last.remain %}
+                                        남은 방 : {{ i.status_set.last.remain }}
+                                    {% else %}
+                                        남은 방 : 비공개
+                                    {% endif %}
+                                    /
+                                    {% if i.dedicated_area %}
+                                        면적 : {{ i.dedicated_area }}평
+                                    {% else %}
+                                        면적 : 비공개
+                                    {% endif %}
+                                </p>
+                                <p>{{ i.address }}</p>
+                                <div>
+                                    {% if i.status_set.last.hashtag1 %}
+                                        <span>{{ i.status_set.last.hashtag1 }}</span>
+                                        <span>{{ i.status_set.last.hashtag2 }}</span>
+                                        <span>{{ i.status_set.last.hashtag3 }}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <a href="#" class="fixedLink">MAP</a>
+        </div>
+    </div>
+{% endblock %}

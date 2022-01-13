@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iphone 모바일 확대 방지 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0"">
+    <title>마이페이지 - toch</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- 공통 script -->
+    <script src="../../../static/mobile/js/com.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="../../../static/mobile/css/import.css">
+</head>
+<body>
+    <div class="myPage">
+        <header class="paddingBox">
+            <h1>
+                <a href="#">
+                    <img src="../../../static/mobile/images/logo.png" alt="toch logo">
+                </a>
+            </h1>
+            <div class="btnArea">
+                <button class="imgBox" data-click="gnbSearchBox">
+                    검색버튼
+                </button>
+                <button class="imgBox">
+                    인기버튼
+                </button>
+                <button class="imgBox">
+                    ??버튼
+                </button>
+            </div>
+            <div class="gnbSearchBox paddingBox">
+                <input type="search" placeholder="검색어를 입력하세요">
+                <button class="imgBox">
+                    검색버튼
+                </button>
+                <button class="imgBox close">
+                    검색 닫기 버튼
+                </button>
+            </div>
+        </header>
+
+        <div class="myPageArea paddingBox">
+
+            <div class="linkBox">
+                <a href="#" class="backLink">뒤로가기</a>
+                <p>박정현님의 정보</p>
+                <a href="#">수정</a>
+            </div>
+
+            <div class="imgArea">
+                <div class="imgBox" style="background-image: url('../../../static/mobile/images/mypage_img.png');">
+                    박정현님 이미지
+                </div>
+                <button>업로드</button>
+            </div>
+
+            <div class="textArea">
+                <dl>
+                    <dt>이름</dt>
+                    <dd>홍길동</dd>
+                </dl>
+                <dl>
+                    <dt>아이디</dt>
+                    <dd>hong1234</dd>
+                </dl>
+                <dl>
+                    <dt>비밀번호</dt>
+                    <dd>********</dd>
+                </dl>
+                <dl>
+                    <dt>비밀번호 확인</dt>
+                    <dd>********</dd>
+                </dl>
+                <dl>
+                    <dt>휴대전화</dt>
+                    <dd>010 - 1234 - 1234</dd>
+                </dl>
+                <dl>
+                    <dt>이메일</dt>
+                    <dd>hong1234@gmail.com
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>주소</dt>
+                    <dd>전남 무안군 청계면 영산로 1666</dd>
+                </dl>
+                <dl>
+                    <dt>배송주소</dt>
+                    <dd>전남 무안군 청계면 영산로 1666</dd>
+                </dl>
+            </div>
+            <button>로그아웃</button>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">원룸</a></li>
+                <li><a href="#">중고</a></li>
+                <li class="home"><a href="#">홈</a></li>
+                <li><a href="#">커뮤니티</a></li>
+                <li><a href="#">마이</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
