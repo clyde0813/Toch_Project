@@ -247,7 +247,7 @@
         const owner_contact = "{{ data.0.owner_contact }}";
         const modal_footer = document.querySelector('.modal_footer');
         modal_footer.addEventListener('click', e => {
-            const message = '안녕하세요 Toch보고 연락드립니다!\n'
+            const message = '안녕하세요 Toch에서 {{ data.0.title }} 보고 연락드립니다!\n'
             if (e.target.className === 'oneroom_sms_btn') {
                 location.href = 'sms:' + owner_contact + (checkOs() == 'ios' ? '&' : '?') + 'body='+ message;
             } else if (e.target.className === 'oneroom_call_btn') {
