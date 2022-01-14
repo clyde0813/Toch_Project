@@ -25,7 +25,10 @@ urlpatterns = [
                   path('oneroom/', include('oneroom.urls')),
                   path('usedtrade/', include('usedtrade.urls')),
                   path('community/', include('community.urls')),
+<<<<<<< HEAD
                   path('naverc24dc596faabf6aecb92e7c07cdb3f43.html/', common_views.tmp)
+=======
+>>>>>>> e267b6873a40771ed1f48ae67a3c6d9a1e1c213e
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # handler404 = 'common.views.page_not_found'
