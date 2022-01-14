@@ -175,10 +175,7 @@ def job_opening(request):
 
 def fixing(request):
     return render(request, 'fixing.html')
-<<<<<<< HEAD
 
 
 def tmp(request):
     return render(request, 'naverc24dc596faabf6aecb92e7c07cdb3f43.html')
-=======
->>>>>>> e267b6873a40771ed1f48ae67a3c6d9a1e1c213e
