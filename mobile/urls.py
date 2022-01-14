@@ -11,6 +11,5 @@ urlpatterns = [
                   path('oneroom/detail/<int:num>', views.oneroom_detail, name='mobile_oneroom_detail'),
                   path('oneroom/like/<int:num>', views.oneroom_like, name='mobile_oneroom_like'),
                   path('oneroom/edit', views.oneroom_edit, name='oneroom_edit'),
-                  path('naverc24dc596faabf6aecb92e7c07cdb3f43.html/', common_views.tmp)
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
