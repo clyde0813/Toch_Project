@@ -25,6 +25,7 @@ urlpatterns = [
                   path('oneroom/', include('oneroom.urls')),
                   path('usedtrade/', include('usedtrade.urls')),
                   path('community/', include('community.urls')),
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # handler404 = 'common.views.page_not_found'
