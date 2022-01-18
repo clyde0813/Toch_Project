@@ -152,11 +152,7 @@ header .btnArea button:nth-of-type(2){background-image: url('../images/gnbIcon02
 header .btnArea button:nth-of-type(3){background-image: url('../images/gnbIcon03.png');}
 header .btnArea button:not(:last-child){margin-right: 1.875rem;}
 
-<<<<<<< HEAD
 nav{z-index: 100; position: fixed; left: 0; bottom: 0; width: 100%; padding: 1.250rem 0; box-sizing: border-box; background-color: white; border-radius: 0.625rem 0.625rem 0 0; box-shadow: 0.625rem 2.813rem 3.125rem 0.625rem black;}
-=======
-nav{z-index: 100; height:8.5rem; position: fixed; left: 0; bottom: 0; width: 100%; padding: 1.250rem 0; box-sizing: border-box; background-color: white; border-radius: 0.625rem 0.625rem 0 0; box-shadow: 0.625rem 2.813rem 3.125rem 0.625rem black;}
->>>>>>> e267b6873a40771ed1f48ae67a3c6d9a1e1c213e
 nav ul{display: flex; align-items: flex-start;}
 nav ul li:not(:last-child){margin-right: calc((100% - (5*5.938rem)) / 6);}
 nav ul li:first-child{margin-left: calc((100% - (5*5.938rem)) / 6);}
