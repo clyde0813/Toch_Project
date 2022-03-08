@@ -34,7 +34,7 @@
             {#                {% endfor %}#}
             {#            </h1>#}
 
-            <select name="title" onchange="inputChange(this.value)">
+            <select name="title" style="height: 50px" onchange="inputChange(this.value)">
                 {% for i in data %}
                     <option value="{{ i.id }}">{{ i.post }}</option>
                 {% endfor %}
@@ -45,7 +45,7 @@
                 <div class="selectBox" style="margin: 30px 0; width: 200px; margin: 0 auto; text-align: center">
                     - 남은 방 개수 -
                     <br>
-                    <select id="remain_count" name="remain" class="select">
+                    <select id="remain_count" style="height:30px;" name="remain" class="select">
                         <option disabled selected>----- 선택 -----</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
