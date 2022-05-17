@@ -1,0 +1,2484 @@
+/*.mainPage .borderBox{ border: 1px solid #cccccc;}*/
+/*.mainPage .paddingBox{padding: 30px 20px; box-sizing: border-box;}*/
+.borderBox {
+    border: 1px solid #cccccc;
+}
+
+.paddingBox {
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.imgBox {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-indent: -9999px;
+}
+
+.fontCase01 strong {
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.fontCase01 small {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #888888;
+    margin-left: 5px;
+}
+
+.fontCase01 p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.fontCase01 time {
+    display: block;
+    font-size: 12px;
+    color: #888888;
+}
+
+.hoverEvent li:hover p {
+    color: #ff9900;
+    text-decoration: underline;
+}
+
+.hoverEvent li:hover p time {
+    text-decoration: none;
+}
+
+
+.mainPage section h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.mainPage .contArea::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.mainPage .contArea .leftContArea {
+    float: left;
+    width: 890px;
+    margin-right: 30px;
+}
+
+.mainPage .contArea aside {
+    float: left;
+    width: 300px;
+}
+
+.mainPage .contArea .leftContArea > * {
+    margin-bottom: 80px;
+}
+
+.mainPage .contArea .leftContArea > div > *:not(:first-child) {
+    margin-top: 10px;
+}
+
+/* 메인 베너 */
+.mainBanner {
+    position: relative;
+    line-height: 0;
+}
+
+.mainBanner img {
+    width: 100%;
+}
+
+.mainBanner a {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 205px;
+    height: 55px;
+    line-height: 1;
+    background-color: black;
+    padding: 0 20px 0 25px;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* 메인 게시판 */
+.leftContArea .boardArea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.leftContArea .boardArea > div:not(:first-child) {
+    margin-top: 10px;
+}
+
+.leftContArea .boardArea > div strong {
+    display: block;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftContArea .boardArea > div ul li a {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .leftContArea .boardArea > div ul li:hover a p{color: #ff9900; text-decoration: underline;} */
+.leftContArea .boardArea > div ul li a p {
+    max-width: calc(100% - 75px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.leftContArea .boardArea > div ul li a time {
+    font-size: 16px;
+    color: #888888;
+}
+
+.leftContArea .boardArea > div.width100 {
+    width: 100%;
+    position: relative;
+}
+
+.leftContArea .boardArea > div.width100::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 0.5px);
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #f6f6f6;
+}
+
+.leftContArea .boardArea > div:not(.width100) {
+    width: 440px;
+}
+
+.leftContArea .boardArea > div.width100 ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.leftContArea .boardArea > div.width100 ul li {
+    width: calc((100% - 45px) / 2);
+}
+
+.leftContArea .boardArea > div.width100 ul li:not(:nth-child(-n + 2)) {
+    margin-top: 25px;
+}
+
+.leftContArea .boardArea > div:not(.width100) ul li:not(:first-child) {
+    margin-top: 25px;
+}
+
+
+/* 메인 탭 , 원룸 / 거래 */
+.tabArea .tabBtn {
+    display: flex;
+}
+
+.tabArea .tabBtn li {
+    flex: 1;
+}
+
+.tabArea .tabBtn li button {
+    width: 100%;
+    height: 60px;
+    font-size: 26px;
+    color: #a8a8a8;
+    font-weight: 700;
+    background-color: #f5f5f5;
+    border-style: solid;
+    border-color: #e0e0e0;
+}
+
+.tabArea .tabBtn li:nth-child(1) button {
+    border-width: 1px 0 0 1px;
+}
+
+.tabArea .tabBtn li:nth-child(2) button {
+    border-width: 1px 1px 0 0;
+}
+
+.tabArea .tabBtn li button.active {
+    color: white;
+    background-color: #ff9900;
+    border-color: #ff9900;
+}
+
+.tabArea .tabContents {
+    border: 1px solid #ff9900;
+}
+
+.tabArea .tabContents ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.tabArea .tabContents ul li a {
+    display: flex;
+    align-items: center;
+}
+
+.tabArea .tabContents ul li a .imgBox {
+    width: 200px;
+    height: 135px;
+    border: 1px solid #b8b8b8;
+    margin-right: 25px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* 메인 인기원룸 */
+.popularArea ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.popularArea ul li {
+    width: 440px;
+}
+
+.popularArea ul li:not(:nth-child(-n + 2)) {
+    margin-top: 10px;
+}
+
+.popularArea ul li a {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.popularArea ul li a .imgBox {
+    width: 200px;
+    height: 135px;
+    margin-right: 15px;
+}
+
+
+/* 메인 실시간 인기 중고 */
+.realTimeArea ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.realTimeArea ul li {
+    width: 215px;
+}
+
+.realTimeArea ul li a {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.realTimeArea ul li a .imgBox {
+    width: 100%;
+    height: 145px;
+    margin-bottom: 20px;
+}
+
+.realTimeArea ul li > div {
+    display: flex;
+    align-items: center;
+}
+
+.realTimeArea ul li > div span.material-icons-outlined {
+    font-size: 22px;
+}
+
+.realTimeArea ul li > div .imgBox {
+    cursor: pointer;
+}
+
+.realTimeArea ul li > div .imgBox.heartIcon {
+    width: 22px;
+    height: 19px;
+    background-image: url('../images/heartIcon.png');
+}
+
+.realTimeArea ul li > div .imgBox.heartIcon.active {
+    background-image: url('../images/heartIcon_active.png');
+}
+
+.realTimeArea ul li > div .imgBox.mailIcon {
+    width: 18px;
+    height: 18px;
+    background-image: url('../images/mailIcon02.png');
+}
+
+.realTimeArea ul li > div span:not(.material-icons-outlined) {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.realTimeArea ul li > div span:not(.material-icons-outlined):not(:last-child) {
+    margin-right: 15px;
+}
+
+
+/* 메인 사이드 */
+.mainPage aside > *:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.mainPage aside .mainLonginArea fieldset {
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
+.mainPage aside .mainLonginArea fieldset input {
+    width: 100%;
+    height: 50px;
+    padding: 15px;
+    border: 1px solid #555555;
+    box-sizing: border-box;
+}
+
+.mainPage aside .mainLonginArea fieldset input::placeholder {
+    color: #000000;
+}
+
+.mainPage aside .mainLonginArea fieldset input[type="text"] {
+    margin-bottom: 5px;
+}
+
+.mainPage aside .mainLonginArea fieldset input[type="password"] {
+    margin-bottom: 10px;
+}
+
+.mainPage aside .mainLonginArea fieldset input[type="checkbox"] {
+    display: none;
+}
+
+.mainPage aside .mainLonginArea fieldset label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.mainPage aside .mainLonginArea fieldset label::before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    margin-right: 5px;
+    background-image: url('../images/chk.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.mainPage aside .mainLonginArea fieldset input[type="checkbox"]:checked + label::before {
+    background-image: url('../images/chk_active.png');
+}
+
+.mainPage aside .mainLonginArea fieldset input[type="submit"] {
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    background-color: black;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.mainPage aside .mainLonginArea fieldset div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainPage aside .mainLonginArea fieldset div a {
+    color: #333333;
+    position: relative;
+}
+
+.mainPage aside .mainLonginArea fieldset div a:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #d2d2d2;
+}
+
+.mainPage aside .mainSideBanner {
+    width: 280px;
+}
+
+.kakao_ad_area {
+    width: 280px;
+}
+
+.mainSideBanner > iframe > img {
+    min-width: 280px;
+    width: 280px;
+}
+
+.mainPage aside .boardArea > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.mainPage aside .boardArea > * {
+    padding: 30px 20px 20px;
+    box-sizing: border-box;
+}
+
+.mainPage aside .boardArea strong {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.mainPage aside .boardArea time {
+    font-size: 14px;
+    color: #888888;
+}
+
+.mainPage aside .boardArea p {
+    width: calc(100% - 80px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mainPage aside .boardArea p time {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.mainPage aside .boardArea mark {
+    font-size: 14px;
+    font-weight: 800;
+    color: #ff9900;
+    border: 2px solid #ff9900;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 5px 10px;
+}
+
+.mainPage aside .boardArea ul li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.mainPage aside .boardArea ul li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.mainPage aside .boardArea ul.latestPosts li:not(:last-child) {
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 10px;
+}
+
+
+.subPage h2,
+.loginPage fieldset legend {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+/* 로그인 공통*/
+.loginPage > [class*="Area"] {
+    min-height: calc(100vh - 137px);
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.loginPage fieldset ul {
+    margin-bottom: 20px;
+}
+
+.loginPage fieldset ul:not(:first-of-type) {
+    margin-top: 50px;
+}
+
+.loginArea fieldset ul li:not(:last-child),
+.findArea fieldset ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.loginPage fieldset ul li input:not([type="submit"]),
+.loginPage fieldset ul li select {
+    height: 40px;
+    border: 1px solid #cacaca;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.loginPage fieldset ul li select {
+    background: url('../images/selectIcon.png') no-repeat right 10px center;
+}
+
+.loginPage fieldset ul li > input:not([type="submit"]),
+.loginPage fieldset ul li > select {
+    width: 100%;
+}
+
+.loginPage fieldset ul li input:not([type="submit"])::placeholder {
+    font-size: 16px;
+    color: #888888;
+}
+
+/* 로그인 페이지 */
+.loginArea {
+    width: 400px;
+}
+
+.loginArea fieldset legend {
+    margin-bottom: 30px;
+}
+
+.loginArea fieldset p {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.loginArea fieldset p:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+
+.loginArea fieldset input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    background-color: #ff9900;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.loginArea fieldset p mark {
+    display: block;
+    text-align: center;
+    font-weight: 800;
+}
+
+.loginArea fieldset p:last-of-type mark a {
+    text-decoration: underline;
+}
+
+
+/* 아이디 비밀번호 찾기 페이지 */
+.findArea > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.findArea > div fieldset legend {
+    margin-bottom: 20px;
+}
+
+.findArea > div fieldset > div {
+    width: 580px;
+    border: 1px solid #e0e0e0;
+    padding: 50px 90px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.findArea > div fieldset > div button {
+    width: 125px;
+    height: 45px;
+    background-color: black;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+}
+
+
+/* 회원가입 페이지 */
+.joinArea {
+    width: 400px;
+}
+
+.joinArea fieldset legend {
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.joinArea fieldset ul li {
+    margin-bottom: 30px;
+}
+
+.joinArea fieldset ul li label {
+    display: block;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.joinArea fieldset ul li label ~ *:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.joinArea fieldset ul li > div {
+    display: flex;
+}
+
+.joinArea fieldset ul li > div > *:not(:last-child) {
+    margin-right: 10px;
+}
+
+.joinArea fieldset ul li > div select,
+.joinArea fieldset ul li > div button {
+    width: 110px;
+}
+
+.joinArea fieldset ul li > div input {
+    flex: 1;
+    width: 0px;
+}
+
+.joinArea fieldset ul li > div button {
+    color: white;
+    font-weight: 800;
+    background-color: #888888;
+}
+
+.joinArea fieldset input[type="submit"] {
+    width: 100%;
+    height: 45px;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    background-color: black;
+}
+
+
+/* 마이페이지 */
+.myPage h2 {
+    margin-bottom: 20px;
+}
+
+.myPage .menuBox {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.myPage .menuBox li {
+    flex: 1;
+}
+
+.myPage .menuBox li a {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 800;
+    color: rgba(1, 1, 1, 0.4);
+    border: 1px solid #eeeeee;
+}
+
+.myPage .menuBox li a::before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-right: 15px;
+}
+
+.myPage .menuBox li:nth-child(1) a::before {
+    background-image: url('../images/mypage_menu01.png');
+}
+
+.myPage .menuBox li:nth-child(2) a::before {
+    background-image: url('../images/mypage_menu02.png');
+}
+
+.myPage .menuBox li:nth-child(3) a::before {
+    background-image: url('../images/mypage_menu03.png');
+}
+
+.myPage .menuBox li:nth-child(4) a::before {
+    background-image: url('../images/mypage_menu04.png');
+}
+
+.myPage .menuBox li a[data-count]:not([data-count='0']):after {
+    content: attr(data-count);
+    width: 22px;
+    line-height: 22px;
+    background-color: #e9e9e9;
+    font-size: 16px;
+    font-weight: 800;
+    color: rgba(1, 1, 1, 0.4);
+    text-align: center;
+    border-radius: 100%;
+    margin-left: 10px;
+}
+
+.myPage .menuBox li.active a {
+    color: black;
+    background-color: #ffa92b;
+}
+
+.myPage .menuBox li:nth-child(1).active a::before {
+    background-image: url('../images/mypage_menu01_active.png');
+}
+
+.myPage .menuBox li:nth-child(2).active a::before {
+    background-image: url('../images/mypage_menu02_active.png');
+}
+
+.myPage .menuBox li:nth-child(3).active a::before {
+    background-image: url('../images/mypage_menu03_active.png');
+}
+
+.myPage .menuBox li:nth-child(4).active a::before {
+    background-image: url('../images/mypage_menu04_active.png');
+}
+
+.myPage .menuBox li.active a[data-count]:not([data-count='0']):after {
+    color: white;
+    background-color: black;
+}
+
+.myPage section > [class$="Area"] {
+    background-color: #f5f5f5;
+    height: 705px;
+    border: 1px solid #e0e0e0;
+}
+
+.myPage .paddingBox {
+    padding: 50px 0 50px;
+    box-sizing: border-box;
+}
+
+/* 마이페이지 - 회원정보 */
+.myPage .memberArea > div {
+    width: 765px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.myPage .memberArea > div strong {
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.myPage .memberArea > div > div {
+    padding: 40px 0 50px;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #ebebeb;
+    margin-bottom: 30px;
+}
+
+.myPage .memberArea > div > div::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.myPage .memberArea > div > div > * {
+    float: left;
+}
+
+.myPage .memberArea > div > div > div {
+    width: 100px;
+    margin-right: 85px;
+    text-align: center
+}
+
+.myPage .memberArea > div > div > div .imgBox {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #bbbbbb;
+    border-radius: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.myPage .memberArea > div > div > div button {
+    width: 55px;
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #888888;
+    border: 1px solid #d2d2d2;
+}
+
+.myPage .memberArea > div > div > ul {
+    width: 480px;
+}
+
+.myPage .memberArea > div > div > ul li::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.myPage .memberArea > div > div > ul li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.myPage .memberArea > div > div > ul li > * {
+    float: left;
+}
+
+.myPage .memberArea > div > div > ul li b {
+    width: 130px;
+    font-weight: 800;
+}
+
+.myPage .memberArea > div > div > ul li p {
+    width: 350px;
+}
+
+
+/* 마이페이지 - 문의 */
+.myPage .quesArea ul {
+    width: 660px;
+    margin: 0 auto;
+}
+
+.myPage .quesArea ul::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.myPage .quesArea ul li {
+    float: left;
+    width: 150px;
+    text-align: center;
+}
+
+.myPage .quesArea ul li:not(:last-child) {
+    margin-right: 20px;
+}
+
+.myPage .quesArea ul li a {
+    display: block;
+    width: 100%;
+    padding: 105px 0 30px;
+    font-weight: bold;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center top 45px;
+}
+
+.myPage .quesArea ul li:nth-child(1) a {
+    background-image: url('../images/mypage_question01.png');
+}
+
+.myPage .quesArea ul li:nth-child(2) a {
+    background-image: url('../images/mypage_question02.png');
+}
+
+.myPage .quesArea ul li:nth-child(3) a {
+    background-image: url('../images/mypage_question03.png');
+}
+
+.myPage .quesArea ul li:nth-child(4) a {
+    background-image: url('../images/mypage_question04.png');
+}
+
+
+/* 마이페이지 - 대화상자 */
+.tolkBox::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.tolkBox > * {
+    float: left;
+    height: 100%;
+}
+
+.tolkBox .tolkList {
+    width: 298px;
+    box-sizing: border-box;
+    border-right: 1px solid #e0e0e0;
+    overflow: hidden;
+}
+
+.tolkBox .tolkList ul {
+    width: calc(100% + 15px);
+    height: calc(100% + 17px);
+    overflow: scroll;
+}
+
+.tolkBox .tolkList ul li {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+}
+
+.tolkBox .tolkList ul li b {
+    width: 190px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.tolkBox .tolkList ul li time {
+    width: 60px;
+    font-size: 12px;
+    color: #888888;
+    text-align: right;
+}
+
+.tolkBox .tolkList ul li p {
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-self: center;
+}
+
+.tolkBox .tolkList ul li span {
+    width: 22px;
+    line-height: 22px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background-color: black;
+    border-radius: 100%;
+}
+
+.tolkBox .tolkList ul li.active {
+    background-color: white;
+}
+
+.tolkBox .tolkList ul li.active b {
+    color: #ff9900;
+}
+
+.tolkBox .tolkDetail {
+    width: 900px;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tolkBox .tolkDetail .tolkSubject {
+    padding: 35px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tolkBox .tolkDetail .tolkSubject .imgBox {
+    width: 165px;
+    height: 105px;
+    border: 1px solid #b8b8b8;
+    margin-right: 20px;
+}
+
+.tolkBox .tolkDetail .tolkSubject p strong {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.tolkBox .tolkDetail .tolkSubject button {
+    margin-left: auto;
+    width: 55px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #888888;
+    border: 1px solid #d2d2d2;
+}
+
+.tolkBox .tolkDetail .tolkArea {
+    padding: 30px 20px;
+    width: calc(100% + 15px);
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.tolkBox .tolkDetail .tolkArea > * {
+    margin-bottom: 30px;
+}
+
+.tolkBox .tolkDetail .tolkArea blockquote {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.tolkBox .tolkDetail .tolkArea blockquote cite {
+    font-size: 14px;
+    color: #888888;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.tolkBox .tolkDetail .tolkArea blockquote q {
+    max-width: 350px;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.tolkBox .tolkDetail .tolkArea blockquote time {
+    font-size: 12px;
+    color: #b8b8b8;
+}
+
+.tolkBox .tolkDetail .tolkArea .opponentTolk {
+    display: flex;
+    align-items: flex-start;
+}
+
+.tolkBox .tolkDetail .tolkArea .opponentTolk .imgBox {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #b8b8b8;
+    border-radius: 100%;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.tolkBox .tolkDetail .tolkArea .opponentTolk blockquote q {
+    background-color: #f8f8f8;
+    margin-right: 10px;
+}
+
+.tolkBox .tolkDetail .tolkArea .opponentTolk [data-unread]:not([data-unread='0']) {
+    position: relative;
+}
+
+.tolkBox .tolkDetail .tolkArea .opponentTolk [data-unread]:not([data-unread='0'])::before {
+    content: attr(data-unread);
+    position: absolute;
+    right: -18px;
+    bottom: 18px;
+    font-size: 14px;
+    color: black;
+}
+
+.tolkBox .tolkDetail .tolkArea .meTolk blockquote {
+    justify-content: flex-end;
+}
+
+.tolkBox .tolkDetail .tolkArea .meTolk blockquote q {
+    background-color: #ffc12c;
+    margin-left: 10px;
+}
+
+.tolkBox .tolkDetail .tolkArea .meTolk [data-unread]:not([data-unread='0']) {
+    position: relative;
+}
+
+.tolkBox .tolkDetail .tolkArea .meTolk [data-unread]:not([data-unread='0'])::before {
+    content: attr(data-unread);
+    position: absolute;
+    left: -18px;
+    bottom: 18px;
+    font-size: 14px;
+    color: #ff9900;
+}
+
+.tolkBox .tolkDetail .tolkArea > span {
+    display: block;
+    position: relative;
+    text-align: center;
+}
+
+.tolkBox .tolkDetail .tolkArea > span::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: calc((50% - 0.5px));
+    background-color: #ebebeb;
+}
+
+.tolkBox .tolkDetail .tolkArea > span time {
+    font-size: 14px;
+    color: #bbbbbb;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 0 20px;
+    background-color: white;
+}
+
+.tolkBox .tolkDetail .inputArea {
+    margin-top: auto;
+    padding: 20px;
+    display: flex;
+    min-height: 40px;
+}
+
+.tolkBox .tolkDetail .inputArea input {
+    height: 100%;
+    border: 1px solid #cacaca;
+    padding: 0 15px;
+    box-sizing: border-box;
+    flex: 1;
+    width: 0;
+}
+
+.tolkBox .tolkDetail .inputArea button {
+    height: 100%;
+    width: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: #ff9900;
+    border: 1px solid #ff9900;
+}
+
+.tolkBox .tolkDetail .inputArea button::before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    background: url('../images/inputIcon.png') no-repeat center / cover;
+    margin-right: 25px;
+}
+
+
+/* 원룸 */
+
+/*.oneRoomArea {*/
+/*    padding-top: 121px;*/
+/*}*/
+
+.oneRoomArea .contArea {
+    min-width: 1400px;
+    height: calc((100vh - 121px));
+    display: flex;
+}
+
+/* 원룸 페이지 지도 */
+.oneRoomArea .contArea .mapArea {
+    width: calc(100% - 720px);
+    height: 100%;
+    position: relative;
+}
+
+.oneRoomArea .contArea .mapArea .inputArea {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    padding: 20px;
+    height: 45px;
+    background-color: white;
+    border: 1px solid #dadada;
+    display: flex;
+}
+
+.oneRoomArea .contArea .mapArea .inputArea > button {
+    width: 100px;
+    height: 100%;
+    border: 1px solid #d2d2d2;
+    font-size: 18px;
+    color: #888888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+/* 검색바 search_bar */
+.oneRoomArea .contArea .mapArea .inputArea {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    padding: 20px;
+    height: 45px;
+    background-color: white;
+    border: 1px solid #dadada;
+    display: flex;
+    z-index: 2;
+}
+
+/*.oneRoomArea .contArea .mapArea .inputArea div{position: relative; height: 100%;}*/
+.oneRoomArea .contArea .mapArea .inputArea div input {
+    width: 177.5px;
+}
+
+/* height: 100%; border: 2px solid #ff9900; box-sizing: border-box;*/
+.oneRoomArea .contArea .mapArea .inputArea div input[type=search] {
+    width: 322px;
+}
+
+/*.oneRoomArea .contArea .mapArea .inputArea div button{position: absolute; top:12px; right: 11px; width: 19px; height: 19px; background: url('../images/oneroom_search.png') no-repeat center / cover;}*/
+.oneRoomArea .contArea .mapArea .inputArea > button {
+    width: 100px;
+    height: 100%;
+    border: 1px solid #d2d2d2;
+    font-size: 18px;
+    color: #888888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.oneRoomArea .contArea .mapArea .inputArea > button:nth-of-type(2)::before {
+    content: '';
+    width: 21px;
+    height: 17px;
+    background: url('../images/oneroom_filter.png') no-repeat center / cover;
+    margin-right: 17px;
+}
+
+/* 지도 사이즈 */
+.oneRoomArea .contArea .mapArea .myMap {
+    width: 100%;
+    height: 100%;
+}
+
+/* 원룸 페이지 리스트 공통 */
+.oneRoomArea .contArea .listArea {
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.oneRoomArea .contArea .listArea .textArea {
+    padding: 0 30px;
+    flex: 1;
+}
+
+.oneRoomArea .contArea .listArea .textArea strong {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.oneRoomArea .contArea .listArea .textArea strong small {
+    display: block;
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 10px;
+}
+
+.oneRoomArea .contArea .listArea .textArea p {
+    color: #555555;
+    line-height: 22px;
+}
+
+.oneRoomArea .contArea .listArea .textArea div {
+    display: flex;
+}
+
+/* 원룸 페이지 리스트 상단 */
+.oneRoomArea .contArea .listArea .topArea > p {
+    font-size: 20px;
+    line-height: 74px;
+    padding: 0 20px;
+}
+
+.oneRoomArea .contArea .listArea .topArea > select {
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    width: 130px;
+    height: 40px;
+    border: 1px solid #cacaca;
+    padding: 0 10px;
+    background: url('../images/oneroom_selectIcon.png') no-repeat right 10px top 15px;
+}
+
+.oneRoomArea .contArea .listArea .topArea .suggestionArea {
+    display: flex;
+    align-items: center;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #dadada;
+}
+
+.oneRoomArea .contArea .listArea .topArea .suggestionArea .imgArea {
+    width: 260px;
+    height: 177px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.oneRoomArea .contArea .listArea .topArea .suggestionArea .imgArea .imgBox {
+    width: calc((100% - 1px) / 2);
+    height: calc((100% - 1px) / 2);
+}
+
+.oneRoomArea .contArea .listArea .topArea .suggestionArea .textArea p {
+    margin-bottom: 25px;
+}
+
+.oneRoomArea .contArea .listArea .topArea .suggestionArea .textArea div {
+    flex-wrap: wrap;
+}
+
+.oneRoomArea .contArea .listArea .topArea .suggestionArea .textArea div dl {
+    width: 190px;
+    display: flex;
+    font-size: 14px;
+}
+
+.oneRoomArea .contArea .listArea .topArea .suggestionArea .textArea div dl:not(:nth-child(-n + 2)) {
+    margin-top: 10px;
+}
+
+.oneRoomArea .contArea .listArea .topArea .suggestionArea .textArea div dl dd {
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+/* 원룸 페이지 리스트 하단 */
+.oneRoomArea .contArea .listArea .bottomArea {
+    flex: 1;
+    height: 0;
+    overflow: hidden;
+}
+
+.oneRoomArea .contArea .listArea .bottomArea ul {
+    padding: 20px;
+    width: calc(100% + 15px);
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.oneRoomArea .contArea .listArea .bottomArea ul li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.oneRoomArea .contArea .listArea .bottomArea ul li a {
+    display: flex;
+    align-items: flex-end;
+}
+
+.oneRoomArea .contArea .listArea .bottomArea ul li a .imgBox {
+    width: 240px;
+    height: 160px;
+    border: 1px solid #b8b8b8;
+}
+
+.oneRoomArea .contArea .listArea .bottomArea ul li a .textArea p:last-of-type {
+    margin-bottom: 15px;
+}
+
+.oneRoomArea .contArea .listArea .bottomArea ul li a .textArea div {
+    display: flex;
+}
+
+.oneRoomArea .contArea .listArea .bottomArea ul li a .textArea div span {
+    font-size: 15px;
+    line-height: 30px;
+    padding: 0 10px;
+    background-color: #ffefd8;
+}
+
+.oneRoomArea .contArea .listArea .bottomArea ul li a .textArea div span::before {
+    content: '#';
+}
+
+.oneRoomArea .contArea .listArea .bottomArea ul li a .textArea div span:not(:last-child) {
+    margin-right: 10px;
+}
+
+/* 원룸 - 상세페이지 */
+.oneRoomPage .detailArea h3 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.oneRoomPage .detailArea > *:not(:first-child) {
+    margin-bottom: 80px;
+}
+
+/* 원룸 - 상세페이지 - 테이블 */
+.oneRoomPage .detailArea {
+    margin-bottom: 40px;
+}
+
+.oneRoomPage .detailArea table {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+}
+
+.oneRoomPage .detailArea table tr:first-child > * {
+    height: 80px;
+}
+
+.oneRoomPage .detailArea table tr:first-child > * > * {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.oneRoomPage .detailArea table tr:not(:first-child) {
+    line-height: 55px;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+}
+
+.oneRoomPage .detailArea table tr:not(:first-child) > * {
+    width: 12.5%;
+}
+
+.oneRoomPage .detailArea table tr > *:not(:last-child) {
+    border-right: 1px solid #e0e0e0;
+}
+
+.oneRoomPage .detailArea table tr th {
+    background-color: #f0f0f0;
+}
+
+.oneRoomPage .detailArea table tr td {
+    background-color: #f5f5f5;
+}
+
+.oneRoomPage .detailArea table tr:first-child td:last-child > * {
+    justify-content: flex-end;
+}
+
+.oneRoomPage .detailArea table tr:first-child td:last-child > * p {
+    margin-right: auto;
+}
+
+.oneRoomPage .detailArea table tr:first-child > * strong {
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.oneRoomPage .detailArea table tr:first-child > * strong b {
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.oneRoomPage .detailArea table tr:first-child > * p {
+    font-size: 18px;
+}
+
+.oneRoomPage .detailArea table tr:first-child > * p small {
+    font-size: 14px;
+    color: #555555;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.oneRoomPage .detailArea table tr:first-child > * p mark {
+    color: #df2c27;
+}
+
+.oneRoomPage .detailArea table tr:first-child > * > * > button {
+    width: 145px;
+    height: 45px;
+    border: 1px solid #d2d2d2;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #888888;
+}
+
+.oneRoomPage .detailArea table tr:first-child > * > * > button::before {
+    content: '';
+    width: 20px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-right: 12px;
+}
+
+.oneRoomPage .detailArea table tr:first-child > * > * > button:nth-of-type(1)::before {
+    background-image: url('../images/oneroom_detailBtn01.png');
+}
+
+.oneRoomPage .detailArea table tr:first-child > * > * > button:nth-of-type(2)::before {
+    background-image: url('../images/oneroom_detailBtn02.png');
+}
+
+.oneRoomPage .detailArea table tr:first-child > * > * > button:not(:last-of-type) {
+    margin-right: 10px;
+}
+
+/* 원룸 - 상세페이지 - 옵션 */
+.oneRoomPage .detailArea > ul {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #b8b8b8;
+}
+
+.oneRoomPage .detailArea > ul li {
+    width: calc((100% - 1px) / 2);
+    height: 400px;
+    position: relative;
+}
+
+.oneRoomPage .detailArea > ul li:nth-child(2n + 1) {
+    border-right: 1px solid #b8b8b8;
+}
+
+.oneRoomPage .detailArea > ul li .imgBox {
+    height: 100%;
+}
+
+.oneRoomPage .detailArea > ul li button {
+    position: absolute;
+    left: calc(50% - 75px);
+    top: calc(50% - 25px);
+    width: 150px;
+    height: 50px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: black;
+    color: white;
+}
+
+.oneRoomPage .detailArea > ul li button::after {
+    content: '+';
+    font-weight: 900;
+    margin-left: 30px;
+}
+
+.oneRoomPage .detailArea > ul li:hover .imgBox {
+    filter: blur(10px);
+}
+
+.oneRoomPage .detailArea > ul li:hover button {
+    display: flex;
+}
+
+.oneRoomPage .detailArea .optionBox {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 50px;
+    border: 1px solid #e0e0e0;
+}
+
+.oneRoomPage .detailArea .optionBox li {
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.oneRoomPage .detailArea .optionBox li img {
+    margin-bottom: 20px;
+}
+
+/* 원룸 - 상세페이지 - 실거주자 리뷰 */
+.oneRoomPage .detailArea .reviewArea {
+    position: relative;
+}
+
+.oneRoomPage .detailArea .reviewArea > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    height: 45px;
+    border: 1px solid #d2d2d2;
+    position: absolute;
+    right: 0;
+    top: -9px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #888888;
+}
+
+.oneRoomPage .detailArea .reviewArea > button::before {
+    content: '';
+    width: 26px;
+    height: 20px;
+    background: url('../images/oneroom_detailBtn03.png') no-repeat center / cover;
+}
+
+.oneRoomPage .detailArea .reviewArea > ul {
+    border: 1px solid #e0e0e0;
+}
+
+.oneRoomPage .detailArea .reviewArea > ul li {
+    padding: 20px 30px;
+    background-color: #f5f5f5;
+    display: flex;
+}
+
+.oneRoomPage .detailArea .reviewArea > ul li:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.oneRoomPage .detailArea .reviewArea > ul li > .imgBox {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    border: 1px solid #b9b9b9;
+}
+
+.oneRoomPage .detailArea .reviewArea > ul li .textArea {
+    height: 60px;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: space-between;
+    margin: 0 15px;
+    padding: 5px 0;
+    box-sizing: border-box;
+}
+
+.oneRoomPage .detailArea .reviewArea > ul li .textArea b {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.oneRoomPage .detailArea .reviewArea > ul li .textArea time {
+    font-size: 14px;
+    color: #555555;
+    margin-left: 13px;
+}
+
+.oneRoomPage .detailArea .reviewArea > ul li .textArea p {
+    width: 100%;
+}
+
+.oneRoomPage .detailArea .reviewArea > ul li .textArea .scopeArea {
+    margin-left: 13px;
+}
+
+.oneRoomPage .detailArea .reviewArea > ul li .imgArea {
+    margin-left: auto;
+}
+
+.oneRoomPage .detailArea .reviewArea > ul li .imgArea .imgBox {
+    width: 200px;
+    height: 135px;
+    border: 1px solid #b8b8b8;
+}
+
+/* 원룸 - 상세페이지 - 다른 방 둘러보기 */
+.oneRoomPage .detailArea .differentArea ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.oneRoomPage .detailArea .differentArea ul li {
+    width: 230px;
+}
+
+.oneRoomPage .detailArea .differentArea ul li .imgBox {
+    width: 100%;
+    height: 155px;
+    border: 1px solid #b8b8b8;
+    margin-bottom: 18px;
+}
+
+.oneRoomPage .detailArea .differentArea ul li p {
+    margin-bottom: 15px;
+}
+
+.oneRoomPage .detailArea .differentArea ul li p strong {
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.oneRoomPage .detailArea .differentArea ul li small {
+    display: block;
+    font-size: 14px;
+    color: #888888;
+    line-height: 20px;
+}
+
+
+/* 원룸 - 등록 */
+.oneRoomPage .registrationArea fieldset:not(:last-of-type) {
+    margin-bottom: 80px;
+}
+
+.oneRoomPage .registrationArea fieldset legend {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.oneRoomPage .registrationArea fieldset input[type="checkbox"]:not([class]) + label {
+    display: inline-flex;
+}
+
+.oneRoomPage .registrationArea fieldset input[type="checkbox"]:not([class]) + label::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-image: url('../images/chk01.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.oneRoomPage .registrationArea fieldset input[type="checkbox"]:not([class]):checked + label::before {
+    background-image: url('../images/chk01_active.png');
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not(:last-child) {
+    margin-bottom: 40px;
+}
+
+.oneRoomPage .registrationArea .inputArea > div {
+    border: 1px solid #e0e0e0;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div {
+    display: flex;
+    text-align: center;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > label {
+    width: 150px;
+    line-height: 55px;
+    color: #555555;
+    background-color: #f0f0f0;
+    border-right: 1px solid #e0e0e0;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div {
+    flex: 1;
+    padding: 7px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div input[type="radio"] {
+    display: none;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div input[type="radio"] + label {
+    width: 130px;
+    line-height: 40px;
+    border: 1px solid #cacaca;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div > input[type="radio"]:not(:last-child) + label {
+    margin-right: 5px;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div input[type="radio"]:checked + label {
+    color: white;
+    font-weight: 800;
+    background-color: #ff9900;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div .checkList {
+    display: none;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div .checkList + label {
+    width: 130px;
+    line-height: 40px;
+    border: 1px solid #cacaca;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div > .checkList:not(:last-child) + label {
+    margin-right: 5px;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div .checkList:checked + label {
+    color: white;
+    font-weight: 800;
+    background-color: #ff9900;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div input[type="text"] {
+    width: 130px;
+    line-height: 40px;
+    border: 1px solid #cacaca;
+    box-sizing: border-box;
+    background-color: white;
+    text-align: center;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div input[type="text"] ~ input[type="checkbox"] {
+    margin-left: 30px;
+}
+
+.oneRoomPage .registrationArea .inputArea > div:not([class]) > div > div span {
+    margin: 0 10px;
+}
+
+.oneRoomPage .registrationArea .inputArea .addrArea {
+    display: flex;
+    text-align: left;
+}
+
+.oneRoomPage .registrationArea .inputArea .addrArea > label {
+    width: 150px;
+    line-height: 55px;
+    color: #555555;
+    background-color: #f0f0f0;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oneRoomPage .registrationArea .inputArea .addrArea > div {
+    flex: 1;
+    padding: 7px;
+    background-color: #f5f5f5;
+    flex-wrap: wrap;
+}
+
+.oneRoomPage .registrationArea .inputArea .addrArea > div input {
+    width: 400px;
+    height: 40px;
+    border: 1px solid #cacaca;
+    padding: 0 10px;
+}
+
+.oneRoomPage .registrationArea .inputArea .addrArea > div div {
+}
+
+.oneRoomPage .registrationArea .inputArea .addrArea > div > *:not(:last-child) {
+    margin-bottom: 7px;
+}
+
+.oneRoomPage .registrationArea .inputArea .addrArea > div .topArea {
+    display: flex;
+}
+
+.oneRoomPage .registrationArea .inputArea .addrArea > div .topArea button {
+    width: 130px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    margin-left: 5px;
+}
+
+.oneRoomPage .registrationArea .inputArea .addrArea > div .centerArea {
+    width: 535px;
+    height: 90px;
+    border: 1px solid #cacaca;;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.oneRoomPage .registrationArea .inputArea .addrArea > div .centerArea dl {
+    display: flex;
+}
+
+.oneRoomPage .registrationArea .inputArea .addrArea > div .centerArea dl:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+/* 원룸 - 등록 - 이미지 업로드*/
+.oneRoomPage .registrationArea .imgRegiBox {
+    border: 1px solid #e0e0e0;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox > div:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox > .textArea {
+    padding: 15px 20px;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox > .textArea p {
+    line-height: 28px;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox > .fileArea {
+    padding: 20px 10px;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox > .fileArea > * {
+    margin: 10px;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox + div {
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: #e0e0e0;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox + div input[type="checkbox"] {
+    display: none;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox + div label {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox + div div {
+    display: flex;
+    justify-content: center;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox + div div input:not(:last-of-type) {
+    margin-right: 10px;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox + div div input {
+    width: 125px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox + div div input[type="reset"] {
+    border: 1px solid #d2d2d2;
+    color: #888888;
+    background-color: transparent;
+}
+
+.oneRoomPage .registrationArea .imgRegiBox + div div input[type="submit"] {
+    background-color: black;
+    color: white;
+}
+
+
+/* 중고거래 */
+.usedTradeArea .usedTradeBox {
+    padding-bottom: 60px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.usedTradeArea .usedTradeBox li {
+    width: 285px;
+}
+
+.usedTradeArea .usedTradeBox li:not(:nth-child(-n + 4)) {
+    margin-top: 60px;
+}
+
+.usedTradeArea .usedTradeBox li a .imgBox {
+    height: 190px;
+}
+
+.usedTradeArea .pageBox {
+    position: relative;
+}
+
+.usedTradeArea .seachBox {
+    width: 323px;
+    margin: 50px auto;
+}
+
+
+/* 중고거래 - 게시판 */
+.usedTradePage .detailArea .goodsArea > *:not(:last-child) {
+    border-bottom: 1px solid #cccccc;
+}
+
+.usedTradePage .detailArea .goodsArea .sliderArea {
+    padding: 30px 84px 70px;
+}
+
+.usedTradePage .detailArea .goodsArea .sliderArea .bx-wrapper .bx-prev {
+    background: url('../images/slider01_prev.png') no-repeat center;
+}
+
+.usedTradePage .detailArea .goodsArea .sliderArea .bx-wrapper .bx-next {
+    background: url('../images/slider01_next.png') no-repeat center;
+}
+
+.usedTradePage .detailArea .goodsArea .sliderArea .bx-wrapper .bx-pager {
+    bottom: -40px;
+}
+
+.usedTradePage .detailArea .goodsArea .sliderArea .bx-wrapper .bx-pager.bx-default-pager a {
+    background-color: #e6e6e6;
+}
+
+.usedTradePage .detailArea .goodsArea .sliderArea .bx-wrapper .bx-pager.bx-default-pager a.active {
+    background-color: #ff9900;
+}
+
+.usedTradePage .detailArea .goodsArea .userArea {
+    padding: 45px 84px;
+}
+
+.usedTradePage .detailArea .goodsArea .userArea .sellerArea {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.usedTradePage .detailArea .goodsArea .userArea .sellerArea .iconBox {
+    align-self: flex-end;
+}
+
+.usedTradePage .detailArea .goodsArea .userArea .goodsInfo {
+    padding: 30px 0;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #ebebeb;
+    position: relative;
+}
+
+.usedTradePage .detailArea .goodsArea .userArea .goodsInfo b {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 13px;
+}
+
+.usedTradePage .detailArea .goodsArea .userArea .goodsInfo div {
+    display: flex;
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 20px;
+}
+
+.usedTradePage .detailArea .goodsArea .userArea .goodsInfo div span {
+    display: flex;
+}
+
+.usedTradePage .detailArea .goodsArea .userArea .goodsInfo div span:not(:last-child)::after {
+    content: '·';
+    margin: 0 10px;
+}
+
+.usedTradePage .detailArea .goodsArea .userArea .goodsInfo strong {
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.usedTradePage .detailArea .goodsArea .userArea .goodsInfo p {
+    line-height: 26px;
+}
+
+.usedTradePage .detailArea .goodsArea .userArea .goodsInfo button {
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+
+.usedTradePage .detailArea .realTimeArea > strong {
+    display: block;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+/* 아래 사진 밀리는거 수정*/
+.usedTradePage .detailArea .realTimeArea .usedTradeBox {
+    justify-content: flex-start;
+    width: 915px;
+}
+
+.usedTradePage .detailArea .realTimeArea .usedTradeBox li {
+    width: 210px;
+}
+
+.usedTradePage .detailArea .realTimeArea .usedTradeBox li:not(:nth-child(4n)) {
+    margin-right: 10px;
+}
+
+.usedTradePage .detailArea .realTimeArea .usedTradeBox li:not(:nth-child(-n + 4)) {
+    margin-top: 60px;
+}
+
+.usedTradePage .detailArea .realTimeArea .usedTradeBox li a .imgBox {
+    height: 145px;
+}
+
+
+/* 중고거래 - 게시판 - 사이드 */
+
+
+/* 중고거래 - 등록 */
+.usedTradePage .registrationArea fieldset > div {
+    padding-bottom: 40px;
+}
+
+.usedTradePage .registrationArea fieldset > div:not(:first-child) {
+    padding-top: 40px;
+    border-top: 1px solid #ebebeb;
+}
+
+.usedTradePage .registrationArea fieldset > div input[type="text"] {
+    height: 40px;
+    border: 1px solid #cacaca;
+    padding: 0 10px;
+}
+
+.usedTradePage .registrationArea fieldset > div strong {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.usedTradePage .registrationArea fieldset > div:first-child input[type="text"] {
+    width: 100%;
+}
+
+.usedTradePage .registrationArea fieldset > div:nth-child(2) input[type='text'] {
+    width: 600px;
+}
+
+.usedTradePage .registrationArea fieldset > div:nth-child(2) input[type='text'] + span {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.usedTradePage .registrationArea fieldset > div:nth-child(2) > div:not(:last-of-type) {
+    margin-bottom: 40px;
+}
+
+.usedTradePage .registrationArea fieldset > div:nth-child(2) > div {
+    display: flex;
+    align-items: center;
+}
+
+.usedTradePage .registrationArea fieldset > div:nth-child(2) > div label:not(:last-of-type) {
+    margin-right: 30px;
+}
+
+.usedTradePage .registrationArea fieldset > div:nth-child(2) > div input[type="radio"] + label {
+    display: inline-flex;
+}
+
+.usedTradePage .registrationArea fieldset > div:nth-child(2) > div input[type="radio"] + label::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-image: url('../images/chk01.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.usedTradePage .registrationArea fieldset > div:nth-child(2) > div input[type="radio"]:checked + label::before {
+    background-image: url('../images/chk01_active.png');
+}
+
+.usedTradePage .registrationArea fieldset > div:nth-child(3) .imgRegiBox {
+    margin-bottom: 20px;
+}
+
+.usedTradePage .registrationArea fieldset > div:nth-child(3) .imgRegiBox .fileArea > * {
+    margin-right: 20px;
+}
+
+.usedTradePage .registrationArea fieldset > div:nth-child(3) .imgRegiBox .fileArea > *:not(:nth-child(-n + 15)) {
+    margin-top: 20px;
+}
+
+
+/* 커뮤니티 공통 */
+.communityPage input[type='text'],
+.communityPage textarea {
+    color: #888888;
+    padding: 10px;
+    border: 1px solid #cacaca;
+    box-sizing: border-box;
+}
+
+.communityPage input[type='text'] {
+    height: 40px;
+}
+
+.communityPage .writeBox {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.communityPage .writeBox input {
+    width: 775px;
+}
+
+.communityPage .writeBox button {
+    width: 115px;
+    height: 40px;
+    color: #ff9900;
+    font-weight: 700;
+    border: 1px solid #ff9900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.communityPage .writeBox button::before {
+    content: '';
+    width: 26px;
+    height: 20px;
+    background: url('../images/writeIcon.png') no-repeat center / cover;
+    margin-right: 13px;
+}
+
+.communityPage .commuListBox {
+    padding: 10px 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.communityPage .commuListBox li {
+    padding: 10px 0;
+}
+
+.communityPage .commuListBox li:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.communityPage .commuListBox li a {
+    display: flex;
+    position: relative;
+}
+
+.communityPage .commuListBox li a > .imgBox {
+    width: 165px;
+    height: 105px;
+    border: 1px solid #b8b8b8;
+    margin-right: 20px;
+}
+
+.communityPage .commuListBox li a .textArea {
+    padding: 10px 0;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+}
+
+.communityPage .commuListBox li a .textArea strong {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.communityPage .commuListBox li a .textArea .iconBox {
+    margin-top: auto;
+}
+
+.communityPage .commuListBox li a .writerArea {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.communityPage .commuListBox li a .writerArea time {
+    font-size: 12px;
+    color: #888888;
+    margin-right: 10px;
+}
+
+.communityPage .commuListBox li a .writerArea b {
+    font-size: 14px;
+}
+
+.communityPage .seachBox {
+    margin: 70px auto 0;
+}
+
+/* 커뮤니티 */
+
+/* 커뮤니티 - 글쓰기 */
+.communityPage .inputBox {
+    margin-bottom: 30px;
+}
+
+.communityPage .inputBox fieldset {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.communityPage .inputBox fieldset > * {
+    width: 100%;
+}
+
+.communityPage .inputBox fieldset > *:not(:first-child):not(:last-child) {
+    margin-top: 10px;
+}
+
+.communityPage .inputBox fieldset textarea {
+    height: 495px;
+}
+
+.communityPage .inputBox fieldset .imgRegiBox {
+    padding: 20px;
+    border: 1px solid #cacaca;
+    box-sizing: border-box;
+}
+
+.communityPage .inputBox fieldset .imgRegiBox .fileArea > * {
+    margin-right: 20px;
+}
+
+.communityPage .inputBox fieldset .imgRegiBox .fileArea > *:not(:nth-child(-n + 10)) {
+    margin-top: 20px;
+}
+
+.communityPage .formBtn {
+    margin-top: 30px;
+}
+
+/* 커뮤니티 - 상세페이지 */
+.communityPage .detailArea > div > div:not(.enrollmentBox) button {
+    width: 56px;
+    height: 30px;
+    font-size: 14px;
+    color: #888888;
+    font-weight: 700;
+    border: 1px solid #d2d2d2;
+}
+
+.communityPage .detailArea h3 {
+    padding-top: 30px;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.communityPage .detailArea .titlaArea {
+    padding: 20px 0;
+    border-width: 2px 0 1px;
+    border-style: solid;
+    border-color: black transparent #e0e0e0;
+    position: relative;
+}
+
+.communityPage .detailArea .titlaArea p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.communityPage .detailArea .titlaArea > div {
+    display: flex;
+    align-items: center;
+}
+
+.communityPage .detailArea .titlaArea > div > * {
+    font-size: 14px;
+}
+
+.communityPage .detailArea .titlaArea > div > *:not(:last-child) {
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.communityPage .detailArea .titlaArea > button {
+    position: absolute;
+    right: 0;
+    top: 35px;
+}
+
+.communityPage .detailArea .contentsArea {
+    height: 350px;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+.communityPage .detailArea .commentBox {
+    border-top: 1px solid #ebebeb;
+}
+
+.communityPage .detailArea .commentBox .textArea {
+    position: relative;
+}
+
+.communityPage .detailArea .commentBox .textArea .iconBox {
+    margin-left: 20px;
+}
+
+.communityPage .detailArea .commentBox .textArea .btnArea {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+}
+
+.communityPage .detailArea .commentBox .textArea .btnArea li:not(:last-child) {
+    margin-right: 5px;
+}
+
+.communityPage .detailArea .enrollmentBox {
+    margin-bottom: 30px;
+}
+
+.communityPage .detailArea .enrollmentBox textarea {
+    border-color: #ebebeb;
+}
+
+.communityPage .detailArea .linkArea {
+    padding-top: 30px;
+    border-top: 1px solid #ebebeb;
+}
+
+/* 검색 필터 (cutsom) */
+.filter_range_input {
+    height: 100%;
+    width: 563px;
+    -webkit-appearance: none;
+    border-radius: 25px;
+    background-color: #eeeeee;
+}
+
+.filter_range_input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 23px;
+    height: 23px;
+    background: url("../../static/images/rangeIcon.png");
+    cursor: ew-resize;
+}
+
