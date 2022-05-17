@@ -1,0 +1,48 @@
+.title, .common_container, aside, main, .user_info_img, .user_info_stat{
+    border: 1px solid black;
+}
+
+.title {
+    height: 6vh;
+}
+
+.common_container {
+    background-color: lightgray;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    height: 88vh;
+    margin: 0;
+}
+
+aside {
+    flex: 1;
+}
+
+main {
+    flex: 3;
+}
+
+.user_info{
+    width: 70%;
+    height: 95%;
+
+    margin: 0 auto;
+    border: 3px solid gray;
+    margin-top: 15px;
+    background-color: white;
+
+}
+.user_info_content{
+    display: flex;
+    height: 85%;
+}
+.user_info_img{
+    flex:1;
+}
+.user_info_stat{
+    flex:3;
+}
+.user_info_button{
+    float:right;
+}
