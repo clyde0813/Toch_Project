@@ -14,8 +14,8 @@ import os
 from pathlib import Path
 import pymysql
 
-ALLOWED_HOSTS = ['toch.kr', 'm.toch.kr']
-DEBUG = False
+ALLOWED_HOSTS = ['*']
+DEBUG = True
 
 pymysql.install_as_MySQLdb()
 
