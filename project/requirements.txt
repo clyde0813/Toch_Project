@@ -1,6 +1,0 @@
-django
-mysqlclient
-pymysql
-gunicorn
-uwsgi
-django_hosts

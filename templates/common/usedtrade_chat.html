@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="subPage myPage">
+
+        <section class="width1200 myArea">
+            {% for data in data %}
+                {{ data.id }}
+            {% endfor %}
+            <h2>메인페이지</h2>
+            <ul class="menuBox">
+                <li>
+                    <a href="{% url 'common:mypage' %}">회원정보</a>
+                </li>
+                <li class="active">
+                    <a href="{% url 'common:usedtrade_chat' 0 %}" data-count="3">중고거래</a>
+                </li>
+                <li>
+                    <a href="{% url 'common:community_chat' 0 %}" data-count="3">커뮤니티</a>
+                </li>
+                <li>
+                    <a href="{% url 'common:service' %}">문의</a>
+                </li>
+            </ul>
+
+            <div class="tolkBox usedArea">
+                <div class="tolkList">
+                    <ul>
+                        {% for chatroom in chatroom %}
+                            <li class="active" onclick="location.href='{% url 'common:usedtrade_chat' chatroom.id %}'">
+                                <b>{{ chatroom.chat_list.last.author }}</b>
+                                <time>{{ chatroom.chat_list.last.create_date }}</time>
+                                <p>{{ chatroom.chat_list.last.content }}</p>
+                                <span>3</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% if info %}
+                    <div class="tolkDetail">
+                        <div class="tolkSubject">
+                            <div class="imgBox"
+                                 style="background-image: url('{{ info.0.file_set.last.file }}');">
+                                상품이미지
+                            </div>
+                            <p>
+                                {{ info.0.title }}
+                                <strong>{{ info.0.price }}원</strong>
+                            </p>
+                            <button>차단</button>
+                        </div>
+                        <div class="tolkArea">
+                            {% for data in data %}
+                                {% if data.author != user %}
+                                    <div class="opponentTolk">
+                                        <div class="imgBox"
+                                             style="background-image: url({% static  'images/mypage_used_user.png' %});">
+                                            김개똥 이미지
+                                        </div>
+                                        <blockquote>
+                                            <cite>{{ data.author }}</cite>
+                                            <q>{{ data.content }}</q>
+                                            <time>{{ data.create_date }}</time>
+                                        </blockquote>
+                                    </div>
+                                {% else %}
+                                    <div class="meTolk">
+                                        <blockquote>
+                                            <time>{{ data.create_date }}</time>
+                                            <q>{{ data.content }}</q>
+                                        </blockquote>
+                                    </div>
+                                    {#                                <span><time>2021년 11월 10일</time></span>#}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <form action="{% url 'common:usedtrade_chat_send' chatroom_id=data.0.chatroom.id %}"
+                              method="post">
+                            {% csrf_token %}
+                            <div class="inputArea">
+                                <input type="text" name="content">
+                                <button type="submit">입력</button>
+                            </div>
+                        </form>
+                    </div>
+                {% else %}
+                    <div>
+                        <p>채팅방이 없습니다.</p>
+                    </div>
+                {% endif %}
+
+            </div>
+        </section>
+
+
+    </div>
+{% endblock %}

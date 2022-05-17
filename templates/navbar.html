@@ -1,0 +1,65 @@
+{% load static %}
+<header>
+    <div class="width1200">
+        <h1><a href="{% url 'common:index' %}"><img src="{% static 'images/logo.png' %}"
+                                                  alt="logo"><small>목포대</small></a></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'oneroom:index' %}"><span>원룸</span></a></li>
+                <li><a href="{% url 'usedtrade:index' %}"><span>중고거래</span></a></li>
+                <li class="hover">
+                    <a href="{% url 'community:index' %}"><span>커뮤니티</span></a>
+                    <div>
+                        <div class="width1200">
+                            <ul>
+                                <li><a href="#" class="point">자유게시판</a></li>
+                                <li><a href="#" class="point">비밀게시판</a></li>
+                                <li><a href="#" class="point">졸업생게시판</a></li>
+                                <li><a href="#" class="point">새내기게시판</a></li>
+                                <li><a href="#">시사·이슈</a></li>
+                                <li><a href="#">장터게시판</a></li>
+                                <li><a href="#">정보게시판</a></li>
+                                <li><a href="#">홍보게시판</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#" class="point">동아리학회</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">취업·진로</a></li>
+                                <li><a href="#">공무원&공기업준비</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">어른들의 놀이터</a></li>
+                                <li><a href="#">이상형 게시판</a></li>
+                                <li><a href="#" class="point">끝말잇기게시판</a></li>
+                                <li><a href="#">요.듣.노(요즘 듣는 노래)</a></li>
+                                <li><a href="#">게임 게시판</a></li>
+                                <li><a href="#">연애상담 게시판</a></li>
+                                <li><a href="#">운동하자!</a></li>
+                                <li><a href="#">성소수자 모여라!</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">우울게시판</a></li>
+                                <li><a href="#">자취생 뭐 먹니?</a></li>
+                                <li><a href="#">동물 게시판</a></li>
+                                <li><a href="#">주식게시판</a></li>
+                                <li><a href="#">만남의 게시판</a></li>
+                                <li>
+                                    <a href="#" class="bold">게시판 찾기
+                                        <span class="material-icons-outlined">
+                                            east
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <ul>
+            <li><a href="{% url 'common:mypage' %}" class="login_icon">로그인</a></li>
+            <li><a href="#" class="mail_icon" data-count="7">메일</a></li>
+        </ul>
+    </div>
+</header>

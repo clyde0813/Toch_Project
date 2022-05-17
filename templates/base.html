@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
+    <!-- redirect to "m.toch" -->
+    <script srr="{% static "scripts/check-env.js" %}"></script>
+    <!-- CSS import -->
+    <link rel="stylesheet" href="{% static 'css/import.css' %}">   <!-- main_tmp/css/import.css -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Naver SEO -->
+    <meta name="naver-site-verification" content="25c502c24eeda9f190fd2879c79207d1e417af36" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-825K7FEKWT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-825K7FEKWT');
+    </script>
+    <title>Toch</title>
+</head>
+<body>
+{% include "navbar.html" %}
+
+{% block content %}
+{% endblock %}
+
+{% include "footer.html" %}
+
+<!-- 커뮤니티 목록 스르륵 jQuery-->
+<script>
+    $(document).ready(function(){
+        $('.hover').hover(function(){
+            $(this).children('div').stop().slideDown()
+        },function(){
+            $(this).children('div').stop().slideUp()
+        });
+
+        $('.heartIcon').click(function(){
+            $(this).toggleClass('active');
+        })
+    })
+</script>
+</body>
+</html>

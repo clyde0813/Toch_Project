@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iphone 모바일 확대 방지 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=0"">
+    <title>중고거래 쓰기 - toch</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- 공통 script -->
+    <script src="../../../static/mobile/js/com.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="../../../static/mobile/css/import.css">
+</head>
+<body>
+    <div class="usedTradePage">
+        <header class="paddingBox">
+            <h1>
+                <a href="#">
+                    <img src="../../../static/mobile/images/logo.png" alt="toch logo">
+                </a>
+            </h1>
+            <div class="btnArea">
+                <button class="imgBox" data-click="gnbSearchBox">
+                    검색버튼
+                </button>
+                <button class="imgBox">
+                    인기버튼
+                </button>
+                <button class="imgBox">
+                    ??버튼
+                </button>
+            </div>
+            <div class="gnbSearchBox paddingBox">
+                <input type="search" placeholder="검색어를 입력하세요">
+                <button class="imgBox">
+                    검색버튼
+                </button>
+                <button class="imgBox close">
+                    검색 닫기 버튼
+                </button>
+            </div>
+        </header>
+
+        <div class="writeBox">
+            <form>
+                <fieldset>
+                    <div class="btnArea paddingBox">
+                        <input type="reset" value="취소">
+                        <input type="submit" value="등록">
+                    </div>
+                    <div class="imgArea paddingBox2">
+                        <b>사진 2/10</b>
+                        <div class="imgRegiBox">
+                            <div class="fileArea">
+                                <input type="file">
+                                <label for="">+</label>
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                                <div class="imgBox" style="background-image: url(../../../static/mobile/images/registrationImg.png);">
+                                    <button class="removeBtn">-</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="textArea paddingBox">
+                        <input type="text" placeholder="제목">
+                        <textarea placeholder="내용를 작성해 주세요"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">원룸</a></li>
+                <li class="active"><a href="#">중고</a></li>
+                <li class="home"><a href="#">홈</a></li>
+                <li><a href="#">커뮤니티</a></li>
+                <li><a href="#">마이</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

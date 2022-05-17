@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="subPage communityPage">
+        <div class="asideBox communityArea width1200">
+            <div class="leftContArea">
+                <ul class="commuListBox">
+                    {% for post in post %}
+                        <li>
+                            <a href="{% url 'community:detail' post.id %}">
+                                {% if post.file_setall.0.file.url %}
+                                    <div class="imgBox"
+                                         style="background-image: url({{ post.file_set.all.0.file.url }});">
+                                        이미지
+                                    </div>
+                                {% endif %}
+                                <div class="textArea">
+                                    <strong>{{ post.title }}</strong>
+                                    <p>{{ post.content|slice:":20" }}...</p>
+                                    <div class="iconBox">
+                                        <div class="imgBox upIcon">
+                                            업 아이콘
+                                        </div>
+                                        <span>
+                                        10
+                                    </span>
+                                        <div class="imgBox downIcon">
+                                            다운 아이콘
+                                        </div>
+                                        <span>
+                                        10
+                                    </span>
+                                        <div class="imgBox commentIcon">
+                                            댓글 아이콘
+                                        </div>
+                                        <span>
+                                        5
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="writerArea">
+                                    <time>{{ post.create_date }}</time>
+                                    <b>{{ post.author }}</b>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+
+                    <div class="pageBox">
+                        <a href="#">
+                            <mark>&lt;</mark>
+                            이전</a>
+                        <ol>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                        </ol>
+                        <a href="#">다음
+                            <mark>&gt;</mark>
+                        </a>
+                    </div>
+
+                    <div class="seachBox">
+                        <input type="search">
+                        <button>검색버튼</button>
+                    </div>
+            </div>
+            <aside>
+                <div class="boardArea">
+
+                    <div class="borderBox">
+                        <strong>실시간 인기 글</strong>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        우리학교 로고 어디서 봤나
+                                        <span>존똑이네</span>
+                                    </b>
+                                    <p>자유게시판</p>
+                                    <div class="iconBox">
+                                        <div class="imgBox heartIcon">
+                                            하트 아이콘
+                                        </div>
+                                        <span>
+                                            10
+                                        </span>
+                                        <div class="imgBox commentIcon">
+                                            메일 아이콘
+                                        </div>
+                                        <span>
+                                            5
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        우리학교 로고 어디서 봤나
+                                        <span>존똑이네</span>
+                                    </b>
+                                    <p>자유게시판</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- side banner -->
+                <div class="mainSideBanner">
+                    <img src="../../static/images/main_sideBanner.png" alt="라포르테블랑 서현">
+                </div>
+
+                <div class="boardArea">
+                    <div class="borderBox">
+                        <strong>여기 어때요?</strong>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        베스트빌 원룸 상태 깨끗
+                                    </b>
+                                    <p>월세 200 / 40</p>
+                                    <p>26m2</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        베스트빌 원룸 상태 깨끗
+                                    </b>
+                                    <p>월세 200 / 40</p>
+                                    <p>26m2</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <b>
+                                        베스트빌 원룸 상태 깨끗
+                                    </b>
+                                    <p>월세 200 / 40</p>
+                                    <p>26m2</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="../../static/scripts/com.js"></script>
+{% endblock %}
