@@ -29,6 +29,7 @@ SECRET_KEY = 'django-insecure-=@mny3bnasw-35c6%0_zrh0y-h7ok^^*@tikp1g&wa!$o!(#4u
 
 # Application definition
 
+
 INSTALLED_APPS = [
     'Toch',
     'django_hosts',
@@ -150,9 +151,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    STATIC_DIR,
 ]
 
 MEDIA_URL = '/media/'

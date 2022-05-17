@@ -10,4 +10,4 @@ WORKDIR /app/django-server
 
 RUN pip install -r requirements.txt
 
-RUN python3 manage.py collectstatic --noinput
+RUN python3 manage.py collectstatic --settings=Toch.settings.prod --noinput
