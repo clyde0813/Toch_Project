@@ -12,12 +12,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+import pymysql
 
-ALLOWED_HOSTS = ['toch.co.kr', 'toch.kr', 'm.toch.kr']
+ALLOWED_HOSTS = ['toch.kr', 'm.toch.kr']
 DEBUG = False
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-ROOT_DIR = os.path.dirname(BASE_DIR)
+pymysql.install_as_MySQLdb()
 
 DATABASES = {
     'default': {
@@ -25,25 +25,19 @@ DATABASES = {
         'NAME': 'Toch',
         'USER': 'root',
         'PASSWORD': 'cheese215',
-        'HOST': '192.168.0.93',
-        'PORT': '3306',
+        'HOST': '114.70.93.100',
+        'PORT': '7772',
     }
 }
-
+BASE_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(ROOT_DIR, '.static_root')
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-=@mny3bnasw-35c6%0_zrh0y-h7ok^^*@tikp1g&wa!$o!(#4u'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-#
-# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -101,20 +95,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Toch.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'Toch',
-#         'USER': 'root',
-#         'PASSWORD': 'cheese215',
-#         'HOST': '192.168.0.93',
-#         'PORT': '3306',
-#     }
-# }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -133,25 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = "smtp.gmail.com"
-# EMAIL_HOST_USER = 'toch.text.email@gmail.com'
-# EMAIL_HOST_PASSWORD = 'Toch1234!'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
-# ASGI_APPLICATION = 'Toch.routing.application'
-#
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             "hosts": [('127.0.0.1', 6379)],
-#         },
-#     },
-# }
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -168,7 +129,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     STATIC_DIR,
